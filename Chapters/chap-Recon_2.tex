@@ -1,0 +1,115 @@
+\chapter{CT Reconstruction}
+
+The essential goal any reconstruction is to use the information gathered to find out what the object looks like.  In the case of CT, we use the information gathered on the detector over angle to reconstruct the x-ray attenuation coefficient of the object.  CT system as evolved tremendously over the years and reconstruction algorithm has also evolved dramatically to support the types of systems. Over the years, reconstruction techniques has evolved with two general approaches to reconstruction, analytical and iterative.  In this chapter we attempt to give a brief overview of these general techniques used for CT reconstruction, then we will explain the method that was used for our system.
+
+\subsection{Analytical Reconstruction Techniques}
+In general, analytical reconstruction approaches try to formulate the solution in a closed-form equation.  The foundation of analytical reconstruction methods is the Radon transform, which relates a function $f(x,y)$ to the collection of line integrals of that function $L(\rho)$.  Shown in equation X. 
+
+\begin{equation}
+\label{eq:radon}
+\end{equation}
+
+\subsection{Approximate analytic reconstruction techniques}
+Since the first clinical CT scanner that was installed 1971 up until 1990, most clinical CT scanners employ the fan-beam geometry with axial rotation.  The dominant mode of image reconstruction for these CT scanners were the fan-beam axial filtered back-projection algorithm in order to solve for the object function (slice).  Essentially the projection data on the detector at each angle goes through a Fourier transform, filtered in the spatial frequency domain then back-projected onto each slice to reconstruct the original object slice.  In 1989 the first spiral CT scanner was installed with the clinical desire to cover an entire human organ, and ever since then, the spiral geometry became the main configuration for all clinical CT scanners.  The introduction of spiral CT forced the development of helical FBP algorithm and later with the introduction of multi-slice and cone-beam CT, the helical FBP is replaced by the cone-beam FBP, commonly known as the FDK algorithm \citep{Feldkamp1984}.  The helical and cone-beam FBP are adaptations of the 2D FBP to a cone-beam geometry.  Since they do not conform to the Radon transform assumptions, therefore the projection data requires rebinning and interpolation prior to FBP reconstruction
+.  Although these algorithms are approximate in nature, they do offer distinct advantages such as volume reconstruction in single half-scan acquisition.  Because of their flexibility, their ability to intrinsically handle data for long objects and their computational efficiency, the approximate reconstruction algorithms are still the dominant force behind most commercial CT reconstruction engines.\citep{Wang1993}, \citep{Hsieh}, \citep{Hsieh2007}, \citep{Tang2006}, \citep{Silver1998}
+
+\subsection{Exact analytic reconstruction techniques}
+With the introduction of spiral CT and cone-beam CT, an approach to the three-dimension Radon transform analytically is known as the exact reconstruction methods.  These methods try to derive analytical solutions that match the scanned object if the input projections are the true line integrals. These algorithms were first developed by Katsevich on the exact FBP algorithm \citep{Katsevich2002} \citep{Katsevich2003} \citep{Katsevich2002SIAM}.  Since its invention, various sophisticated formulas have been proposed and developed to allow for more efficient use of the projection samples, region-of-interest reconstruction and for more general scanning trajectories\citep{Chen2003}, \citep{Pan2004}, \citep{Zou2004}, \citep{Ye2005}, \citep{Zhuang2006}, \citep{Wang2008}.  Although these algorithms offer exact solution to the cone-beam spiral CT problem, due to their noise properties, limited robustness to patient motion, and are far less computationally efficient as compared to the popular filtered back-projection, they have yet to be implemented widely in commercial products.
+
+\subsection{Iterative Reconstruction Techniques}
+Iterative reconstruction techniques try to solve for the object using projection images in an iterative fashion, where the solution to the object at the current iteration will be used for the next iteration.  All iterative reconstruction methods consist of three major steps which are repeated iteratively until a final solution is reached.  First, a forward projection of the object create an estimate of the raw data.  Second the estimated raw data and the real measured data are compared and a correction term is calculated.  Third, the correction term is back projected onto the object to create a new estimate of the object.  This process is repeated until either a fixed umber of iteration is reached or the object estimation reaches a predefined criterion, shown in \ref{fig:generalIR}
+
+\begin{figure}
+\centering
+\placeholderimage[width=6cm,height=6cm]{generalIR.png}
+\caption{general process of iterative algorithm, Beister paper}
+\label{fig:generalIR}
+\end{figure}
+
+\subsection{Algebraic Iterative reconstruction techniques}
+From a historical perspective, the very first reconstructed CT image was created using the algebraic iterative reconstruction (ART) method where it tries find the object by solving a series of linear equations Ax = b, where in terms of image reconstruction x are the voxels of the volume to be reconstructed, A is the system matrix used for producing the raw data and b are the pixels of the measured raw data.  The entries of the matrix A correspond to rays from the x-ray source through the object volume to the detector pixels.  Starting from ART, there evolved a series of algorithms that would try to converge faster, reduce noise, reduce problems with streak artifacts, but in general all ART-based methods are non-statistical and model the geometry of the acquisition process better than common analytical methods based on FBP.  Therefore ART-based methods can better deal with sparse data and an irregular sampling of acquisition positions\citep{Beister2012}.
+
+\subsection{Statistical Iterative reconstruction techniques}
+Statistical iterative reconstruction techniques has been used extensively in single photon emission computed tomography (SPECT) and positron emission tomography (PET) to where low photon rates and noise are major issues.  With the increase of public awareness of CT-induced radiation, and the need to reduce the associated risks. Transition of statistical IR to CT carries high promises of lowering radiation dose while suppressing noise for low-dose clinical protocols and techniques.  However, accurate modeling is necessary to ensure that modeling errors do not grow during the iterative convergence process that would form artifacts in the reconstructed images.  There are two parts when it comes to modeling the CT system, the physical model that involves the geometry of the system and the statistical model that involves the detector noise of the system.  
+
+Unlike analytical reconstruction where numerous physical assumptions were used to make the mathematics manageable.  For example, the size of the x-ray focal spot is assumed to be infinitely small, the shape and dimension of each detector cell are ignored, and all x-ray photon interactions are assumed to take place at a point located at the geometric center of the detector cell.  Iterative reconstruction requires no prior assumptions about the geometry of the system.  Iterative reconstruction allows for better modeling of the image forming process and can account for any physical process limited by the computational power of the current computer.  For example, a commonly used model is to cast multiple pencil rays through the x-ray focal spot, image voxel, and the detector pixel to mimic different x-ray photon paths going through the object and the summation of the rays on each detector are used to approximate the CT image forming system. Needless to say, this method is extremely time consuming.  Another commonly used approach is to model the "shadow" cast by each image voxel onto the detector and rely on the point-response function to model the forward projection process of the CT system, where the response function is non-stationary and changes with the voxel location to account for different magnifications and orientations.  Comparatively, this method is computationally more efficient.  Shown in figure \ref{fig:physical_modeling}.
+
+\begin{figure}
+\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+	\centering
+	\placeholderimage[width=6cm,height=6cm]{pencilbeammodel.png}
+	\end{subfigure}
+\hspace{0.2cm}
+	\begin{subfigure}[b]{0.4\linewidth}
+	\centering
+	\placeholderimage[width=6cm,height=6cm]{psfmodel.png}
+	\end{subfigure}
+\caption{examples of physical modeling in Hsieh's paper}
+\label{fig:physical_modeling}
+\end{figure}
+
+The statistical model or the noise model tries to incorporate the statistics of the detected photon into the reconstruction process.  This may include incident photon flux variations (known as the Poisson distribution, though it is approximate due to the poly-energetic x-ray source used in CT), energy-dependent light production in the scintillator, shot noise in photo-diodes, electronic noise in readout electronics. The most common noise model is the zero-mean Gaussian noise.
+
+Once both the geometry and the noise of CT system are properly modeled, a cost function is need to be chosen.  The iterative process is used to search for the minimum of the cost function and the solution that minimizes the cost function is the reconstructed object.  This cost function, sometimes called an objective functional, typically consist of two components, a data agreement part tries to see the difference between the experimental data and the object that generated the data based on the model, and a regularizing term sometimes called a penalty function that depends only on the object and serves as a prior such as positivity.  If the functional is strictly convex, then the minimum is unique and all algorithms should obtain the same image if run to convergence.  The only issues are then which algorithm will find the minimum most efficiently and with the least computing resources.  In practice, however, iterative algorithms may not be run to convergence, and the resulting image depends on the algorithm, the initial estimate and the stopping rule.
+
+\section{Maximum Likelihood Expectation Maximization (MLEM) }
+In this project, we used the Maximum Likelihood expectation maximization algorithm for the reconstruction process with out any regularization function.  The MLEM algorithm shown in equation \ref{eq:MLEM} assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model.  In order to execute the MLEM algorithm, the forward projector $H$, the backward projector $H^t$, and the sensitivity $S$ are all calculated on the fly using CUDA on the GTX Titan GPU.  These code are commented to the best of the author's ability for readability and are available on the CGRI cluster under the folder ~Fan/reconstruction.  Please refer to Appendix for more detail.
+
+\begin{equation}
+MLEM_equation
+\label{eq:MLEM}
+\end{equation}
+
+\begin{figure}[ht]
+\centering
+\placeholderimage[width=8cm,height=6cm]{forwardmodel.png}
+\label{fig:forwardmodel}
+\end{figure}
+
+
+\subsection{Forward Projection calculation}
+We used a very simple pencil beam model for the forward projection model.  We assumed that each x-ray beam is launched from an infinitely small x-ray point source.  This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel is calculated through a three dimensional interpolation process.  The summation of the voxel contributions and the distance between each plane were calculated to form the detector value for each pixel.  Figure \ref{fig:forwardmodel} shows the geometry used in the forward model.
+
+\begin{figure}[ht]
+\centering
+\placeholderimage[width=8cm,height=6cm]{forwardmodelcode.png}
+\label{fig:forwardmodelcode}
+\end{figure}
+
+In the forward model, each thread in the CUDA kernel corresponds to one x-ray pencil beam originate from the source and travels to the center of each detector pixel.  Therefore the total threads equals to the number of pixels on the detector.  The entire object volume is first bound to the 3D GPU texture memory and divided into multiple planes.  For each pencil beam traveling through the object volume, the coordinate of the pencil beam is calculated at each plane and the object volume value is extracted by using the CUDA 3D hardware interpolation function (tex3D).  All threads undergoes interpolation simultaneously at each plane, and this process is repeated through all planes.  The forward projection value is the summation of the interpolation values for all threads at each plane multiplied by the distance each ray travels between each plane.  The number of planes were set to be greater than the number of voxels in the z direction, and its range is set to be larger than the size of the object to ensure the rays travels through the entire object volume.  This procedure is repeat for all CT rotation angles where the position coordinate for each pencil beam through the object were re-calculated and its value re-interpolated.  Figure \ref{fig:forwardmodelcode} shows a graphical description of the steps taken in the forward projector.  Please refer to the Appendix for the list of equations used in the forward projection kernel.
+
+\subsection{Backward Projection calculation}
+
+\begin{figure}[ht]
+\centering
+\placeholderimage[width=10cm, height=6cm]{backwardprojector.png}
+\label{fig:backwardprojector}
+\caption{Backward Projection model}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\placeholderimage[width=10cm,height=6cm]{backprojectorcode.png}
+\label{fig:backprojectorcode}
+\caption{Graphical representation of the back projector}
+\end{figure}
+
+The treatment for the backward projector shown in figure \ref{fig:backwardprojector} is similar to the forward projector, except in this case, each object voxel location is used to calculate the x-ray that would pass through the center of the object voxels.  The detector values for one CT angle is bind to the CUDA 2D texture memory and a 2D interpolation is used to back fill the interpolated detector value onto each object voxel.  This process is repeated for all CT angle so the object voxel values are the summation of 2D interpolated detector value for each x-ray pencil beam.  It is important to note that due to memory limitation of the GPU, the object voxel volume must be small enough to fit entirely onto the GPU global memory.  We were able to use $128^3$ object volume without issue.  Figure \ref{fig:backwardprojectorcode} shows a graphical representation of the procedure used in the back projection kernel.
+
+
+\subsection{Sensitivity}
+The sensitivity used in the MLEM algorithm represents the contribution of all detector values onto the object voxel.  This was calculated by setting all detector value at one CT angle to a constant number, 1.  The the sensitivity volume was calculated by back filling the object value using the back projector described in the above section.  Note that the sensitivity changes depending on the geometry of the CT system, number of object volume and number of detector pixels.  As a result, the sensitivity is always computed on-the-fly.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.
+
+Figure \ref{fig:reconstructedimage} shows the center slice of a reconstructed object after X iterations.  The reconstruction program we wrote allows one to create subsets using the projection data and reconstruct the object volume using the OSEM algorithm.  This functionality can be enabled in the code, please see Appendix for detail.
+
+\begin{figure}
+\centering
+\placeholderimage[width=5cm, height=5cm]{reconstructedimage.png}
+\label{fig:reconstructedimage}
+\caption{Center slice of reconstructed object after x iterations}
+\end{figure}
+
+\section{Filtered Back-Projection (FBP) }
+
+

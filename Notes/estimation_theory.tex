@@ -1,0 +1,58 @@
+\chapter{Estimation Theory}\label{App:estimation}
+The Bayesian definition requires knowledge of the posterior probability on $\theta$, that is, $pr(\theta|g)$.  The Bayesian regards $\theta$ as random, but has no concept of an ensemble of $g$ vectors; the data are fixed.  
+Estimates are statistical quantities, hence their evaluation requires statistical methods.
+Bayesian estimation is the determination of an estimate of a random $\theta$ through minimization of the Bayes risk.  Knowledge of $pr(\theta)$ is assumed, and a cost function $C(\hat{\theta}, \theta)$ must be specified.   The EMSE (Ensemble mean-squared error) is a common form for the cost measure $C(\hat{\theta}, \theta)$ to be minimized in the design of an estimation procedure.
+
+The quantity $pr(\theta|g)$ describes the posterior probability of $\theta$ after the data $g$ are obtained; thus the estimation rule $\hat{\theta} = \arg\max_{\theta} pr(\theta|g)$ is known as maximum a posteriori, or MAP, estimation.  Equivalently, the MAP estimate is the mode of the posterior, or the posterior mode.
+
+Interestingly, MAP estimation is often what is meant in the literature on Bayesian estimation, However, MAP estimation is just a special case of Bayesian estimation in which the particular form of the cost function is a uniform cost function given by:
+
+\begin{equation}
+C(\hat{\theta}, \theta) = C(\hat{\theta}-\theta) = 1 - rect \left( \frac{\hat{\theta}- \theta}{2\epsilon}   \right)
+\end{equation}
+
+The uniform cost function is when the cost is considered negligible if smaller than some tolerance $\epsilon$, and all estimator errors beyond that tolerance are regarded as equally costly.
+Another way of interpreting MAP estimation is that $pr(\theta)$ characterizes the prior uncertainty in the parameter, which is often subjective in nature.  Then $pr(\theta|g)$ is the (presumably reduced) uncertainty after data are collected, hence the term posterior.
+
+Maximum-likelihood or ML estimation uses the following rule to determine the underlying parameters:
+\begin{equation}
+\hat{\theta}_{ML} \equiv \arg\max_{\theta} pr(g|\theta)
+\end{equation}
+This procedure can be written equivalently as:
+\begin{equation}
+\hat{\theta}_{ML} = \arg \max_{\theta} ln \left[ pr)g|\theta \right].
+\end{equation}
+ML estimation can be considered as a limit to MAP estimation when the prior $pr(\theta)$ is sufficiently broad that $pr(g|\theta) pr(\theta)$ is dominated by $pr(g|\theta)$.  However, ML estimation is much more than a limiting form of MAP estimation.
+In ML estimation, $pr(g|\theta)$ is the quantity being maximized, but even in MAP estimation its role has some level importance that depends on the relative weight of the prior.  The quantity $pr(g|\theta)$ means different things to different people.  The frequentist interpretation is that it is a function of $g$ for fixed $\theta$.  Repeated observations can be used to determine the nature of this quantity for a given underlying object (parameter vector).  Alternatively, $pr(g|\theta)$ can be viewed as a function of $\theta$ for fixed $g$.  In this viewpoint $pr(g|\theta)$ is a measure of the likelihood of any $\theta$ once that data are in hand.  
+\begin{itemize}
+\item frequentist approach: what are all $g$'s that is produced by a single $\theta$?
+\item viewing $pr(g|\theta)$ as a function of $\theta$ for fixing g; or what are all $\theta$'s that can produce identical $g$.
+\end{itemize}
+
+\noindent
+\textbf{Score}: \medskip The \textit{score} is a random vector that tells us how sensitive the likelihood is to change in the parameters:
+\begin{equation}
+s(g) = \frac{\frac{\partial}{\partial \theta} pr(g|\theta}{pr(g|\theta)} = \frac{\partial}{\partial\theta} In \left[ pr(g|\theta) \right]
+\end{equation}
+
+In words, the score is the gradient of the log-likelihood. Since the score is a function of the log-likelihood, which is a random variable through its dependence on $g$, the score is also random.  Note that $\langle s \rangle_{g|\theta} = 0$, where $\langle \cdot \rangle_{g|\theta}$ denotes an average with respect to $pr(g|\theta)$. Score is a zero-mean random vector.
+As the gradient of the log-likelihood, $s(g, \theta) = 0$ when $\theta = \hat{\theta}(g)$.  The process of finding the ML estimate is thus equivalent to determining the point in parameter space where all components of the score vanish.
+
+ML estimator is efficient, where if the Cramer-Rao lower bound on the variance is attainable, it will be attained by an ML estimator.
+ML estimator is sufficient.  In estimation, a sufficient statistic is one that captures all the essential features in the data necessary for optimal performance of a given estimation task.  The maximum-likelihood estimator is a sufficient statistic for estimation; it makes optimal use of the information in the data.  No other estimator can yield more information.  
+A necessary and sufficient condition for $\hat{\theta}$ to be a sufficient estimate is that the likelihood function must be factorable into the product:
+\begin{equation}
+pr(g|\theta) = pr(\hat{\theta}|\theta) f(g),
+\end{equation}
+where $f(g)$ is independent of $\theta$.  
+A sufficient estimator may exist even when an efficient estimator does not; efficiency is a stricter criteria than sufficiency.  A sufficient estimator is unique; we can use a function of the sufficient statistic because it will also be sufficient, and we can choose it such that the estimate maybe be consistent and unbiased.
+In general there can be many solutions to ML estimation equation that give equal likelihood.  This is especially the case in high-dimensional problems, where null space can be very large.  
+Asymptotic properties of the ML estimator.  It describes the behavior of the estimate as the number of observations approaches infinity.  Cramer proved that, under reasonably general conditions, an ML estimate is consistent.  The density function for a consistent estimate becomes increasingly narrow about the value of the underlying parameter as the number of samples increase.  ML estimate is efficient, if an efficient estimator exists.  ML estimates achieve the equality sign in the bound as the number of samples goes to infinity; that is, ML estimates are asymptotically efficient.
+ML estimates are asymptotically unbiased, efficient, normally distributed and consistent.
+
+Summarize: The full Bayesian estimation approach requires that the cost function as well as the prior probability of the random parameters and their likelihood function be completely specified. The ML approach does not require a prior, but it still requires full knowledge of the likelihood function. 
+
+\noindent
+\textit{Bayesian and frequentist:}
+In both pure estimation problems and hybrid detection/estimation problems, we have found that the optimal strategy for handling nuisance parameters is to marginalize (to treat as insignificant or peripheral) rather than to estimate them.  This finding begs the question of the appropriate prior to utilize.  To a frequentist, the prior should be a sampling prior, verifiable by experiment; an example is the exponential absorption law for photons.  To a Bayesian, the prior could incorporate prior beliefs.  Indeed, a Bayesian would say that the problem of nuisance parameters is an example of a fundamental dilemma that arises in any inference problem: we \textit{never} have enough empirical (verifiable by observation or experience rather than theory or pure logic) information to solve the problem at hand, and we must always bring in prior belief.  
+Yes, one can use prior beliefs in estimation problems in imaging, but the final measure of the efficacy of the belief is a long-run, frequentist measure of task performance.

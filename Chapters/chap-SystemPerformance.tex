@@ -1,0 +1,37 @@
+\chapter{System Performance}
+\section{Introduction to performance merits}
+Why did I make a CT system?
+why not just build a x-ray detector system and call it done???
+SNR provided by DR system vs. SNR provided by CT system, projection over angles have more information compared to projection at 1 angle.  Angular correlation has more information?
+No I have more pixels, so more pixels can provide more information and each pixel has enough photons to give me enough information right?
+
+
+The CT system is used to test various camera and scintillator combinations and evaluate its performance in terms of common detector figure of merits.
+
+Since this concept has not been used in CT, its performance must be carefully measured so we can compare it to existing systems.  The most common figures of merit are modulation transfer function, nose power spectrum, and detective quantum efficiency.
+
+probably need to talk a little bit about x-ray source, how it's generated and why it's multi-spectral. 
+%\section{Review of Scintillators}
+Gadolinium oxy-sulfide (Gd2O2S:Tb)
+columnar CsI, I think doping effects the emission wavelength, and how well it matches with the detector quantum efficiency.
+
+From Yorkston:
+Swank noise for commercially available CsI(Tl) sampels has been measured at >0.9 for eenergies below Cs and I k-edges (36 and 33 keV, respectively), and ~0.8 at 40 keV which is just about the k-edge.  Comparable measurements for commercially available powdered phosphor screens using Gd2O2S:Tb report Swank noise values of ~0.8 below k-edge of Gd (50.2 keV) and ~ -.65 at 60 keV.  Similar values above and below the k-edge were reported for commercial screens based on CaWO4.
+
+Since x-ray is polychromatic, effective Swank factor willbe a weighted average of the energy dependent values and will depend on the kVp used for hte specific clinical application.   Swank noise paramter is a direct multiplier in determining the zero frequency DQE of a detector, these differences imply important image quality advantages would normally be expected from the use of CsI(Tl).
+
+\comment{SEM of GOs-powdered phosphor screen and CsI structured phosphor are cool, maybe put it in? From Yorkston's paper.}
+
+\comment{Since I will be using different scintillators, maybe a list of scintillators, their k-edge, optimal x-ray energy, efficiency will be nice}
+
+\section{Modulation Transfer Function (MTF) }
+The modulation transfer function has been used widely to characterize the spatial frequency response (spatial resolution) or many kinds of imaging systems.
+
+
+Method for modulation transfer function determination from edge profiles with correction for finite-element differentiation~\cite{Cunningham1987}, 
+Signal and noise in modulation transfer function determination using the slit, wire, and edge techniques~\cite{Cunningham1992}
+A method for measuring the presampled MTF of digital radiography systems uing an edge test device- Samei \citep{samei1998}
+\section{Noise Power Spectrum (NPS)}
+\section{Detective Quantum Efficiency (DQE) }
+Application of the NPS in modern diagnoistics MDCT ~\cite{Boedeker2007}
+Analysis of DQE of a radiographic screen-film combo~\cite{Bunch1987}

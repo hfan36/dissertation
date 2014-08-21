@@ -1,0 +1,124 @@
+\chapter{detection}
+The \textit{quantum efficiency} of a detector is the fraction of the incident photons that contributes to the output of the detecting system.  This is the same as saying that the quantum efficiency is equal to the probability that a single incident x-ray photon will be detected.  
+\textit{detective quantum efficiency} is the fraction of incident photons that would have to be detected without additional noise to yield the same signal-to-noise ratio as it actually observed by the detector in question.
+DQE $\le$ QE $\le$ 1 \newline
+
+From a pragmatic (dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations) viewpoint it does not matter what the QE is: the limits of detectability of a signal are set by the SNR, which is determined by DQE and not QE.  The QE is useful only for determining the amount of gain required to bring the signal up to some desired level.
+
+Noise factor (NF) of the detector is the decrease in the signal-to-noise ratio that accompanies the detection process. Given by:
+\begin{equation}
+\begin{split}
+NF = &(DQE)^{-1/2} \\
+NF = &\frac{1}{\sqrt{DQE}}
+\end{split}
+\end{equation}
+
+In radiology the speed of the film is usually stated as the reciprocal of the exposure in roentgens required to produce a final film density of a stated amount, usually in the range of 0.7-1.0.  The source spectrum (or equivalently, the necessary details concerning tube target, accelerating voltage, and beam filtration), the development conditions, and the fluorescent screens used (if any) must be stated for the speed measure to be a valid and useful quantity.  
+
+\subsection{spectral analysis BM}
+Fourier transform of a random process is another random process, and we are usually more interested in averages than in properties of individual samples.  In particular, with finite-power processes, we often want to know how the average power is distributed as a function of frequency.  Frequency-domain description of the average power is known as \textit{spectrum, power spectrum} or \textit{power spectral density}.
+\newline
+In the limit of an infinite number of realizations, \textit{Wiener-Khinchin theorem} amounts to incorporating a statistical average in the definition of the spectrum.  Khinchin's definition was:
+\begin{equation}
+S_{ac}(v) = \mathcal{F} \{ R(\Delta t) \} = \int_{-\infty}^{\infty} d \Delta t \langle f(t + \Delta t) f^{\ast} (t) \rangle exp(-2 \pi i\nu \Delta t), 
+\end{equation}
+where the subscript $\mathit{ac}$ indicates that this version of the spectrum is derived from the autocorrelation function $\mathit{R(\Delta t)}$ of a stationary random process.  The spectrum defined this way is well behaved mathematically and universally used.
+
+\noindent
+$\mathit{Spatial power spectra}$
+If we use the stationary spatial random process, then the spatial version of the Wiener-Khinchin theorem is:
+\begin{equation}
+S(\mathbf{\rho}) = \int_{\infty} d^q \Delta r \: R(\Delta \mathbf{r}) \, exp(-2 \pi i \mathbf{\rho} \cdot \Delta \mathbf{r}).
+\end{equation}
+
+\noindent
+$\mathit{Stochastic Wigner distribution function}$
+A general way of applying Fourier analysis to non-stationary random processes is to make use of the Wigner distribution function.  For a spatial random process $f(\mathbf{r})$, we define the stochastic Wigner function by:
+
+\begin{equation}
+W_f (\mathbf{r}_0, \mathbf{\rho}) = \int_{\infty} d^{q} \Delta r \; \langle f(\mathbf{r}_0 + \frac{1}{2} \Delta \mathbf{r}) f^{\ast}(\mathbf{r}_0 - \frac{1}{2}) \rangle
+exp(-2 \pi i \mathbf{\rho} \cdot \Delta \mathbf{r}).
+\end{equation}
+
+\noindent Wigner distribution can be thought as a sliding-window Fourier transform, where the function itself serves as the window.
+We can use the Wigner distribution function for a spatial random process and compare it to the Wiener-Khinchin theorem:
+\begin{equation}
+\begin{split}
+S(\mathbf{\rho}) =& \int_{\infty} d^q \Delta r \langle f(r + \Delta r) f^*(r) \rangle exp(-2 \pi i \rho \cdot \Delta r) \\
+= & \int_{\infty} d^q \Delta r \langle f(r_0 + \frac{1}{2} \Delta r) f^*(r_0 - \frac{1}{2} \Delta r) \rangle exp(-2\pi i \rho \cdot \Delta r), 
+\end{split}
+\end{equation}
+So if the process is stationary, the stochastic Wigner function is independent of $\mathbf{r}_0$ and is precisely the power spectral density.
+
+For non-stationary processes, however, $W_f(r_0, \rho)$ is a function of $r_0$ as well as $\rho$; it can be interpreted as the spectral content associated with point $r_0$.  
+The Wigner distribution is just the Fourier transform of the short-range part of the autocorrelation function, modulated by the shift-variant strength of the slowly varying component at $r_0$.
+
+\subsection{Notes from Handbook of medical imaging-Image quality metrics for Digital Systems (Chap3)}
+The increment of exposure values used should be sufficient to adequately fit a curve to the data on both a logarithmic curve and a linear curve. For example, 0.03, 0.3, 3, and 30 mR, which covered the majority of the usable range of clinical exposures to be encountered.  The shape of the characteristic curve for most systems is not highly dependent on beam spectrum.  A reasonable compromise spectrum might be 70 $kV_p$ with 0.5-mm Cu filtration, because that is the spectrum has has been used for a number of MTF and DQE measurements~\citep{Dobbins1995}, \citep{Bradford1999}, \citep{Hillen1987}. 
+It is important to make multiple measurements of the exposure (but not image data, dosimeter) for the low-exposure range of the curve.  The need for multiple measurements of exposure is because of the limited precision of most exposure meters at low exposure.
+
+\subsubsection{Signal-to-noise ratio}
+For a given number of detected photons, N, and a stochastic signal fluctuation, $\sigma$, the maximum available signal-to-noise (SNR) is
+\begin{equation}
+\frac{S}{\sigma} = \frac{N}{\sqrt{N}} = \sqrt{N},
+\end{equation}
+because, for Poisson-distributed x-ray quanta, the standard deviation of measured pixel values goes as the square root of the mean number of quanta.  This is the ``raw'' signal-to-noise ratio, because all detected quanta are included in ``signal.''  Often of more interest is the differential signal-to-noise ratio, $SNR_{diff}$, which uses the difference in signal behind the object of interest relative to its background.
+\begin{equation}
+SNR_{diff} = \frac{\Delta S}{\sigma} = \frac{C \; S}{\sigma} = \frac{C \; N}{\sqrt{N}} = C \sqrt{N},
+\end{equation}
+where C is the contrast, $\Delta S / S$.
+If an object has area A, and there are $N_a$ photons per unit area detected, then the measured $SNR_{diff}$ of the object is:
+\begin{equation}
+\begin{split}
+& SNR_{diff} = C \; \sqrt{N} = C \; \sqrt{N_a A}.\\
+& N_a = \frac{SNR_{diff}^2}{C^2 A}
+\end{split}
+\end{equation}
+
+\subsubsection{MTF - handbook of medical imaging chap 3}
+MTF traditionally has been described mathematically in one of two ways:
+\begin{enumerate}
+\item as the ratio of frequency content output vs frequency content input:
+\begin{equation}
+MTF(u,v) = \frac{|FT_{out}(u,v)|}{|FT_{in}(u,v)|}
+\end{equation}
+
+\item as the Fourier amplitude of the response to a delta-function input to the system:
+\begin{equation}
+MTF(u,v) = |OTF(u,v)|
+\end{equation}
+where OTF(u,v) is the optical transfer function, the Fourier transform (FT) of PSF.  Both of these descriptions are equivalent for systems without aliasing.  However, with aliasing, the two give different results.
+\end{enumerate}
+For digital imaging systems, all MTF are basically undersampled.
+Three methods of measuring MTF, square wave, edge and slit.  Square wave is the least accurate, good for quick test.  Slit is good for measuring high frequencies and edge is good for low frequencies.  Ideally one should use both the edge and slit.
+
+\subsubsection{Noise-power spectrum}
+The noise-power spectrum may be understood in several ways.  First, it may be thought of as the variance of image intensity (i.e., image noise) divided among the various frequency components of the image.  Alternatively, the NPS may be pictured as the variance (per frequency bin) of a given spatial-frequency component in an ensemble of measurements of that spatial-frequency.  These concepts are equivalent.
+NPS is the pixel variance spread over all frequencies.
+There are two options for computing the NPS in the presence of a background signal.  One may either subtract the background signal from the image prior to NPS analysis, or may compute the ensemble-averaged Fourier transform square of the noise+signal and then subtract the square of the Fourier transform of the background signal.  Numerical simulation reveals that both are equivalent if an infinite number of values are averaged in the ensemble.  However, the certainty in measurement is better when one first subtracts off the background signal.
+
+\begin{equation}
+NPS(0) = (N \Delta x) \sigma^2_{ROImean}
+\end{equation}
+where N = number of points in the region of interest, $\Delta x$ is the sample interval (pixel size), $\sigma^2_{ROImean}$ is the variance inside the region of interest.
+
+\comment{still need to read up on NPS, and noise aliasing, I just can't concentrate anymore}
+
+\textbf{Measuring NPS experimentally}
+The appropriate x-ray spectrum for the study must be selected.  Ideally, the same x-ray spectrum should be used for NPS measurement as was used for measurement of MTF.  There is unfortunately not accepted standard x-ray spectra for NPS measurements in the literature.  Many measurements have been made at 70 kV (including scree-film and some CR measurements).  Several beam filtrations have been quoted with 70 kV: 0.5 mm Cu (\citep{Dobbins1995}, \citep{Bradford1999}, \citep{Hillen1987}, \citep{Chotas1997} and 19 mm Al \citep{Samei1997}.
+Once the spectrum has been selected, flat-field images over a range of exposure must be acquired.  Exposure values covering the usable dynamic range of the device should be used because the NPS is often exposure dependent (Exposure in terms of mR).  The characteristic curve of the device should be measured (linearity).
+Once the flat-field images have been acquired, the next thing to be determined for NPS measurement is the size of ROI to be used for the analysis, and the number of ROIs to be averaged.    In practice, it is necessary to select the best possible values of ROI size (as given by N) and the number of ROIs in the ensemble average (as given my M), under the constraint of a finite amount of available data.  
+\begin{enumerate}
+\item first choose N such that there is minimal distortion of the NPS
+\item compute what certainty in the estimate of NPS is required.  This latter step gives the number of ensemble averages, M, required.
+\end{enumerate}
+
+\textbf{Fixed pattern noise}
+It is important philosophically to include this structured noise, such as would occur from phosphor granularity in a phosphor screen, in the estimate of NPS.  It is included by default in all screen film NPS calculations.  It is important to include structured noise because it is part of the spatially-stochastic intensity variation that affects the ability of the observer to pick out a signal from the noise.   
+\subsubsection{NEQ and DQE}
+
+From Handbook of medical imaging Volume 1, by Myers, chapter 9.
+NEQ(v) can be interpreted as the frequency-dependent density of quanta at the input of a perfect detector that would yield the same output noise as the real detection system under evaluation.
+\begin{equation}
+SNR^2_{Ideal} = \int d \nu |\Delta \tilde{\bar{g}}(\nu)|^2 \; NEQ(\nu)
+\end{equation}

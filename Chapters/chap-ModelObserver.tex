@@ -1,0 +1,77 @@
+\chapter{Feasibility study using Model Observer}
+human and model observer performance ~\cite{Abbey2001}
+When evaluating an imaging system, it is often useful to first use a model observer to compute the performance of the system.  One can optimize the imaging system by calculating its performance using the model observer for a particular task with multiple input parameters.  The best observer that can be used is the ideal observer or Bayesian observer, and its defined as the observer that utilizes all statistical information available regarding the task to maximize task performance as measured by Bayes risk or some other related measure of performance \citep{Barrett2004}.  However this method requires us to know the exact statistical properties about our imaging system, which is next to impossible.  A much simpler observer is the Hotelling observer that only requires us to know the mean and variance of our images.  Although this sounds simple, even the Hotelling observer is extremely computationally intensive and very impractical.  So we opted to use the next best thing, the channelized Hotellinng observer,  to measure the system performance.  
+The channels essentially approximate the Hotelling observer by a number of channels, or mathematical functions.  Different channels can be selected depending on the tasks at hand.  An advantage to use the channelized Hotelling observer is that they require less computation to calculate the covariance matrix of the observer.
+
+\comment{
+What is model observers?\\
+what is it used for?\\
+what makes them special?\\
+what is an ideal observer?\\
+mathematical format and significance \\
+what's hotelling observer\\
+what's channelized hotelling observer\\
+types of channels\\ 
+what makes them special\\
+}
+~\cite{Fan2010}
+\citep{Barrett2004}
+
+\section{Background}
+
+provide equation of Hotelling observer, channelized hotelling observer, channels\\
+why do I use this type of channels\\
+object model\\
+detector model\\
+
+In x-ray imaging, the x-ray photons are exponentially attenuated when they pass through a material.  For a monochromatic incident x-ray beam, the attenuation of the x-ray depends on the attenuation coefficient of the material.  This can be expressed by \citep{Barrett2004}
+
+\begin{equation}\label{eq:xrayattenutation}
+\bar{N}_{m} = \bar{N}_{0} \; \mathrm{exp} \left[ -\int_{0}^{\infty} dl \; \mu( \mathbf{r_{m}} - \mathbf{ \hat{s}_{m}} \; l) \right], 
+\end{equation}
+where $\bar{N}_{0}$ is the mean number of x-ray photons that would strike the detector element m with no object present, $\bf{r}_{m}$ is the 3D vector specifying the location of the detector element m, $\bf{\hat{s}_{m}}$ is a unit vector from the source to detector element m, and $\mu(\bf{r})$ is the attenuation function of the object.  This assumes all rays from the x-ray point source to the detector subtends small angles ($cos(\theta) \approx  1$), so $\bar{N_{0}}$ is the same for all m.  The attenuation function of the object used for the simulation is:
+
+\begin{equation}\label{eq:xraymu}
+\mu(\mathbf{r}) = \mu_{H_{2}O} \; sph(\mathbf{r} / D) + \Delta \mu(\mathbf{r})
+\end{equation}
+where $\mu_{H_{2}O}$ is the attenuation coefficient of water, $\mathbf{r}$ is a 3D vector in Cartesian coordinate, $sph(\mathbf{r}/D)$ is a spherical function of diameter D, where $sph(\mathbf{r}/D) = 1$ for $| \mathbf{r} | < D/2$, and 0 otherwise.  $\Delta \mu(\mathbf{r})$ is the lumpy background model used by Rolland \citep{Rolland1992}.  The lumpy background model is essentially sum of randomly distributed yet equally sized Gaussian blobs and is given by :
+\todo[inline]{include special properties of lumpy background?}
+
+\begin{equation}\label{eq:lumpybg}
+\Delta \mu(r) = \sum_{j = 1}^{K} \Delta\mu_0 \; 
+				\mathrm{exp}( - \frac{|\mathbf{r} - \mathbf{r_j}|^2}{2r_b^2})
+\end{equation}
+where $\mathbf{r_j}$ is a random vector confined to a spherical diameter $d$, $K$ is the number of Gaussian lumps in the background, $\Delta \mu_0$ is the amplitude of the lump, and $r_b$ is the rms radius of the Gaussian lumps.  Note that $K$ is taken from a Poisson distrubtion with mean $\bar{K}$ and $\mathbf{r_j}$ is taken from a uniform distribution. 
+\todo[inline]{Should I explain why, look it up, I have no idea right now?} 
+The values $\bar{K}$ and $\Delta \mu_{0}$ are chosen so the mean of the lumpy background is equal to the attenuation of water ($\mathrm{0.02 \; cm^{-1}}$).  Using \eqref{eq:xrayattenutation} the mean number of x-ray photons incident on the detector when $\Delta \mu(r) \ll d$ is
+
+\begin{equation}\label{eq:xrayatten-approx}
+\bar{N}_{m} \approx \bar{N}_{0m} \{ 1 - \int_{0}^{\infty} dl \;
+\Delta \mu (\mathbf{r_m} - \hat{\mathbf{s}}_m l)\} \equiv
+\bar{N}_{0m} [ 1 - \Delta p_m  ],
+\end{equation}
+where 
+$\bar{N}_{0m} \equiv \bar{N}_0 \mathrm{exp} \{ -\mu_{H_20} \int_{0}^{\infty} dl \; 
+\mathrm{sph} [(\mathbf{r}_m - \mathbf{s}_m)/D] \}$ and 
+$\Delta p_m \equiv \int_{0}^{\infty} dl \; \Delta \mu(\mathbf{r}_m - \mathbf{\hat{s}}_m l )$. Because the read noise has zero mean, we can write the projected value of the object on the detector element m in electron units as
+
+\begin{equation}\label{eq:g_ElectronUnit}
+\bar{g}_{m0} = \eta \bar{k}\bar{N}_{0m}[1 - \Delta p_m].
+\end{equation}
+This is the conditional mean for a single realization of the lumpy background, with the data averaged over the Poisson fluctuation of the number of x-ray photons, over the photoelectron generation process, and over read noise.  
+\section{Simulation Model}
+
+
+How does the math works for x-ray\\
+the channels used, include pictures\\
+why were these channels used\\
+show geometry\\
+provide the actual numbers that went into the models\\
+
+
+\section{Results}
+
+pictures of contrast v detail curve\\
+what do they mean?\\
+what are not accounted for in the simulation?\\
+probably certain types of noise, x-ray scatter, etc\\

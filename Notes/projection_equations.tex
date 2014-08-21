@@ -1,0 +1,78 @@
+\chapter{projection equations}
+
+
+The equation for a point object located at ($x_0$, $y_0$, $z_0$) in a circular scan trajectory is given by:
+
+\begin{equation}\label{eq:circularorbit}
+\begin{split}
+x_{\alpha}& = x_0 \cos \alpha \pm y_0 \sin \alpha, \\
+y_{\alpha}& = \mp x_0 \sin \alpha + y_0 \cos \alpha, \\
+z& \equiv z_0.
+\end{split}
+\end{equation}
+
+On a perfectly well aligned detector the projection orbit of the point, $(u_{\alpha}^{(id)}, v_{\alpha}^{(id)})$, in the (x,y,z) coordinate is then given by its projections onto the detector plane, 
+\begin{equation}\label{eq:idealUVpoints}
+u_{\alpha}^{(id)} = \frac{R x_{\alpha}}{y_{\alpha} + R_F}, \hspace{0.4cm} v_{\alpha}^{(id)} = \frac{Rz_0}{y_{\alpha}+R_F}, 
+\end{equation}
+where $R$ and $R_F$ are the distances from the focus to the detector and the axis of rotation, respectively.  For a misaligned detector the point (u,v) with (x', y', z') coordinates, the point locations on the detector is given by:
+
+
+\begin{equation}\label{eq:circularorbit}
+\begin{split}
+x_{\alpha}& = x_0 \cos \alpha \pm y_0 \sin \alpha, \\
+y_{\alpha}& = \mp x_0 \sin \alpha + y_0 \cos \alpha, \\
+z& \equiv z_0.
+\end{split}
+\end{equation}
+
+On a perfectly well aligned detector the projection orbit of the point, $(u_{\alpha}^{(id)}, v_{\alpha}^{(id)})$, in the (x,y,z) coordinate is then given by its projections onto the detector plane, 
+\begin{equation}\label{eq:idealUVpoints}
+u_{\alpha}^{(id)} = \frac{R x_{\alpha}}{y_{\alpha} + R_F}, \hspace{0.4cm} v_{\alpha}^{(id)} = \frac{Rz_0}{y_{\alpha}+R_F}, 
+\end{equation}
+where $R$ and $R_F$ are the distances from the focus to the detector and the axis of rotation, respectively.  For a misaligned detector the point (u,v) with (x', y', z') coordinates, the point locations on the detector is given by:
+
+\begin{equation}\label{eq:nonidealUVpoints}
+\begin{split}
+\begin{pmatrix}
+u \\ v 
+\end{pmatrix} = & \frac{1}{\det \mathbf{Q}} 
+\begin{pmatrix}
+o_{33}-o_{23}v^{(id)}/R & -(o_{13} - o_{23} u^{(id)}/R) \\
+-(o_{31} - o_{21} v^{(id)}/R) & o_{11}-o_{21} u^{(id)}/R \\
+\end{pmatrix} \\
+\times & 
+\begin{pmatrix}
+u^{(id)'} - d_x \\
+v^{(id)'} - d_z 
+\end{pmatrix},
+\end{split}
+\end{equation}
+where the primes denote a simple rescaling of the ideal orbit by
+
+\begin{equation}
+\begin{pmatrix}
+u^{(id)'} \\ v^{(id)'}
+\end{pmatrix}
+= \frac{R_y'}{R}
+\begin{pmatrix}
+u^{(id)} \\ v^{(id)}
+\end{pmatrix}.
+\end{equation}
+where
+\begin{equation}
+\begin{split}
+\det \mathbf{Q} =& (o_{11} - o_{21} u^{(id)}/R)(o_{33}-o_{23}v^{(id)}/R) \\
+& -(o_{13}-o_{23}u^{(id)}/R)(o_{31}-o_{21} v^{(id)}/R).
+\end{split}
+\end{equation}
+
+and $\mathbf{O}$ is the rotation matrix of the misaligned detector shown by 
+\begin{equation}
+\mathbf{O} = 
+\begin{pmatrix}
+\cos \eta \cos \varphi - \sin \eta \sin \theta \sin \varphi & -\cos \theta \sin \varphi & -\cos \varphi \sin \eta - \cos \eta \sin \theta \sin \varphi \\
+\cos \varphi \sin \eta \sin \theta + \cos \eta \sin \varphi & \cos \theta \cos \varphi & \cos \eta \cos \varphi \sin \theta - \sin \eta \sin \varphi \\
+\cos \theta \sin \eta & -\sin \theta & \cos \eta \cos \theta
+\end{pmatrix}
+\end{equation}

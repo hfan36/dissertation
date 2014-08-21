@@ -1,0 +1,44 @@
+\chapter{Introduction}
+Gives background information in x-ray detection. Maybe a description of how expensive things are? \\
+What's my project?\\
+	Build x-ray detection systems.\\
+	It's cheap and affordable.  The camera system offers high space-bandwidth product.  Space: each pixel is fairly large so it gathers more light at each pixel. Bandwidth: more pixels so the theoretical resolution is high, it can capture higher frequencies of the image.\\
+	Maybe I should say something about modern x-ray detectors, or DR systems.
+	
+	
+Need to:\\
+	1. research on the size of the detector pixels.\\
+	2. research on how many pixels modern DR system has\\
+\todo[inline]{3. research on the price of everything}
+\comment{this include software and hardware price. operation cost}
+
+\comment{4. Section on history of x-ray detection?}
+
+\section{Review of x-ray detectors}
+\comment{Briefly just how x-ray source works? maybe?}
+	"Recent developments in digital radiography detectors", by John Yorkston\\
+\subsection{Direct x-ray detection}
+	probably need to look into this part~\citep{Kim2008}\\
+	There are usually referred to as computed radiography systems where it uses storage phosphor that traps the x-ray energies in a semistable state inside the phosphor, which is then readout by scanning a laser beam over the phosphor.  It's a two step process.  Older generation requires human intervention, newer generation is more incorporated however it's still fundamentally 2 stages.  Refer to Rowlands' review article, Kato, and American Association of Physicists in Medicne (AAPM) Report No.93 for details on this continually developing technology.
+	
+\subsection{Indirect x-ray detection}
+	include development of different types of DR detectors~\citep{Kim2008}.\\
+	scintillation detectors for x-rays ~\citep{Nikl2006}\
+	it's also a 2 step process but does not require any mechanical motion to readout the image. Uses either phosphors or photoconductors (what are those???, amorphous selenium, a-Se).\\
+	The most common photoconductor used in today's DR x-ray detectors is a-Se \citep{Que1995, Sawant2005} detectors can be CCDs, CMOS or hydrogenated amorphous silicon (a-Si:H) flat-panel detectors. \\
+	Recent developments in x-ray converters have tended to concentrate on new photoconductors such as PbI2 \citep{Street2002}, HgI2\citep{Street2002} and PbO \citep{Simon2004}, TlBr\citep{Ouimette1998}, CdTe\citep{Sordeo2009}, and CdZnTe\citep{Sordeo2009}, they all have much higher average Z than Se. So higher stopping power for higher energy x-rays.
+	
+	Film screen system - uses Gd2O2S:Tb (gadolinium oxy-sulphide), either sandwich 2 screens with one film or "back-screen" method that use one screen to improve resolution.\\
+	Use columnar CsI to control light spreading. Thicker phosphor with similar spatial resolution.  So thicker phosphor = higher x-ray absorption. (more light)\cite{Yorkston2007} \\
+	one of the problem with CCD/CMOS detector is that the light collection efficiency is not high enough so the image will be dominated by shot noise rather by quantum noise of the incident x-rays.  However other have used it, where CCD or CMOS is coupled with scintillator. \citep{Seibert-DR2005}
+	\comment{probably need to search for more people doing optical coupling between ccd or cmos camera to scintillators for x-ray detection, technically Jared did it too}
+	
+People have used a "slot" detector that couples a linear scintillator directly to the a vertical linear detector and scan the patient. \citep{Samei2004}
+	one of the challenges is making both the scintillator and detector big enough to image the human body.  Both CCD and CMOS chips are limited in size, larger area monolithic device can quickly become prohibitively expensive.  
+
+	
+\section{Cost and trade-offs of x-ray imaging systems}
+	Probably should look up the cost of a clinical DR system, CT system and the cost of individual items on my system
+
+	
+%\section{X-ray Source} this is questionable if it's needed or not
