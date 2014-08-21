@@ -1,0 +1,86 @@
+\include{header}
+%\usepackage[disable]{todonotes} % notes not showed
+\usepackage{todonotes}
+
+
+
+%%=====================================================
+%% new comands 
+%%=====================================================
+%Select what to do with command \comment:
+% \newcommand{\comment}[1]{} %comment not showed
+\newcommand{\comment}[1]
+{\par {\bfseries \color{red} #1 \par}}
+
+\newcommand{\inches}{\ensuremath{{}^{\prime\prime}}}
+
+\newcommand{\placeholderimage}[2][2]
+{
+	\begin{pgfpicture}
+		\pgftext{\pgfimage[#1]{#2}}
+	\end{pgfpicture}
+}
+
+%%======================================================
+%% include only chapters
+%%======================================================
+\includeonly{./Chapters/chap-GeomCalib}
+
+%%======================================================
+%% begin document
+%%======================================================
+
+\begin{document}
+\include{Approval}
+%% Include the ``Acknowledgements''
+%\incacknowledgements{acknowledgements}
+
+%% Include the ``Dedication''
+%\incdedication{dedication}
+
+%%===============================================
+% Create a ``Table of Contents''
+\tableofcontents
+
+% Create a ``List of Figures''
+\listoffigures
+
+% Create a ``List of Tables''
+\listoftables
+
+\include{./Abstract/abstract}
+
+\include{./Chapters/chap-Intro}
+
+\include{./Chapters/chap-ModelObserver}
+
+\include{./Chapters/chap-DesignConstruction}
+
+\include{./Chapters/chap-GeomCalib}
+
+\include{./Chapters/chap-Recon_2}
+
+\include{./Chapters/chap-SystemPerformance}
+
+\include{./Chapters/chap-dose}
+
+\include{./Chapters/chap-conclusion}
+
+% Include the various appendices
+\appendix
+\include{./Chapters/chap-Moffitt}
+\include{./Notes/estimation_theory}
+\include{./Notes/noise_in_detectors}
+\include{./Notes/detection}
+%\include{./Notes/projection_equations}
+%\todo[inline]{need a parts list for everything}
+
+% Switch the spacing to single-spaced for the references
+\renewcommand{\baselinestretch}{1}		% chaning the value
+\small\normalsize						% switch size to make the value take
+
+% Create the References list
+\bibliographystyle{plain}
+\bibliography{./Bibliography/Version1}
+
+\end{document}
