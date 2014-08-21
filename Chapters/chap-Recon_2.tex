@@ -1,7 +1,4 @@
 \chapter{CT Reconstruction}
-yepe new branch!!!
-
-
 The essential goal any reconstruction is to use the information gathered to find out what the object looks like.  In the case of CT, we use the information gathered on the detector over angle to reconstruct the x-ray attenuation coefficient of the object.  CT system as evolved tremendously over the years and reconstruction algorithm has also evolved dramatically to support the types of systems. Over the years, reconstruction techniques has evolved with two general approaches to reconstruction, analytical and iterative.  In this chapter we attempt to give a brief overview of these general techniques used for CT reconstruction, then we will explain the method that was used for our system.
 
 \subsection{Analytical Reconstruction Techniques}
@@ -56,10 +53,11 @@ The statistical model or the noise model tries to incorporate the statistics of 
 Once both the geometry and the noise of CT system are properly modeled, a cost function is need to be chosen.  The iterative process is used to search for the minimum of the cost function and the solution that minimizes the cost function is the reconstructed object.  This cost function, sometimes called an objective functional, typically consist of two components, a data agreement part tries to see the difference between the experimental data and the object that generated the data based on the model, and a regularizing term sometimes called a penalty function that depends only on the object and serves as a prior such as positivity.  If the functional is strictly convex, then the minimum is unique and all algorithms should obtain the same image if run to convergence.  The only issues are then which algorithm will find the minimum most efficiently and with the least computing resources.  In practice, however, iterative algorithms may not be run to convergence, and the resulting image depends on the algorithm, the initial estimate and the stopping rule.
 
 \section{Maximum Likelihood Expectation Maximization (MLEM) }
-In this project, we used the Maximum Likelihood expectation maximization algorithm for the reconstruction process with out any regularization function.  The MLEM algorithm shown in equation \ref{eq:MLEM} assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model.  In order to execute the MLEM algorithm, the forward projector $H$, the backward projector $H^t$, and the sensitivity $S$ are all calculated on the fly using CUDA on the GTX Titan GPU.  These code are commented to the best of the author's ability for readability and are available on the CGRI cluster under the folder ~Fan/reconstruction.  Please refer to Appendix for more detail.
+In this project, we used the Maximum Likelihood expectation maximization algorithm for the reconstruction process with out any regularization function.  The MLEM algorithm shown in equation \ref{eq:MLEM} \citep{EmissionTom2004}.  This equation assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model.  In order to execute the MLEM algorithm, the forward projector $H$, the backward projector $H^t$, and the sensitivity $S$ are all calculated on the fly using CUDA on the GTX Titan GPU.  These code are commented to the best of the author's ability for readability and are available on the CGRI cluster under the folder ~Fan/reconstruction.  Please refer to Appendix for more detail.
 
 \begin{equation}
-MLEM_equation
+\hat{f}^{(n+1)}_{j} = \frac{\hat{f}^{(n)}_j}{{\sum\limits_{i'}} h_{i'j}} \; 
+						\sum\limits_{i} h_{ij} \, \frac{g_{i}}{\sum\limits_{k} h_{ik} \hat{f}_{k}^{(n)}}
 \label{eq:MLEM}
 \end{equation}
 

@@ -349,6 +349,17 @@
   timestamp = {2012.10.29}
 }
 
+@ARTICLE{Gallas2003,
+  author = {Gallas, B. D. and Barrett, H. H.},
+  title = {Validating the use of channels to estimate the ideal linear observer},
+  journal = {J. Opt.Soc. Am. A},
+  year = {2003},
+  volume = {20},
+  pages = {1725-1738},
+  owner = {Fan},
+  timestamp = {2014.04.17}
+}
+
 @ARTICLE{Giakoumakis1989,
   author = {G. E. Giakoumakis and C. D. nomicos and P. X. Sandilos},
   title = {{A}bsolute efficiency of ${G}d_2{O}_2{S}:{T}b$ screens under fluoroscopic
@@ -1266,6 +1277,15 @@
   year = {2004},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
+}
+
+@BOOK{EmissionTom2004,
+  title = {{E}mission {T}omography - {T}he {F}undamentals of {PET} and {SPECT}},
+  publisher = {{E}lsevier {A}cademic {P}ress},
+  year = {2004},
+  editor = {Wernick, M. N and Aarsvold, J. N.},
+  owner = {Fan},
+  timestamp = {2014.08.21}
 }
 
 @ELECTRONIC{clarkvision,
