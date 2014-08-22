@@ -53,7 +53,7 @@ The statistical model or the noise model tries to incorporate the statistics of 
 Once both the geometry and the noise of CT system are properly modeled, a cost function is need to be chosen.  The iterative process is used to search for the minimum of the cost function and the solution that minimizes the cost function is the reconstructed object.  This cost function, sometimes called an objective functional, typically consist of two components, a data agreement part tries to see the difference between the experimental data and the object that generated the data based on the model, and a regularizing term sometimes called a penalty function that depends only on the object and serves as a prior such as positivity.  If the functional is strictly convex, then the minimum is unique and all algorithms should obtain the same image if run to convergence.  The only issues are then which algorithm will find the minimum most efficiently and with the least computing resources.  In practice, however, iterative algorithms may not be run to convergence, and the resulting image depends on the algorithm, the initial estimate and the stopping rule.
 
 \section{Maximum Likelihood Expectation Maximization (MLEM) }
-In this project, we used the Maximum Likelihood expectation maximization algorithm for the reconstruction process with out any regularization function.  The MLEM algorithm shown in equation \ref{eq:MLEM} \citep{EmissionTom2004}.  This equation assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model.  In order to execute the MLEM algorithm, the forward projector $H$, the backward projector $H^t$, and the sensitivity $S$ are all calculated on the fly using CUDA on the GTX Titan GPU.  These code are commented to the best of the author's ability for readability and are available on the CGRI cluster under the folder ~Fan/reconstruction.  Please refer to Appendix for more detail.
+In this project, we used the Maximum Likelihood expectation maximization algorithm for the reconstruction process with out any regularization function.  The MLEM algorithm is shown in equation \ref{eq:MLEM} \citep{EmissionTom2004}, where n refers to the iteration, i refers to image pixels, k refers to object voxels.  This equation assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model.  In order to execute the MLEM algorithm, the forward projector $H$, the backward projector $H^t$, and the sensitivity $S$ are all calculated on the fly using CUDA on the GTX Titan GPU.  A working version of the code was uploaded to a public github repository, please refer to Appendix for more information on how to acquire the code and its functionality.
 
 \begin{equation}
 \hat{f}^{(n+1)}_{j} = \frac{\hat{f}^{(n)}_j}{{\sum\limits_{i'}} h_{i'j}} \; 
@@ -67,9 +67,18 @@ In this project, we used the Maximum Likelihood expectation maximization algorit
 \label{fig:forwardmodel}
 \end{figure}
 
+\subsection{Ray Path calculation}
+Need talk about how the siddon's algorithm works.
+How sorting is done on the GPU
+Forward and backward projectors are complementary of each other
+atomicAdd function facilitates the backward projection
+Appendix should explain 1, how to checkout the code, 2, how to use it. Include a list of files
+
 
 \subsection{Forward Projection calculation}
-We used a very simple pencil beam model for the forward projection model.  We assumed that each x-ray beam is launched from an infinitely small x-ray point source.  This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel is calculated through a three dimensional interpolation process.  The summation of the voxel contributions and the distance between each plane were calculated to form the detector value for each pixel.  Figure \ref{fig:forwardmodel} shows the geometry used in the forward model.
+A pencil beam model was used for the forward projection model.  We assumed that each x-ray beam is launched from an infinitely small x-ray point source.  This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel for each ray is calculated according to Siddon's algorithm \ref{Siddon1985}.  The final value at the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  
+
+Figure \ref{fig:forwardmodel} shows the geometry used in the forward model.
 
 \begin{figure}[ht]
 \centering
@@ -77,7 +86,6 @@ We used a very simple pencil beam model for the forward projection model.  We as
 \label{fig:forwardmodelcode}
 \end{figure}
 
-In the forward model, each thread in the CUDA kernel corresponds to one x-ray pencil beam originate from the source and travels to the center of each detector pixel.  Therefore the total threads equals to the number of pixels on the detector.  The entire object volume is first bound to the 3D GPU texture memory and divided into multiple planes.  For each pencil beam traveling through the object volume, the coordinate of the pencil beam is calculated at each plane and the object volume value is extracted by using the CUDA 3D hardware interpolation function (tex3D).  All threads undergoes interpolation simultaneously at each plane, and this process is repeated through all planes.  The forward projection value is the summation of the interpolation values for all threads at each plane multiplied by the distance each ray travels between each plane.  The number of planes were set to be greater than the number of voxels in the z direction, and its range is set to be larger than the size of the object to ensure the rays travels through the entire object volume.  This procedure is repeat for all CT rotation angles where the position coordinate for each pencil beam through the object were re-calculated and its value re-interpolated.  Figure \ref{fig:forwardmodelcode} shows a graphical description of the steps taken in the forward projector.  Please refer to the Appendix for the list of equations used in the forward projection kernel.
 
 \subsection{Backward Projection calculation}
 
