@@ -1,2 +1,7 @@
 \chapter{Recon_code}
 
+The reconstruction code can be cloned from https://github.com/hfan36/CT_Recon.git
+There are three main functions in the class siddon_recon, a0_RECON_MLEM, a1_FORWARD_PROJECTION, and, a1_BACKWARD_PROJECTION.  a0_RECON_MLEM is the main function that allows for CT reconstruction, where a1_FORWARD_PROJECTION and a1_BACKWARD_PROJECTION are for simulation purposes only.  The input for these three functions is usually a parameter file that sets the configuration of the CT system, the MasterParameterFile.cfg is uploaded to the repository and can be used to set the parameters.  Once compiled, the program will first check for data files and consistencies in the parameter file first before proceeding to do any calculations.  However it will not check for the memory required to calculations so make sure both the host and device side has enough RAM.  
+
+All reconstructed object files will be calculated and saved in the projection file folder numbered according to each of the iterations.  The file name are named as:
+folder name + file name root + _ + number increment + suffix.  The number increment goes from 0 to either number of iteration for reconstructed object file, or to the maximum number of projections in scan for projection files.  All distance values are in millimeters, saved as floats, and angles in terms of degrees.  The calibration parameters are calculated using another set of calibration code, available for cloning from https://github.com/hfan36/matlab_calc.git.

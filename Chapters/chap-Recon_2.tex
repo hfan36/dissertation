@@ -67,7 +67,14 @@ In this project, we used the Maximum Likelihood expectation maximization algorit
 \label{fig:forwardmodel}
 \end{figure}
 
-\subsection{Ray Path calculation}
+\subsection{Ray Path calculation - Siddon's algorithm}
+Pencil beam model was used for both the forward and backward projection, where we assumed that each x-ray beam is launched from an infinitely small x-ray point source. This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel for each ray is calculated according to Siddon's algorithm \ref{Siddon1985}.  In the forward projector, the final value at the each of the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  In the backward projector, the inverse of what was done in the forward projector occurs.  
+The reconstruction code follows closely to the Siddon's algorithm, however some modifications where done so all of the x-rays can be calculated on the GPU at once rather than calculating the ray path individually. The Siddon's algorithm requires $\alpha_x$, $\alpha_y$, and $\alpha_z$ to be sorted in ascending order, however this is not possible due to the number of x-rays.  We opted to sort on-the-fly, where only the next largest value was found and used for calculation.  As a result, for each forward and backward projection per angle, a loop was used to sort the set $\{ \alpha \}$.
+
+
+
+
+
 Need talk about how the siddon's algorithm works.
 How sorting is done on the GPU
 Forward and backward projectors are complementary of each other
@@ -76,7 +83,6 @@ Appendix should explain 1, how to checkout the code, 2, how to use it. Include a
 
 
 \subsection{Forward Projection calculation}
-A pencil beam model was used for the forward projection model.  We assumed that each x-ray beam is launched from an infinitely small x-ray point source.  This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel for each ray is calculated according to Siddon's algorithm \ref{Siddon1985}.  The final value at the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  
 
 Figure \ref{fig:forwardmodel} shows the geometry used in the forward model.
 
