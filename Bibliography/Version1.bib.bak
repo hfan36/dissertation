@@ -1313,6 +1313,15 @@
   timestamp = {2014.03.06}
 }
 
+@MANUAL{,
+  title = {CUDA toolkit documentation},
+  organization = {NVIDIA},
+  address = {docs.nvidia.com/cuda/index.html},
+  edition = {5.5},
+  owner = {Fan},
+  timestamp = {2014.08.25}
+}
+
 @STANDARD{NEMA2010,
   title = {{NEMA} {S}tandards {P}ublication {XR} 25-2010: {C}omputed {T}omography
 	{D}ose {C}heck},

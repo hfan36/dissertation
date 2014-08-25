@@ -100,8 +100,7 @@ If the denominator $(X_2 - X_1), (Y_2-Y_1), or (Z_2 - Z_1)$ is equal to zero, th
 \end{aligned}
 \label{eq:siddon_alpha_min_max}
 \end{equation}
-If $\alpha_{max}$ is less than or equal to $\alpha_{min}$, then the ray does not intersect the object volume and that ray will be excluded from the calculation.  We can then calculate the indexes of the plane that will be intersected by the ray by the following:
-
+If $\alpha_{max}$ is less than or equal to $\alpha_{min}$, then the ray does not intersect the object volume and that ray will be excluded from the calculation.  We can then calculate the indexes of the plane that will be intersected by the ray using the following equation:
 \begin{equation}
 	\begin{aligned}
 	\text{if ($X_2 - X_1 \geq 0 )$ }\\
@@ -113,10 +112,81 @@ If $\alpha_{max}$ is less than or equal to $\alpha_{min}$, then the ray does not
 	\end{aligned}
 \label{eq:siddon_ijkminmax}
 \end{equation}
-with similar expressions for $j_{min}$, $j_{max}$, $k_{min}$,and $k_{max}$.
+with similar expressions for $j_{min}$, $j_{max}$, $k_{min}$,and $k_{max}$.  The corresponding parametric values to each indexes can be calculated by:
 
+\begin{equation}
+\begin{aligned}
+\alpha_x(i) &= \left[ X_{plane}(i) - X_1 \right] / (X_2 - X_1) \\
+			&=\alpha_x(i-1) + \left[ d_x / (X_2 - X_1) \right],
+\end{aligned}
+\label{ea:siddon_alphas}
+\end{equation}
+with similar expressions for $\alpha_y$, and $\alpha_z$.  Once the set of parametric values $\alpha_x$, $\alpha_y$, and $alpha_z$ are calculated, the original Siddon's algorithm requires these values to be arranged in ascending order from lowest to highest to for a set ${\alpha}$.  The two adjacent terms in the set is can be used to calculate the intersections of the ray with a particular voxel.  For two intersections $m$ and $m-1$, the voxel intersection length $l(m)$ is given by 
+\begin{equation}
+l(m) = d_{12} \left[ \alpha(m) - alpha(m-1) \right] \qquad (m = 1, ..., n),
+\label{eq:siddon_length}
+\end{equation}
+where the quantity $d_{12}$ is the distance between point1 to point 2.
+\begin{equation}
+d_{12} = \left[ (X_2 - X_1)^2 + (Y_2 - Y_1)^2 + (Z_2 - Z_1)^2 \right]^{1/2}.
+\label{eq:siddon_d12}
+\end{equation}
 
-%%
+This process is normally calculated once per ray and would require a simple sorting algorithm that can be provided by either MatLab or C++, and the rays can then be calculated using a standard \textit{for} loop.  However since each ray corresponds to one detector element, and we can utilize the GPU's parallel computation ability to trace all rays simultaneously by assigning each CUDA thread to a single ray.  This can be accomplished by closely following the Siddon's algorithm up until equation \ref{eq:siddon_ijkminmax}.  However since each ray is traced simultaneously, we cannot calculate and sort the set ${\alpha}$ for each ray, instead we have opted to calculate and sort the set ${\alpha}$ on-the-fly where the parametric values ${\alpha_x}$, ${\alpha_y}$, and ${\alpha_z}$ for each ray are calculated on the GPU device memory starting with $\alpha_x(1)$, $\alpha_y(1)$, $\alpha_z(1)$, as  each of the following values ${\alpha_x(i), \alpha_y(j), \alpha_z(k)}$ are calculated for each ray, only the minimum of the three values is used to calculate the ray progression.  As a result, the set ${\alpha}$ is not computed all at once, but rather computed and sorted on-the-fly where only the most current of the two sets, $\alpha(m)$ and 
+$\alpha(m-1)$ are stored in device memory.  The number of index, i.e. the number of elements in the set ${\alpha}$ for each ray is given by 
+\begin{equation}
+n = (i_{max} - i_{min} + 1) + (j_{max} - j_{min}+1) + (k_{max}-k_{min}+1) + 1.
+\label{eq:siddon_n}
+\end{equation}
+Although the number of intersections each ray travels through for each detector element is different, we know when the ray exist the volume.  So we can set a case where once the ray exits the object volume, it will no longer calculate more $\alpha$ values until all rays exists completely through the object volume.  The ray with the maximum number of index $n$, is calculated before the sorting step, along with $\alpha_{min}, \alpha_{max}, i_{min}, i_{max}, j_{min}, j_{max}, k_{min}, and k_{max}$.  While the set of ${\alpha}$ is being sorted on the GPU, the voxel $\left[ i(m), j(m), k(m) \right]$, which corresponds to the intersection created by $m$ and $m-1$ is also calculated each time by
+\begin{equation}
+\begin{aligned}
+i(m) &= 1 + \left[ X_i + \alpha_{mid}(X_2 - X_1) - X_{plane}(1) \right] /d_x, \\
+j(m) &= 1 + \left[ Y_i + \alpha_{mid}(Y_2 - Y_1) - Y_{plane}(1) \right] /d_y, \\
+k(m) &= 1 + \left[ Z_i + \alpha_{mid}(Z_2 - Z_1) - Z_{plane}(1) \right] /d_z,
+\end{aligned}
+\label{eq:siddon_voxel}
+\end{equation}
+where $\alpha_{mid}$ is given by 
+\begin{equation}
+\alpha_{mid} = \left[ \alpha(m) + \alpha(m-1) \right] /2.
+\label{eq:siddon_alphamid}
+\end{equation}
+The radiological path $d$ may now be written as 
+\begin{equation}
+\begin{aligned}
+d &= \sum\limits_{m = 1}^{m = n} l(m) \rho\left[ i(m), j(m), k(m) \right] \\
+  &= d_{12} \; \sum\limits_{m = 1}^{m = n} \left[ \alpha(m) - \alpha(m-1) \right] \rho \left[ i(m), j(m), k(m) \right].
+\end{aligned}
+\label{eq:siddon_path}
+\end{equation}
+
+\begin{figure}
+\centering
+\placeholderimage[width=6cm,height=6cm]{siddon-algorithm-flowchart.png}
+\caption{A flow chart of Siddon's algorithm implementation on CUDA}
+\label{fig:siddon_algorithm_flow_chart}
+\end{figure}
+
+Figure \ref{fig:siddon_algorithm_flow_chart} shows a flow chart of how Siddon's algorithm is implemented in CUDA.
+
+\subsection{Forward and backward projector calculation}
+
+The forward projector was implemented fairly straightforward where each x-ray originates from the x-ray source point and travels to the pixel center of each detector element.  The object voxel contribution to the ray was calculated using equation \ref{eq:siddon_path}.  The treatment for the backward projector is very similar to the forward projector, with exception to an added atomicAdd() function in CUDA.  In the forward projection, each voxel index is calculated from the ray intersections, and the voxel value added to each ray is independent of other rays (i.e. Each thread as read-only access to each voxel element and can be added to each ray thread).  However in backward projection, the voxel element needs read and write access since different ray needs access to the same voxel at different times and the voxel thread needs to read the value at that thread and then write to it.  This requires an additional step of using atomicAdd() function.  For further information about atomicAdd() please refer to the CUDA toolkit documentation \cite{Cudatoolkit}.  
+
+\subsection{Sensitivity}
+The sensitivity used in the MLEM algorithm represents the contribution of all detector values onto the object voxel.  This was calculated by setting all detector value at one CT angle to a constant number, 1.  The the sensitivity volume was calculated by back filling the object value using the back projector described in the above section.  Note that the sensitivity changes depending on the geometry of the CT system, number of object volume and number of detector pixels.  As a result, the sensitivity is always computed in the beginning of each reconstruction event.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.
+
+Figure \ref{fig:reconstructedimage} shows the center slice of a reconstructed object after X iterations.
+
+\begin{figure}
+\centering
+\placeholderimage[width=5cm, height=5cm]{reconstructedimage.png}
+\label{fig:reconstructedimage}
+\caption{Center slice of reconstructed object after x iterations}
+\end{figure}
+
+\subsection{Current algorithm limitations and assumptions}
 Here are our assumptions and limitations in the algorithm we've implemented:
 \begin{enumerate}
 \item Each x-ray originate outside of the object volume, travels completely through the object.  So no ray will ever begin or end inside any voxel.
@@ -125,60 +195,14 @@ Here are our assumptions and limitations in the algorithm we've implemented:
 \item Any ray traveling exactly along any voxel plane will not be calculated.
 \end{enumerate}
 
-The reconstruction code follows closely to the Siddon's algorithm, however some modifications where done so all of the x-rays can be calculated on the GPU at once rather than calculating the ray path individually. The Siddon's algorithm requires $\alpha_x$, $\alpha_y$, and $\alpha_z$ to be sorted in ascending order, however this is not possible due to the number of x-rays.  We opted to sort on-the-fly, where only the next largest value was found and used for calculation.  As a result, for each forward and backward projection per angle, a loop was used to sort the set $\{ \alpha \}$.
 
+\comment{
+in the appendix explain the functions that are included in the algorithm\\
+explain how to checkout the repository \\
+how to use the parameter file \\
+what are the outputs of each function (recon, forward, backward)
+}
 
-
-
-
-Need talk about how the siddon's algorithm works.
-How sorting is done on the GPU
-Forward and backward projectors are complementary of each other
-atomicAdd function facilitates the backward projection
-Appendix should explain 1, how to checkout the code, 2, how to use it. Include a list of files
-
-
-\subsection{Forward Projection calculation}
-
-Figure \ref{fig:forwardmodel} shows the geometry used in the forward model.
-
-\begin{figure}[ht]
-\centering
-\placeholderimage[width=8cm,height=6cm]{forwardmodelcode.png}
-\label{fig:forwardmodelcode}
-\end{figure}
-
-
-\subsection{Backward Projection calculation}
-
-\begin{figure}[ht]
-\centering
-\placeholderimage[width=10cm, height=6cm]{backwardprojector.png}
-\label{fig:backwardprojector}
-\caption{Backward Projection model}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\placeholderimage[width=10cm,height=6cm]{backprojectorcode.png}
-\label{fig:backprojectorcode}
-\caption{Graphical representation of the back projector}
-\end{figure}
-
-The treatment for the backward projector shown in figure \ref{fig:backwardprojector} is similar to the forward projector, except in this case, each object voxel location is used to calculate the x-ray that would pass through the center of the object voxels.  The detector values for one CT angle is bind to the CUDA 2D texture memory and a 2D interpolation is used to back fill the interpolated detector value onto each object voxel.  This process is repeated for all CT angle so the object voxel values are the summation of 2D interpolated detector value for each x-ray pencil beam.  It is important to note that due to memory limitation of the GPU, the object voxel volume must be small enough to fit entirely onto the GPU global memory.  We were able to use $128^3$ object volume without issue.  Figure \ref{fig:backwardprojectorcode} shows a graphical representation of the procedure used in the back projection kernel.
-
-
-\subsection{Sensitivity}
-The sensitivity used in the MLEM algorithm represents the contribution of all detector values onto the object voxel.  This was calculated by setting all detector value at one CT angle to a constant number, 1.  The the sensitivity volume was calculated by back filling the object value using the back projector described in the above section.  Note that the sensitivity changes depending on the geometry of the CT system, number of object volume and number of detector pixels.  As a result, the sensitivity is always computed on-the-fly.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.
-
-Figure \ref{fig:reconstructedimage} shows the center slice of a reconstructed object after X iterations.  The reconstruction program we wrote allows one to create subsets using the projection data and reconstruct the object volume using the OSEM algorithm.  This functionality can be enabled in the code, please see Appendix for detail.
-
-\begin{figure}
-\centering
-\placeholderimage[width=5cm, height=5cm]{reconstructedimage.png}
-\label{fig:reconstructedimage}
-\caption{Center slice of reconstructed object after x iterations}
-\end{figure}
 
 \section{Filtered Back-Projection (FBP) }
 
