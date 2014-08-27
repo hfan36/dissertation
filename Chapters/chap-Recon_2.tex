@@ -53,27 +53,48 @@ The statistical model or the noise model tries to incorporate the statistics of 
 Once both the geometry and the noise of CT system are properly modeled, a cost function is need to be chosen.  The iterative process is used to search for the minimum of the cost function and the solution that minimizes the cost function is the reconstructed object.  This cost function, sometimes called an objective functional, typically consist of two components, a data agreement part tries to see the difference between the experimental data and the object that generated the data based on the model, and a regularizing term sometimes called a penalty function that depends only on the object and serves as a prior such as positivity.  If the functional is strictly convex, then the minimum is unique and all algorithms should obtain the same image if run to convergence.  The only issues are then which algorithm will find the minimum most efficiently and with the least computing resources.  In practice, however, iterative algorithms may not be run to convergence, and the resulting image depends on the algorithm, the initial estimate and the stopping rule.
 
 \section{Maximum Likelihood Expectation Maximization (MLEM) }
-In this project, we used the Maximum Likelihood Expectation Maximization algorithm for the reconstruction process without any regularization function.  The MLEM algorithm is shown in equation \ref{eq:MLEM} \citep{EmissionTom2004}, where g is the projection image vector, H is the imaging matrix, and f is the object vector.
-
-
-where $n$ is an index for the current iteration, $i$ is an index for the image pixels, $k$ is an index for the object voxels. $g_i$   This equation assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model.  In order to execute the MLEM algorithm, the forward projector $H$, the backward projector $H^t$, and the sensitivity $S$ are all calculated on the fly using CUDA on the GTX Titan GPU.  A working version of the code was uploaded to a public github repository, please refer to Appendix for more information on how to acquire the code and its functionality.
-
+In this project, we used the Maximum Likelihood Expectation Maximization algorithm for the reconstruction process without any regularization function.  The MLEM algorithm is shown in equation \ref{eq:MLEM} \citep{EmissionTom2004}, where $g$ is the projection image data vector, $H$ is the imaging matrix that relates the object voxels to image pixels, and $f$ is the object vector.  Note that this equation assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model. 
 \begin{equation}
 \hat{f}^{(n+1)}_{j} = \frac{\hat{f}^{(n)}_j}{{\sum\limits_{i'}} h_{i'j}} \; 
 						\sum\limits_{i} h_{ij} \, \frac{g_{i}}{\sum\limits_{k} h_{ik} \hat{f}_{k}^{(n)}}
 \label{eq:MLEM}
 \end{equation}
 
-\begin{figure}[ht]
+$\sum\limits_k h_{ik} \hat{f}_k^{(n)}$ takes the current object volume $\hat{f}^{(n)}$ and calculates its forward projection image at all angles.  These forward projected images are divided into the data image vector, $g_i$ for every angle.  The result is a ratio between a set of simulated projection images and experimental value.  This ratio is then used by the imaging matrix $\sum\limits_i \; h_{ij}$ to project back into object space.  The next iteration for object voxels is calculated by multiplying the back projected ratio by the current object volume $\hat{f}_j^{(n)}$ and divide by a sensitivity function $\sum\limits_{i'} h_{i'j}$.
+The most important function in the MLEM algorithm is the imaging matrix $H$ that models the imaging system.  Commonly the $H$ matrix is a measured in the case of PET or SPECT where a point source is scanned in the entire volume of the object and the signal is recorded for every point object point at every detector pixel over all scanning angles.  This is impossible for CT because for one, the $H$ matrix would've been astronomically large and impossible to store and use, so we have opted to model the CT system to compute the forward projection and backward projection process on-the-fly instead of using a stored $H$ matrix.  This way we can re-write the MLEM equation in \ref{eq:MLEM} to a simpler equation shown in \ref{eq:MLEM_operator}.
+\begin{equation}
+\hat{f}^{(n+1)} = \frac{\hat{f}^{(n)}}{S} \; H^{t} \; \frac{g}{H \hat{f}^{(n)}}
+\label{eq:MLEM_operator}
+\end{equation}
+Here, $H$ is the forward operator that takes an input object $\hat{f^{(n)}}$ into image space, where it is divided into g.  $H^t$ is the backward projector that takes all projection image ratios and back project them into object space.  This is then multiplied by a ratio of the current object and a sensitivity volume.  In the next section we will explain the CT system model and how the forward and backward projectors were calculated.
+\comment{
+this last bit where a ``simplier'' MLEM equation is given might not be important
+}
+
+\section{CT model and projector calculation}
+Pencil beam model was used for both the forward and backward projection, where we assumed that each x-ray beam is launched from an infinitely small x-ray point source. This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel for each ray is calculated according to Siddon's algorithm \cite{Siddon1985}.  
+
+In the forward projector, the final value at the each of the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  In the backward projector, the order is reversed. We take the value at the detector element trace a ray backward through the object volume to the x-ray source.  For every voxel pierced by that ray, we calculate the length of the ray passed through the voxel and multiply it by the detector element.  This was repeated for all x-rays, i.e. all detector values.  Figure \ref{fig:forward_backward_model} demonstrates how the forward and backward projection works.
+
+\begin{figure}
 \centering
-\placeholderimage[width=8cm,height=6cm]{forwardmodel.png}
-\label{fig:forwardmodel}
+	\begin{subfigure}[b]{0.4\linewidth}
+	\centering
+	\placeholderimage[width=6cm,height=6cm]{forwardmodel.png}
+	\end{subfigure}
+\hspace{0.2cm}
+	\begin{subfigure}[b]{0.4\linewidth}
+	\centering
+	\placeholderimage[width=6cm,height=6cm]{backwardmodel.png}
+	\end{subfigure}
+\caption{How the forward and backward model works}
+\label{fig:forward_backward_model}
 \end{figure}
 
-\subsection{Ray Path calculation - Siddon's algorithm}
-Pencil beam model was used for both the forward and backward projection, where we assumed that each x-ray beam is launched from an infinitely small x-ray point source. This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel for each ray is calculated according to Siddon's algorithm \ref{Siddon1985}.  In the forward projector, the final value at the each of the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  In the backward projector, the inverse of what was done in the forward projector occurs. 
-Here we will explain briefly how the Siddon's algorithm works and how we modified the algorithm so it can be implemented in CUDA. 
-The Siddon's algorithm is a method of calculating the exact radiological path for a three-dimensional CT array.  Instead of directly calculating the intersections of the ray with each pixel, it calculates the ray's intersection with the three parallel planes in the object volume $\{ x, y, z \}$.  The intersection of the ray with equally spaced, parallel lines is a very simple problem.  Since the lines are equally spaced, it is only necessary to determine the first intersection and the others can be automatically generated by recursion.  For a CT volume array of $(N_x -1, N_y-1, N_z-1)$ voxels, the orthogonal sets of equally spaced, parallel planes are written as
+In the next section we will explain briefly how the Siddon's algorithm works and how we modified the algorithm so it can be implemented in CUDA. 
+
+\subsection{Siddon's algorithm}
+The Siddon's algorithm is a method of calculating the exact radiological path for a three-dimensional CT array.  Instead of directly calculating the intersections of the ray with each pixel, it calculates the ray's intersection with the three parallel planes in the object volume $\{ x, y, z \}$.  The intersection of the ray with equally spaced, parallel lines is a very simple problem.  Since the lines are equally spaced, it is only necessary to determine the first intersection.  The other intersections can then be automatically generated by recursion.  For a CT volume array of $(N_x -1, N_y-1, N_z-1)$ voxels, the orthogonal sets of equally spaced, parallel planes are written as
 
 \begin{equation}
 	\begin{aligned}
@@ -178,16 +199,29 @@ Figure \ref{fig:siddon_algorithm_flow_chart} shows a flow chart of how Siddon's 
 The forward projector was implemented fairly straightforward where each x-ray originates from the x-ray source point and travels to the pixel center of each detector element.  The object voxel contribution to the ray was calculated using equation \ref{eq:siddon_path}.  The treatment for the backward projector is very similar to the forward projector, with exception to an added atomicAdd() function in CUDA.  In the forward projection, each voxel index is calculated from the ray intersections, and the voxel value added to each ray is independent of other rays (i.e. Each thread as read-only access to each voxel element and can be added to each ray thread).  However in backward projection, the voxel element needs read and write access since different ray needs access to the same voxel at different times and the voxel thread needs to read the value at that thread and then write to it.  This requires an additional step of using atomicAdd() function.  For further information about atomicAdd() please refer to the CUDA toolkit documentation \cite{Cudatoolkit}.  
 
 \subsection{Sensitivity calculation}
-The sensitivity used in the MLEM algorithm represents the contribution of all detector values onto the object voxel.  This was calculated by setting all detector value at one CT angle to a constant number, 1.  The the sensitivity volume was calculated by back filling the object value using the back projector described in the above section.  Note that the sensitivity changes depending on the geometry of the CT system, number of object volume and number of detector pixels.  As a result, the sensitivity is always computed in the beginning of each reconstruction event.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.
-
-Figure \ref{fig:reconstructedimage} shows the center slice of a reconstructed object after X iterations.
 
 \begin{figure}
 \centering
-\placeholderimage[width=5cm, height=5cm]{reconstructedimage.png}
-\label{fig:reconstructedimage}
-\caption{Center slice of reconstructed object after x iterations}
+\placeholderimage[width=5cm, height=5cm]{sensitivityslices.png}
+\label{fig:sensitivityslices}
+\caption{Sensitivity slices using a set of CT parameters, provide a table for the CT parameters}
 \end{figure}
+
+The sensitivity used in the MLEM algorithm represents the contribution of all detector values on the object voxel.  This was calculated by first setting all detector values to one, then back filling the object values using the back projector for all scanned angles.  Note that the sensitivity changes depending on the geometry of the CT system, number of object volume, number of detector pixels, and scan routine.  As a result, the sensitivity is always computed in the beginning of each reconstruction event.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.  Figure \ref{fig:sensitivityslices} shows a few slices through the sensitivity volume using a set of CT parameters.
+Figure \ref{fig:reconstructedimage} shows the center slice of a reconstructed object after X iterations.
+
+\subsection{Reconstruction results}
+The prototype CT system has a XXX field of view, the x-ray magnification can be manually changed along with its optical magnification.  
+\comment{
+how to show the x-ray magnification, optical magnification as a function of FOV
+}
+\begin{figure}
+\centering
+placeholderimage[width=5cm, height=5cm]{reconstructedimage.png}
+\label{fig:reconstructedimage}
+\caption{reconstructed image slice after X iteration}
+\end{figure}
+\comment{show reconstruction image for maximum and minimum FOV?}
 
 \subsection{Current algorithm limitations and assumptions}
 Here are our assumptions and limitations in the algorithm we've implemented:
@@ -201,7 +235,7 @@ Here are our assumptions and limitations in the algorithm we've implemented:
 
 \comment{
 in the appendix explain the functions that are included in the algorithm\\
-explain how to checkout the repository \\
+explain how to checkout the repository (nvm)\\
 how to use the parameter file \\
 what are the outputs of each function (recon, forward, backward)
 }

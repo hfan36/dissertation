@@ -1026,6 +1026,18 @@
   timestamp = {2014.02.25}
 }
 
+@ARTICLE{Siddon1985,
+  author = {Siddon, R. L.},
+  title = {{F}ast calculation of the exact radiological path for a three-dimensional
+	CT array},
+  journal = {Med. Phys.},
+  year = {1985},
+  volume = {12(2)},
+  pages = {252-255},
+  owner = {Fan},
+  timestamp = {2014.08.21}
+}
+
 @ARTICLE{Siewerdson2002,
   author = {J. H. Siewerdson and I. A. Cunningham and D. A. Jaffray},
   title = {{A} framework for noise-power spectrum analysis of multidimensional
@@ -1279,10 +1291,28 @@
   timestamp = {2014.03.28}
 }
 
+@BOOK{EmissionTom2004,
+  title = {{E}mission {T}omography - {T}he {F}undamentals of {PET} and {SPECT}},
+  publisher = {{E}lsevier {A}cademic {P}ress},
+  year = {2004},
+  editor = {Wernick, M. N and Aarsvold, J. N.},
+  owner = {Fan},
+  timestamp = {2014.08.21}
+}
+
 @ELECTRONIC{clarkvision,
   url = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
   owner = {Fan},
   timestamp = {2014.03.06}
+}
+
+@MANUAL{Cudatoolkit,
+  title = {CUDA toolkit documentation},
+  organization = {NVIDIA},
+  address = {docs.nvidia.com/cuda/index.html},
+  edition = {5.5},
+  owner = {Fan},
+  timestamp = {2014.08.25}
 }
 
 @ELECTRONIC{microlensfig,
