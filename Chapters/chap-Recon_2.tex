@@ -72,7 +72,7 @@ this last bit where a ``simplier'' MLEM equation is given might not be important
 }
 
 \section{CT model and projector calculation}
-Pencil beam model was used for both the forward and backward projection, where we assumed that each x-ray beam is launched from an infinitely small x-ray point source. This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel for each ray is calculated according to Siddon's algorithm \cite{Siddon1985}.  
+The pencil beam model was used for both the forward and backward projection, where we assumed that each x-ray beam is launched from an infinitely small x-ray point source. This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from each voxel for each ray is calculated according to Siddon's algorithm \cite{Siddon1985}.  This model does not account for any scatter in the x-ray, it also assumes that the x-ray beam is monochromatic.
 
 In the forward projector, the final value at the each of the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  In the backward projector, the order is reversed. We take the value at the detector element trace a ray backward through the object volume to the x-ray source.  For every voxel pierced by that ray, we calculate the length of the ray passed through the voxel and multiply it by the detector element.  This was repeated for all x-rays, i.e. all detector values.  Figure \ref{fig:forward_backward_model} demonstrates how the forward and backward projection works.
 
@@ -115,7 +115,7 @@ where $d_x$, $d_y$, and $d_z$ are the distances between the $x$, $y$, and $z$ pl
 \label{eq:siddon_alpha_extremes}
 \end{equation}
 
-If the denominator $(X_2 - X_1), (Y_2-Y_1), or (Z_2 - Z_1)$ is equal to zero, then the ray is parallel to that plane, and the corresponding $\alpha_x$, $\alpha_y$, or $alpha_z$ will be undefined and excluded from the calculation.  Once the values from equation \ref{eq:siddon_alpha_extremes} is calculated, two parametric value that can be used to indicate the initial and final intersection of the ray with the object volume is given by 
+If the denominator $(X_2 - X_1)$, $(Y_2-Y_1)$, or $(Z_2 - Z_1)$ is equal to zero, then the ray is parallel to that plane, and the corresponding $\alpha_x$, $\alpha_y$, or $\alpha_z$ will be undefined and excluded from the calculation.  Once the values from equation \ref{eq:siddon_alpha_extremes} is calculated, two parametric value that can be used to indicate the initial and final intersection of the ray with the object volume is given by 
 
 \begin{equation}
 \begin{aligned}
@@ -196,7 +196,7 @@ Figure \ref{fig:siddon_algorithm_flow_chart} shows a flow chart of how Siddon's 
 
 \subsection{Forward and backward projector calculation}
 
-The forward projector was implemented fairly straightforward where each x-ray originates from the x-ray source point and travels to the pixel center of each detector element.  The object voxel contribution to the ray was calculated using equation \ref{eq:siddon_path}.  The treatment for the backward projector is very similar to the forward projector, with exception to an added atomicAdd() function in CUDA.  In the forward projection, each voxel index is calculated from the ray intersections, and the voxel value added to each ray is independent of other rays (i.e. Each thread as read-only access to each voxel element and can be added to each ray thread).  However in backward projection, the voxel element needs read and write access since different ray needs access to the same voxel at different times and the voxel thread needs to read the value at that thread and then write to it.  This requires an additional step of using atomicAdd() function.  For further information about atomicAdd() please refer to the CUDA toolkit documentation \cite{Cudatoolkit}.  
+The forward projector was implemented where each x-ray originates from the x-ray source point and travels to the pixel center of each detector element.  The object voxel contribution to the ray was calculated using equation \ref{eq:siddon_path}.  The treatment for the backward projector is very similar to the forward projector, with exception to an added atomicAdd() function in CUDA.  In the forward projection, each voxel index is calculated from the ray intersections, and the voxel value added to each ray is independent of other rays (i.e. Each thread as read-only access to each voxel element and can be added to each ray thread).  However in backward projection, the voxel element needs read and write access since different ray needs access to the same voxel at different times and the voxel thread needs to read the value at that thread and then write to it.  This requires an additional step of using atomicAdd() function.  For further information about atomicAdd() please refer to the CUDA toolkit documentation \cite{Cudatoolkit}.  
 
 \subsection{Sensitivity calculation}
 
