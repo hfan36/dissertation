@@ -1,10 +1,11 @@
 \chapter{CT Reconstruction}
-The essential goal any reconstruction is to use the information gathered to find out what the object looks like.  In the case of CT, we use the information gathered on the detector over angle to reconstruct the x-ray attenuation coefficient of the object.  CT system as evolved tremendously over the years and reconstruction algorithm has also evolved dramatically to support the types of systems. Over the years, reconstruction techniques has evolved with two general approaches to reconstruction, analytical and iterative.  In this chapter we attempt to give a brief overview of these general techniques used for CT reconstruction, then we will explain the method that was used for our system.
+The essential goal any reconstruction is to use the information gathered to find out what the object looks like.  In the case of CT, we use the information gathered on the detector over a range of angles to reconstruct the x-ray attenuation coefficient of the object.  CT system as evolved tremendously over the years and reconstruction algorithm has also evolved dramatically to support the types of systems. Over the years, reconstruction techniques has evolved using two general approaches to reconstruction, analytical and iterative method.  In this chapter we attempt to give a brief overview of these general techniques used for CT reconstruction in the first section, then we will explain the method that was used for our system.
 
 \subsection{Analytical Reconstruction Techniques}
-In general, analytical reconstruction approaches try to formulate the solution in a closed-form equation.  The foundation of analytical reconstruction methods is the Radon transform, which relates a function $f(x,y)$ to the collection of line integrals of that function $L(\rho)$.  Shown in equation X. 
+In general, analytical reconstruction approach tries to formulate the solution in a closed-form equation.  The foundation of analytical reconstruction methods is the Radon transform, which relates a function $f(\mathbf{r})$ to the collection of line integrals of that function $\lambda(p, \phi)$.  Shown in equation \ref{eq:radon}, where the equation of the line is $\mathbf{r \cdot \hat{n}} = p$, $\mathbf{\hat{n}}$ is a unit vector making an angle $\phi$ to the x-axis, show on figure X.
 
 \begin{equation}
+\lambda(p, \phi) = \int_\infty d^2r \; f(\mathbf{r}) \delta(p- \mathbf{r} \cdot \mathbf{\hat{n}}).
 \label{eq:radon}
 \end{equation}
 
@@ -77,15 +78,12 @@ The pencil beam model was used for both the forward and backward projection, whe
 In the forward projector, the final value at the each of the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  In the backward projector, the order is reversed. We take the value at the detector element trace a ray backward through the object volume to the x-ray source.  For every voxel pierced by that ray, we calculate the length of the ray passed through the voxel and multiply it by the detector element.  This was repeated for all x-rays, i.e. all detector values.  Figure \ref{fig:forward_backward_model} demonstrates how the forward and backward projection works.
 
 \begin{figure}
-\centering
-	\begin{subfigure}[b]{0.4\linewidth}
-	\centering
-	\placeholderimage[width=6cm,height=6cm]{forwardmodel.png}
+	\begin{subfigure}[b]{0.35\linewidth}
+	\includegraphics[scale=0.8]{siddon_projection2D_small.eps}
 	\end{subfigure}
 \hspace{0.2cm}
-	\begin{subfigure}[b]{0.4\linewidth}
-	\centering
-	\placeholderimage[width=6cm,height=6cm]{backwardmodel.png}
+	\begin{subfigure}[b]{0.35\linewidth}
+	\includegraphics[scale=0.8]{siddon_proj_planes.eps}
 	\end{subfigure}
 \caption{How the forward and backward model works}
 \label{fig:forward_backward_model}
