@@ -1,13 +1,25 @@
 \chapter{CT Reconstruction}
 The essential goal any reconstruction is to use the information gathered to find out what the object looks like.  In the case of CT, we use the information gathered on the detector over a range of angles to reconstruct the x-ray attenuation coefficient of the object.  CT system as evolved tremendously over the years and reconstruction algorithm has also evolved dramatically to support the types of systems. Over the years, reconstruction techniques has evolved using two general approaches to reconstruction, analytical and iterative method.  In this chapter we attempt to give a brief overview of these general techniques used for CT reconstruction in the first section, then we will explain the method that was used for our system.
 
+\subsection{scan geometry}
+\comment{
+talk about different types of scan problems, and their advantages and disadvantages}
+
+
 \subsection{Analytical Reconstruction Techniques}
-In general, analytical reconstruction approach tries to formulate the solution in a closed-form equation.  The foundation of analytical reconstruction methods is the Radon transform, which relates a function $f(\mathbf{r})$ to the collection of line integrals of that function $\lambda(p, \phi)$.  Shown in equation \ref{eq:radon}, where the equation of the line is $\mathbf{r \cdot \hat{n}} = p$, $\mathbf{\hat{n}}$ is a unit vector making an angle $\phi$ to the x-axis, show on figure X.
+In general, analytical reconstruction approach tries to formulate the solution in a closed-form equation.  The foundation of analytical reconstruction methods is the Radon transform, which relates a function $f(\mathbf{r})$ to the collection of line integrals of that function $\lambda(p, \phi)$.  Shown in equation \ref{eq:radon}, where the equation of the line is $\mathbf{r \cdot \hat{n}} = p$, $\mathbf{\hat{n}}$ is a unit vector making an angle $\phi$ to the x-axis, show on figure \ref{fig:RadonTransform}
 
 \begin{equation}
 \lambda(p, \phi) = \int_\infty d^2r \; f(\mathbf{r}) \delta(p- \mathbf{r} \cdot \mathbf{\hat{n}}).
 \label{eq:radon}
 \end{equation}
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Radon_transform.eps}
+\caption{2D Radon transfrom }
+\label{fig:RadonTransform}
+\end{figure}
 
 \subsection{Approximate analytic reconstruction techniques}
 Since the first clinical CT scanner that was installed 1971 up until 1990, most clinical CT scanners employ the fan-beam geometry with axial rotation.  The dominant mode of image reconstruction for these CT scanners were the fan-beam axial filtered back-projection algorithm in order to solve for the object function (slice).  Essentially the projection data on the detector at each angle goes through a Fourier transform, filtered in the spatial frequency domain then back-projected onto each slice to reconstruct the original object slice.  In 1989 the first spiral CT scanner was installed with the clinical desire to cover an entire human organ, and ever since then, the spiral geometry became the main configuration for all clinical CT scanners.  The introduction of spiral CT forced the development of helical FBP algorithm and later with the introduction of multi-slice and cone-beam CT, the helical FBP is replaced by the cone-beam FBP, commonly known as the FDK algorithm \citep{Feldkamp1984}.  The helical and cone-beam FBP are adaptations of the 2D FBP to a cone-beam geometry.  Since they do not conform to the Radon transform assumptions, therefore the projection data requires rebinning and interpolation prior to FBP reconstruction
@@ -21,7 +33,7 @@ Iterative reconstruction techniques try to solve for the object using projection
 
 \begin{figure}
 \centering
-\placeholderimage[width=6cm,height=6cm]{generalIR.png}
+\includegraphics[width = 10cm]{iterative_recon_process.png}
 \caption{general process of iterative algorithm, Beister paper}
 \label{fig:generalIR}
 \end{figure}
@@ -35,15 +47,15 @@ Statistical iterative reconstruction techniques has been used extensively in sin
 Unlike analytical reconstruction where numerous physical assumptions were used to make the mathematics manageable.  For example, the size of the x-ray focal spot is assumed to be infinitely small, the shape and dimension of each detector cell are ignored, and all x-ray photon interactions are assumed to take place at a point located at the geometric center of the detector cell.  Iterative reconstruction requires no prior assumptions about the geometry of the system.  Iterative reconstruction allows for better modeling of the image forming process and can account for any physical process limited by the computational power of the current computer.  For example, a commonly used model is to cast multiple pencil rays through the x-ray focal spot, image voxel, and the detector pixel to mimic different x-ray photon paths going through the object and the summation of the rays on each detector are used to approximate the CT image forming system. Needless to say, this method is extremely time consuming.  Another commonly used approach is to model the "shadow" cast by each image voxel onto the detector and rely on the point-response function to model the forward projection process of the CT system, where the response function is non-stationary and changes with the voxel location to account for different magnifications and orientations.  Comparatively, this method is computationally more efficient.  Shown in figure \ref{fig:physical_modeling}.
 
 \begin{figure}
-\centering
+
 	\begin{subfigure}[b]{0.4\linewidth}
-	\centering
-	\placeholderimage[width=6cm,height=6cm]{pencilbeammodel.png}
+
+	\includegraphics[width = 7cm]{pencil_beam_model.png}	
 	\end{subfigure}
 \hspace{0.2cm}
 	\begin{subfigure}[b]{0.4\linewidth}
-	\centering
-	\placeholderimage[width=6cm,height=6cm]{psfmodel.png}
+
+	\includegraphics[width = 7cm]{psf_model.png}
 	\end{subfigure}
 \caption{examples of physical modeling in Hsieh's paper}
 \label{fig:physical_modeling}
@@ -78,13 +90,8 @@ The pencil beam model was used for both the forward and backward projection, whe
 In the forward projector, the final value at the each of the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel.  In the backward projector, the order is reversed. We take the value at the detector element trace a ray backward through the object volume to the x-ray source.  For every voxel pierced by that ray, we calculate the length of the ray passed through the voxel and multiply it by the detector element.  This was repeated for all x-rays, i.e. all detector values.  Figure \ref{fig:forward_backward_model} demonstrates how the forward and backward projection works.
 
 \begin{figure}
-	\begin{subfigure}[b]{0.35\linewidth}
-	\includegraphics[scale=0.8]{siddon_projection2D_small.eps}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.35\linewidth}
-	\includegraphics[scale=0.8]{siddon_proj_planes.eps}
-	\end{subfigure}
+\centering
+\includegraphics[scale=0.8]{siddon_proj_planes.eps}
 \caption{How the forward and backward model works}
 \label{fig:forward_backward_model}
 \end{figure}
@@ -154,6 +161,16 @@ d_{12} = \left[ (X_2 - X_1)^2 + (Y_2 - Y_1)^2 + (Z_2 - Z_1)^2 \right]^{1/2}.
 \label{eq:siddon_d12}
 \end{equation}
 
+Figuer X shows a more detailed view of the variables in Siddon's algorithm for a 2D plane.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=1.5]{siddon_proj_planes_detail.eps}
+\label{fig:siddon_plane_detail}
+\caption{a detailed view of the variables in Siddon's algorithm for a 2D plane}
+\end{figure}
+
 This process is normally calculated once per ray and would require a simple sorting algorithm that can be provided by either MatLab or C++, and the rays can then be calculated using a standard \textit{for} loop.  However since each ray corresponds to one detector element, and we can utilize the GPU's parallel computation ability to trace all rays simultaneously by assigning each CUDA thread to a single ray.  This can be accomplished by closely following the Siddon's algorithm up until equation \ref{eq:siddon_ijkminmax}.  However since each ray is traced simultaneously, we cannot calculate and sort the set ${\alpha}$ for each ray, instead we have opted to calculate and sort the set ${\alpha}$ on-the-fly where the parametric values ${\alpha_x}$, ${\alpha_y}$, and ${\alpha_z}$ for each ray are calculated on the GPU device memory starting with $\alpha_x(1)$, $\alpha_y(1)$, $\alpha_z(1)$, as  each of the following values ${\alpha_x(i), \alpha_y(j), \alpha_z(k)}$ are calculated for each ray, only the minimum of the three values is used to calculate the ray progression.  As a result, the set ${\alpha}$ is not computed all at once, but rather computed and sorted on-the-fly where only the most current of the two sets, $\alpha(m)$ and 
 $\alpha(m-1)$ are stored in device memory.  The number of index, i.e. the number of elements in the set ${\alpha}$ for each ray is given by 
 \begin{equation}
@@ -183,12 +200,11 @@ d &= \sum\limits_{m = 1}^{m = n} l(m) \rho\left[ i(m), j(m), k(m) \right] \\
 \label{eq:siddon_path}
 \end{equation}
 
-\begin{figure}
-\centering
-\placeholderimage[width=6cm,height=6cm]{siddon-algorithm-flowchart.png}
+\begin{sidewaysfigure}
+\includegraphics[scale=0.9]{siddon_flowchart.eps}
 \caption{A flow chart of Siddon's algorithm implementation on CUDA}
 \label{fig:siddon_algorithm_flow_chart}
-\end{figure}
+\end{sidewaysfigure}
 
 Figure \ref{fig:siddon_algorithm_flow_chart} shows a flow chart of how Siddon's algorithm is implemented in CUDA.
 
@@ -200,7 +216,7 @@ The forward projector was implemented where each x-ray originates from the x-ray
 
 \begin{figure}
 \centering
-\placeholderimage[width=5cm, height=5cm]{sensitivityslices.png}
+\includegraphics[scale=1]{siddon_flowchart_sensitivity.eps}
 \label{fig:sensitivityslices}
 \caption{Sensitivity slices using a set of CT parameters, provide a table for the CT parameters}
 \end{figure}
