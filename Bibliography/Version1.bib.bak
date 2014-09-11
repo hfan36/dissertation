@@ -1,6 +1,15 @@
 % This file was created with JabRef 2.9.2.
 % Encoding: Cp1252
 
+@TECHREPORT{aapm_headCT2012,
+  author = {{A}{A}{P}{M}},
+  title = {{A}dult {R}outine {H}ead {CT} {P}rotocols {V}ersion 1.1},
+  institution = {{A}merican {A}ssociation of {P}hysicist in {M}edicine},
+  year = {2012},
+  owner = {Fan},
+  timestamp = {2014.09.05}
+}
+
 @ARTICLE{Abbey2001,
   author = {Craig K. Abbey and Harrison H. Barrett},
   title = {{H}uman- and model-observer performance in ramp-spectrum noise: effects
@@ -15,6 +24,19 @@
   keywords = {model observer, observers,},
   owner = {Helen_Fan},
   timestamp = {2012.10.30}
+}
+
+@ARTICLE{Antonuk1990,
+  author = {Antonuk, L. E. and Boudry, J. and Yorkston, J. and Wild, C. F. and
+	Longo, M. J. and Street, R. A.},
+  title = {{R}adiation damage studies of amorphous-silicon photodiode sensors
+	for application in radiotherapy {X}-ray imaging},
+  journal = {Nuclear Instruments and Methods in Physics Research},
+  year = {1990},
+  volume = {A299},
+  pages = {143-146},
+  owner = {Fan},
+  timestamp = {2014.09.10}
 }
 
 @ARTICLE{Audet2006,
@@ -126,6 +148,27 @@
   timestamp = {2014.04.15}
 }
 
+@ARTICLE{Berzins1983,
+  author = {Berzins, G. J. and Lumpkins, A. H. and Smith, H. L},
+  title = {Characterization of fluorescent screen for imaging application with
+	{M}e{V} neutrons and photons},
+  journal = {Opt. Eng.},
+  year = {1983},
+  volume = {22},
+  pages = {633-642},
+  owner = {Fan},
+  timestamp = {2014.09.10}
+}
+
+@BOOK{blasse1994,
+  title = {{L}uminescent {M}aterials},
+  publisher = {{B}erlin: {S}pringer},
+  year = {1994},
+  author = {Blasse, G. and Grabmaier, B. C.},
+  owner = {Fan},
+  timestamp = {2014.09.10}
+}
+
 @ARTICLE{Bradford1999,
   author = {Bradford, C.D. and Peppler, W.W. and Dobbins III, J. T.},
   title = {Performance Characteristics of a Kodak Computed Radiography System},
@@ -159,6 +202,19 @@
   pages = {1592-1598},
   owner = {Fan},
   timestamp = {2014.04.16}
+}
+
+@ARTICLE{Cavouras2000,
+  author = {Cavouras, D. and Kandaraks, I. and Nomicos, C. D. and Bakas, A. and
+	Panayiotakis, G. S.},
+  title = {Measurement of the (Gd, La)_2O_2S:Tb Phsophor efficiency for x-ray
+	Imaging applications},
+  journal = {{R}adiation {M}easurements},
+  year = {2000},
+  volume = {32},
+  pages = {5-13},
+  owner = {Fan},
+  timestamp = {2014.09.09}
 }
 
 @ARTICLE{Cho2005,
@@ -374,6 +430,18 @@
   timestamp = {2012.10.29}
 }
 
+@ARTICLE{glendinning2001,
+  author = {Glendinning, A. G. and Hunt, S. G. and Bonnett, D. E},
+  title = {{M}easurement of the response of ${G}d_2{O}_2{S}:{T}b$ phosphor to
+	6 {MV} x-rays},
+  journal = {Phys Med Biol},
+  year = {2001},
+  volume = {46},
+  pages = {571-530},
+  owner = {Fan},
+  timestamp = {2014.09.10}
+}
+
 @ARTICLE{Goldman2008,
   author = {Lee W. Goldman},
   title = {{P}rinciple of {CT}: {M}ultislice {CT}},
@@ -585,6 +653,19 @@
   timestamp = {2012.10.29}
 }
 
+@ARTICLE{Kandarakis2001,
+  author = {Kandaraks, I. and Cavouras, D.},
+  title = {{E}xperimental and theoretical assessment of the Performance of ${G}d_2{O}_2{S}:{T}b$
+	and ${L}a_2{O}_2{S}:{T}b$ pphosphor and ${G}d_2{O}_2{S}:{T}b-{L}a_2{O}_2{S}:{T}b$
+	Mixtures for {X}-ray imaging},
+  journal = {Eur. Radiol.},
+  year = {2001},
+  volume = {11},
+  pages = {1083-1091},
+  owner = {Fan},
+  timestamp = {2014.09.09}
+}
+
 @ARTICLE{Karabulut2006,
   author = {Nevzat Karabulut and Macit Ariy{\"u}rek},
   title = {{L}ow dose {CT}: practices and strategies of radiologists in university
@@ -735,6 +816,18 @@
   timestamp = {2014.04.16}
 }
 
+@ARTICLE{ludwig1972,
+  author = {Ludwig, G. W. and Prener, J. S.},
+  title = {Evaluation of Gd_2O_2S:Tb as a phosphor for the input screen of x-ray
+	Image intensifier},
+  journal = {Nuclear Science, IEEE Transactions},
+  year = {1972},
+  volume = {19(4)},
+  pages = {3-8},
+  owner = {Fan},
+  timestamp = {2014.09.09}
+}
+
 @ARTICLE{Mettler2008,
   author = {Mettler, Jr, Fred A. and Walter Huda and Terry T. Yoshizumi and Mahadevappa
 	Mahesh},
@@ -758,6 +851,18 @@
   file = {:C\:\\Users\\Helen_Fan\\Documents\\PhD proposal\\MooreDissertationMain.pdf:PDF},
   owner = {Helen_Fan},
   timestamp = {2012.11.13}
+}
+
+@ARTICLE{Moy1993,
+  author = {Moy, J. P. and Koch, A. and Nielsen, M. B.},
+  title = {{C}onversion efficiency and time response of phosphors for fast {X}-ray
+	imaging with synchrotron radiation},
+  journal = {Nucl. Instrum. Methods A},
+  year = {1993},
+  volume = {326},
+  pages = {581-586},
+  owner = {Fan},
+  timestamp = {2014.09.10}
 }
 
 @ARTICLE{Nikl2006,
@@ -1026,6 +1131,17 @@
   timestamp = {2014.02.25}
 }
 
+@ARTICLE{shepherd1995,
+  author = {Shepherd, J. A. and Gruner, S. M. and Tate, M. W. and Tecotzky, M},
+  title = {{A} study of persistence in gadolinium oxysulphide x-ray phosphors},
+  journal = {Proc. SPIE},
+  year = {1995},
+  volume = {2519},
+  pages = {24-30},
+  owner = {Fan},
+  timestamp = {2014.09.10}
+}
+
 @ARTICLE{Siddon1985,
   author = {Siddon, R. L.},
   title = {{F}ast calculation of the exact radiological path for a three-dimensional
@@ -1130,6 +1246,30 @@
   timestamp = {2014.02.25}
 }
 
+@ARTICLE{swank1974,
+  author = {Swank, R. K.},
+  title = {{M}easurement of absoprtion and noise in an x-ray image intensifier},
+  journal = {J. Appl. Phys.},
+  year = {1974},
+  volume = {45},
+  pages = {3673-3678},
+  owner = {Fan},
+  timestamp = {2014.09.10}
+}
+
+@ARTICLE{swank1973,
+  author = {Swank, R. K.},
+  title = {{A}bsorption and noise in x-ray phosphors},
+  journal = {J. Appl. Phys.},
+  year = {1973},
+  volume = {44},
+  pages = {41994203},
+  number = {9},
+  month = {September},
+  owner = {Fan},
+  timestamp = {2014.09.10}
+}
+
 @ARTICLE{Tang2006,
   author = {Tang, X and Hsieh, J. Nilsen R. A. and et al},
   title = {A threedialgorithm weighted cone beam filtered backprojection (CB-FBP)
@@ -1140,6 +1280,18 @@
   number = {855-874},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
+}
+
+@ARTICLE{trevisan2014,
+  author = {Trevisan, D. and Ravanelli, D. and Valentini, A.},
+  title = {{M}easurement of {C}omputed {T}omography {D}ose {I}ndex for clinical
+	scans},
+  journal = {{R}adiation {P}rotection {D}osimetry},
+  year = {2014},
+  volume = {158},
+  pages = {389-398},
+  owner = {Fan},
+  timestamp = {2014.09.09}
 }
 
 @TECHREPORT{UNSCEAR2010,
@@ -1320,6 +1472,11 @@
   url = {http://www.photomask.com/products/on-chip-color-filters},
   owner = {Fan},
   timestamp = {2014.03.06}
+}
+
+@ARTICLE{,
+  owner = {Fan},
+  timestamp = {2014.09.10}
 }
 
 @STANDARD{NEMA2010,
