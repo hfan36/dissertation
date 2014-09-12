@@ -38,9 +38,107 @@ $Gd_2O_2S:Tb$ is not susceptible to long-term radiation damage \cite{Antonuk1990
 
 Swank reported a value for 0.4 ms for the decay time in measurements using Am-241 (59.6 keV gamma rays) \cite{Swank1974}
 
+The intensifying screens work by absorbing x-ray photon and emit lower energy photons usually in the visible range.  It was originally used to expose film that would be sandwiched between two intensifying screens where the lower energy photons were used to expose the film in order to produce x-ray images.  The amount of x-ray photons it can absorb depends on the amount of heavy metal ions in the screen that serves to stop the x-ray photon.  As a result, the absorption depends on the atomic number, Z, value of the ion, and the amount, or density of these particles.  A cross section of a typical screen is shown in \ref{fig:phosphor_cross_secion}.  The support layer is usually made out of a stiff material like plastic that prevents the screen from bending that would made the phosphor layer flake off.  After the plastic outer layer, there is another polyester support layer that may contain material that would either reflect light in order to expose the film better, or it may contain an absorber in order to reduce the light spread and to improve spatial resolution of the screen-film combo.  It also serves as a substrate for the phosphor layer.    The phosphor layer typically range from 70 to 280 microns, and is held together by a bonding agent.  The phosphor layer is covered by a clear overcoat to prevent damage to the phosphor layer.  The protective cover is typically 15 microns.  \cite{Barrett1981}
+
+The photoelectric effect is the most dominant mode of interaction between the x-ray and the screen, where part of the primary energy of the x-ray is given up in ionizing the $K$ or $L$ shell of the absorbing atom.  The excess energy is used up as kinetic energy for the photoelectron.  When the excited ion decays, it will emit fluorescent x radiation, which may or may not be reabsorbed in the screen, or by the emission of Auger electrons.  The efficiency of the conversion process between number of x-ray photons to the number of fluorescent photon can be described by the optical gain factor $m$, which is defined by equation \ref{eq:optical_gain}.
+
+\begin{equation}
+m = \frac{\textrm{number of optical photons liberated}}{\textrm{number of absorbed primary x-ray photons}}
+\label{eq:optical_gain}
+\end{equation}
+
+The factor that effects the number of x-ray absorbed by the screen is the stopping power $\eta_1$:
+\begin{equation}
+\eta_1 = \frac{\textrm{number of x-ray photons absorbed by screen}}{\textrm{number of x-ray photons incident on screen}}
+\label{eq:stopping_power}
+\end{equation}
+
+The absorption of x-ray is determined by the mass absorption coefficient of the phosphor, the spectral density of the incident x-ray, and the coating weight of the phosphor.  Shown in equation \ref{eq:optical_efficiency},
+
+\begin{equation}
+\eta_1 = \frac{\int\limits_0^\infty \; \left[ 1 - \textrm{exp} \{ -W(\mu(E) / \rho ) \} \right] \Phi_E (E) dE }{\int\limits_0^\infty \Phi_E(E) dE}
+\label{eq:optical_efficiency}
+\end{equation}
+where $\mu(E)/\rho$ is the mass absorption coefficient of the phosphor, $\Phi_E(E)$ is the spectral density of the incident x-ray, and $W$ is the coating weight of the phosphor.  The coating weight $W$ is related to the screen thickness $d_1$ by $W = d_1 \rho f$, where $\rho$ is the density of the phosphor material, $f$ is the packing fraction.  As one can see, the optical gain of the screen can be increased by having a thick enough screen.  However thick screen is the most important parameter that controls the resolution.  Another important parameter that determines the efficiency of the screen is to make sure the $K$-absorption edge lying within the source spectrum.  Figure \ref{fig:absorptioncoeff} shows the x-ray absorption coefficient of some commonly used phosphor material, note the $K$-edge absorption of each of the materials.  Absorption is most likely to occur in elements with higher atomic numbers and when the x-ray photon energy and the binding energy of the $K$-shell electrons are similar.  Diagnostic radiology is usually performed between 60-130 kVp, which equal to an effective energy between 20-60 keV.  Table \ref{tab:binding_energy} shows the binding energy of K-shell electrons for various phosphor materials.
+
+\begin{table}
+
+\begin{tabular}{| l | l |}
+\hline
+Main screen material & binding energy (keV) \\
+\hline
+Ag & 25 \\
+\hline
+Br & 13 \\
+\hline
+$CaWO_4$ & 69.5 \\
+\hline
+Lanthanum & 38.9 \\
+\hline
+Gadolinium & 50.2 \\
+\hline
+Barium & 37.0 \\
+\hline
+Yttrium & 17.0 \\
+\hline
+\end{tabular}
+\caption{K-electron binding energies of various phosphor materials}
+\label{tab:binding_energy}
+\end{table}
+
+When purchasing screen, often the speed of the intensifying screen is given.  This is governed by the grain size in the phosphor.  Larger phosphor grain sizes provide greater fluorescent emission, smaller grain sizes give off less light, which requires larger amount of radiation to match the amount of light of larger grains.  However smaller crystals give better resolution compared with larger grain sizes.  To compromise between grain sizes and feature detail, we can use the fact that absorption increases sharply if the input x-ray spectrum and the $K$-edge of the absorbing material are closely matched. 
+
+In the lens-coupled x-ray detector system, we are using the camera detector in place of the x-ray film.  So we must also match the spectral response of the camera detector with the emission spectra of the phosphor materials.  The most common phosphor materials are $CaWO_4$, $Gd_2O_2S:Tb$ and $La_2O_2S:Tb$.  Calcium tungstate, $CaWO_4$ was discovered in 1896, and is one of the oldest substance used for x-ray phosphor material.  It emits a continuous spectrum of blue light which the x-ray film emulsion is mostly sensitive to.  Another group of screens is referred to as rare earth screens, which includes lanthanum and gadolinium.  Lanthanum emits a greenish blue color while gadolinium emits in the green wavelength.  For more information about screen and their manufactures, please refer to reference \cite{barrett1981}.
+
+\begin{figure}
+\centering
+	\placeholderimage[width=4cm,height=4cm]{phosphorcrosssection.png}
+\caption{a cross section of the phosphor screen}
+\label{fig:phosphor_cross_secion}	
+\end{figure}
+
+\begin{figure}
+\centering
+\placeholderimage[width=4cm, height=4cm]{absorptioncoefficient.png}
+\caption{x ray absorption coefficient for commonly used phosphor materials}
+\label{fig:absorptioncoeff}
+\end{figure}
+
+
 \subsection{detector selection}
+advantage of the lens coupled detector is that it can have large field of view and low-cost with large number of pixels.
+
+We want to find a camera with large sensor size and large pixel sizes with spectral response matching the emission spectrum of the phosphor material.  Currently in the consumer world, we are looking at the full frame DSLR cameras.  Ideally we want to find the camera with the largest pixels in order to collect maximum light per pixel.
+
+\comment{
+insert a list of DSLR camera and their pixel sizes}
+
+Another type of x-ray detector is direct x-ray detection.  Current amorphous selenium (a-Se) photoconductor based flat panel x-ray detector are being employed at various x-ray imaging applications.  In here, a-Se is used to absorb the radiation incident and convert the x-ray photon to a charge that is collected on the pixel electrode and readout and converted to digital signal.  The electron-hole pairs generated inside the photoconductor drift under an applied field.  The charge generated is collected by an capacitor inside each pixel.
+a-Se can be readily prepared as a thick film or in large sizes by straightforward thermal evaporation.  The performance of x-ray photoconductor is mainly limited by its x-ray sensitivity, noise, and image lag.  x-ray sensitivity refers mostly to the photoconductor's material.  Usually a high atomic number Z will have a higher probability to interact with x-ray, hence higher x-ray sensitivity.  Another factor that effects x-ray sensitivity is referred to as $W$-value, which is proportional to the bandgap energy.  $W$-value is defined as the average energy required to create a single electron-hole pair.  Ideally a extremely sensitive photoconductor should have the low $W$-value.  However low $W$-value can also contribute to high thermal noise, so there is a trade off between x-ray sensitivity and noise.  Finally image lag and ghosting in photoconductors is caused by incomplete charge collection and large fluctuations due to the trapping and detrapping of charge carriers by various traps or defects in the bandgap.  These can be avoided or reduced by making sure the mean drift length of the generated charge carriers greater than the thickness of the photoconductors.\cite{Kim2008} \cite{kasap2006} \cite{belev2004}.  Figure \ref{fig:photoconductor_cross_section} shows photoconductor.  Hologic, is a leading manufacturer using a-Se technology for mammography equipment.
+Due to its low Z, a-Se is not well suited to higher energy applications (~100 kVp and higher) so its mostly used in mammography systems.  \cite{Yorkston2007}.
+Being photoconductors, they relying e-h diffusion rather than optical photon diffusion, which means they do not have adequate time to diffuse laterally from their creation before being collected.  As a result, they can achieve much higher resolution.  The devices based on a-Se can provide spatial resolution that is close to the theoretical maximum predicted by a perfect Rect function response from the pixel \cite{hunt5030}.  
 
 
+\begin{figure}
+\centering
+\placeholderimage[width=4cm, height = 4cm]{photoconductor.png}
+\caption{a cross section of a photoconductor, use figure 1 from Kasap2006 paper}
+\label{fig:photoconductor_cross_section}
+\end{figure}
+
+
+Another type of x-ray detection technology is using hydrogenated amorphous silicon photodiode array($a$-Si:H) that serves as secondary quantum detectors that uses scintillators as the first stage x-ray converter.  Each photodiode is reverse biased and signal charges are accumulated and stored during the scanning cycle.  During readout, the charges collected at each pixel is readout on a row-by-row basis through each data line, amplified and converted into voltage signals.  The voltage signals are then converted into digital signal via an analog-to-digital converter(ADC).  The advantage of using this technology is that the fabrication is based on the a-Si:H process because a-Si:H can be deposited over a large area glass substrate.  The flat-panel detectors that uses this technology typically uses CsI:TI scintillators which can be deposited onto the photodiode as either a powder or grown as a columnar crystal.  Ge FPD is a leading developer using a-SI:H technology.  Fujifilm also has a FPD using this technology. \cite{Kim2008}.
+
+
+Although both technology are used in industry with great performance.  A way to lower the cost for x-ray imaging is by using a lens-coupled camera system to image the primary x-ray converted image onto a smaller detector.  Like the sensor in consumer DSLR cameras where we propose earlier.
+
+Modern digital radiography systems can be divided into two general group with two different readout process.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter and requires a separate mechanical readout process to acquire the image.  These systems are commonly known as computed tomography (CR).
+
+Most x-ray detectors are composed of two main components.  The first component is the x-ray converters that converts the x-ray photons into secondary quanta.  The second component is a detector that measures the output of the first component.  
+
+\subsection{lens selection}
+\comment{
+insert a list of lenses and their focal lengths}
 
 \section{Measurements}
 
