@@ -113,28 +113,12 @@ We want to find a camera with large sensor size and large pixel sizes with spect
 \comment{
 insert a list of DSLR camera and their pixel sizes}
 
-Another type of x-ray detector is direct x-ray detection.  Current amorphous selenium (a-Se) photoconductor based flat panel x-ray detector are being employed at various x-ray imaging applications.  In here, a-Se is used to absorb the radiation incident and convert the x-ray photon to a charge that is collected on the pixel electrode and readout and converted to digital signal.  The electron-hole pairs generated inside the photoconductor drift under an applied field.  The charge generated is collected by an capacitor inside each pixel.
-a-Se can be readily prepared as a thick film or in large sizes by straightforward thermal evaporation.  The performance of x-ray photoconductor is mainly limited by its x-ray sensitivity, noise, and image lag.  x-ray sensitivity refers mostly to the photoconductor's material.  Usually a high atomic number Z will have a higher probability to interact with x-ray, hence higher x-ray sensitivity.  Another factor that effects x-ray sensitivity is referred to as $W$-value, which is proportional to the bandgap energy.  $W$-value is defined as the average energy required to create a single electron-hole pair.  Ideally a extremely sensitive photoconductor should have the low $W$-value.  However low $W$-value can also contribute to high thermal noise, so there is a trade off between x-ray sensitivity and noise.  Finally image lag and ghosting in photoconductors is caused by incomplete charge collection and large fluctuations due to the trapping and detrapping of charge carriers by various traps or defects in the bandgap.  These can be avoided or reduced by making sure the mean drift length of the generated charge carriers greater than the thickness of the photoconductors.\cite{Kim2008} \cite{kasap2006} \cite{belev2004}.  Figure \ref{fig:photoconductor_cross_section} shows photoconductor.  Hologic, is a leading manufacturer using a-Se technology for mammography equipment.
-Due to its low Z, a-Se is not well suited to higher energy applications (~100 kVp and higher) so its mostly used in mammography systems.  \cite{Yorkston2007}.
-Being photoconductors, they relying e-h diffusion rather than optical photon diffusion, which means they do not have adequate time to diffuse laterally from their creation before being collected.  As a result, they can achieve much higher resolution.  The devices based on a-Se can provide spatial resolution that is close to the theoretical maximum predicted by a perfect Rect function response from the pixel \cite{hunt5030}.  
 
 
-\begin{figure}
-\centering
-\placeholderimage[width=4cm, height = 4cm]{photoconductor.png}
-\caption{a cross section of a photoconductor, use figure 1 from Kasap2006 paper}
-\label{fig:photoconductor_cross_section}
-\end{figure}
 
 
-Another type of x-ray detection technology is using hydrogenated amorphous silicon photodiode array($a$-Si:H) that serves as secondary quantum detectors that uses scintillators as the first stage x-ray converter.  Each photodiode is reverse biased and signal charges are accumulated and stored during the scanning cycle.  During readout, the charges collected at each pixel is readout on a row-by-row basis through each data line, amplified and converted into voltage signals.  The voltage signals are then converted into digital signal via an analog-to-digital converter(ADC).  The advantage of using this technology is that the fabrication is based on the a-Si:H process because a-Si:H can be deposited over a large area glass substrate.  The flat-panel detectors that uses this technology typically uses CsI:TI scintillators which can be deposited onto the photodiode as either a powder or grown as a columnar crystal.  Ge FPD is a leading developer using a-SI:H technology.  Fujifilm also has a FPD using this technology. \cite{Kim2008}.
-
-
-Although both technology are used in industry with great performance.  A way to lower the cost for x-ray imaging is by using a lens-coupled camera system to image the primary x-ray converted image onto a smaller detector.  Like the sensor in consumer DSLR cameras where we propose earlier.
-
-Modern digital radiography systems can be divided into two general group with two different readout process.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter and requires a separate mechanical readout process to acquire the image.  These systems are commonly known as computed tomography (CR).
-
-Most x-ray detectors are composed of two main components.  The first component is the x-ray converters that converts the x-ray photons into secondary quanta.  The second component is a detector that measures the output of the first component.  
+\comment{
+citing yorkston2007 review article too much?}
 
 \subsection{lens selection}
 \comment{
