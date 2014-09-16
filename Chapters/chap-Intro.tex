@@ -1,26 +1,21 @@
 \chapter{Introduction}
-Gives background information in x-ray detection. Maybe a description of how expensive things are? \\
-What's my project?\\
-	Build x-ray detection systems.\\
-	It's cheap and affordable.  The camera system offers high space-bandwidth product.  Space: each pixel is fairly large so it gathers more light at each pixel. Bandwidth: more pixels so the theoretical resolution is high, it can capture higher frequencies of the image.\\
-	Maybe I should say something about modern x-ray detectors, or DR systems.
-	
-	
-Need to:\\
-	1. research on the size of the detector pixels.\\
-	2. research on how many pixels modern DR system has\\
-\todo[inline]{3. research on the price of everything}
-\comment{this include software and hardware price. operation cost}
+\label{chap:intro}
 
-\comment{4. Section on history of x-ray detection?}
+Comment on how x-ray imaging is an important diagnostic tool in medical imaging.  
 
 \section{Review of X-ray Detectors}
 Modern digital radiography systems can be divided into two general group with two different readout process.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter and requires a separate mechanical readout process to acquire the image.  The separate readout process normally requires human intervention to transfer the storage phosphor cassette from the patient to the laser scanning station.  These systems are commonly known as computed tomography (CR).  CR systems have been commercially available for almost two decades.  CR systems are not the focus of this dissertation, for more formation, please refer to the review articles by Rowlands\cite{Rowlands2002} and Kato\cite{kato1994}, and the American Association of Physicists in Medicine (AAPM) Report N0. 93 for more details\cite{AAPM93}. The second group of radiography system is an integrated system where the x-ray is detected and readout by the same device without any human intervention.  These systems are the focus of the next section.
 
 \subsection{X-ray Converters}
-The integrated x-ray detectors are composed of two main components.  The first component is the x-ray converters that converts the x-ray photons into secondary quanta.  The second component is a detector that measures the output of the first component.
+The integrated x-ray detectors are composed of two main components.  The first component is the x-ray converters that converts the x-ray photons into secondary quanta.  The second component is a detector that measures the output of the first component.  Since x-ray are ionizing radiation, we want to expose the object, the human body, with as little radiation as is necessary in order to produce accurate diagnostic image.  Therefore it is extremely important for the x-ray converter to absorb as much incident x-ray photon as possible.  There are two general classes of x-ray converters, scintillators and photoconductors, shown in figure \ref{fig:x-ray_detector}.
 
-Since x-ray are ionizing radiation, we want to expose the object, the human body, with as little radiation as is necessary in order to produce accurate diagnostic image.  Therefore it is extremely important for the x-ray converter to absorb as much incident x-ray photon as possible.  There are two general classes of x-ray converters, scintillators and photoconductors. 
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{x-ray_detector.eps}
+\label{fig:x-ray_detector}
+\caption{two types of x-ray converters}
+\end{figure}
 
 Scintillators absorb x-ray photons and emit lower energy photons usually in the visible range.  In traditional film-screen cassette system, gadolinium oxy-sulphide ($\mathrm{Gd_2O_2S:Tb}$) were used on both side of an x-ray film and the light produced from the scintillator screen were used to expose the film to produce an image.  In these traditional screens, typically $\sim$ 1000-2000 light photons were produced per absorbed x-ray photon \cite{trauernicht1988}, \cite{trauernicht1990}. Newer types of scintillators such as columnar CsI(Tl) that are grown in needle-like structures allows the scintillators to be grown much thicker, hence increasing the amount of x-ray absorbed while maintaining the light spread in these compared to traditional powered phosphor screens.
 
@@ -39,12 +34,7 @@ X-ray detectors that uses scintillators requires the scintillator to be thick en
 
 \subsection{Secondary Quantum Detectors}
 The most prevalent secondary quantum detectors are based on hydrogenated amorphous silicon (a-Si:H).  The fabrication technique is called plasma enhanced chemical vapor deposition (PECVD) and its main commercial use is in the display market.  The fabrication process can routinely create devices on as large as the body parts being imaged, up to $\sim$43 $\times$ 43 $cm^2$.  This means that the detectors can have very high collection efficiency with $\sim$50 and up to as high as $\sim$90$\%$ collection efficiency \cite{yorkston2007}.
-Figure \ref{fig:a-Si:H array} shows a general layout of the pixels on a-Si:H array.  The sensing or storage element depends on the type of x-ray converter.  When using with a photoconductor, the storage element is a capacitor where it directly measures the electron-hole pairs that are created when x-ray are incident on the photoconductor.  When using a-Si:H with a scintillator, the storage element is a photodiode and it absorbs the light created by the scintillator after x-ray is absorbed and convert this light into electron-hole pairs.  As a result, a-Si:H with photodiodes are referred to as \textit{indirect} method because it directly measures the amount of electron-hole pairs created in the photoconductor by the a-Si:H pixel arrays.  a-Si:H with photonconductors are referred to as \textit{direct} method because the photodiode is used as an intermediate step to convert light from scintillor into electron-hole pairs.  In both approaches, the final measurement is electrical charge.  
-Once electrical charge are accumulated on the storage element, the pixels are read out in a line-by-line mode by changing the control voltage on individual switch control lines.  Then the individual pixels are read out through each data line.  The signal from each pixel is passed through peripheral readout electronics.  These readout electronics usually incorporates correlated double sampling and tries to eliminate 1/f noise and dc offset from the signal.  The signal also passes through a series of amplifiers and multiplexers and eventually an analog-to-digital converter (ADC) before it is transferred to memory.  
-
-The leading manufacturer that uses a-Se technology is Hologic, that focuses on mammography equipment, while the GE HealthCare is the leading medical equipment company that pioneered the development of flat panel detectors (FPD) with CsI:Tl scintillator.  Most x-ray imaging detectors out on the market are based on these two technologies.  
-
-Although both technology are used in the medical industry with great performance.  A way to lower the cost for x-ray imaging is by using a lens-coupled camera system to image the primary x-ray converted image onto a smaller detector.
+Figure \ref{fig:a-Si:H array} shows a general layout of the pixels on a-Si:H array.  
 
 \begin{figure}
 \includegraphics[scale=0.5]{si_array_kim.png}
@@ -52,9 +42,16 @@ Although both technology are used in the medical industry with great performance
 \caption{readout pixel array based on a-Si:H photodiode}
 \end{figure}
 
+The sensing or storage element depends on the type of x-ray converter.  When using with a photoconductor, the storage element is a capacitor where it directly measures the electron-hole pairs that are created when x-ray are incident on the photoconductor.  When using a-Si:H with a scintillator, the storage element is a photodiode and it absorbs the light created by the scintillator after x-ray is absorbed and convert this light into electron-hole pairs.  As a result, a-Si:H with photodiodes are referred to as \textit{indirect} method because it directly measures the amount of electron-hole pairs created in the photoconductor by the a-Si:H pixel arrays.  a-Si:H with photonconductors are referred to as \textit{direct} method because the photodiode is used as an intermediate step to convert light from scintillor into electron-hole pairs.  In both approaches, the final measurement is electrical charge.  
+Once electrical charge are accumulated on the storage element, the pixels are read out in a line-by-line mode by changing the control voltage on individual switch control lines.  Then the individual pixels are read out through each data line.  The signal from each pixel is passed through peripheral readout electronics.  These readout electronics usually incorporates correlated double sampling and tries to eliminate 1/f noise and dc offset from the signal.  The signal also passes through a series of amplifiers and multiplexers and eventually an analog-to-digital converter (ADC) before it is transferred to memory.  
+
+The leading manufacturer that uses a-Se technology is Hologic, that focuses on mammography equipment, while the GE HealthCare is the leading medical equipment company that pioneered the development of flat panel detectors (FPD) with CsI:Tl scintillator.  Most x-ray imaging detectors out on the market are based on these two technologies.  
+
+Although both technology are used in the medical industry with great performance.  A way to lower the cost for x-ray imaging is by using a lens-coupled camera system to image the primary x-ray converted image onto a smaller detector.
+
 \section{Lens-coupled X-ray Detectors}
 The idea of using a lens-coupled camera system as x-ray detectors have been proposed and rejected before.  The basic problem comes down to photon collection efficiency.  While the phosphor screen must be at least the size of the object that needs to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  From geometrical optics we know that the magnification of a lens, $M = -q/p$, depends on the distance between the object to the lens $p$, and the distance from the lens to the image $q$, this same magnification is also the ratio between the size of the object and image.  So if the $M$ between the object and image is quite large, then the distance between the object to lens must be large as well.  Which means that the lens must subtend small solid angle, low photon collection efficiency, in order to capture the entire object field of view.  The only way to over come this problem is by having a small field of view, large detector, or a fast lens.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging \cite{kim2005}, \cite{lee2001}, \cite{tate2005}, \cite{madden2006}.  
 
 Recent technology has improved tremendously and it is quite easy to purchase a camera with a large sensor size.  Current consumer grade DSLR can be purchased at around \$2000 with 36 mm $\times$ 24 mm detector size.  This improvement in sensor size allows us to decrease the distance between the lens and phosphor screen therefore improve the photon collection efficiency.
 
-In this dissertation we will introduce an x-ray digital radiography system that uses the lens-coupled DSLR camera in chapter 2, and a x-ray CT system in chapter 4.  We will present a method of evaluating the x-ray CT detectors using observer models in chapter 3.  Finally, we will present a potential application for this type of x-ray CT system in chapter 6.
+In this dissertation we introduce two x-ray imaging systems, a digital radiography system and a computed tomography (CT) system that were build using the concept of lens-coupled detector system in chapter \ref{chap:design_construction}.  We will present a method of evaluation the x-ray CT detectors using observer models in chapter \ref{chap:model_observer}.   The x-ray CT system presented is a fully functioning system complete with calibration and reconstruction, these are explained in chapter \ref{chap:calibration} and chapter \ref{chap:reconstruction}.  Finally, we will present a potential application for this type of x-ray CT system in chapter \ref{chap:brain_imaging}.  
