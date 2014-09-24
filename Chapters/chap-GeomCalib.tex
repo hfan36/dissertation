@@ -2,14 +2,70 @@
 \label{chap:calibration}
 
 \section{Background}
-CT system requires precise knowledge of the scan geometry of the acquisition system.  These parameters are crucial for the reconstruction algorithm to provide the best object resolution and image quality.  Since it is not possible to know precisely the geometry of the system, calibration methods are needed to account for misalignment of system prior to image reconstruction.  In cone beam tomography , it is well know that using inaccurate parameters can produce sever artifacts (\citep{Li1994a}, \citep{Li1994b}, \citep{Wang1998}). Methods for estimation of geometrical parameters of tomographic scanners have been investigated by many groups since 1987 starting with Gullberg \citep{Gullberg1987}.  Some calibration methods tend to be specific to the 2D parallel-beam geometry (\citep{Azevedo1990}, \citep{Busemann1987}), some are only for 2D fan beam geometry(\citep{Crawford1988}, \citep{Hsieh1999} \citep{Gullberg1987}).  In these earlier days, the overall approach is to estimate the geometric parameters by first measure the locations of a point object on the detector and determine analytic expressions for the point object location as functions of the unknown scanner parameters and unknown positions of the point object.  This step provides a set of nonlinear equations and these equations are solved using an iterative method such as the Levenberg-Marquard algorithm.  The downside of these algorithms is that they rely on a highly nonlinear parameter-estimation problem and are highly sensitive to the initial estimations and the sequential order in which the parameters are estimated.  There are questions of stability and uniqueness.  It is uncertain if local minima exist or if more than one set of calibration parameters can satisfy the equations.  Later this work was extended to 3D for cone-beam scanners \citep{Gullberg1990}, however the degree of freedom were restricted and some shift parameters were assumed to be known.
+CT system requires precise knowledge of the scan geometry of the acquisition system.  These parameters are crucial for the reconstruction algorithm in order to provide the best object resolution and image quality.  Since it is not possible to know precisely the geometry of the system after construction, calibration methods are needed to account for misalignment of the system prior to image reconstruction.  In cone beam tomography, it is well know that using inaccurate parameters can produce sever artifacts (\citep{Li1994a}, \citep{Li1994b}, \citep{Wang1998}). Methods for estimation of geometrical parameters of tomographic scanners have been investigated by many groups since 1987 starting with Gullberg \citep{Gullberg1987}.  Some calibration methods tend to be specific to the 2D parallel-beam geometry (\citep{Azevedo1990}, \citep{Busemann1987}), some are only for 2D fan beam geometry(\citep{Crawford1988}, \citep{Hsieh1999} \citep{Gullberg1987}).  In these earlier days, the overall approach is to estimate the geometric parameters by first measure the locations of a point object on the detector and determine analytic expressions for the point object location as functions of the unknown scanner parameters and unknown positions of the point object.  This step provides a set of nonlinear equations and these equations are solved using an iterative method such as the Levenberg-Marquard algorithm.  The downside of these algorithms is that they rely on a highly nonlinear parameter-estimation problem and are highly sensitive to the initial estimations and the sequential order in which the parameters are estimated.  There are questions of stability and uniqueness.  It is uncertain if local minima exist or if more than one set of calibration parameters can satisfy the equations.  Later this work was extended to 3D for cone-beam scanners \citep{Gullberg1990}, however the degree of freedom were restricted and some shift parameters were assumed to be known.
 
 
 To avoid these problems, in 2000 Noo \citep{Noo2000} proposed a method by introducing intermediate parameters by fitting an ellipse to the projection-orbit data.  This method only requires a small set of measurements of a simple phantom.  However this method assumes that one out-of-plane rotation angle to be zero.  In 2004 Smekal introduced an analytical method to solve six system parameters except for the source to isocenter distance.  This method is based on Fourier analysis of the projection-orbit data, as a result it is insensitive to the precise extraction of the phantom point projection location on the detector.  In 2006, Yang \citep{Yang2006} proposed a similar method based on tracing the point projection of a phantom on the detector.  They assume two out of plane rotation angles are quite small so instead of measure them they simply assumed them to be zero.  In 2005 Cho has another great idea. \citep{Cho2005} where you don't need to rotate the phantom, they used the rapid prototype machine to create a phantom with great accuracy.  Jared Moore used the MLEM algorithm to use all points of the phantom to estimate the parameters.  In 2008, Panetta \citep{Panetta2008} proposed a new method where they measure the misalignment parameters of a cone-beam scanner by minimizing a geometry-dependent cost function.  This cost function is computed from the projection data of a generic object, hence, no a-priori knowledge of the object shape or position is required.  
 
-\section{Phantom}
-Our method requires use to rotate a line of fiducial markers placed at known separation in front of the scintillator.  We needed a phantom that does not require a lot of rapid prototype material and is able to switch out different marker sizes for different magnifications.  Shown in Figure~\ref{fig:calibration_phantom}, the phantom is composed of 2 separate pieces, a bracket that can be mounted on the rotation stage, and a marker insert for the bracket where different marker sizes can be placed.  It is much easier and cheaper to print a different marker insert than to print an entire phantom bracket.  The bracket places the markers 6 inches from the center rotation axis.  The marker inserts uses a conical end so it's easy to align the vertical axis of the market against the axis of the bracket.  The marker insert is held at 2 ends by the bracket to ensure the insert is vertical.  The marker points are made out of stainless steel bearings purchased from McMaster-Carr.  Three different bearing sizes (1/16 \inches, 1/8 \inches and 3/16 \inches and 1/4 \inches) where glued onto the insert, though we've found 1/8 \inches bearing worked the best.  
+\section{Defining Geometrical Parameters}
+We need to first define a global coordinate system in order to describe the scan geometry of the CT system that can be used later in the reconstruction algorithm.  The z-axis is defined as the rotation axis of the object and is set by the rotation stage.  The y-axis is a line that is perpendicular to the z-axis that goes through the x-ray source and passes through the ideal x-ray screen and camera sensor.  The y-axis is also referred to as the optical axis of the system.  The x-axis is defined as a line that is perpendicular to both the y and z axis.  The axial plane is defined as a plane spanned by the x and z axis, and the transaxial plane is defined as a plane spanned by the y and z axis.  The ideal x-ray screen and the camera sensor is parallel to the axial plane and perpendicular to the optical axis.  The left figure in fig. \ref{fig:global_coord_misaligned} shows the global coordinate system with the ideal x-ray screen and ideal camera sensor.  
 
+Although each components in the system can potentially have up to six degrees of freedom, however it is not necessary to use all six variables for each components.  Instead we can define a smaller set of global parameters that summarizes the overall geometry of the system by making some simple assumptions.
+
+Assumptions:
+
+\begin{enumerate}
+\item We have assumed that the lens focuses every points on the x-ray screen within the lens' field of view onto the camera sensor.  This condition eliminates any misalignment between the x-ray screen, the lens, and the camera.  As a result, we can describe the misalignment of these three components as one unit.
+
+\item We assume that the x-ray screen is large enough that any lateral shift in its plane does not change the final image on the camera sensor.
+
+\item Finally we assume that the x-ray source is infinitesimally small and does not change with tube current or voltage.  So calibration parameters obtained at one mAs setting is applicable to other x-ray techniques.
+\end{enumerate}
+
+The right figure shows the eight global parameters that are used to describe the CT system.  The detector unit is defined as the combination of x-ray screen, lens and camera system where the x-ray screen plane is conjugate with the camera sensor plane with a magnification factor set by the lens.  The optical axis passes through the center of the x-ray unit, and it is defined as the center of the camera sensor magnified back onto the x-ray screen.  The eight global parameters are: $R$, $R_f$, $\Delta x$, $\Delta z$, $\theta_x$, $\theta_y$, $\theta_z$, and $M$, where $R$ is the distance between the x-ray source and detector unit, $R_f$ is the distance between the x-ray source and the rotation axis, $\Delta x$ and $\Delta z$ are the position misalignment of the center of the detector unit away from the optical axis in either x and z direction, $\theta_x$, $\theta_y$, and $\theta_z$ are the angular rotation of the detector unit about its respective axis.  These essential parameters are used later in the reconstruction algorithm described later in chapter \ref{chap:reconstruction}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=1]{global_coordinates_misaligned.eps}
+\label{fig:global_coord_misaligned}
+\caption{Left: The global coordinate system.  Right: The eight global parameters that are used to describe the CT system, where the ideal x-ray screen and ideal camera sensor are treated as one unit and described by one set of global misalignment position and orientation parameters ($\Delta x, \Delta z, \theta_x, \theta_y, \theta_z$) with one additional optical magnification factor $m$ that is used to scale down the x-ray screen onto the camera sensor by the lens.  The distance between the x-ray source is defined as $R$, and the distance between the x-ray source and the rotation axis is $R_f$}
+\end{figure}
+
+In addition to the eight global parameters, there are additional six nuisance parameters that are needed in order to estimate the global parameters.  These nuisance parameters are $\theta x^{obj}$, $\theta y^{obj}$, $\theta z^{obj}$, $\Delta x^{obj}$, $\Delta y^{obj}$, and $\Delta z^{obj}$, shown in figure \ref{fig:phantom_orientation}.  These are the six degrees of freedom of the calibration phantom that must be estimated in order to calculate the global parameters.  
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=1]{phantom_orientation.eps}
+\caption{The six nuisance parameters that describes the misalignment position and orientation of the phantom}
+\label{fig:phantom_orientation}
+\end{figure}
+
+
+To calculate the optical magnification, we take a metal plate of a known size and place it directly in front of the scintillator screen.  The image produced will be directly transferred onto the camera detector via the lens by a magnification factor.  Once the optical magnification was known, we then use the following steps to find the rest of the system parameters:
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=1]{calibration.eps}
+\caption{calibration variables}
+\label{fig:calibration}
+\end{figure}
+
+
+\begin{enumerate}
+\item Extract phantom marker locations
+\item Find system parameters
+\item Find object parameters
+\end{enumerate}
+
+\subsection{Calibration Phantom}
+Here we have opted to follow the method introduced by Lorenz von Smekal to calculate the geometric misalignment of our CT system \cite{Smekal2004}. 
+We have opted use Smekal's method for calibrating our CT system.  This method requires the use of a set of fiducial markers to be placed in front of the x-ray screen.  This method also requires advanced knowledge of the vertical separation between each markers.  The on-site rapid prototype printer was ideal for this purpose.
+
+Since the field of view of the CT system can be as large as 24 cm $\times$ 24 cm, we needed to print a large phantom without wasting too much rapid prototype material.  In addition, we wanted the phantom to be flexible so we can vary the number of marker and its size to be used in the calibration algorithm in order to find the best combination.
+
+The phantom we chose is composed of two separate pieces, a large bracket that is used to mount on the rotation stage, and a smaller insert that can be printed for different marker arrangements.  These are shown in Figure \ref{fig:calibration_phantom}.  
+
+The bracket places the markers 6 inches from the center rotation axis.  The marker inserts uses a conical end so it's easy to align the vertical axis of the market against the axis of the bracket.  The marker insert is held at 2 ends by the bracket to ensure the insert is vertical.  The marker points are made out of stainless steel bearings purchased from McMaster-Carr.  Three different bearing sizes (1/16 \inches, 1/8 \inches and 3/16 \inches and 1/4 \inches) where glued onto the insert, though we've found 1/8 \inches bearing worked the best.  
 
 \begin{figure}
 \centering
@@ -37,15 +93,6 @@ Our method requires use to rotate a line of fiducial markers placed at known sep
 \label{fig:calibration_phantom}
 \end{figure}
 
-
-\section{Calibration Method}
-Tomographic image quality depends on the precise knowledge of the scan geometry of the acquisition system. Most methods available require a precise knowledge of marker locations in a calibration phantom.  Here we follow the method introduced by Lorenz von Smekal to calculate the geometric misalignment of our CT system.  There are two magnification factors involved in our system, the x-ray magnification is created by the ratio of the distance between x-ray source and scintillator screen and the distance between object and scintillator screen.  Optical magnification is introduced by scaling the image created by the scintillator and down to the size of the camera detector.  If we were to look at the CT system, we can draw an optical axis from the x-ray source to the center of the camera detector. Each component in the CT system can potentially add 6 degrees of freedom, xyz position and 3 angular rotations.  However many of these degrees of freedoms are linked and can be grouped together as one.  We used a 2 step calibration process, the first step is to measure the optical magnification from the scintillator screen to the lens-camera system.  Second, we treat the x-ray source to scintillator screen as one imaging system. This way, we do not have to measure the the misalignment introduced by the scintillator, mirror and lens-camera system as separate factors. After all, a tilt in the scintillator will be in separable from tilt in mirror or camera.  We simply assume that all points of the scintillator screen is focused by the lens onto the camera detector therefore the only difference between the image produced at the scintillator and camera detector is the magnification.  As a result, the only geometrical measurements we needed to calibrate is detector angular misalignment (slant $\phi$, tilt $\theta$, skew $\eta$), and position misalignment (shift $d_x$ and $d_z$), and the distance between the x-ray source to the scintillator.
-To calculate the optical magnification, we take a metal plate of a known size and place it directly in front of the scintillator screen.  The image produced will be directly transferred onto the camera detector via the lens by a magnification factor.  Once the optical magnification was known, we then use the following steps to find the rest of the system parameters:
-\begin{enumerate}
-\item Extract phantom marker locations
-\item Find system parameters
-\item Find object parameters
-\end{enumerate}
 
 \subsection{Extract phantom marker locations}
 Both threshold and Gaussian filters were used to extract the centroid location for each of the markers.  First the projection image of the markers are filtered through a threshold value range in attempt to eliminate as much background information as possible.  We then set a small ring along the edge of image to zero.  Each points in the processed image is then multiplied by a small Gaussian filter and the values summed up.  This is an attempt to try to eliminate spotty non-localized noise remained in the image.  The result is an image with mostly zero values except at the marker locations.  Finally we then use another Gaussian filter with its size approximately equal to the size of the marker and multiply it by each of the marker point clusters to find the centroid value.  We assume that the centroid should have the most neighboring pixels and the point with the highest summed value after multiplied by the Gaussian filter is the centroid.  The x and y coordinate of the marker locations were then recorded for projection image at each angular rotation.
