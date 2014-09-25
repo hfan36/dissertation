@@ -8,21 +8,7 @@ CT system requires precise knowledge of the scan geometry of the acquisition sys
 To avoid these problems, in 2000 Noo \citep{Noo2000} proposed a method by introducing intermediate parameters by fitting an ellipse to the projection-orbit data.  This method only requires a small set of measurements of a simple phantom.  However this method assumes that one out-of-plane rotation angle to be zero.  In 2004 Smekal introduced an analytical method to solve six system parameters except for the source to isocenter distance.  This method is based on Fourier analysis of the projection-orbit data, as a result it is insensitive to the precise extraction of the phantom point projection location on the detector.  In 2006, Yang \citep{Yang2006} proposed a similar method based on tracing the point projection of a phantom on the detector.  They assume two out of plane rotation angles are quite small so instead of measure them they simply assumed them to be zero.  In 2005 Cho has another great idea. \citep{Cho2005} where you don't need to rotate the phantom, they used the rapid prototype machine to create a phantom with great accuracy.  Jared Moore used the MLEM algorithm to use all points of the phantom to estimate the parameters.  In 2008, Panetta \citep{Panetta2008} proposed a new method where they measure the misalignment parameters of a cone-beam scanner by minimizing a geometry-dependent cost function.  This cost function is computed from the projection data of a generic object, hence, no a-priori knowledge of the object shape or position is required.  
 
 \section{Defining Geometrical Parameters}
-We need to first define a global coordinate system in order to describe the scan geometry of the CT system that can be used later in the reconstruction algorithm.  The z-axis is defined as the rotation axis of the object and is set by the rotation stage.  The y-axis is a line that is perpendicular to the z-axis that goes through the x-ray source and passes through the ideal x-ray screen and camera sensor.  The y-axis is also referred to as the optical axis of the system.  The x-axis is defined as a line that is perpendicular to both the y and z axis.  The axial plane is defined as a plane spanned by the x and z axis, and the transaxial plane is defined as a plane spanned by the y and z axis.  The ideal x-ray screen and the camera sensor is parallel to the axial plane and perpendicular to the optical axis.  The left figure in fig. \ref{fig:global_coord_misaligned} shows the global coordinate system with the ideal x-ray screen and ideal camera sensor.  
-
-Although each components in the system can potentially have up to six degrees of freedom, however it is not necessary to use all six variables for each components.  Instead we can define a smaller set of global parameters that summarizes the overall geometry of the system by making some simple assumptions.
-
-Assumptions:
-
-\begin{enumerate}
-\item We have assumed that the lens focuses every points on the x-ray screen within the lens' field of view onto the camera sensor.  This condition eliminates any misalignment between the x-ray screen, the lens, and the camera.  As a result, we can describe the misalignment of these three components as one unit.
-
-\item We assume that the x-ray screen is large enough that any lateral shift in its plane does not change the final image on the camera sensor.
-
-\item Finally we assume that the x-ray source is infinitesimally small and does not change with tube current or voltage.  So calibration parameters obtained at one mAs setting is applicable to other x-ray techniques.
-\end{enumerate}
-
-The right figure shows the eight global parameters that are used to describe the CT system.  The detector unit is defined as the combination of x-ray screen, lens and camera system where the x-ray screen plane is conjugate with the camera sensor plane with a magnification factor set by the lens.  The optical axis passes through the center of the x-ray unit, and it is defined as the center of the camera sensor magnified back onto the x-ray screen.  The eight global parameters are: $R$, $R_f$, $\Delta x$, $\Delta z$, $\theta_x$, $\theta_y$, $\theta_z$, and $M$, where $R$ is the distance between the x-ray source and detector unit, $R_f$ is the distance between the x-ray source and the rotation axis, $\Delta x$ and $\Delta z$ are the position misalignment of the center of the detector unit away from the optical axis in either x and z direction, $\theta_x$, $\theta_y$, and $\theta_z$ are the angular rotation of the detector unit about its respective axis.  These essential parameters are used later in the reconstruction algorithm described later in chapter \ref{chap:reconstruction}
+We need to first define a global coordinate system in order to describe the scan geometry of the CT system.  The z-axis is defined as the rotation axis of the object and is set by the rotation stage.  The y-axis is defined as a perpendicular line to the z-axis.  It goes through the x-ray source and passes through the ideal x-ray screen and camera sensor.  The y-axis is also referred to as the optical axis of the system.  The x-axis is defined as a line that is perpendicular to both the y and z-axis.  The axial plane is defined as a plane spanned by the x and z axis, and the transaxial plane is defined as a plane spanned by the y and z axis.  The ideal x-ray screen and the camera sensor is parallel to the axial plane and perpendicular to the optical axis.  The left figure in figure \ref{fig:global_coord_misaligned} shows the global coordinate system with the ideal x-ray screen and ideal camera sensor.  
 
 \begin{figure}[ht]
 \centering
@@ -31,7 +17,13 @@ The right figure shows the eight global parameters that are used to describe the
 \caption{Left: The global coordinate system.  Right: The eight global parameters that are used to describe the CT system, where the ideal x-ray screen and ideal camera sensor are treated as one unit and described by one set of global misalignment position and orientation parameters ($\Delta x, \Delta z, \theta_x, \theta_y, \theta_z$) with one additional optical magnification factor $m$ that is used to scale down the x-ray screen onto the camera sensor by the lens.  The distance between the x-ray source is defined as $R$, and the distance between the x-ray source and the rotation axis is $R_f$}
 \end{figure}
 
-In addition to the eight global parameters, there are additional six nuisance parameters that are needed in order to estimate the global parameters.  These nuisance parameters are $\theta x^{obj}$, $\theta y^{obj}$, $\theta z^{obj}$, $\Delta x^{obj}$, $\Delta y^{obj}$, and $\Delta z^{obj}$, shown in figure \ref{fig:phantom_orientation}.  These are the six degrees of freedom of the calibration phantom that must be estimated in order to calculate the global parameters.  
+When we define the global coordinate system, we have assumed that the x-ray source is infinitesimally small and does not change with the tube current or voltage.  In reality, the x-ray focal spot has a finite size and its size increases with both kVp and mAs as shown in the previous chapter.  This is due to the amount of heat load on the anode material. We made this assumption because the calibration routine is insensitive to the focal spot size change and the calibration parameters obtained based on this global coordinate system at one mAs setting can then be used on other x-ray techniques. 
+
+Next we need to choose a set of geometric parameters that can be used to define the CT system and later used for the reconstruction algorithm.  Although each components in the system can potentially have up to six degrees of freedom, it is not always necessary to treat each component individually and to use all six variables for every component.  Instead we can define a smaller set of global parameters that summarizes the overall geometry of the system by making some simple assumptions.  The first assumption is that the lens focuses every points on the x-ray screen within the lens' field of view onto the camera sensor.  This condition eliminates any misalignment between the x-ray screen, the lens, and the camera.  As a result, we can describe the misalignment of these three components as one detector unit.  We can also assume that the x-ray screen is large enough that any lateral shift in its plane does not change the final image on the camera sensor.  These assumptions allows us to decrease the set of calibration parameters to eight values.
+
+The right figure in figure \ref{fig:global_coord_misaligned} shows the eight global parameters that are used to describe the CT system.  The detector unit is defined as the combination of the x-ray screen, lens and camera where the x-ray screen plane is conjugate to the camera sensor plane with a magnification factor set by the lens.  The optical axis passes through the center of the x-ray unit, and it is defined as the center of the camera sensor magnified back onto the x-ray screen.  The eight global parameters are: $R$, $R_f$, $\Delta x$, $\Delta z$, $\theta_x$, $\theta_y$, $\theta_z$, and $M$, where $R$ is the distance between the x-ray source and detector unit, $R_f$ is the distance between the x-ray source and the rotation axis, $\Delta x$ and $\Delta z$ are the position misalignment of the center of the detector unit away from the optical axis in either x and z direction, $\theta_x$, $\theta_y$, and $\theta_z$ are the angular rotation of the detector unit about its respective axis.  These essential parameters are used in the reconstruction algorithm described later in chapter \ref{chap:reconstruction}
+
+In addition to the eight global parameters, we needed an additional six parameters in order to estimate the global parameters.  These six parameters are used to describe the misaligned position and orientation of the calibration phantom ($\theta x^{obj}, \theta y^{obj}, \theta z^{obj}, \Delta x^{obj}, \Delta y^{obj}, \Delta z^{obj}$), and are known as nuisance parameters, shown in figure \ref{fig:phantom_orientation}.  Just as the name indicates, these nuisance parameters are not necessary to define the geometry of the system but the calibration method we used required them to be estimated in order to calculate the global parameters.
 
 \begin{figure}[ht]
 \centering
@@ -40,8 +32,24 @@ In addition to the eight global parameters, there are additional six nuisance pa
 \label{fig:phantom_orientation}
 \end{figure}
 
+\subsection{Calibration method}
+We have employed three steps in order to compute all the global calibration and nuisance parameters.  These steps are outlined as follows:
 
-To calculate the optical magnification, we take a metal plate of a known size and place it directly in front of the scintillator screen.  The image produced will be directly transferred onto the camera detector via the lens by a magnification factor.  Once the optical magnification was known, we then use the following steps to find the rest of the system parameters:
+\begin{enumerate}
+\item Calculate the lens optical magnification power, $M$.
+\item Calculate the global parameters, $\theta_x, \theta_y, \theta_z, \Delta x, \Delta z, R/R_f$.
+\item Calculate the nuisance parameters and find $R$ and $R_f$.
+\end{enumerate}
+
+\subsubsection{Calculate lens magnification power}
+The optical magnification can be measured simply by placing an item of a known size at the x-ray screen and measure the image size of the object scaled on the sensor.  In practice, a ruler was used as the object. We measure a small section of the ruler's length at the detector along with its tilt to calculate the optical magnification.  This is illustrated in figure \ref{fig:optical_mag}.
+\begin{figure}
+\centering
+\includegraphics[scale=1]{optical_mag5.eps}
+\label{fig:optical_mag}
+\caption{Procedure for obtaining the optical magnification factor, $M$}
+\end{figure}
+
 
 \begin{figure}[ht]
 \centering
