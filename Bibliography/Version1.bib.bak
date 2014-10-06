@@ -1,6 +1,19 @@
 % This file was created with JabRef 2.9.2.
 % Encoding: Cp1252
 
+@ARTICLE{Rougee1993,
+  author = {$\mathrm{Roug\acute{e}e}$, A. and Picard, C. Ponchut, C. and Trousset,
+	Y.},
+  title = {Geometrical calibration of x-ray imaging chains for three-dimensional
+	reconstruction},
+  journal = {Comput. Med. Imaging Graph.},
+  year = {1993},
+  volume = {17},
+  pages = {295-300},
+  owner = {Fan},
+  timestamp = {2014.09.29}
+}
+
 @TECHREPORT{aapm_headCT2012,
   author = {{A}{A}{P}{M}},
   title = {{A}dult {R}outine {H}ead {CT} {P}rotocols {V}ersion 1.1},

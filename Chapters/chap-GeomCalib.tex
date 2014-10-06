@@ -2,28 +2,32 @@
 \label{chap:calibration}
 
 \section{Background}
-CT system requires precise knowledge of the scan geometry of the acquisition system.  These parameters are crucial for the reconstruction algorithm in order to provide the best object resolution and image quality.  Since it is not possible to know precisely the geometry of the system after construction, calibration methods are needed to account for misalignment of the system prior to image reconstruction.  In cone beam tomography, it is well know that using inaccurate parameters can produce sever artifacts (\citep{Li1994a}, \citep{Li1994b}, \citep{Wang1998}). Methods for estimation of geometrical parameters of tomographic scanners have been investigated by many groups since 1987 starting with Gullberg \citep{Gullberg1987}.  Some calibration methods tend to be specific to the 2D parallel-beam geometry (\citep{Azevedo1990}, \citep{Busemann1987}), some are only for 2D fan beam geometry(\citep{Crawford1988}, \citep{Hsieh1999} \citep{Gullberg1987}).  In these earlier days, the overall approach is to estimate the geometric parameters by first measure the locations of a point object on the detector and determine analytic expressions for the point object location as functions of the unknown scanner parameters and unknown positions of the point object.  This step provides a set of nonlinear equations and these equations are solved using an iterative method such as the Levenberg-Marquard algorithm.  The downside of these algorithms is that they rely on a highly nonlinear parameter-estimation problem and are highly sensitive to the initial estimations and the sequential order in which the parameters are estimated.  There are questions of stability and uniqueness.  It is uncertain if local minima exist or if more than one set of calibration parameters can satisfy the equations.  Later this work was extended to 3D for cone-beam scanners \citep{Gullberg1990}, however the degree of freedom were restricted and some shift parameters were assumed to be known.
+CT system requires precise knowledge of the scan geometry of the acquisition system.  These parameters are crucial for the reconstruction algorithm in order to provide the best object resolution and image quality.  Since it is not possible to know precisely the geometry of the system after construction, calibration methods are needed to account for misalignment of the system prior to image reconstruction.  
+
+In cone beam tomography, it is well know that using inaccurate parameters can produce severe artifacts (\citep{Li1994a}, \citep{Li1994b}, \citep{Wang1998}). Methods for estimation of geometrical parameters of tomographic scanners have been investigated by many groups since 1987 starting with Gullberg \citep{Gullberg1987}.  Some calibration methods tend to be specific to the 2D parallel-beam geometry (\citep{Azevedo1990}, \citep{Busemann1987}), some are only for 2D fan beam geometry(\citep{Crawford1988}, \citep{Hsieh1999} \citep{Gullberg1987}).  In these earlier days, the overall approach is to estimate the geometric parameters by first measure the locations of a point object on the detector and determine analytic expressions for the point object location as functions of the unknown scanner parameters and unknown positions of the point object.  This step provides a set of nonlinear equations and these equations are solved using an iterative method such as the Levenberg-Marquard algorithm \cite{Rougee1993}.  The downside of these algorithms is that they rely on a highly nonlinear parameter-estimation problem and are highly sensitive to the initial estimations and the sequential order in which the parameters are estimated.  There are questions of stability and uniqueness.  It is uncertain if local minima exist or if more than one set of calibration parameters can satisfy the equations.  Later this work was extended to 3D for cone-beam scanners \citep{Gullberg1990}, however the degree of freedom were restricted and some shift parameters were assumed to be known.
+
+To avoid initialization and converging problems created by Levenberg-Marquard algorithm, many authors have proposed methods that employs direct calculations of the system parameters.  In 1999, Broonikov proposed a method that required only two 180-deg-opposed projection images of a circular apertures.  Later Noo, Yang and Cho had similar ideas where they used a set of intermediate equations to describe the projection-orbit data of fiducial markers \cite{Noo2000} \cite{Yang2006} \cite{Cho2005}.  The equations proposed by Noo and Yang where slightly different.  In Cho's case, they used rapid prototype printer to create a phantom that contains multiple fiducial markers to create several sets of rings about the rotation axis so the phantom does not need to be rotated during data acquisition.  However all of these methods are limited to a restricted set of parameters, usually omitting out-of-plane rotation of the detector.  In 2004, Smekal introduced another analytical method to solve for all system parameter with the exception of two distance parameters, which are calculated as the ratio between the two.  The advantage of this method is that it is insensitive to the precise extraction of the phantom point projection location on the detector \cite{Smekal2004}.  In 2008, Panetta \citep{Panetta2008} proposed a new method where they measure the misalignment parameters of a cone-beam scanner by minimizing a geometry-dependent cost function.  This cost function is computed from the projection data of a generic object, hence, no a-priori knowledge of the object shape or position is required.  In 2011, Jared Moore used MLEM algorithm to estimate all system parameter by calculate the projection of known phantom at two 90-deg-opposed angles.
 
 
-To avoid these problems, in 2000 Noo \citep{Noo2000} proposed a method by introducing intermediate parameters by fitting an ellipse to the projection-orbit data.  This method only requires a small set of measurements of a simple phantom.  However this method assumes that one out-of-plane rotation angle to be zero.  In 2004 Smekal introduced an analytical method to solve six system parameters except for the source to isocenter distance.  This method is based on Fourier analysis of the projection-orbit data, as a result it is insensitive to the precise extraction of the phantom point projection location on the detector.  In 2006, Yang \citep{Yang2006} proposed a similar method based on tracing the point projection of a phantom on the detector.  They assume two out of plane rotation angles are quite small so instead of measure them they simply assumed them to be zero.  In 2005 Cho has another great idea. \citep{Cho2005} where you don't need to rotate the phantom, they used the rapid prototype machine to create a phantom with great accuracy.  Jared Moore used the MLEM algorithm to use all points of the phantom to estimate the parameters.  In 2008, Panetta \citep{Panetta2008} proposed a new method where they measure the misalignment parameters of a cone-beam scanner by minimizing a geometry-dependent cost function.  This cost function is computed from the projection data of a generic object, hence, no a-priori knowledge of the object shape or position is required.  
+In the next section we will describe the calibration method that was used for the x-ray CT system.  We will first define the global coordinate system, then we will describe the steps and methods that were used to find all system parameters.
 
 \section{Defining Geometrical Parameters}
-We need to first define a global coordinate system in order to describe the scan geometry of the CT system.  The z-axis is defined as the rotation axis of the object and is set by the rotation stage.  The y-axis is defined as a perpendicular line to the z-axis.  It goes through the x-ray source and passes through the ideal x-ray screen and camera sensor.  The y-axis is also referred to as the optical axis of the system.  The x-axis is defined as a line that is perpendicular to both the y and z-axis.  The axial plane is defined as a plane spanned by the x and z axis, and the transaxial plane is defined as a plane spanned by the y and z axis.  The ideal x-ray screen and the camera sensor is parallel to the axial plane and perpendicular to the optical axis.  The left figure in figure \ref{fig:global_coord_misaligned} shows the global coordinate system with the ideal x-ray screen and ideal camera sensor.  
+We need to first define a global coordinate system in order to describe the scan geometry of the CT system.  The z-axis is defined as the rotation axis of the object and is set by the rotation stage.  The y-axis is defined as a perpendicular line to the z-axis.  It goes through the x-ray source and passes through the ideal x-ray screen and camera sensor.  The y-axis is also referred to as the optical axis of the system.  The x-axis is defined as a line that is perpendicular to both the y and z-axis.  The axial plane is defined as a plane spanned by the x and z axis, and the transaxial plane is defined as a plane spanned by the y and z axis.  The ideal x-ray screen and the camera sensor is parallel to the axial plane and perpendicular to the optical axis.  The left diagram in figure \ref{fig:global_coord_misaligned} shows the global coordinate system with the ideal x-ray screen and ideal camera sensor.  
 
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=1]{global_coordinates_misaligned.eps}
+\caption{Left: The global coordinate system.  Right: The eight global parameters that are used to describe the CT system, where the ideal x-ray screen and ideal camera sensor are treated as one unit and described by one set of global misalignment position and orientation parameters ($d_x, d_z, \theta_x, \theta_y, \theta_z$) with one additional optical magnification factor $M$ that is used to scale down the x-ray screen onto the camera sensor by the lens.  The distance between the x-ray source is defined as $R$, and the distance between the x-ray source and the rotation axis is $R_f$}
 \label{fig:global_coord_misaligned}
-\caption{Left: The global coordinate system.  Right: The eight global parameters that are used to describe the CT system, where the ideal x-ray screen and ideal camera sensor are treated as one unit and described by one set of global misalignment position and orientation parameters ($\Delta x, \Delta z, \theta_x, \theta_y, \theta_z$) with one additional optical magnification factor $m$ that is used to scale down the x-ray screen onto the camera sensor by the lens.  The distance between the x-ray source is defined as $R$, and the distance between the x-ray source and the rotation axis is $R_f$}
 \end{figure}
 
-When we define the global coordinate system, we have assumed that the x-ray source is infinitesimally small and does not change with the tube current or voltage.  In reality, the x-ray focal spot has a finite size and its size increases with both kVp and mAs as shown in the previous chapter.  This is due to the amount of heat load on the anode material. We made this assumption because the calibration routine is insensitive to the focal spot size change and the calibration parameters obtained based on this global coordinate system at one mAs setting can then be used on other x-ray techniques. 
+When we define the global coordinate system, we have assumed that the x-ray source is infinitesimally small and does not change with the tube current or voltage.  In reality, the x-ray focal spot has a finite size as shown in the previous chapter.  Its size increases with both kVp and mAs due to the amount of heat load on the anode material.  Knowing that the size is finite and changing we still made this assumption because the calibration method is insensitive to the focal spot size change.  In addition we can use the calibration parameters obtained  to other x-ray techniques (i.e. different mAs). 
 
 Next we need to choose a set of geometric parameters that can be used to define the CT system and later used for the reconstruction algorithm.  Although each components in the system can potentially have up to six degrees of freedom, it is not always necessary to treat each component individually and to use all six variables for every component.  Instead we can define a smaller set of global parameters that summarizes the overall geometry of the system by making some simple assumptions.  The first assumption is that the lens focuses every points on the x-ray screen within the lens' field of view onto the camera sensor.  This condition eliminates any misalignment between the x-ray screen, the lens, and the camera.  As a result, we can describe the misalignment of these three components as one detector unit.  We can also assume that the x-ray screen is large enough that any lateral shift in its plane does not change the final image on the camera sensor.  These assumptions allows us to decrease the set of calibration parameters to eight values.
 
-The right figure in figure \ref{fig:global_coord_misaligned} shows the eight global parameters that are used to describe the CT system.  The detector unit is defined as the combination of the x-ray screen, lens and camera where the x-ray screen plane is conjugate to the camera sensor plane with a magnification factor set by the lens.  The optical axis passes through the center of the x-ray unit, and it is defined as the center of the camera sensor magnified back onto the x-ray screen.  The eight global parameters are: $R$, $R_f$, $\Delta x$, $\Delta z$, $\theta_x$, $\theta_y$, $\theta_z$, and $M$, where $R$ is the distance between the x-ray source and detector unit, $R_f$ is the distance between the x-ray source and the rotation axis, $\Delta x$ and $\Delta z$ are the position misalignment of the center of the detector unit away from the optical axis in either x and z direction, $\theta_x$, $\theta_y$, and $\theta_z$ are the angular rotation of the detector unit about its respective axis.  These essential parameters are used in the reconstruction algorithm described later in chapter \ref{chap:reconstruction}
+The right diagram in Figure \ref{fig:global_coord_misaligned} shows the eight global parameters that are used to describe the CT system.  The detector unit is defined as the combination of the x-ray screen, lens, and camera where the x-ray screen plane is conjugate to the camera sensor plane with a magnification factor set by the lens.  The optical axis passes through the center of the x-ray unit, and it is defined as the center of the camera sensor magnified back onto the x-ray screen.  The eight global parameters are: $R$, $R_f$, $d_x$, $d_z$, $\theta_x$, $\theta_y$, $\theta_z$, and $M$, where $R$ is the distance between the x-ray source and detector unit, $R_f$ is the distance between the x-ray source and the rotation axis, $d_x$ and $d_z$ are the position misalignment of the center of the detector unit away from the optical axis in either x and z direction, $\theta_x$, $\theta_y$, and $\theta_z$ are the angular rotation of the detector unit about its respective axis.  These essential parameters are used in the reconstruction algorithm described later in chapter \ref{chap:reconstruction}
 
-In addition to the eight global parameters, we needed an additional six parameters in order to estimate the global parameters.  These six parameters are used to describe the misaligned position and orientation of the calibration phantom ($\theta x^{obj}, \theta y^{obj}, \theta z^{obj}, \Delta x^{obj}, \Delta y^{obj}, \Delta z^{obj}$), and are known as nuisance parameters, shown in figure \ref{fig:phantom_orientation}.  Just as the name indicates, these nuisance parameters are not necessary to define the geometry of the system but the calibration method we used required them to be estimated in order to calculate the global parameters.
+In order to estimate all of the global parameters, we needed to add an additional six parameters to complete our calculation.  These are called nuisance parameter and just as the name indicates, these nuisance parameters are not necessary to define the geometry of the system but the calibration method we used required them to be estimated in order to calculate the global parameters.  These are the six parameters are used to describe the position and orientation of the calibration phantom ($x_0, y_0, z_0, \theta^{obj}_x, \theta_y^{obj}, \theta_z^{obj}$) shown in Figure~\ref{fig:phantom_orientation}.  
 
 \begin{figure}[ht]
 \centering
@@ -32,187 +36,202 @@ In addition to the eight global parameters, we needed an additional six paramete
 \label{fig:phantom_orientation}
 \end{figure}
 
-\subsection{Calibration method}
+\section{Calibration method}
 We have employed three steps in order to compute all the global calibration and nuisance parameters.  These steps are outlined as follows:
 
 \begin{enumerate}
 \item Calculate the lens optical magnification power, $M$.
-\item Calculate the global parameters, $\theta_x, \theta_y, \theta_z, \Delta x, \Delta z, R/R_f$.
+\item Calculate the global parameters, $\theta_x, \theta_y, \theta_z, d_x, d_z, R/R_f$.
 \item Calculate the nuisance parameters and find $R$ and $R_f$.
 \end{enumerate}
 
-\subsubsection{Calculate lens magnification power}
-The optical magnification can be measured simply by placing an item of a known size at the x-ray screen and measure the image size of the object scaled on the sensor.  In practice, a ruler was used as the object. We measure a small section of the ruler's length at the detector along with its tilt to calculate the optical magnification.  This is illustrated in figure \ref{fig:optical_mag}.
-\begin{figure}
-\centering
-\includegraphics[scale=1]{optical_mag5.eps}
-\label{fig:optical_mag}
-\caption{Procedure for obtaining the optical magnification factor, $M$}
-\end{figure}
-
-
+\subsection{Calculate lens magnification power}
 \begin{figure}[ht]
 \centering
-\includegraphics[scale=1]{calibration.eps}
+\includegraphics[scale=1]{optical_mag6.eps}
+\caption{Procedure for obtaining the optical magnification factor ($M$) using a ruler with known marker period ($T_{ruler}$) while taking its tilt angle ($\theta$) into consideration}
+\label{fig:optical_mag}
+\end{figure}
+The optical magnification can be measured simply by placing an item of a known size at the x-ray screen and measure the image size of the object scaled on the sensor.  This can be done under white light.  In practice, a ruler was used as the object. We measured a small section of the ruler's length at the detector along with its tilt, $\theta$, to calculate the optical magnification power, $M$.  The procedure is illustrated in Figure~\ref{fig:optical_mag}.
+
+\subsection{Calculate global parameters}
+
+To find the global system parameters we opted to use Lorenz von Smekal's calibration method~\cite{Smekal2004} that derives explicit analytic expressions for a set of fiducial markers.  This method does not require precise knowledge of the marker's spatial location inside the phantom, rather it uses the marker's projection orbit on a misaligned detector for the calculation.  These orbits are first analyzed using low spatial-frequency Fourier components.  The parameters are then calculated based on each individual point markers from the Fourier coefficients by using a series of equations.  The average of the parameters over the set of fiducial markers are used as the final result.  The corresponding standard deviation for each parameter are used as errors in the estimation.
+
+\begin{figure}[ht]
+\includegraphics[scale=1]{smekal_system2.eps}
 \caption{calibration variables}
-\label{fig:calibration}
+\label{fig:smekal_method}
 \end{figure}
 
+In this section we will focus on the main ideas and the equations that were used to calculate the calibration parameters.  For more detailed derivation please refer to his paper~\cite{Smekal2004}.  The system geometry and a graphical representation of the method is shown in figure~\ref{fig:smekal_method}, where the global coordinate system and system parameters are defined similar to Figure~\ref{fig:global_coord_misaligned}. The main idea behind Smekal's method is to first describe the relationship between the point markers and the projection orbit by a set of linear equations based on the rotation matrix of the misaligned detector (step 1). This set of equations is a function of the system parameters and initial marker positions.  Next, the projection orbit is parameterized using a set of Fourier series coefficients (step 2).  Then it is a matter of finding the relationship between the Fourier series coefficients and the linear equations through various intermediate coefficients in order to disentangle the system parameters while eliminating the dependence on the initial marker positions.
 
-\begin{enumerate}
-\item Extract phantom marker locations
-\item Find system parameters
-\item Find object parameters
-\end{enumerate}
+In step 1, we try to describe the projection orbits of point markers on the misaligned detector using the system parameters.  Shown in Figure~\ref{fig:smekal_method}, a point on the true misaligned detector $(x', y', z')$, with detector coordinates $(u, v)$, can be written as
 
-\subsection{Calibration Phantom}
-Here we have opted to follow the method introduced by Lorenz von Smekal to calculate the geometric misalignment of our CT system \cite{Smekal2004}. 
-We have opted use Smekal's method for calibrating our CT system.  This method requires the use of a set of fiducial markers to be placed in front of the x-ray screen.  This method also requires advanced knowledge of the vertical separation between each markers.  The on-site rapid prototype printer was ideal for this purpose.
-
-Since the field of view of the CT system can be as large as 24 cm $\times$ 24 cm, we needed to print a large phantom without wasting too much rapid prototype material.  In addition, we wanted the phantom to be flexible so we can vary the number of marker and its size to be used in the calibration algorithm in order to find the best combination.
-
-The phantom we chose is composed of two separate pieces, a large bracket that is used to mount on the rotation stage, and a smaller insert that can be printed for different marker arrangements.  These are shown in Figure \ref{fig:calibration_phantom}.  
-
-The bracket places the markers 6 inches from the center rotation axis.  The marker inserts uses a conical end so it's easy to align the vertical axis of the market against the axis of the bracket.  The marker insert is held at 2 ends by the bracket to ensure the insert is vertical.  The marker points are made out of stainless steel bearings purchased from McMaster-Carr.  Three different bearing sizes (1/16 \inches, 1/8 \inches and 3/16 \inches and 1/4 \inches) where glued onto the insert, though we've found 1/8 \inches bearing worked the best.  
-
-\begin{figure}
-\centering
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{phantombracket.png}
-	\caption{phantom bracket}
-	\label{fig:phantom_bracket}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{markerinsert.jpg}
-	\caption{marker insert}
-	\label{fig:marker_holder}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{steelbearings.jpg}
-	caption{steel bearings}
-	\label{fig:steel_bearings}
-	\end{subfigure}
-\caption{Calibration phantom}
-\label{fig:calibration_phantom}
-\end{figure}
-
-
-\subsection{Extract phantom marker locations}
-Both threshold and Gaussian filters were used to extract the centroid location for each of the markers.  First the projection image of the markers are filtered through a threshold value range in attempt to eliminate as much background information as possible.  We then set a small ring along the edge of image to zero.  Each points in the processed image is then multiplied by a small Gaussian filter and the values summed up.  This is an attempt to try to eliminate spotty non-localized noise remained in the image.  The result is an image with mostly zero values except at the marker locations.  Finally we then use another Gaussian filter with its size approximately equal to the size of the marker and multiply it by each of the marker point clusters to find the centroid value.  We assume that the centroid should have the most neighboring pixels and the point with the highest summed value after multiplied by the Gaussian filter is the centroid.  The x and y coordinate of the marker locations were then recorded for projection image at each angular rotation.
-
-\begin{figure}
-	\centering
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{GaussianFilter.jpg}
-	\label{fig:GaussianFilter}
-	\caption{Gaussian filter}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{MarkerCluster.jpg}
-	\label{fig:markercluster}
-	\caption{projection of a marker}
-	\end{subfigure}
-\label{fig:extractmarkerlocation}
-\caption{filters used to extract each marker locations}
-\end{figure}
-
-\subsection{Find system parameters}
-To find the system parameters we used Lorenz von Smekal's calibration method. This method overcomes convergence and initialization problems that has plagued other methods (need more citation).  This method does not require knowledge of the marker spatial location inside the field of measurements.  The misalignment parameter are determined independently for each of the point objects by explicit analytic expression.  The result for each point markers can then be averaged as the final result.  The corresponding mean square deviation provide with an error estimate of the calibration parameters.  The method is based on an analysis of the low spatial-frequency Fourier components of the point projection orbits on a misaligned detector.  The method then disentangle each parameters by using a series of coefficients and equations.  For more detailed information please refer to his paper~\citep{Smekal2004}.  In this section we will only focus on the geometry and steps taken to calculate the calibration parameters, and will provide the equations used for these calculations.  Shown in Fig.\ref{fig:system_geometry}, the x-ray source is connected through the center of the detector by the y axis.  The object rotates about the z axis and the detector plane is in the x and z plane.  The detector can be described by 6 misalignment parameters ($dx$,$dy$,$dz$, $\theta$, $\eta$, $\phi$).  The distance between the source and the ideal detector is R, the distance between the source and object axis of rotation is Rf.  The projection of the the point markers in a circular orbit onto a misaligned detector plane is described by $u_{\alpha}$ and $v_{\alpha}$.  The method first parameterize the projected path of the point markers in a circular orbit on the misaligned detector axis $u$ and $v$.  The result is two equations that describes the path of the point markers in $u$ and $v$ separately in terms of cosine and sine using a set of coefficients.  These coefficients are directly related to the detector misalignment parameters.  The first step is to calculate these coefficients by fitting projected marker point path on detector to Fourier series.  Figure X shows the experimental u and v values for a set of markers.  The equation for Fourier series is shown in \ref{eq:fourierseries}.  In this calibration method, only the first 3 orders for both u and v were used and their corresponding coefficients are calculated using equation ~\ref{eq:fouriercoeff}. 
-
-\begin{figure}
-\centering
-\placeholderimage[width=5cm,height=3cm]{systemgeometry.jpg}
-\caption{system geometry}
-\label{fig:system_geometry}
-\end{figure}
-
-\begin{equation}\label{eq:fourierseries}
-u_n = \frac{U_0}{2} + \sum ^{N/2-1}_{k=1} (U_k \cos (k\alpha_n)) + \tilde{U}_k \sin (k \alpha_n) + (-1)^{(n-1)} \frac{U_{N/2}}{2};
+\begin{equation}
+\begin{aligned}
+u \hat{u} + v \hat{v} + \vec{d} =& \, u \mathrm{\mathbf{O}} \hat{x} + v \mathrm{\mathbf{O}} \hat{z} + \vec{d} \\
+								=& \, x' \hat{x} + (y' - R + R_f) \hat{y} + z' \hat{z},
+\end{aligned}
+\label{eq:projection_orbit}
 \end{equation}
-The Fourier coefficients in this series are given by:
+where $\vec{d} = d_x \hat{x} + d_y \hat{y} + d_z \hat{z}$ is the distance between the center of the ideal detector and the misaligned detector, $\mathrm{\mathbf{O}}$ is a 3 $\times$ 3 rotation matrix that maps the vectors $(\hat{x}, \hat{z})$ to $(\hat{u}, \hat{v})$ using $\theta_x, \theta_y, \theta_z$ shown in equation~\ref{eq:rotation_matrix}.
+\begin{equation}
+\mathrm{\mathbf{O}} = 
+\begin{pmatrix}
+cos\, \theta_y \, cos \,\theta_z - sin \, \theta_y \, sin \, \theta_x \, sin \, \theta_z & -cos \, \theta_x \, sin \, \theta_z & -cos \, \theta_z \, sin \, \theta_y - cos \, \theta_y \, sin \, \theta_x \, sin \, \theta_z \\
+cos \, \theta_z \, sin \, \theta_y \, sin \, \theta_x + cos \, \theta_y \, \sin \, \theta_z & cos \, \theta_x cos \, \theta_z & cos \, \theta_y \, cos \, \theta_z \, sin \, \theta_x - sin \, \theta_y \, sin \, \theta_z \\
+cos \, \theta_x \, sin \, \theta_y & -sin \, \theta_x & cos \, \theta_y \, cos \, \theta_x \\
+\end{pmatrix}
+\label{eq:rotation_matrix}
+\end{equation}
+
+It's generally not ideal to describe the point $(u, v)$ using the coordinate $(x', y', z')$, i.e. $y' \neq R - R_f$.  Instead, we can describe them using the ideal coordinate $(u^{id}, v^{id})$ where this perfect alignment counter part (i.e. $y' = R - R_f$) connects the rays from the x-ray source, through the focus, and to the points $(x', y', z')$ using the equations,
+\begin{equation}
+x' = \frac{y' + R_f}{R} u^{id}, \; \; \; z' = \frac{y' + R_f}{R} v^{id}.
+\label{eq:uid_vid}
+\end{equation}
+
+\noindent Inserting equation~\ref{eq:uid_vid} into~\ref{eq:projection_orbit}, we can obtain the ideal orbit in terms of the real orbit on the misaligned detector as:
+\begin{equation}
+\begin{pmatrix}
+u^{id} \\
+v^{id} 
+\end{pmatrix} = \frac{R}{R'_y + o_{21}u + o_{23} v} 
+\left(
+\begin{pmatrix}
+o_{11} & o_{13} \\
+o_{31} & o_{33} \\
+\end{pmatrix} 
+\begin{pmatrix}
+u \\
+v
+\end{pmatrix} + 
+\begin{pmatrix}
+d_x \\
+d_z
+\end{pmatrix}
+\right)
+\label{eq:ideal_orbit_matrix}
+\end{equation}
+\noindent Thus, the inverse relationship for the real orbit in terms of the ideal orbit for step 1 can be obtained by using some matrix manipulations and the result is as follows:
+\begin{equation}
+\begin{pmatrix}
+u \\
+v
+\end{pmatrix} = \frac{1}{det \, \mathrm{\mathbf{Q}}}
+\begin{pmatrix}
+o_{33} - o_{23} v^{id}/R & -(o_{13} - o_{23} u^{id}/R \\
+-(o_{31} - o_{21} v^{id}/R) & o_{11} - o_{21} u^{id}/R \\
+\end{pmatrix}
+\times 
+\begin{pmatrix}
+u^{id'} - d_x \\
+v^{id'} - d_z
+\end{pmatrix}
+\label{eq:misaligned_orbit_matrix}
+\end{equation}
+where, 
+\begin{equation}
+\begin{pmatrix}
+u^{id'} \\
+v^{id'}
+\end{pmatrix} = \frac{R'_y}{R}
+\begin{pmatrix}
+u^{id}\\
+v^{id}
+\end{pmatrix}
+\end{equation}
+and the determinant in equation~\ref{eq:misaligned_orbit_matrix} is given as
+\begin{equation}
+\begin{aligned}
+det \, \mathrm{\mathbf{Q}} \, = \, &(o_{11} - o_{21} u^{id}/R) (o_{33} - o_{23} v^{id}/R) \\
+                           - &(o_{13} - o_{23} u^{id}/R) (o_{31} - o_{21} v^{id}/R ).
+\end{aligned}
+\label{eq:detQ}
+\end{equation}
+
+In step 2, we need to parameterize the point market's projection orbit on the misaligned detector using Fourier coefficients.  We can write the discrete real Fourier series as follows, 
+\begin{equation}\label{eq:fourierseries}
+u_n = \frac{U_0}{2} + \sum ^{N/2-1}_{k=1} (U_k \cos (k\alpha_n)) + \tilde{U}_k \sin (k \alpha_n) + (-1)^{(n-1)} \frac{U_{N/2}}{2}, 
+\end{equation}
+
+\noindent with similar expressions for $v_n$.  The real Fourier coefficients are given by:
+
 \begin{equation}\label{eq:fouriercoeff}
 \begin{split}
 U_k = & \frac{2}{N}\sum_{n=1}^{N} u_n \cos (k \alpha_n), \hspace{0.3cm} k = 0, ...., N/2, \\
 \tilde{U}_k = & \frac{2}{N} \sum_{n=1}^{N} u_n \sin (k \alpha_n), \hspace{0.3cm} k = 1,...,N/2-1
 \end{split}
 \end{equation}
-and analogously for the $V_k$ and $\tilde{V_k}$.
-These Fourier coefficients are then used to calculate nine coefficients, that are used further to calculate the calibration parameters.  Please refer to Appendix for the set of equations used to calculate the calibration parameters.  Figure ~\ref{fig:FourierFit} shows the Fourier series fit to u and v variable extracted from projection of the phantom markers.  Figure~\ref{fig:smekalresult} shows the result of the method after using Smekal's method.
 
-\begin{figure}
-\centering
-	\begin{subfigure}[b]{0.4\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=2cm]{FourierFit.png}
-	\label{fig:FourierFit}
-	\caption{Fourier coefficient fit to data}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.4\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=2cm]{smekalresult.png}
-	\label{fig:smekalresult}
-	\caption{Calculated result}
-	\end{subfigure}
-\label{fig:smekal_method}	
-\caption{Fitting result}
-\end{figure}
-Smekal's method calculates 11 parameters.  These are the detector rotation misalignment ($\eta$,$\theta$,$\varphi$), detector position misalignment ($dx$,$dz$), $R$, $Ry_p$, $Rf_p$, and object marker initial location with respect to $R_f$ ($x_0/R_f$, $y_0/R_f$, $z_0/R_f$).  Unfortunately $R_f$ and marker initial locations are presented together and we cannot separate initial marker point location anymore by using Smekal's calibration method.  To over come this problem, we used the contracting grid algorithm to search for $R_f$ as well as nuisance parameters that include six degrees of freedom for the object.
-\subsection{Find object parameters}
-The contracting grid search algorithm is based on maximum-likelihood estimation.  The maximum-likelihood method can generally be formulated as a search over a parameter space, 
+\noindent and analogously for the $V_k$ and $\tilde{V_k}$.  Only the first three Fourier components were needed in the misalignment calculation. Thus the method is insensitive to high frequency fluctuations and uncertainties that stem from marker point extraction between different projection angles.  These Fourier coefficients and the results from step 1 are used to calculate the final system parameters by going through some intermediate equations.  These are shown in Appendix X.
+
+The result of Smekal's method calculates 10 parameters.  These are the detector rotation misalignment ($\theta_x$,$\theta_y$,$\theta_z$), detector position misalignment ($d_x$,$d_z$), $R$, and $R_y'$, where $R_y' = R + d_y$.  This method also provide the object marker initial location with respect to $R_f$, i.e. $x_0/R_f$, $y_0/R_f$, $z_0/R_f$.  Unfortunately $R_f$ and marker initial locations are presented together and we cannot separate initial marker point location anymore by using Smekal's calibration method.  To overcome this problem, we used the contracting grid algorithm to search for $R_f$.  In order to complete this last step, we need to estimate the nuisance parameters ($\theta_x^{obj}, \theta_y^{obj}, \theta_z^{obj}, x_0, y_0, z_0$).
+
+%\begin{figure}
+%\centering
+%	\begin{subfigure}[b]{0.4\linewidth}
+%	\centering
+%	\placeholderimage[width=3cm,height=2cm]{FourierFit.png}
+%	\label{fig:FourierFit}
+%	\caption{Fourier coefficient fit to data}
+%	\end{subfigure}
+%\hspace{0.2cm}
+%	\begin{subfigure}[b]{0.4\linewidth}
+%	\centering
+%	\placeholderimage[width=3cm,height=2cm]{smekalresult.png}
+%	\label{fig:smekalresult}
+%	\caption{Calculated result}
+%	\end{subfigure}
+%\label{fig:smekal_method}	
+%\caption{Fitting result}
+%\end{figure}
+
+\subsection{Calculate nuisance parameters and find $R$ and $R_f$}
+The contracting grid algorithm is based on maximum-likelihood estimation.  The maximum-likelihood method can generally be formulated as a search over parameter space as shown 
 \begin{equation}
 \label{eq:mlem}
-\mathbf{\hat{\theta}} = \arg\max_{\theta} \; \lambda (\mathbf{\theta | g}) = \arg\max_{\theta} \; pr( \mathbf{g| \theta} )
+\mathrm{\hat{\boldsymbol{\theta}} = \arg\max_{\theta} \; \lambda (\boldsymbol{\theta}| \boldsymbol{g}) = \arg\max_{\theta} \; pr( \boldsymbol{g}|\boldsymbol{\theta} )},
 \end{equation}
-where $\theta$ is a vector of parameters, $g$ is a vector of observations (data), $\lambda$ is the likelihood, and $\hat{\theta}$ is a vector of estimated model parameters. 
-The equation can be explained as find$\theta$ that will maximize $pr(g|\theta)$, or the likelihood ($\lambda(\theta|g)$). The general method can be summarized in the form of a question: given a set of observations $g$, what is the set of parameters $\theta$ that has the highest probability of generating the observed data?  
-The set of observations $g$ in our case are the positions of the marker points on the detector as they rotate through a circular orbit. The parameters $\theta$ are the misaligned parameters we found using Smekal's method, as well as $R_f$ and the marker's object positions.  Given an imaging system and object model we can express the results of the imaging system using a general equation:
+where $\boldsymbol{\theta}$ is a vector of the interested parameters, $\boldsymbol{g}$ is the data vector, $\lambda$ is the likelihood of observing $\boldsymbol{g}$, and $\hat{\boldsymbol{\theta}}$ is a vector of estimated parameters. 
+Equation~\ref{eq:mlem} can be stated as a question: given a set of data, or observations $\boldsymbol{g}$, find the set of parameters $\boldsymbol{\theta}$ that has the highest probability of creating this set of observed data.  The data set, $\boldsymbol{g}$, in our case are the projection points of the markers on the misaligned detector. The parameter vector $\boldsymbol{\theta}$ are the object misalignment position and orientation and the system parameter, $R_f$ .  
+
+Given an imaging system and object model we can express the results from the imaging system using a general equation:
 \begin{equation}
 \label{eq:gHf}
-\mathbf{g} = \mathbf{H} \; f + n
+\mathbf{g} = \mathbf{H} \; \mathbf{f} + n
 \end{equation}
-where $n$ is additive noise assumed to have zero mean, $f$ is the object, $g$ is the image created, $H$ is the imaging system operator that takes the object information and creates $g$.  If we average multiple images of the same object we arrive at the mean image, $\bar{g}$ with
+where $n$ is additive noise associated with the image system, $f$ is the object vector, $g$ is the image vector, and $\mathbf{H}$ is the imaging system operator that takes the object information to create $g$.  If we average multiple images of the same object we arrive at the mean image, $\mathbf{\bar{g}}$ with
 \begin{equation}
 \label{eq:gbar}
-\bar{\mathbf{g}} = \mathbf{H} \; f
+\mathbf{\bar{g}} = \mathbf{H} \; \mathbf{f}.
 \end{equation}
-In real x-ray CT image data obtained with reasonably long exposure time, the noise term, n, is normally distributed with zero mean.  Thus the image data, g is normally distributed with mean $\bar{g}$.  Another way to write this is:
+
+When we acquire real CT image data with reasonably long exposure time, the noise term, n, can be assumed as a normal distribution function with zero mean.  Thus the image data, $\mathbf{g}$ can also assumed to be normally distributed with mean $\mathbf{\bar{g}}$.  We can rewrite the likelihood as a zero-mean Gaussian distribution function.  The maximum likelihood solution to a zero-mean Gaussian function is then reduced to solve
 \begin{equation}
-\label{eq:prob_gaus}
-pro(g|\theta) = pr(n) = Gauss(0, \sigma^2)
+\arg\min_{\theta} \| g - \bar{g} \|^2,
+\label{eq:least_square}
 \end{equation}
-where $Gauss(0, \sigma^2)$ is a zero-mean Gaussian distribution of a vector the same size as n with variance $\sigma^2$.
-The maximum-likelihood estimation of parameters on a zero mean normally distributed data reduces to solve:
-\begin{equation}
-\arg\min_{\theta} \| g - \bar{g} \|^2
-\end{equation}
-The  maximum-likelihood method is equivalent to a least-squares solution.
-In other words, choose the parameters $\theta$ that minimize the mean-squared error between the observed data, g, and the parameter-dependent mean, $\bar{g}$
-Since $\theta$ is a multi-dimensional space(each parameter to be estimated adds one dimension).  There are many techniques developed to address this problem, including conjugate gradient methods and a host of other (Kolda2003, Knuth1998, Audet2006, Kolda2003, Conn2008).  The algorithm allows identification of a function maximum (or minimum) in a fixed number of iterations that depends on the desired precision.  It is a deterministic search algorithm (so the same starting point always yields the same result compared to statistical search methods where the end result is always slightly different).  Essentially the algorithm is a semi exhausted search for a set of parameters that minimizes the MSE, then the algorithm regenerate another set of parameter sets based on the previous iteration until we reach the maximum iteration specified. The contracting grid algorithm is broken down into X steps.
-\comment{talk about prior? we know a guess right?}
-guess a prior parameter. this is not the same as $pr(\theta)$
-1. For each parameter $\theta_i$, create  a region of physically reasonable grid size $M_i$.
-2. Calculate MSE for all combination of each parameters grids.
-3. Locate the minimum MSE and the set of parameters that was used.
-4. Contract the grid size
-5. repeat steps 2-4 until reaching maximum iteration number.
+which is equivalent to the least-squares solution.  In other words, find the parameters $\boldsymbol{\theta}$ that minimize the mean-squared difference between the observed data, $\mathbf{g}$, and the parameter-dependent mean, $\mathbf{\bar{g}}$ calculated using $\mathbf{H}$.  
 
-We have found that it is more efficient to first approximate $R_f$, $\varphi$, $\eta$, and $\theta$.  A rough estimation of $R_f$ can simply be found by calculating the ratio of $\Delta z$ from the phantom and $\Delta z/R_f$ calculated from previous section.  $\varphi$ of the phantom is the rotation of the markers about the $z$ axis, changing this variable does not effect the overall dimension of the projection markers but it does greatly contribute to MSE value so we tried to approximate it after $R_f$ to minimize the search extension of the search grid space.  Finally the initial values for both $\phi$ and $\eta$ is approximated.  Figure X shows the projection of the markers using initial parameters.  The tolerance for each variable is described in Table X.  We have used grid size of 4 for each parameter at rate of 1.1.  Using 100 iteration, the result to the calibration is show in Table X.
+The method to search for the vector $\boldsymbol{\theta}$ that resides in a multi-dimensional space is called contracting grid.  It is an iterative search algorithm.  Just like the way it sounds, at each iteration the method generates a "grid" for each parameter and searches through the grid to find the best parameter combinations.  The next iteration "contracts" the grid around each parameter and the search repeats until it reaches a preset number of iterations.
+%Common methods to solve for a multi-dimensional vector includes conjugate gradient methods and a host of many others (Kolda2003, Knuth1998, Audet2006, Kolda2003, Conn2008).  We have opted to use the contracting grid search algorithm that allows identification of a function's maximum (or minimum) in a fixed number of iterations.  It is a deterministic search algorithm (so the same starting point always yields the same result compared to statistical search methods where the end result is always slightly different).  Essentially the algorithm is a semi exhausted search for a set of parameters that minimizes the MSE, then the algorithm regenerate another set of parameter sets based on the previous iteration until we reach the maximum iteration specified. 
+%\comment{talk about prior? we know a guess right? guess a prior parameter. this is not the same as $pr(\theta)$}
+The contracting grid algorithm can broken down into five steps:
+\begin{enumerate}
+\item For each parameter $\theta_i$, create a region of physically reasonable grid size $M_i$.
+\item Use equation~\ref{eq:least_square} and calculate the least-squared results of all parameter grid combinations.
+\item Find the set of parameters that generated the lowest least-squared result.
+\item Contract the grid size for each parameter as shown in figure X.
+\item repeat steps 2-4 until reaching maximum iteration number.
+\end{enumerate}
 
-locate $\varphi$ of the object roughly because it does not eff
+For more detailed information regarding the contracting grid search algorithm, please refer to the paper by Jacob Y. Hesterman~\cite{Hesterman2010}.  Through experimentation, we have found that it is more efficient to first obtain a rough calculation of the parameters, $R_f$, $\theta^{obj}_z$, $\theta^{obj}_x$, and $\theta^{obj}_y$ before fully indulge into the contracting-grid algorithm.  A rough estimation of $R_f$ can simply be found by using the vertical separation between the point markers on the projection image ($\Delta z_0$) of a known phantom and applying it to the values $\Delta z_0/R_f$ calculated from the previous section.  $\theta^{obj}_x$ is the initial rotation orientation of the point markers about the $z$-axis, changing this value does not effect the overall projection locations of the point markers but it does greatly contributes to the least-squares sum of the contracting-grid algorithm so we tried to approximate its value in order to minimize the search duration later.  Finally the values for $\theta_x^{obj}$ and $\theta_y^{obj}$ are iterated over 360 degrees as a rough approximation.  
 
-The phantom was designed in SolidWorks and printed on the rapid prototype machine, so we know the location of the bearing markers in the object relative to its axis of rotation.  These are the initial guesses to the marker location, x0, y0, and z0.  The other unknown values are object rotation parameters ($\eta_{obj}$,$\varphi_{obj}$,$\theta_{obj}$) and $R_f$.  By initially perturbing each parameter, we have created initial guess of each parameter, then final values where ran through the contracting grid algorithm.
+\subsection{Calibration Results}
 
-\section{Calibration result}
-
+Figure X shows the projection of the markers using initial parameters.  The tolerance for each variable is described in Table X.  We have used grid size of 4 for each parameter at rate of 1.1.  Using 100 iteration, the result to the calibration is show in Table X.
 
 \begin{equation}\label{eq:d_coeff}
 \begin{split}
@@ -306,3 +325,66 @@ F =& \cos \eta \; d_{02}' + \sin \eta \; d_{12}' \\
 \label{eq:varphi}
 \tan \varphi = \frac{C-F}{\sin \theta \, (A-E) \, \pm \, B}
 \end{equation}
+
+\subsection{Calibration Phantom}
+
+The phantom was designed in SolidWorks and printed on the rapid prototype machine, so we know the location of the bearing markers in the object relative to its axis of rotation.  These are the initial guesses to the marker location, x0, y0, and z0.  The other unknown values are object rotation parameters ($\eta_{obj}$,$\varphi_{obj}$,$\theta_{obj}$) and $R_f$.  By initially perturbing each parameter, we have created initial guess of each parameter, then final values where ran through the contracting grid algorithm.
+
+Here we have opted to follow the method introduced by Lorenz von Smekal to calculate the geometric misalignment of our CT system \cite{Smekal2004}. 
+We have opted use Smekal's method for calibrating our CT system.  This method requires the use of a set of fiducial markers to be placed in front of the x-ray screen.  This method also requires advanced knowledge of the vertical separation between each markers.  The on-site rapid prototype printer was ideal for this purpose.
+
+Since the field of view of the CT system can be as large as 24 cm $\times$ 24 cm, we needed to print a large phantom without wasting too much rapid prototype material.  In addition, we wanted the phantom to be flexible so we can vary the number of marker and its size to be used in the calibration algorithm in order to find the best combination.
+
+The phantom we chose is composed of two separate pieces, a large bracket that is used to mount on the rotation stage, and a smaller insert that can be printed for different marker arrangements.  These are shown in Figure \ref{fig:calibration_phantom}.  
+
+The bracket places the markers 6 inches from the center rotation axis.  The marker inserts uses a conical end so it's easy to align the vertical axis of the market against the axis of the bracket.  The marker insert is held at 2 ends by the bracket to ensure the insert is vertical.  The marker points are made out of stainless steel bearings purchased from McMaster-Carr.  Three different bearing sizes (1/16 \inches, 1/8 \inches and 3/16 \inches and 1/4 \inches) where glued onto the insert, though we've found 1/8 \inches bearing worked the best.  
+
+\begin{figure}
+\centering
+	\begin{subfigure}[b]{0.3\linewidth}
+	\centering
+	\placeholderimage[width=3cm,height=3cm]{phantombracket.png}
+	\caption{phantom bracket}
+	\label{fig:phantom_bracket}
+	\end{subfigure}
+\hspace{0.2cm}
+	\begin{subfigure}[b]{0.3\linewidth}
+	\centering
+	\placeholderimage[width=3cm,height=3cm]{markerinsert.jpg}
+	\caption{marker insert}
+	\label{fig:marker_holder}
+	\end{subfigure}
+\hspace{0.2cm}
+	\begin{subfigure}[b]{0.3\linewidth}
+	\centering
+	\placeholderimage[width=3cm,height=3cm]{steelbearings.jpg}
+	caption{steel bearings}
+	\label{fig:steel_bearings}
+	\end{subfigure}
+\caption{Calibration phantom}
+\label{fig:calibration_phantom}
+\end{figure}
+
+
+\subsection{Extract phantom marker locations}
+Both threshold and Gaussian filters were used to extract the centroid location for each of the markers.  First the projection image of the markers are filtered through a threshold value range in attempt to eliminate as much background information as possible.  We then set a small ring along the edge of image to zero.  Each points in the processed image is then multiplied by a small Gaussian filter and the values summed up.  This is an attempt to try to eliminate spotty non-localized noise remained in the image.  The result is an image with mostly zero values except at the marker locations.  Finally we then use another Gaussian filter with its size approximately equal to the size of the marker and multiply it by each of the marker point clusters to find the centroid value.  We assume that the centroid should have the most neighboring pixels and the point with the highest summed value after multiplied by the Gaussian filter is the centroid.  The x and y coordinate of the marker locations were then recorded for projection image at each angular rotation.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.3\linewidth}
+	\centering
+	\placeholderimage[width=3cm,height=3cm]{GaussianFilter.jpg}
+	\label{fig:GaussianFilter}
+	\caption{Gaussian filter}
+	\end{subfigure}
+\hspace{0.2cm}
+	\begin{subfigure}[b]{0.3\linewidth}
+	\centering
+	\placeholderimage[width=3cm,height=3cm]{MarkerCluster.jpg}
+	\label{fig:markercluster}
+	\caption{projection of a marker}
+	\end{subfigure}
+\label{fig:extractmarkerlocation}
+\caption{filters used to extract each marker locations}
+\end{figure}
+
