@@ -37,6 +37,7 @@ In order to estimate all of the global parameters, we needed to add an additiona
 \end{figure}
 
 \section{Calibration method}
+\label{section:calibration_method}
 We have employed three steps in order to compute all the global calibration and nuisance parameters.  These steps are outlined as follows:
 
 \begin{enumerate}
@@ -230,8 +231,69 @@ The contracting grid algorithm can broken down into five steps:
 For more detailed information regarding the contracting grid search algorithm, please refer to the paper by Jacob Y. Hesterman~\cite{Hesterman2010}.  Through experimentation, we have found that it is more efficient to first obtain a rough calculation of the parameters, $R_f$, $\theta^{obj}_z$, $\theta^{obj}_x$, and $\theta^{obj}_y$ before fully indulge into the contracting-grid algorithm.  A rough estimation of $R_f$ can simply be found by using the vertical separation between the point markers on the projection image ($\Delta z_0$) of a known phantom and applying it to the values $\Delta z_0/R_f$ calculated from the previous section.  $\theta^{obj}_x$ is the initial rotation orientation of the point markers about the $z$-axis, changing this value does not effect the overall projection locations of the point markers but it does greatly contributes to the least-squares sum of the contracting-grid algorithm so we tried to approximate its value in order to minimize the search duration later.  Finally the values for $\theta_x^{obj}$ and $\theta_y^{obj}$ are iterated over 360 degrees as a rough approximation.  
 
 \subsection{Calibration Results}
+Figure \ref{fig:calibration_plot} shows projection of the ball bearing from experiment vs the projection of point marks using the calibration parameters.  We used 100 contracting-grid iterations with grid size of 4 for each parameter at contracting rate of 1.05.
 
-Figure X shows the projection of the markers using initial parameters.  The tolerance for each variable is described in Table X.  We have used grid size of 4 for each parameter at rate of 1.1.  Using 100 iteration, the result to the calibration is show in Table X.
+\begin{figure}[ht]
+\includegraphics[scale=0.7]{calibration_plot.eps}
+\label{fig:calibration_plot}
+\caption{Projection of the ball bearings from experiment vs the projection of the point markers using the calibration parameters after 100 iterations with grid size of 4 and contracting rate of 1.05.}
+\end{figure}
+
+\comment{ Need a table for calibration tolerances}
+
+\section{Calibration Phantom}
+The phantom used in the calibration process was designed in SolidWorks and printed using a rapid prototype machine.  The phantom is composed of two separate pieces, a larger bracket that is used to mount to the rotation stage, and a smaller insert where various number of ball bearings and sizes can be attached.  These are shown in Figure \ref{fig:calibration_phantom}.
+
+The bracket is designed so that the center of the ball bearings on the inserts are 60 mm from the center of the rotation axis on the bracket.  The smaller insert has a conical end so it is easy to align the vertical axis of the markers against the bracket holder.  The ball bearings are made out of stainless steel and are purchased from McMaster-Carr.  Three different bearing sizes (1/16 \inches, 1/8 \inches and 3/16 \inches and 1/4 \inches) were purchased and tested.  Through experiment we have found that 1/8 \inches bearing worked the best.
+\begin{figure}[ht]
+	\begin{subfigure}[b]{0.3\linewidth}
+	\includegraphics[width = 4cm]{phantom_bracket_clip.png}
+	\label{fig:calibration_phantom_bracket}
+	\caption{}
+	\end{subfigure}
+\hspace{0.2cm}
+	\begin{subfigure}[b]{0.3\linewidth}
+	\includegraphics[width = 4cm]{phantom_insert2_crop}
+	\label{fig:calibration_phantom_insert}
+	\caption{}
+	\end{subfigure}
+\caption{(a) calibration phantom bracket, (b) inserts with different ball bearings}
+\label{fig:calibration_phantom}
+\end{figure}
+
+\subsection{Extract phantom marker locations}
+In order to execute the calibration method described in section \ref{section:calibration_method}, we must be able to extract the 2-dimensional coordinate location of the point markers on the detector using the phantom ball bearing projection images.  The raw projection image at one angle is shown in Figure \ref{fig:calibration_projection}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width = 10cm]{calibration_projection_w_label}
+\caption{Projection of the calibration phantom at one angle.  The image taken used 100 kV x-ray at 200 $\mu A$ with 2 second camera exposure time.}
+\label{fig:calibration_projection}
+\end{figure}
+
+Both threshold and Gaussian filters were used to extract the centroid location for each of the markers.  First the projection image of the markers are filtered through a threshold value range in attempt to eliminate as much background information as possible.  We then set a small ring along the edge of image to zero.  Each points in the processed image is then multiplied by a small Gaussian filter and the values summed up.  This is an attempt to try to eliminate spotty non-localized noise remained in the image.  The result is an image with mostly zero values except at the marker locations.  Finally we then use another Gaussian filter with its size approximately equal to the size of the marker and multiply it by each of the marker point clusters to find the centroid value.  We assume that the centroid should have the most neighboring pixels and the point with the highest summed value after multiplied by the Gaussian filter is the centroid.  The x and y coordinate of the marker locations were then recorded for projection image at each angular rotation.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.3\linewidth}
+	\centering
+	\placeholderimage[width=3cm,height=3cm]{GaussianFilter.jpg}
+	\label{fig:GaussianFilter}
+	\caption{Gaussian filter}
+	\end{subfigure}
+\hspace{0.2cm}
+	\begin{subfigure}[b]{0.3\linewidth}
+	\centering
+	\placeholderimage[width=3cm,height=3cm]{MarkerCluster.jpg}
+	\label{fig:markercluster}
+	\caption{projection of a marker}
+	\end{subfigure}
+\label{fig:extractmarkerlocation}
+\caption{filters used to extract each marker locations}
+\end{figure}
+
+
+
 
 \begin{equation}\label{eq:d_coeff}
 \begin{split}
@@ -325,66 +387,3 @@ F =& \cos \eta \; d_{02}' + \sin \eta \; d_{12}' \\
 \label{eq:varphi}
 \tan \varphi = \frac{C-F}{\sin \theta \, (A-E) \, \pm \, B}
 \end{equation}
-
-\subsection{Calibration Phantom}
-
-The phantom was designed in SolidWorks and printed on the rapid prototype machine, so we know the location of the bearing markers in the object relative to its axis of rotation.  These are the initial guesses to the marker location, x0, y0, and z0.  The other unknown values are object rotation parameters ($\eta_{obj}$,$\varphi_{obj}$,$\theta_{obj}$) and $R_f$.  By initially perturbing each parameter, we have created initial guess of each parameter, then final values where ran through the contracting grid algorithm.
-
-Here we have opted to follow the method introduced by Lorenz von Smekal to calculate the geometric misalignment of our CT system \cite{Smekal2004}. 
-We have opted use Smekal's method for calibrating our CT system.  This method requires the use of a set of fiducial markers to be placed in front of the x-ray screen.  This method also requires advanced knowledge of the vertical separation between each markers.  The on-site rapid prototype printer was ideal for this purpose.
-
-Since the field of view of the CT system can be as large as 24 cm $\times$ 24 cm, we needed to print a large phantom without wasting too much rapid prototype material.  In addition, we wanted the phantom to be flexible so we can vary the number of marker and its size to be used in the calibration algorithm in order to find the best combination.
-
-The phantom we chose is composed of two separate pieces, a large bracket that is used to mount on the rotation stage, and a smaller insert that can be printed for different marker arrangements.  These are shown in Figure \ref{fig:calibration_phantom}.  
-
-The bracket places the markers 6 inches from the center rotation axis.  The marker inserts uses a conical end so it's easy to align the vertical axis of the market against the axis of the bracket.  The marker insert is held at 2 ends by the bracket to ensure the insert is vertical.  The marker points are made out of stainless steel bearings purchased from McMaster-Carr.  Three different bearing sizes (1/16 \inches, 1/8 \inches and 3/16 \inches and 1/4 \inches) where glued onto the insert, though we've found 1/8 \inches bearing worked the best.  
-
-\begin{figure}
-\centering
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{phantombracket.png}
-	\caption{phantom bracket}
-	\label{fig:phantom_bracket}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{markerinsert.jpg}
-	\caption{marker insert}
-	\label{fig:marker_holder}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{steelbearings.jpg}
-	caption{steel bearings}
-	\label{fig:steel_bearings}
-	\end{subfigure}
-\caption{Calibration phantom}
-\label{fig:calibration_phantom}
-\end{figure}
-
-
-\subsection{Extract phantom marker locations}
-Both threshold and Gaussian filters were used to extract the centroid location for each of the markers.  First the projection image of the markers are filtered through a threshold value range in attempt to eliminate as much background information as possible.  We then set a small ring along the edge of image to zero.  Each points in the processed image is then multiplied by a small Gaussian filter and the values summed up.  This is an attempt to try to eliminate spotty non-localized noise remained in the image.  The result is an image with mostly zero values except at the marker locations.  Finally we then use another Gaussian filter with its size approximately equal to the size of the marker and multiply it by each of the marker point clusters to find the centroid value.  We assume that the centroid should have the most neighboring pixels and the point with the highest summed value after multiplied by the Gaussian filter is the centroid.  The x and y coordinate of the marker locations were then recorded for projection image at each angular rotation.
-
-\begin{figure}
-	\centering
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{GaussianFilter.jpg}
-	\label{fig:GaussianFilter}
-	\caption{Gaussian filter}
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\placeholderimage[width=3cm,height=3cm]{MarkerCluster.jpg}
-	\label{fig:markercluster}
-	\caption{projection of a marker}
-	\end{subfigure}
-\label{fig:extractmarkerlocation}
-\caption{filters used to extract each marker locations}
-\end{figure}
-
