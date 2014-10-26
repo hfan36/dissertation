@@ -29,13 +29,14 @@
 % These are the packages that we need
 \usepackage{graphicx}
 \usepackage{rotating}
-\usepackage{natbib}	% natbib is available on most systems, and is
+\usepackage[sort]{natbib}	% natbib is available on most systems, and is
 					% terribly handy.
 					% If you want to use a different Bibliography package, 
 					% you should be able to, just change this
 					% and the \bibliographystyle command below.  Be warned
 					% that you may need to do a little hacking to get
 					% the REFERENCES item to show up in your TOC.
+
 
 % Compatibility with the AASTEX package 
 % of the American Astronomical Society.
@@ -62,9 +63,10 @@
 \usepackage[bookmarks=true, citecolor=black, colorlinks=true, linkcolor=black]{hyperref}
 \usepackage{xcolor} %this is for comment
 \usepackage{graphicx} %used to include graphics in the document
-\graphicspath{{H:/Dissertation/Outline/Images/}}
+\graphicspath{{./Images/}}
 \usepackage{caption} 
 \usepackage{subcaption}
+
 
 \usepackage[version=3]{mhchem}
 \parskip=0.1in
