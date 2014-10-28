@@ -1,1816 +1,1843 @@
-% This file was created with JabRef 2.9.2.
+% This file was created with JabRef 2.10.
 % Encoding: Cp1252
 
-@TECHREPORT{AAPM93,
-  author = {AAPM},
-  title = {Acceptance Testing and Quality Control of Photostimulable Storage
-	Phosphor Imaging Systems},
-  institution = {AAPM},
-  organization = {American Association of Physicists in Medicine, Report No. 93},
-  owner = {Fan},
-  timestamp = {2014.09.15}
-}
-
-@TECHREPORT{aapm_headCT2012,
-  author = {AAPM},
-  title = {{A}dult {R}outine {H}ead {CT} {P}rotocols {V}ersion 1.1},
-  institution = {AAPM},
-  year = {2012},
-  journal = {AAPM CT Scan Protocol},
-  owner = {Fan},
-  timestamp = {2014.09.05}
-}
-
-@TECHREPORT{PhysicistsinMedicine2011,
-  author = {AAPM},
-  title = {{AAPM} {R}ecommendations {R}egarding {N}otification and {A}lert {V}alues
-	for {CT} {S}canners: {G}uidelines for {U}se of the {NEMA} {XR} 25
-	{CT} {D}ose-{C}heck {S}tandard},
-  institution = {AAPM},
-  year = {2011},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\AAPM recommendations for NEMA XR 25.pdf:PDF},
-  keywords = {CT Dose, AAPM, NEMA, NEMA XR 25},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.30}
-}
-
-@TECHREPORT{CTDosimetry2010,
-  author = {AAPM},
-  title = {{C}omprehensive {M}ethodology for the {E}valuation of {R}adiation
-	{D}ose in {X}-{R}ay {C}ompted {T}omography},
-  institution = {AAPM Task Group III: The Future of CT Dosimetry},
-  year = {2010},
-  note = {A New Measurement Paradigm Based on a Unified Theory for Axial, Helical,
-	Fan-Beam, and Cone-Beam Scanning With or Without Longitudinal Translation
-	of the Patient Table},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\AAPM - evaluation of radiation dose in x-ray CT.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.30}
-}
-
-@TECHREPORT{Dosimetry2007,
-  author = {AAPM},
-  title = {{T}he {M}easurement, {R}eporting, and {M}anagement of {R}adiation
-	{D}ose in {CT}},
-  institution = {AAPM},
-  year = {2008},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\AAPM - measurement reporting and management of radiation dose in CT.pdf:PDF},
-  journal = {Report of AAPM Task Group 23 of the Diagnostic Imaging Council CT
-	Committee},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.30}
-}
-
-@PHDTHESIS{AbbeyThesis,
-  author = {Abbey, C. K.},
-  title = {Assessment of reconstructed images},
-  school = {University of Arizona, Tucson, AZ},
-  year = {1998},
-  owner = {Fan},
-  timestamp = {2014.10.27}
-}
-
-@INBOOK{Abbey2000,
-  chapter = {Modeling {V}isual {D}etection {T}asks in {C}orrelated {I}mage {N}oise
-	with {L}inear {M}odel {O}bservers},
-  pages = {630-654},
-  title = {Handbook of Medical Imaging, Volume 1. Physics and Psychophysics},
-  publisher = {SPIE Press},
-  year = {2000},
-  editor = {Beutel, J. and Kundel, H. L. and Van Metter, R. L.},
-  author = {Abbey, C. K. and Bochud, F. O.},
-  volume = {I},
-  owner = {Fan},
-  timestamp = {2014.10.27}
-}
-
-@ARTICLE{Antonuk1990,
-  author = {Antonuk, L. E. and Boudry, J. and Yorkston, J. and Wild, C. F. and
-	Longo, M. J. and Street, R. A.},
-  title = {{R}adiation damage studies of amorphous-silicon photodiode sensors
-	for application in radiotherapy {X}-ray imaging},
-  journal = {Nucl. Instr. Meth. Phys.},
-  year = {1990},
-  volume = {A299},
-  pages = {143-146},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@ARTICLE{Audet2006,
-  author = {Audet, C. and Dennis, J. E.},
-  title = {Mesh adaptive direct search algorithm for constrained optimization},
-  journal = {SIAM J. Optim.},
-  year = {2006},
-  volume = {17(1)},
-  pages = {188-217},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.14}
-}
-
-@ARTICLE{Azevedo1990,
-  author = {Azevedo, S. G. and Schneberk, D. J. and Fitch, J. P. and Martz, H.
-	E.},
-  title = {{C}alculation of the {R}otational {C}enters in {C}omputed {T}omography
-	{S}inograms},
-  journal = {IEEE Trans. Nucl. Sci.},
-  year = {1990},
-  volume = {37},
-  pages = {1525-1540},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Bankier2012,
-  author = {Bankier, A. A. and Kressel, H. Y.},
-  title = {{T}hrough the {L}ooking {G}lass {R}evisited: {T}he {N}eed for {M}ore
-	{M}eaning and {L}ess {D}rama in the {R}eporting of {D}ose and {D}ose
-	{R}eduction in {CT}},
-  journal = {Radiology},
-  year = {2012},
-  volume = {265},
-  pages = {265:4-8},
-  month = {October},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Bankier - the need for more meaning and less drama in dose and dose reduction in CT.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Barrett2009,
-  author = {Barrett, H. H.},
-  title = {{NEQ}: its progenitors and progeny},
-  journal = {Proc. SPIE},
-  year = {2009},
-  volume = {7263},
-  doi = {10.1117/12.817795},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Barrett NEQ keynote SPIE 2009.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Abbey2001,
-  author = {Barrett, H. H. and Abbey, C. K.},
-  title = {{H}uman- and model-observer performance in ramp-spectrum noise: effects
-	of regularization and object variability},
-  journal = {J. Opt. Soc. Am. A Opt. Image. Sci. Vis.},
-  year = {2001},
-  volume = {18},
-  pages = {473-488},
-  number = {3},
-  month = {March},
-  file = {:F\:\\Papers\\Abbey - Human and Model Observer performance.pdf:PDF},
-  keywords = {model observer, observers,},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.30}
-}
-
-@BOOK{Barrett2004,
-  title = {{F}oundations of {I}mage {S}cience},
-  publisher = {John Wiley \& Sons, Inc.},
-  year = {2004},
-  editor = {Bahaa E. A. Saleh},
-  author = {Barrett, H. H. and Myers, K. J.},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.02}
-}
-
-@BOOK{Barrett1981,
-  title = {{R}adiological {I}maging - {T}he {T}heory of {I}mage {F}ormation,
-	{D}etection, and {P}rocessing {V}olume 1},
-  publisher = {Academic Press},
-  year = {1981},
-  author = {Barrett, H. H. and Swindell, W.},
-  owner = {Fan},
-  timestamp = {2014.02.27}
-}
-
-@ARTICLE{Bauhs2008,
-  author = {Bauhs, J. A. and Vrieze, T. J. and Primak, A. N. and Bruesewitz,
-	M. R. and McCollough, C. H.},
-  title = {{CT} {D}osimetry: {C}omparison of {M}easurement {T}echniques and
-	{D}evices},
-  journal = {Radiographics},
-  year = {2008},
-  volume = {28},
-  pages = {245-253},
-  file = {:F\:\\Papers\\Bauhs - CT dosimetry - comparison of measurement techniques and devices.pdf:PDF},
-  keywords = {CT dosimetry, dose, measurement techniques, TLD, CTDI},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.30}
-}
-
-@ARTICLE{Beister2012,
-  author = {Beister, M. and Kolditz, D. and Kalender, W. A.},
-  title = {{I}terative reconstruction methods in {X}-ray {CT}},
-  journal = {Phys. Med.},
-  year = {2012},
-  volume = {28},
-  pages = {94-108},
-  file = {:F\:\\Papers\\Beister - Iterative reconstruction methods in CT.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Beque2003,
-  author = {Beque, D. and Nuyts, J. and Bormans, G. and Suetens, P. and Dupont,
-	P.},
-  title = {{C}haracterization of {P}inhole {SPECT} {A}cqusition {G}eometry},
-  journal = {IEEE Trans. Med. Imag.},
-  year = {2003},
-  volume = {22},
-  pages = {599-612},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Berzins1983,
-  author = {Berzins, G. J. and Lumpkins, A. H. and Smith, H. L},
-  title = {{C}haracterization of fluorescent screen for imaging application
-	with {M}e{V} neutrons and photons},
-  journal = {Opt. Eng.},
-  year = {1983},
-  volume = {22(5)},
-  pages = {633-642},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@BOOK{blasse1994,
-  title = {{L}uminescent {M}aterials},
-  publisher = {{B}erlin: {S}pringer},
-  year = {1994},
-  author = {Blasse, G. and Grabmaier, B. C.},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@ARTICLE{Boedeker2007,
-  author = {Boedeker, K. L. and Cooper, V. N. and McNitt-Gray, M. F.},
-  title = {Application of the noise power spectrum in modern diagnostic {MDCT}:
-	part I. {M}easurement of noise power spectra and noise equivalent
-	quanta},
-  journal = {Phys. Med. Biol.},
-  year = {2007},
-  volume = {52},
-  pages = {4027-4046},
-  owner = {Fan},
-  timestamp = {2014.02.24}
-}
-
-@ARTICLE{Bradford1999,
-  author = {Bradford, C. D. and Peppler, W. W. and Dobbins III, J. T.},
-  title = {{P}erformance {C}haracteristics of a {K}odak {C}omputed {R}adiography
-	{S}ystem},
-  journal = {Med. Phys.},
-  year = {1999},
-  volume = {26},
-  pages = {27-37},
-  owner = {Fan},
-  timestamp = {2014.03.18}
-}
-
-@ARTICLE{Bronnikov1999,
-  author = {Bronnikov, A. V.},
-  title = {{V}irtual alignment of x-ray cone-beam tomography system using two
-	calibration aperture measurements},
-  journal = {Opt. Eng.},
-  year = {1999},
-  volume = {38(2)},
-  pages = {381-386},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Bunch1987,
-  author = {Bunch, P. C. an d Huff, K. E. and Van Metter, R.},
-  title = {Analysis of the detective quantum efficiency of a radiographic screen-film
-	combination},
-  journal = {J. Opt. Soc. Am. A},
-  year = {1987},
-  volume = {4},
-  pages = {902-909},
-  file = {:F\:\\Papers\\Bunch - analysis of the DQE of a raiographic screen-film combination.pdf:PDF},
-  owner = {Fan},
-  timestamp = {2014.02.24}
-}
-
-@ARTICLE{Busemann1987,
-  author = {Busemann-Sokole, E.},
-  title = {{M}easurement of {C}ollimator {H}ole {A}ngulation and {C}amera {H}ead
-	{T}ilt for {S}lant and {P}arallel {H}ole {C}ollimators used in {SPECT}},
-  journal = {J. Nucl. Med.},
-  year = {1987},
-  volume = {28},
-  pages = {1592-1598},
-  owner = {Fan},
-  timestamp = {2014.04.16}
-}
-
-@ARTICLE{Cavouras2000,
-  author = {Cavouras, D. and Kandaraks, I. and Nomicos, C. D. and Bakas, A. and
-	Panayiotakis, G. S.},
-  title = {{M}easurement of the $\mathrm{(Gd, La)_2O_2S:Tb}$ {P}hsophor efficiency
-	for x-ray Imaging applications},
-  journal = {Radiat. Meas.},
-  year = {2000},
-  volume = {32},
-  pages = {5-13},
-  owner = {Fan},
-  timestamp = {2014.09.09}
-}
-
-@ARTICLE{Cho2005,
-  author = {Cho, Y. and Moseley, D. J. and Siewerdsen, J. H. and Jaffray, D.
-	A.},
-  title = {{A}ccurate technique for complete geometric calibration of cone-beam
-	computed tomography systems},
-  journal = {Med. Phys.},
-  year = {2005},
-  volume = {32},
-  pages = {968-983},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Chotas1997,
-  author = {Chotas, H. G. and Floyd Jr, C. E. and Ravin, C. E.},
-  title = {{M}emory {A}rtifact {R}elated to {S}elenium {B}ased {D}igital {R}adiography
-	{S}ystems},
-  journal = {Radiology},
-  year = {1997},
-  volume = {203},
-  pages = {881-883},
-  owner = {Fan},
-  timestamp = {2014.03.26}
-}
-
-@BOOK{Conn2008,
-  title = {{I}ntroduction to {D}erivative-{F}ree {O}ptimization, ser. {MPS}-{SIA}m
-	{S}eries on {O}ptimization},
-  publisher = {Philadelphia, PA: SIAM},
-  year = {2008},
-  author = {Conn, A. R. and Scheinberg, K. and Vicente, L. N.},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.14}
-}
-
-@ARTICLE{Crawford1988,
-  author = {Crawford, C. R. and Gullberg, G. T. and Tsui, B. M.},
-  title = {Reconstruction for fan beam with an angular-dependent displaced center-of-rotation},
-  journal = {Med. Phys.},
-  year = {1988},
-  volume = {15},
-  pages = {67-71},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Cunningham1987,
-  author = {Cunningham, I. A. and Fenster, A.},
-  title = {{A} method for modulation transfer function determination from edge
-	profiles with correction for finite-element differentiation},
-  journal = {Med. Phys.},
-  year = {1987},
-  volume = {14},
-  pages = {533-537},
-  file = {:F\:\\Papers\\Cunningham - a method for MTF function determination from edge profiles.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.02}
-}
-
-@ARTICLE{Cunningham1992,
-  author = {Cunningham, I. A. and Reid, B. K.},
-  title = {{S}ignal and noise in modulation transfer function determination
-	using the slit, wire, and edge techniques},
-  journal = {Med. Phys.},
-  year = {1992},
-  volume = {19},
-  pages = {1037-1044},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.02}
-}
-
-@ARTICLE{Cunningham1999,
-  author = {Cunningham, I. A. and Shaw, R.},
-  title = {{S}ignal-to-noise optimization of medical imaging systems},
-  journal = {J. Opt. Soc. Am. A},
-  year = {1999},
-  volume = {16},
-  pages = {621-632},
-  number = {3},
-  month = {March},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Cunningham - SNR optimization of medical imaging systems.pdf:PDF},
-  keywords = {signal to noise, SNR},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Ennerlein2007,
-  author = {Dennerlein, F. and Noo, F. and Hoppe, S. and Hornegger, J. and Lauritsch,
-	G.},
-  title = {Evaluation of three analytical methods for reconstruction from cone-beam
-	data on a short circular scan},
-  journal = {IEEE Nucl. Sci. Conf. R.},
-  year = {2007},
-  volume = {5},
-  pages = {3933 - 3938},
-  owner = {Fan},
-  timestamp = {2014.03.27}
-}
-
-@ARTICLE{Dobbins1995,
-  author = {Dobbins III, J. T. and Ergun, D. L. and Rutz, L. and Hinshaw, D.
-	A and Blume, H. and Clark, D. C.},
-  title = {{DQE}(f) of {F}our {G}enerations of {C}omputed {R}adiography {A}cquisition
-	{D}evices},
-  journal = {Med. Phys.},
-  year = {1995},
-  volume = {22},
-  pages = {1581-1593},
-  owner = {Fan},
-  timestamp = {2014.03.18}
-}
-
-@PHDTHESIS{Elbakri2003,
-  author = {Elbakri, I. A.},
-  title = {{S}tatistical {R}econstruction {A}lgorithms for {P}olyenergetic {X}-ray
-	{C}omputed {T}omography},
-  school = {Electrical Engineering in The University of Michigan},
-  year = {2003},
-  owner = {Fan},
-  timestamp = {2014.03.31}
-}
-
-@ARTICLE{Fan2012,
-  author = {Fan, H. and Barrett, H. H.},
-  title = {{CT} detector evaluation with complex random backgrounds},
-  journal = {Proc. SPIE},
-  year = {2012},
-  volume = {8318},
-  doi = {10.1117/12.912374},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Fan-CT detector eval.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.02}
-}
-
-@ARTICLE{Fan2010,
-  author = {Fan, H. and Durko, H. L. and Moore, S. K. and Moore, J. and Miller,
-	B. W. and Furenlid, L. R. and Pradhan, S. and Barrett, H. H.},
-  title = {{DR} with a {DSLR}: {D}igital {R}adiography with a {D}igital {S}ingle-{L}ens
-	{R}eflex camera},
-  journal = {Proc. SPIE},
-  year = {2010},
-  volume = {7622},
-  doi = {10.1117/12.844056},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Fan-DR with DSLR.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.02}
-}
-
-@ARTICLE{Feldkamp1984,
-  author = {Feldkamp, L. A. and Davis, L. C. and Kress, J. W.},
-  title = {{P}ractical cone-beam algorithm},
-  journal = {J. Opt. Soc. Am. A},
-  year = {1984},
-  volume = {1},
-  pages = {612-619},
-  number = {6},
-  month = {June},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\FDK.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Gagne2003,
-  author = {Gagne, R. M. and Boswell, J. S. and Myers, K. J.},
-  title = {{S}ignal detectability in digital radiography: {S}patial domain figures
-	of merit},
-  journal = {Med. Phys.},
-  year = {2003},
-  volume = {30},
-  pages = {2180-2193},
-  number = {8},
-  month = {August},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Gagne - Signal detectability in digital radiography.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Gallas2003,
-  author = {Gallas, B. D. and Barrett, H. H.},
-  title = {Validating the use of channels to estimate the ideal linear observer},
-  journal = {J. Opt.Soc. Am. A},
-  year = {2003},
-  volume = {20},
-  pages = {1725-1738},
-  owner = {Fan},
-  timestamp = {2014.04.17}
-}
-
-@ARTICLE{Giakoumakis1989,
-  author = {Giakoumakis, G. E. and Nomicos, C. D. and Sandilos, P. X.},
-  title = {{A}bsolute efficiency of $\mathrm{Gd_2O_2S:Tb}$ screens under fluoroscopic
-	conditions},
-  journal = {Phys. Med. Biol.},
-  year = {1989},
-  volume = {34},
-  pages = {673-678},
-  number = {6},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Giakoumakis - Absolute efficiency of Gd2O2STb screens under fluoroscopic conditions.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{glendinning2001,
-  author = {Glendinning, A. G. and Hunt, S. G. and Bonnett, D. E},
-  title = {{M}easurement of the response of $\mathrm{Gd_2O_2S:Tb}$ phosphor
-	to 6 {MV} x-rays},
-  journal = {Phys. Med. Biol.},
-  year = {2001},
-  volume = {46},
-  pages = {571-530},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@ARTICLE{Goldman2008,
-  author = {Goldman, L. W.},
-  title = {{P}rinciple of {CT}: {M}ultislice {CT}},
-  journal = {J. Nucl. Med. Technol.},
-  year = {2008},
-  volume = {36},
-  pages = {57-68},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Goldman - Principles of CT - multislice CT.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Goldman2007,
-  author = {Goldman, L. W.},
-  title = {{P}rinciples of {CT}: {R}adiation {D}ose and {I}mage {Q}uality},
-  journal = {J. Nucl. Med. Technol.},
-  year = {2007},
-  volume = {35},
-  pages = {213-225},
-  number = {4},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Goldman - Principles of CT- radiation dose and image quality.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Goldman2007a,
-  author = {Goldman, L. W.},
-  title = {{P}rinciple of {CT} and {CT} {T}echnology},
-  journal = {J. Nucl. Med. Technol.},
-  year = {2007},
-  volume = {35},
-  pages = {115-128},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Goldman - Principles of CT and CT technology.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Gordon1970,
-  author = {Gordon, R. and Bender, R. and Herman, G.T.},
-  title = {{A}lgebraic reconstruction techniques ({ART}) for three-dimensional
-	electron microscopy and x-ray photography},
-  journal = {J. Theor. Biol},
-  year = {1970},
-  volume = {29},
-  pages = {471-482},
-  owner = {Fan},
-  timestamp = {2014.03.27}
-}
-
-@ARTICLE{Gullberg1990,
-  author = {Gullberg, G. T. and Tsui, B.M.W. and Crawford, C. R. and Ballard,
-	J. G. and Hagius, J. T.},
-  title = {Estimation of geometric parameters and collimator evaluation for
-	cone beam tomography},
-  journal = {Med. Phys.},
-  year = {1990},
-  volume = {17},
-  pages = {264-272},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Gullberg1987,
-  author = {Gullberg, G. T. and Tsui, B. M. W. and Crawford, C. R. and Edgerton,
-	E. R.},
-  title = {Estimation of geogeometric parameters for fan beam tomography},
-  journal = {Phys. Med. Biol.},
-  year = {1987},
-  volume = {32},
-  pages = {11581-1594},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Hestenes1952,
-  author = {Hestenes, M. R. and Steifel, E.},
-  title = {Methods of conjugate gradient for solving linear systems},
-  journal = {J. Res. Nat. Bur. Stand.},
-  year = {1952},
-  volume = {49},
-  pages = {409-436},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.14}
-}
-
-@ARTICLE{Hesterman2010,
-  author = {Hesterman, J. Y. and Caucci, L. and Kupinski, M. A. and Barrett,
-	H. H. and Furenlid, L. R.},
-  title = {{M}aximum-{L}ikelihood {E}stimation {W}ith a {C}ontracting-{G}rid
-	{S}earch {A}lgorithm},
-  journal = {IEEE Trans. Nucl. Sci.},
-  year = {2010},
-  volume = {57},
-  pages = {1077-1084},
-  number = {3},
-  month = {June},
-  file = {Contracting Grid:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Hesterman - Maximum likelihood estimation with a contracting grid search algorithm.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Hillen1987,
-  author = {Hillen, W. and Schiebel, U. and Zaengel, T.},
-  title = {{I}maging {P}erformance of a {D}igital {S}torage {P}hsophor {S}ystem},
-  journal = {Med. Phys.},
-  year = {1987},
-  volume = {14},
-  pages = {744-751},
-  owner = {Fan},
-  timestamp = {2014.03.18}
-}
-
-@BOOK{Hiseh2009,
-  title = {Computed Tomography: Principles, Design, AArtifact, and Recent Advances},
-  publisher = {SPIE and John Wiley \& Sons, Inc},
-  year = {2009},
-  author = {Hiseh, J.},
-  owner = {Fan},
-  timestamp = {2014.03.27}
-}
-
-@ARTICLE{Housfield1973,
-  author = {Hounsfield, G. N.},
-  title = {Computerized transverse axial scanning (tomography). 1. {D}escription
-	of system.},
-  journal = {Br. J. Radiol.},
-  year = {1973},
-  volume = {46},
-  pages = {1016-1022},
-  owner = {Fan},
-  timestamp = {2014.03.27}
-}
-
-@ARTICLE{Hsieh2000,
-  author = {Hsieh, J.},
-  title = {A practical cone beam aritfact correction algorithm},
-  journal = {IEEE Nucl. Sci. Conf. R.},
-  year = {2000},
-  volume = {15},
-  pages = {71-74},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Hsieh1999,
-  author = {Hsieh, J.},
-  title = {{T}hree-{D}imensional {A}rtifact {I}nduced by {P}rojection {W}eighting
-	and {M}isalignment},
-  journal = {IEEE Trans. Med. Imag.},
-  year = {1999},
-  volume = {18},
-  pages = {364-368},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Hsieh1998,
-  author = {Hsieh, J.},
-  title = {Adaptive streak artifact reuction in computed tomography resulting
-	from excessive x-ray photon noise},
-  journal = {Med. Phys.},
-  year = {1998},
-  volume = {25},
-  pages = {2139-2147},
-  owner = {Fan},
-  timestamp = {2014.03.31}
-}
-
-@ARTICLE{Hsieh2013,
-  author = {Hsieh, J. and Nett, B. and Yu, Z. and Sauer, K. and Thibault, J.
-	B. and Bouman, C. A.},
-  title = {{R}ecent {A}dvances in {CT} {I}mage {R}econstruction},
-  journal = {Curr. Radiol. Rep.},
-  year = {2013},
-  volume = {1},
-  pages = {39-51},
-  owner = {Fan},
-  timestamp = {2014.03.27}
-}
-
-@ARTICLE{Hsieh2007,
-  author = {Hsieh, J. and Tang, X. and Thibault J. and Shaughnessy C. and Nilsen,
-	R. A. and Williams, E.},
-  title = {Conjugate cone beam reconstruction algorithm},
-  journal = {Opt. Eng.},
-  year = {2007},
-  volume = {46},
-  doi = {10.1117/1.2746866},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{hunt5030,
-  author = {Hunt, D. C. and Tousignant, O. and Demers, Y. and Laperriere, L.
-	and Rowlands, J. A.},
-  title = {Imaging performance of an amorphous selenium flat-panel detector
-	for digital fluoroscopy},
-  journal = {Proc. SPIE},
-  year = {2003},
-  volume = {5030},
-  doi = {10.1117/12.480131},
-  owner = {Fan},
-  timestamp = {2014.09.11}
-}
-
-@INBOOK{springer2007,
-  chapter = {Photoconductors for {X}-{R}ay {I}mage {D}etectors},
-  pages = {1121-1137},
-  title = {Springer Handbook of Electronic and Photonic Materials},
-  publisher = {Springer US},
-  year = {2007},
-  editor = {Kasap, S. and Capper, P.},
-  author = {Kabir, M. and Kasap, S. and Rowlands, J.},
-  owner = {Fan},
-  timestamp = {2014.10.27}
-}
-
-@BOOK{Kak1999,
-  title = {{P}rinciples of {C}omputerized {T}omographic {I}maging},
-  publisher = {IEEE Press.},
-  year = {1988},
-  editor = {Cotellessa, R. F.},
-  author = {Kak, A. C. and Slaney, M.},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Books\\Principles of Computed Tomography\\CTI_Ch01.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.13}
-}
-
-@ARTICLE{Kalra2004,
-  author = {Kalra, M. K. and Maher, M. M. and Toth, T. L. and Hamberg, L. M.
-	and Blake, M. A. and Shepard, J. and Saini, S.},
-  title = {{S}trategies for {CT} {R}adiation {D}ose {O}ptimization},
-  journal = {Radiology},
-  year = {2004},
-  volume = {230},
-  pages = {619-628},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Mannudeep K K - Strategiest for CT Radiation Dose Optimization.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Kandarakis2001,
-  author = {Kandaraks, I. and Cavouras, D.},
-  title = {{E}xperimental and theoretical assessment of the Performance of ${G}d_2{O}_2{S}:{T}b$
-	and ${L}a_2{O}_2{S}:{T}b$ phosphor and ${G}d_2{O}_2{S}:{T}b-{L}a_2{O}_2{S}:{T}b$
-	{M}ixtures for {X}-ray imaging},
-  journal = {Eur. Radiol.},
-  year = {2001},
-  volume = {11},
-  pages = {1083-1091},
-  owner = {Fan},
-  timestamp = {2014.09.09}
-}
-
-@ARTICLE{Karabulut2006,
-  author = {Karabulut, N. and Macit, A.},
-  title = {{L}ow dose {CT}: practices and strategies of radiologists in university
-	hospitals},
-  journal = {Diagn. Interv. Radiol.},
-  year = {2006},
-  volume = {12},
-  pages = {3-8},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Karabulut - low dose CT - practices and strategies of radiologists in university hospitals.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Karolczak2001,
-  author = {Karolczak, M. and Schaller, S. and Engelke, K. and Lutz, A. and Taubenreuther,
-	U. and Wiesent, K. and Kalender, W.},
-  title = {Implementation of a cone-beam reconstruction algorithm for the single-circle
-	source orbit with embedded misalignment correction using homogeneous
-	coordinates},
-  journal = {Med. Phys.},
-  year = {2001},
-  volume = {28},
-  pages = {2050-2069},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{kasap2006,
-  author = {Kasap, S. O. and Zahangir Kabir, M. and Rowlands, J. A.},
-  title = {Recent advances in {X}-ray photoconductors for direct conversion
-	{X}-ray image detectors},
-  journal = {Curr. Appl. Phys.},
-  year = {2006},
-  volume = {6},
-  pages = {288-292},
-  owner = {Fan},
-  timestamp = {2014.09.11}
-}
-
-@BOOK{kato1994,
-  title = {Specification, acceptance testing and quality control of diagnostic
-	x-ray imaging equipment},
-  publisher = {AAPM},
-  year = {1994},
-  editor = {Seibert, J. and Barns, G. and Gould, R.},
-  author = {Kato, H.},
-  owner = {Fan},
-  timestamp = {2014.09.15}
-}
-
-@ARTICLE{Katsevich2002,
-  author = {Katsevich, A.},
-  title = {Improved exact {FBP} algorithm for spiral {CT}},
-  journal = {Adv. Appl. Math},
-  year = {2004},
-  volume = {32},
-  pages = {681-697},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Katsevich2003,
-  author = {Katsevich, A.},
-  title = {{A} general schedule for constructng inversion algorithm for cone
-	beam {CT}},
-  journal = {Internat. J. Math. Math. Sci.},
-  year = {2003},
-  volume = {21},
-  pages = {1305-1321},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Katsevich2002SIAM,
-  author = {Katsevich, A.},
-  title = {Theoretically exact filtered backprojection type inversion algorithm
-	for spiral CT},
-  journal = {SIAM J. Appl. Math.},
-  year = {2002},
-  volume = {62},
-  pages = {2012–2026},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Kim2008,
-  author = {Kim, H. K.},
-  title = {{O}n the {D}evelopment of {D}igital {R}adiology {D}etectors: {A}
-	{R}eview},
-  journal = {Int. J. Precis. Eng. Manuf.},
-  year = {2008},
-  volume = {9},
-  pages = {86-100},
-  owner = {Fan},
-  timestamp = {2014.02.24}
-}
-
-@ARTICLE{kim2005,
-  author = {Kim, H. K. and Ahn, J. K. and Cho, G.},
-  title = {{D}evelopment of a lens-coupled {CMOS} detector for an {X}-ray inspection
-	system},
-  journal = {Nucl. Instr. Meth. Phys. Res. A},
-  year = {2005},
-  volume = {545},
-  pages = {210-216},
-  owner = {Fan},
-  timestamp = {2014.09.16}
-}
-
-@ARTICLE{kim2001,
-  author = {Kim, H. K. and Cho, G. and Lee, S. W. and Shin, Y. H. and Cho, H.
-	S.},
-  title = {{D}evelopment and {E}valuation of a {D}igital {R}adiographic {S}ystem
-	{B}ased on {CMOS} {I}mage {S}ensor},
-  journal = {IEEE Trans. Nucl. Sci.},
-  year = {2001},
-  volume = {48},
-  pages = {662-666},
-  owner = {Fan},
-  timestamp = {2014.09.16}
-}
-
-@BOOK{Knuth1998,
-  title = {The Art of Computer Programming, Volume 3: Sorting and Searching
-	(2nd Edition)},
-  publisher = {Addison-Wesley},
-  year = {1998},
-  author = {Knuth, D.},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.14}
-}
-
-@ARTICLE{Kolda2003,
-  author = {Kolda, T. G. and Lewis, R. M. and Torczon, V.},
-  title = {Optimization by direct search: New persepctives on some classical
-	and modern methods},
-  journal = {SIAM Rev.},
-  year = {2003},
-  volume = {45},
-  pages = {385–482},
-  number = {385-482},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.14}
-}
-
-@ARTICLE{lee2001,
-  author = {Lee, S. W. and Kim, H. K. and Cho, G. and Shin, Y. H. and Won, Y.
-	Y.},
-  title = {{A} 3-{D} {X}-{R}ay {M}icrotomographic {S}ystem {W}ith a {CMOS} {I}mage
-	{S}ensor},
-  journal = {IEEE Trans. Nucl. Sci.},
-  year = {2001},
-  volume = {48},
-  pages = {1503-1505},
-  owner = {Fan},
-  timestamp = {2014.09.16}
-}
-
-@MISC{Lewis,
-  author = {Maria Lewis},
-  title = {{P}rinciples of {CT} {D}osimetry},
-  howpublished = {\url{http://www.impactscan.org/slides/impactcourse/principles%20of%20ct%20dosimetry/index.html}},
-  month = {October},
-  year = {2005},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.13}
-}
-
-@ARTICLE{Li1994a,
-  author = {Li, J. and Jaszczak, R. J. and Greer, K. L. and Coleman, R. E.},
-  title = {A filtered backprojection algorithm for pinhole SPECT with a displaced
-	center of rotation},
-  journal = {Phys. Med. Biol.},
-  year = {1994},
-  volume = {38},
-  pages = {165-176},
-  owner = {Fan},
-  timestamp = {2014.04.16}
-}
-
-@ARTICLE{Li1993,
-  author = {Li, J. and Jaszczak, R. J. and Wang, H. and Greer, K. L. and Coleman,
-	R. E.},
-  title = {Determination of both mechanical and electronic shifts in cone-beam
-	SPECT},
-  journal = {Phys. Med. Biol.},
-  year = {1993},
-  volume = {38},
-  pages = {743-754},
-  owner = {Fan},
-  timestamp = {2014.04.16}
-}
-
-@ARTICLE{Li1994b,
-  author = {Li, J. and Jaszczak, R. J. and Wang, H. and Gullberg, G. T. and Greer,
-	K. L. and Coleman, R. E.},
-  title = {A cone-beam SPECT reconstruction algorithm with a displaced center
-	of rotation},
-  journal = {Med. Phys.},
-  year = {1994},
-  volume = {21},
-  pages = {145-152},
-  owner = {Fan},
-  timestamp = {2014.04.16}
-}
-
-@ARTICLE{ludwig1972,
-  author = {Ludwig, G. W. and Prener, J. S.},
-  title = {Evaluation of ${G}d_2{O}_2{S}:{T}b$ as a phosphor for the input screen
-	of x-ray Image intensifier},
-  journal = {IEEE Trans. Nucl. Sci.},
-  year = {1972},
-  volume = {19},
-  pages = {3-8},
-  owner = {Fan},
-  timestamp = {2014.09.09}
-}
-
-@ARTICLE{madden2006,
-  author = {Madden, T. J. and McGuigan, W. and Molitsky, M. J. and Naday, I.
-	and McArthur, A. and Westbrook, E. M.},
-  title = {{L}ens-{C}oupled {CCD} {D}etector for {X}-ray {C}rystallography},
-  journal = {IEEE Trans. Nucl. Sci.},
-  year = {2006},
-  volume = {2},
-  pages = {729-734},
-  owner = {Fan},
-  timestamp = {2014.09.16}
-}
-
-@ARTICLE{Mettler2008,
-  author = {Mettler, F. A. and Huda, W. and Yoshizumi, T. T. and Mahesh, M.},
-  title = {{E}ffective {D}oses in {R}adiology and {D}iagnostic {N}uclear {M}edicine:
-	{A} {C}atalog},
-  journal = {Radiology},
-  year = {2008},
-  volume = {248},
-  pages = {254-263},
-  month = {July},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Mettler - Effective dose in radiology and diagnostic nuclear medicine.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@PHDTHESIS{Moore2011,
-  author = {Moore, J.},
-  title = {{A}daptive {X}-{R}ay {C}omputed {T}omography},
-  school = {The University of Arizona},
-  year = {2011},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\PhD proposal\\MooreDissertationMain.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.13}
-}
-
-@ARTICLE{Moy1993,
-  author = {Moy, J. P. and Koch, A. and Nielsen, M. B.},
-  title = {{C}onversion efficiency and time response of phosphors for fast {X}-ray
-	imaging with synchrotron radiation},
-  journal = {Nucl. Instr. Meth. Phys. Res. A},
-  year = {1993},
-  volume = {326},
-  pages = {581-586},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@PHDTHESIS{MyersThesis,
-  author = {Myers, K. J.},
-  title = {Visual perception in correlated noise},
-  school = {University of Arizona, Tucson, AZ},
-  year = {1985},
-  owner = {Fan},
-  timestamp = {2014.10.27}
-}
-
-@ARTICLE{Myers1987,
-  author = {Myers, K. J. and Barrett, H. H.},
-  title = {The addition of a channel mechanism to the ideal-observer model},
-  journal = {J. Opt. Soc. Am. A},
-  year = {1987},
-  volume = {4},
-  pages = {2447-2457},
-  owner = {Fan},
-  timestamp = {2014.10.27}
-}
-
-@ARTICLE{Nikl2006,
-  author = {Nikl, M.},
-  title = {{S}cintillation detectors for x-rays},
-  journal = {Meas. Sci. Technol.},
-  year = {2006},
-  volume = {17},
-  pages = {R37-R54},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Nikl - Scintillation detectors for x-rays.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Noo2000,
-  author = {Noo, F. and Clackdoyle, R. and Mennessier, C. and White, T. A. and
-	Roney, T. J.},
-  title = {Analytic method based on idenficiation of ellipse parameters for
-	scanner calibration in cone-bean tomography},
-  journal = {Phys. Med. Biol.},
-  year = {2000},
-  volume = {45},
-  pages = {3489-3508},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Origgi2006,
-  author = {Origgi, D. and Vigorito, S. and Villa, G. and Bellomi, M. and Tosi,
-	G.},
-  title = {{S}urvey of computed tomography techniques and absorbed dose in {I}talian
-	hospitals: a comparison between two methods to estimate the dose-length
-	product and the effective dose and to verify fulfillment of the diagnostic
-	reference levels},
-  journal = {Eur. Radiol.},
-  year = {2006},
-  volume = {16},
-  pages = {227-237},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Origgi - survey of CT techniques in italian hospitals.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Ouimette1998,
-  author = {Ouimette, D. R. and Nudelman, S. and Aikens, R. S.},
-  title = {New large-area x-ray image sensor},
-  journal = {Proc. SPIE},
-  year = {1998},
-  volume = {3336},
-  doi = {10.1117/12.317047},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{Pan2004,
-  author = {Pan, X. and Xia, D. and Zou, Y. and Yu, L.},
-  title = {A unified analysis of FBP-based aalgorithm in helical cone-beam and
-	circular cone- and fan-beam scans},
-  journal = {Phys. Med. Biol.},
-  year = {2004},
-  volume = {49},
-  pages = {4349-4369},
-  number = {4349-4369},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Panetta2008,
-  author = {Panetta, D. and Belcari, N. and Guerra, A. D. and Moehrs, S.},
-  title = {An optimization-based method for gegeometric calibration in cone-beam
-	CT witwith dedicated phantoms},
-  journal = {Phys. Med. Biol.},
-  year = {2008},
-  volume = {53},
-  pages = {3841-3861},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Pantos2011,
-  author = {Pantos, I. and Thalassinou, S. and Argentos, S. and Kelekis, N. L.
-	and Panayiotakis, G. and Efstathopoulos, E. P.},
-  title = {{A}dult patient radiation doses from non-cardiac {CT} examinations:
-	a review of published results},
-  journal = {The British Journal of Radiology},
-  year = {2011},
-  volume = {84},
-  pages = {293-303},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Pantos - Adult patient radiation doses from non-cardiac CT exams.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Que1995,
-  author = {Que, W. and Rowland, J. A.},
-  title = {Xray detectors using amorphous selenium: Inherent spatial resolution},
-  journal = {Med. Phys.},
-  year = {1995},
-  volume = {22},
-  pages = {365},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{Roehrig2005,
-  author = {Roehrig, H. and Baysal, M. A. and Toker, E.},
-  title = {{DQE} of a {CMOS} based digital imaging detector for appliation in
-	mammography},
-  journal = {Proc. SPIE},
-  year = {2005},
-  volume = {5923},
-  month = {September},
-  booktitle = {Penetrating Radiation Systems and Applications VII},
-  doi = {10.1117/12.624959},
-  editor = {F. Patrick Doty and H. Bradford Barber and Hans Roehrig},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Roehrig - DQE of CMOS based detector for mammo.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Rolland1992,
-  author = {Rolland, J. P. and Barrett, H. H.},
-  title = {Effect of random background inhomogeneity on observer detection performance},
-  journal = {J. Opt.Soc. Am. A},
-  year = {1992},
-  volume = {9},
-  pages = {649-658},
-  owner = {Fan},
-  timestamp = {2014.02.28}
-}
-
-@ARTICLE{Rougee1993,
-  author = {Rougee, A. and Picard, C. Ponchut, C. and Trousset, Y.},
-  title = {Geometrical calibration of x-ray imaging chains for three-dimensional
-	reconstruction},
-  journal = {Comput. Med. Imaging Graph.},
-  year = {1993},
-  volume = {17},
-  pages = {295-300},
-  owner = {Fan},
-  timestamp = {2014.09.29}
-}
-
-@ARTICLE{Rowlands2002,
-  author = {Rowlands, J. A.},
-  title = {The physics of computed radiography},
-  journal = {Phys. Med. Biol.},
-  year = {2002},
-  volume = {47},
-  pages = {R123-R166},
-  file = {:F\:\\Papers\\Rowland - the physics of computed radiography.pdf:PDF},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{Sain2003,
-  author = {Sain, J. and Barrett, H. H.},
-  title = {Performance {E}valuation of a {M}odular {G}amma {C}amera {U}sing
-	a {D}etectability {I}ndex},
-  journal = {J. Nucl. Med.},
-  year = {2003},
-  volume = {44},
-  pages = {58-66},
-  owner = {Fan},
-  timestamp = {2014.10.27}
-}
-
-@ARTICLE{Samei1997,
-  author = {Samei, E. and Flynn, M. J.},
-  title = {{P}hysical measures of image quality in photostimulable phosphor
-	radiographic systems},
-  journal = {Proc. SPIE},
-  year = {1997},
-  volume = {3032},
-  doi = {10.1117/12.273999},
-  owner = {Fan},
-  timestamp = {2014.03.26}
-}
-
-@ARTICLE{Samei2008,
-  author = {Samei, E. and Ranger, N. T. and MacKenzie, A. and Honey, I. D. and
-	Dobbsins III, J. T. and Ravin, C. E.},
-  title = {{D}etector or {S}ystem? {E}xtending the {C}oncept of {D}etective
-	{Q}uantum {E}fficiency ot {C}haracterize the {P}erformance of {D}igitial
-	{R}adiographic {I}maging {S}ystems},
-  journal = {Radiology},
-  year = {2008},
-  volume = {249},
-  pages = {926-937},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Samei - detector or system - extending DQE to DR.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Samei2004,
-  author = {Samei, E. and Saunders, R. S. and Lo, J. Y. and Dobbins III, J. T.
-	and Floyd, C. E. and Ravin, C. E.},
-  title = {Fundamental imaging characteristics of a slot-scan digital chest
-	radiographic system},
-  journal = {Med. Phys.},
-  year = {2004},
-  volume = {31},
-  pages = {2687},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@BOOK{CUDA2011,
-  title = {CUDA BY EXAMPLE},
-  publisher = {Addison-Wesley},
-  year = {2011},
-  author = {Sanders, J. and Kandrot, E.},
-  owner = {Fan},
-  timestamp = {2014.02.28}
-}
-
-@ARTICLE{Sawant2005,
-  author = {Sawant, A. and Antonuk, L. E. and El-Mohri, Y. and Zhao, Q. and Li,
-	Y. and Su, Z. and Wang, Y. and Yamamoto, J. and Du, H. and Cunningham,
-	I. A. and Klugerman, M. and Shah, K.},
-  title = {Segmented crystalline scintillators: An Initial Investigation of
-	High Quantum Efficiency Detectors for Megavoltage X-ray Imaging},
-  journal = {Med. Phys.},
-  year = {2005},
-  volume = {32(10)},
-  pages = {3067-3083},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{Seibert2004,
-  author = {Seibert, J. A.},
-  title = {{X}-{R}ay {I}maging {P}hysics for {N}uclear {M}edicine {T}echnologists.
-	{P}art 1: {B}asic {P}rinciples of {X}-{R}ay {P}roduction},
-  journal = {J. Nucl. Med. Technol.},
-  year = {2004},
-  volume = {32},
-  pages = {139-147},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Seibert - basic principles of x-ray production.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Seibert2005,
-  author = {Seibert, J. A. and Boone, J. M.},
-  title = {{X}-{R}ay {I}maging {P}hysics for {N}uclear {M}edicine {T}echnologists.
-	{P}art 2: {X}-{R}ay {I}nteractions and {I}mage {F}ormation},
-  journal = {J. Nucl. Med. Technol.},
-  year = {2005},
-  volume = {33},
-  pages = {3-18},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Seibert - x-ray interactions and image formation.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Seibert-DR2005,
-  author = {Seibert, J. A. and Kwan, A. and Boone, J. M. and Brown, P. and Winsor,
-	R.},
-  title = {Evaluation of an optically coupled {CCD} digital radiography system},
-  journal = {Proc. SPIE},
-  year = {2005},
-  volume = {5745},
-  doi = {10.1117/12.595751},
-  file = {:F\:\\Papers\\Seibert - Evaluation of CCD DR system.pdf:PDF},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{shepherd1995,
-  author = {Shepherd, J. A. and Gruner, S. M. and Tate, M. W. and Tecotzky, M},
-  title = {{A} study of persistence in gadolinium oxysulphide x-ray phosphors},
-  journal = {Proc. SPIE},
-  year = {1995},
-  volume = {2519},
-  doi = {10.1117/12.211910},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@ARTICLE{Siddon1985,
-  author = {Siddon, R. L.},
-  title = {{F}ast calculation of the exact radiological path for a three-dimensional
-	{CT} array},
-  journal = {Med. Phys.},
-  year = {1985},
-  volume = {12(2)},
-  pages = {252-255},
-  owner = {Fan},
-  timestamp = {2014.08.21}
-}
-
-@ARTICLE{Siewerdson2002,
-  author = {Siewerdsen, J. H. and Cunningham, I. A. and Jaffray, D. A.},
-  title = {{A} framework for noise-power spectrum analysis of multidimensional
-	images},
-  journal = {Med. Phys.},
-  year = {2002},
-  volume = {29},
-  pages = {2655-2671},
-  number = {11},
-  month = {November},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Siewerdsen - a framework for NPS analysis of multi-d images.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Silver1998,
-  author = {Silver, M.},
-  title = {High-helical-pitch cone-beam computed tomography},
-  journal = {Phys. Med. Biol.},
-  year = {1998},
-  volume = {43},
-  pages = {847-855},
-  number = {847-855},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Simon2004,
-  author = {Simon, M. and Ford R. A. and Franklin, A. R. and Grabowski, S. P.
-	and Menser, B. and Much, G. and Nascetti, A. and Overdick, M. and
-	Powell, M. J. and Wiechert, D. U.},
-  title = {PbO as direct conversion x-ray detector material},
-  journal = {Proc. SPIE},
-  year = {2004},
-  volume = {5368},
-  doi = {10.1117-12.533010},
-  file = {:F\:\\Papers\\Simon - PbO as direct conversion x-ray detector material.pdf:PDF},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{Smekal2004,
-  author = {Smekal, L. and Kachelrie{\ss}, M. and Stepina, E. and Kalendar, W.
-	A.},
-  title = {Geometric misalignment and calibration in cone-beam tomography},
-  journal = {Med. Phys.},
-  year = {2004},
-  volume = {31},
-  pages = {2342-3266},
-  owner = {Fan},
-  timestamp = {2014.02.28}
-}
-
-@ARTICLE{Sordeo2009,
-  author = {Sordeo, S. D. and Abbene, L. and Caroli, E. and Mancini, A. M. and
-	Zappettini, A. and Ubertini, P.},
-  title = {Progress in the $D$evelopment of $\mathrm{CdTe}$ and $\mathrm{CdZnTe}$
-	$S$emicondutor $R$adiation $D$etectors for $A$strophysical and $M$edical
-	$A$pplication},
-  journal = {Sensors},
-  year = {2009},
-  volume = {9},
-  pages = {3491-3526},
-  file = {:F\:\\Papers\\Sordeo - CdTe and CdZnTe radiation detectors.pdf:PDF},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{Stevens2001,
-  author = {Stevens, G. M. and Saunders, R. and Pelc N. J.},
-  title = {Alignment of a voluvolume tomography system},
-  journal = {Med. Phys.},
-  year = {2001},
-  volume = {28},
-  pages = {1472-1481},
-  owner = {Fan},
-  timestamp = {2014.04.15}
-}
-
-@ARTICLE{Street2002,
-  author = {Street, R. A. and Ready, S. E. and Melekhov, L. and Ho, J. and Zuck,
-	A. and Breen, B. N.},
-  title = {Approaching the theoretical x-ray sensitivity with $HgI_2$ direct
-	detection image sensors},
-  journal = {Proc. SPIE},
-  year = {2002},
-  volume = {4682},
-  doi = {10.1117/12.465584},
-  file = {:F\:\\Papers\\Street - HgI2 direct detection image sensors.pdf:PDF},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{swank1974,
-  author = {Swank, R. K.},
-  title = {{M}easurement of absoprtion and noise in an x-ray image intensifier},
-  journal = {J. Appl. Phys.},
-  year = {1974},
-  volume = {45},
-  pages = {3673-3678},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@ARTICLE{swank1973,
-  author = {Swank, R. K.},
-  title = {{A}bsorption and noise in x-ray phosphors},
-  journal = {J. Appl. Phys.},
-  year = {1973},
-  volume = {44},
-  pages = {4199-4203},
-  number = {9},
-  month = {September},
-  owner = {Fan},
-  timestamp = {2014.09.10}
-}
-
-@ARTICLE{Tang2006,
-  author = {Tang, X. and Hsieh, J. Nilsen R. A. and Sandeep, D. and Dmitry, S.
-	and Akira, H.},
-  title = {A three-dimensional-weighted cone beam filtered backprojection ({CB-FBP})
-	algorithm for image reconstruction in volumetric {CT}—helical scanning},
-  journal = {Phys. Med. Biol.},
-  year = {2006},
-  volume = {51},
-  number = {855-874},
-  doi = {10.1088/0031-9155/51/4/007},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{tate2005,
-  author = {Tate, M. W. and Chamberlain, D. and Gruner, S. M.},
-  title = {{A}rea x-ray detector based on a lens-coupled charge-coupled device},
-  journal = {Rev. Sci. Instrum.},
-  year = {2005},
-  volume = {76},
-  doi = {10.1063/1.2001307},
-  owner = {Fan},
-  timestamp = {2014.09.16}
-}
-
-@ARTICLE{trauernicht1990,
-  author = {Trauernicht, D. P. and Van Metter, R. L},
-  title = {{C}onversion noise measurement for front and back x-ray intensifying
-	screens},
-  journal = {Proc. SPIE},
-  year = {1990},
-  volume = {1231},
-  doi = {10.1117/12.18803},
-  owner = {Fan},
-  timestamp = {2014.09.15}
-}
-
-@ARTICLE{trauernicht1988,
-  author = {Trauernicht, D. P. and Van Metter, R. L.},
-  title = {{T}he {M}easurement of {C}onversion {N}oise in {X}-ray {I}ntensifying
-	{S}creens},
-  journal = {Proc. SPIE},
-  year = {1988},
-  volume = {0914},
-  doi = {10.1117/12.968622},
-  owner = {Fan},
-  timestamp = {2014.09.15}
-}
-
-@ARTICLE{trevisan2014,
-  author = {Trevisan, D. and Ravanelli, D. and Valentini, A.},
-  title = {{M}easurement of {C}omputed {T}omography {D}ose {I}ndex for clinical
-	scans},
-  journal = {{R}adiation {P}rotection {D}osimetry},
-  year = {2014},
-  volume = {158},
-  pages = {389-398},
-  owner = {Fan},
-  timestamp = {2014.09.09}
-}
-
-@TECHREPORT{UNSCEAR2010,
-  author = {UNSCEAR},
-  title = {{UNSCEAR} 2010 {R}eport: {S}ummary of low-dose radiation effects
-	on health},
-  institution = {United Nations},
-  year = {2010},
-  owner = {Helen_Fan},
-  timestamp = {2012.11.12}
-}
-
-@ARTICLE{VanUnnik1997,
-  author = {Van Unnik, J. G. and Broderse, J. J. and Geleijns, J. and Jansen,
-	J. Th. M. and Zoetelief, J. and Zweers, D.},
-  title = {{S}urvey of {CT} techniques and absorbed dose in arious {D}utch hospitals},
-  journal = {Br. J. Radiol.},
-  year = {1997},
-  volume = {70},
-  pages = {367-371},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\van unnik - survey of CT techniques in dutch hospitals.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Wagner1985,
-  author = {Wagner, R. F. and Brown, D. G.},
-  title = {{U}nified {SNR} analysis of medical imaging systems},
-  journal = {Phys. Med. Biol.},
-  year = {1985},
-  volume = {30},
-  pages = {489-518},
-  number = {6},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Wagner-Unified SNR analysis of medial imaging systems.pdf:PDF},
-  keywords = {SNR},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.30}
-}
-
-@ARTICLE{Wagner1979,
-  author = {Wagner, R. F. and Brown, D. G. and Pastel, M. S.},
-  title = {{A}pplication of information theory to the assessment of computed
-	tomography},
-  journal = {Med. Phys.},
-  year = {1979},
-  volume = {6},
-  pages = {83-94},
-  number = {2},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Wagner - Application of information theory to CT.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Wang1993,
-  author = {Wang, G. and Lin, T. H. and Chen, P. Sinozaki, D. M.},
-  title = {A general cone-beam reconstruction algorithm},
-  journal = {IEEE Trans. Med. Imag.},
-  year = {1993},
-  volume = {12},
-  pages = {486-496},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Wang2008,
-  author = {Wang, G. and Yu, H. and De Man, B.},
-  title = {An outlook on x-ray {CT} research and development},
-  journal = {Med. Phys.},
-  year = {2008},
-  volume = {35},
-  pages = {1051-1064},
-  owner = {Fan},
-  timestamp = {2014.04.14}
-}
-
-@ARTICLE{Wang1998,
-  author = {Wang, H. and Smith, M. F. and Stone, C. D. and Jaszczak, R. J.},
-  title = {Astigmatic single photon emission computed tomography imaging with
-	a displaced center of rotation},
-  journal = {Med. Phys.},
-  year = {1998},
-  volume = {25},
-  pages = {1493-1501},
-  owner = {Fan},
-  timestamp = {2014.04.16}
-}
-
-@ARTICLE{winch2001,
-  author = {Winch, N. M. and Edgar, A.},
-  title = {{X}-ray imaging using a consumer-grade digital camera},
-  journal = {Nucl. Instr. Meth. Phys. Res. A},
-  year = {2001},
-  volume = {654},
-  pages = {308-313},
-  owner = {Fan},
-  timestamp = {2014.09.16}
-}
-
-@ARTICLE{Yang2006,
-  author = {Yang, K. and Kwan, A. L. and Miller, D. F. and Boone, J. M.},
-  title = {A geometric calibration method for cone beam {CT} systems},
-  journal = {Med. Phys.},
-  year = {2006},
-  volume = {33(6)},
-  pages = {1695-1706},
-  owner = {Fan},
-  timestamp = {2014.03.27}
-}
-
-@ARTICLE{Yao2012,
-  author = {Yao, R. and Lecomte, R. and Crawford, E. S.},
-  title = {{S}mall-{A}nimal {PET}: {W}hat {I}s it, and {W}hy {D}o {W}e {N}eed
-	{I}t?},
-  journal = {J. Nucl. Med. Technol.},
-  year = {2012},
-  volume = {40},
-  pages = {157-165},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Yao - small animal PET - what is it and why do we need it.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29}
-}
-
-@ARTICLE{Ye2005,
-  author = {Ye, Y. and Zhao, S. and Yu, H. Wang, G.},
-  title = {A general exact reconstruction for cone-beam {CT} via backprojection-filtration},
-  journal = {IEEE Trans. Med. Imag.},
-  year = {2005},
-  volume = {24},
-  pages = {1190-1198},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Yorkston2007,
-  author = {Yorkston, J.},
-  title = {Recent ddevelopment in digital radiography detectors},
-  journal = {Nucl. Instr. Meth. Phys. Res. A},
-  year = {2007},
-  volume = {580},
-  pages = {974-985},
-  file = {:F\:\\Papers\\Yorkston - recent developments in DR detectors.pdf:PDF},
-  owner = {Fan},
-  timestamp = {2014.02.25}
-}
-
-@ARTICLE{Zhuang2006,
-  author = {Zhuang, T. and Chen, G.},
-  title = {New Families of exact fan-beam and cone-beam image reconstruction
-	formulae via filtering the backprojection image of differentiated
-	projection data along singly measured lines},
-  journal = {Inverse Probl.},
-  year = {2006},
-  volume = {22},
-  pages = {991–1006},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@ARTICLE{Zou2004,
-  author = {Zou, Y. and Pan, X.},
-  title = {An extended data function and its generalized backprojection for
-	image reconstruction in helical cone-beam {CT}},
-  journal = {Phys. Med. Biol.},
-  year = {2004},
-  volume = {49},
-  pages = {N383-387},
-  owner = {Ryan-Helen},
-  timestamp = {2014.03.28}
-}
-
-@BOOK{EmissionTom2004,
-  title = {{E}mission {T}omography - {T}he {F}undamentals of {PET} and {SPECT}},
-  publisher = {{E}lsevier {A}cademic {P}ress},
-  year = {2004},
-  editor = {Wernick, M. N and Aarsvold, J. N.},
-  owner = {Fan},
-  timestamp = {2014.08.21}
-}
-
-@ELECTRONIC{clarkvision,
-  url = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
-  owner = {Fan},
-  timestamp = {2014.03.06}
-}
-
-@MANUAL{Cudatoolkit,
-  title = {CUDA toolkit documentation},
-  organization = {NVIDIA},
-  address = {docs.nvidia.com/cuda/index.html},
-  edition = {5.5},
-  owner = {Fan},
-  timestamp = {2014.08.25}
-}
-
-@ELECTRONIC{foveon,
-  url = {www.foveon.com},
-  owner = {Fan},
-  timestamp = {2014.09.19}
-}
-
-@ELECTRONIC{maxmax,
-  url = {www.maxmax.com/b&w_conversion.htm},
-  owner = {Fan},
-  timestamp = {2014.09.19}
-}
-
-@ELECTRONIC{microlensfig,
-  organization = {Toppan Photomasks, Inc.},
-  url = {http://www.photomask.com/products/on-chip-color-filters},
-  owner = {Fan},
-  timestamp = {2014.03.06}
-}
-
-@ELECTRONIC{sigmasd10,
-  organization = {cnet},
-  url = {www.cnet.com/products/sigma-sd10/},
-  owner = {Fan},
-  timestamp = {2014.09.19}
-}
-
-@ELECTRONIC{stevesdigicams,
-  url = {http://www.steves-digicams.com/2003_reviews/sigma_sd10_pg7.html},
-  owner = {Fan},
-  timestamp = {2014.09.19}
-}
-
-@ELECTRONIC{scintillatorImage,
-  month = {9},
-  year = {2014},
-  title = {{NDT} {W}iki {X}-ray - the {D}igital {X}-ray {E}ncyclopedia},
-  organization = {VIDISCO},
-  url = {http://www.vidisco.com/ndt_solutions/ndt_info_center/ndt_wiki_x_ray},
-  owner = {Fan},
-  timestamp = {2014.09.17}
-}
-
-@STANDARD{NEMA2010,
-  title = {{NEMA} {S}tandards {P}ublication {XR} 25-2010: {C}omputed {T}omography
-	{D}ose {C}heck},
-  organization = {National Electrical Manufacturers Association},
-  institution = {NEMA},
-  year = {2010},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\NEMA XR 25-2010.pdf:PDF},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.30}
-}
-
-@TECHREPORT{UNSCEAR2008,
-  title = {{UNSCEAR} 2008 {R}eport of the {G}eneral {A}ssembly {A}nnex {A}:
-	{M}edical {E}xposure to {I}onizing {R}adiation},
-  institution = {United Nations},
-  year = {2008},
-  file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\UNSCEAR - Sources and effects of ionizing radiation 2008.pdf:PDF},
-  journal = {United Nations Scientific Committee on the Effects of Atomic Radiation},
-  organization = {United Nations Scientific Committee on the Effects of Atomic Radiation},
-  owner = {Helen_Fan},
-  timestamp = {2012.10.29},
-  volume = {I}
-}
-
-@TECHREPORT{ICRP30,
-  title = {{I}nternational {C}ommission on {R}adiological {P}rotection. {L}imits
-	for {I}ntakes of {R}adionuclides by {W}orkers},
-  year = {1979},
-  type = {Annals of the ICRP},
-  number = {4},
-  journal = {ICRP Publication 30. Annals of the ICRP},
-  owner = {Helen_Fan},
-  part = {Annals of the ICRP},
-  publisher = {Pergamon Press, New York},
-  timestamp = {2012.11.13},
-  volume = {19}
+
+@TechReport{AAPM93,
+  Title                    = {Acceptance Testing and Quality Control of Photostimulable Storage Phosphor Imaging Systems},
+  Author                   = {AAPM},
+  Institution              = {AAPM},
+
+  Organization             = {American Association of Physicists in Medicine, Report No. 93},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.15}
+}
+
+@TechReport{aapm_headCT2012,
+  Title                    = {{A}dult {R}outine {H}ead {CT} {P}rotocols {V}ersion 1.1},
+  Author                   = {AAPM},
+  Institution              = {AAPM},
+  Year                     = {2012},
+
+  Journal                  = {AAPM CT Scan Protocol},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.05}
+}
+
+@TechReport{PhysicistsinMedicine2011,
+  Title                    = {{AAPM} {R}ecommendations {R}egarding {N}otification and {A}lert {V}alues for {CT} {S}canners: {G}uidelines for {U}se of the {NEMA} {XR} 25 {CT} {D}ose-{C}heck {S}tandard},
+  Author                   = {AAPM},
+  Institution              = {AAPM},
+  Year                     = {2011},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\AAPM recommendations for NEMA XR 25.pdf:PDF},
+  Keywords                 = {CT Dose, AAPM, NEMA, NEMA XR 25},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
+@TechReport{CTDosimetry2010,
+  Title                    = {{C}omprehensive {M}ethodology for the {E}valuation of {R}adiation {D}ose in {X}-{R}ay {C}ompted {T}omography},
+  Author                   = {AAPM},
+  Institution              = {AAPM Task Group III: The Future of CT Dosimetry},
+  Year                     = {2010},
+  Note                     = {A New Measurement Paradigm Based on a Unified Theory for Axial, Helical, Fan-Beam, and Cone-Beam Scanning With or Without Longitudinal Translation of the Patient Table},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\AAPM - evaluation of radiation dose in x-ray CT.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
+@TechReport{Dosimetry2007,
+  Title                    = {{T}he {M}easurement, {R}eporting, and {M}anagement of {R}adiation {D}ose in {CT}},
+  Author                   = {AAPM},
+  Institution              = {AAPM},
+  Year                     = {2008},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\AAPM - measurement reporting and management of radiation dose in CT.pdf:PDF},
+  Journal                  = {Report of AAPM Task Group 23 of the Diagnostic Imaging Council CT Committee},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
+@PhdThesis{AbbeyThesis,
+  Title                    = {Assessment of reconstructed images},
+  Author                   = {Abbey, C. K.},
+  School                   = {University of Arizona, Tucson, AZ},
+  Year                     = {1998},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.10.27}
+}
+
+@InBook{Abbey2000,
+  Title                    = {Handbook of Medical Imaging, Volume 1. Physics and Psychophysics},
+  Author                   = {Abbey, C. K. and Bochud, F. O.},
+  Chapter                  = {Modeling {V}isual {D}etection {T}asks in {C}orrelated {I}mage {N}oise with {L}inear {M}odel {O}bservers},
+  Editor                   = {Beutel, J. and Kundel, H. L. and Van Metter, R. L.},
+  Pages                    = {630-654},
+  Publisher                = {SPIE Press},
+  Year                     = {2000},
+  Volume                   = {I},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.10.27}
+}
+
+@Article{Antonuk1990,
+  Title                    = {{R}adiation damage studies of amorphous-silicon photodiode sensors for application in radiotherapy {X}-ray imaging},
+  Author                   = {Antonuk, L. E. and Boudry, J. and Yorkston, J. and Wild, C. F. and Longo, M. J. and Street, R. A.},
+  Journal                  = {Nucl. Instr. Meth. Phys.},
+  Year                     = {1990},
+  Pages                    = {143-146},
+  Volume                   = {A299},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@Article{Audet2006,
+  Title                    = {Mesh adaptive direct search algorithm for constrained optimization},
+  Author                   = {Audet, C. and Dennis, J. E.},
+  Journal                  = {SIAM J. Optim.},
+  Year                     = {2006},
+  Pages                    = {188-217},
+  Volume                   = {17(1)},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.14}
+}
+
+@Article{Azevedo1990,
+  Title                    = {{C}alculation of the {R}otational {C}enters in {C}omputed {T}omography {S}inograms},
+  Author                   = {Azevedo, S. G. and Schneberk, D. J. and Fitch, J. P. and Martz, H. E.},
+  Journal                  = {IEEE Trans. Nucl. Sci.},
+  Year                     = {1990},
+  Pages                    = {1525-1540},
+  Volume                   = {37},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Bankier2012,
+  Title                    = {{T}hrough the {L}ooking {G}lass {R}evisited: {T}he {N}eed for {M}ore {M}eaning and {L}ess {D}rama in the {R}eporting of {D}ose and {D}ose {R}eduction in {CT}},
+  Author                   = {Bankier, A. A. and Kressel, H. Y.},
+  Journal                  = {Radiology},
+  Year                     = {2012},
+
+  Month                    = {October},
+  Pages                    = {265:4-8},
+  Volume                   = {265},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Bankier - the need for more meaning and less drama in dose and dose reduction in CT.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Barrett2009,
+  Title                    = {{NEQ}: its progenitors and progeny},
+  Author                   = {Barrett, H. H.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2009},
+  Volume                   = {7263},
+
+  Doi                      = {10.1117/12.817795},
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Barrett NEQ keynote SPIE 2009.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Abbey2001,
+  Title                    = {{H}uman- and model-observer performance in ramp-spectrum noise: effects of regularization and object variability},
+  Author                   = {Barrett, H. H. and Abbey, C. K.},
+  Journal                  = {J. Opt. Soc. Am. A Opt. Image. Sci. Vis.},
+  Year                     = {2001},
+
+  Month                    = {March},
+  Number                   = {3},
+  Pages                    = {473-488},
+  Volume                   = {18},
+
+  File                     = {:F\:\\Papers\\Abbey - Human and Model Observer performance.pdf:PDF},
+  Keywords                 = {model observer, observers,},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
+@Book{Barrett2004,
+  Title                    = {{F}oundations of {I}mage {S}cience},
+  Author                   = {Barrett, H. H. and Myers, K. J.},
+  Editor                   = {Bahaa E. A. Saleh},
+  Publisher                = {John Wiley \& Sons, Inc.},
+  Year                     = {2004},
+
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.02}
+}
+
+@Book{Barrett1981,
+  Title                    = {{R}adiological {I}maging - {T}he {T}heory of {I}mage {F}ormation, {D}etection, and {P}rocessing {V}olume 1},
+  Author                   = {Barrett, H. H. and Swindell, W.},
+  Publisher                = {Academic Press},
+  Year                     = {1981},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.27}
+}
+
+@Article{Bauhs2008,
+  Title                    = {{CT} {D}osimetry: {C}omparison of {M}easurement {T}echniques and {D}evices},
+  Author                   = {Bauhs, J. A. and Vrieze, T. J. and Primak, A. N. and Bruesewitz, M. R. and McCollough, C. H.},
+  Journal                  = {Radiographics},
+  Year                     = {2008},
+  Pages                    = {245-253},
+  Volume                   = {28},
+
+  File                     = {:F\:\\Papers\\Bauhs - CT dosimetry - comparison of measurement techniques and devices.pdf:PDF},
+  Keywords                 = {CT dosimetry, dose, measurement techniques, TLD, CTDI},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
+@Article{Beister2012,
+  Title                    = {{I}terative reconstruction methods in {X}-ray {CT}},
+  Author                   = {Beister, M. and Kolditz, D. and Kalender, W. A.},
+  Journal                  = {Phys. Med.},
+  Year                     = {2012},
+  Pages                    = {94-108},
+  Volume                   = {28},
+
+  File                     = {:F\:\\Papers\\Beister - Iterative reconstruction methods in CT.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Beque2003,
+  Title                    = {{C}haracterization of {P}inhole {SPECT} {A}cqusition {G}eometry},
+  Author                   = {Beque, D. and Nuyts, J. and Bormans, G. and Suetens, P. and Dupont, P.},
+  Journal                  = {IEEE Trans. Med. Imag.},
+  Year                     = {2003},
+  Pages                    = {599-612},
+  Volume                   = {22},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Berzins1983,
+  Title                    = {{C}haracterization of fluorescent screen for imaging application with {M}e{V} neutrons and photons},
+  Author                   = {Berzins, G. J. and Lumpkins, A. H. and Smith, H. L},
+  Journal                  = {Opt. Eng.},
+  Year                     = {1983},
+  Pages                    = {633-642},
+  Volume                   = {22(5)},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@Book{blasse1994,
+  Title                    = {{L}uminescent {M}aterials},
+  Author                   = {Blasse, G. and Grabmaier, B. C.},
+  Publisher                = {{B}erlin: {S}pringer},
+  Year                     = {1994},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@Article{Boedeker2007,
+  Title                    = {Application of the noise power spectrum in modern diagnostic {MDCT}: part I. {M}easurement of noise power spectra and noise equivalent quanta},
+  Author                   = {Boedeker, K. L. and Cooper, V. N. and McNitt-Gray, M. F.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2007},
+  Pages                    = {4027-4046},
+  Volume                   = {52},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.24}
+}
+
+@Article{Bradford1999,
+  Title                    = {{P}erformance {C}haracteristics of a {K}odak {C}omputed {R}adiography {S}ystem},
+  Author                   = {Bradford, C. D. and Peppler, W. W. and Dobbins III, J. T.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1999},
+  Pages                    = {27-37},
+  Volume                   = {26},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.18}
+}
+
+@Article{Bronnikov1999,
+  Title                    = {{V}irtual alignment of x-ray cone-beam tomography system using two calibration aperture measurements},
+  Author                   = {Bronnikov, A. V.},
+  Journal                  = {Opt. Eng.},
+  Year                     = {1999},
+  Pages                    = {381-386},
+  Volume                   = {38(2)},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Bunch1987,
+  Title                    = {Analysis of the detective quantum efficiency of a radiographic screen-film combination},
+  Author                   = {Bunch, P. C. an d Huff, K. E. and Van Metter, R.},
+  Journal                  = {J. Opt. Soc. Am. A},
+  Year                     = {1987},
+  Pages                    = {902-909},
+  Volume                   = {4},
+
+  File                     = {:F\:\\Papers\\Bunch - analysis of the DQE of a raiographic screen-film combination.pdf:PDF},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.24}
+}
+
+@Article{Busemann1987,
+  Title                    = {{M}easurement of {C}ollimator {H}ole {A}ngulation and {C}amera {H}ead {T}ilt for {S}lant and {P}arallel {H}ole {C}ollimators used in {SPECT}},
+  Author                   = {Busemann-Sokole, E.},
+  Journal                  = {J. Nucl. Med.},
+  Year                     = {1987},
+  Pages                    = {1592-1598},
+  Volume                   = {28},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.16}
+}
+
+@Article{Cavouras2000,
+  Title                    = {{M}easurement of the $\mathrm{(Gd, La)_2O_2S:Tb}$ {P}hsophor efficiency for x-ray Imaging applications},
+  Author                   = {Cavouras, D. and Kandaraks, I. and Nomicos, C. D. and Bakas, A. and Panayiotakis, G. S.},
+  Journal                  = {Radiat. Meas.},
+  Year                     = {2000},
+  Pages                    = {5-13},
+  Volume                   = {32},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.09}
+}
+
+@Article{Cho2005,
+  Title                    = {{A}ccurate technique for complete geometric calibration of cone-beam computed tomography systems},
+  Author                   = {Cho, Y. and Moseley, D. J. and Siewerdsen, J. H. and Jaffray, D. A.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2005},
+  Pages                    = {968-983},
+  Volume                   = {32},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Chotas1997,
+  Title                    = {{M}emory {A}rtifact {R}elated to {S}elenium {B}ased {D}igital {R}adiography {S}ystems},
+  Author                   = {Chotas, H. G. and Floyd Jr, C. E. and Ravin, C. E.},
+  Journal                  = {Radiology},
+  Year                     = {1997},
+  Pages                    = {881-883},
+  Volume                   = {203},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.26}
+}
+
+@Book{Conn2008,
+  Title                    = {{I}ntroduction to {D}erivative-{F}ree {O}ptimization, ser. {MPS}-{SIA}m {S}eries on {O}ptimization},
+  Author                   = {Conn, A. R. and Scheinberg, K. and Vicente, L. N.},
+  Publisher                = {Philadelphia, PA: SIAM},
+  Year                     = {2008},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.14}
+}
+
+@Article{Crawford1988,
+  Title                    = {Reconstruction for fan beam with an angular-dependent displaced center-of-rotation},
+  Author                   = {Crawford, C. R. and Gullberg, G. T. and Tsui, B. M.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1988},
+  Pages                    = {67-71},
+  Volume                   = {15},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Cunningham1987,
+  Title                    = {{A} method for modulation transfer function determination from edge profiles with correction for finite-element differentiation},
+  Author                   = {Cunningham, I. A. and Fenster, A.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1987},
+  Pages                    = {533-537},
+  Volume                   = {14},
+
+  File                     = {:F\:\\Papers\\Cunningham - a method for MTF function determination from edge profiles.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.02}
+}
+
+@Article{Cunningham1992,
+  Title                    = {{S}ignal and noise in modulation transfer function determination using the slit, wire, and edge techniques},
+  Author                   = {Cunningham, I. A. and Reid, B. K.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1992},
+  Pages                    = {1037-1044},
+  Volume                   = {19},
+
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.02}
+}
+
+@Article{Cunningham1999,
+  Title                    = {{S}ignal-to-noise optimization of medical imaging systems},
+  Author                   = {Cunningham, I. A. and Shaw, R.},
+  Journal                  = {J. Opt. Soc. Am. A},
+  Year                     = {1999},
+
+  Month                    = {March},
+  Number                   = {3},
+  Pages                    = {621-632},
+  Volume                   = {16},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Cunningham - SNR optimization of medical imaging systems.pdf:PDF},
+  Keywords                 = {signal to noise, SNR},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Ennerlein2007,
+  Title                    = {Evaluation of three analytical methods for reconstruction from cone-beam data on a short circular scan},
+  Author                   = {Dennerlein, F. and Noo, F. and Hoppe, S. and Hornegger, J. and Lauritsch, G.},
+  Journal                  = {IEEE Nucl. Sci. Conf. R.},
+  Year                     = {2007},
+  Pages                    = {3933 - 3938},
+  Volume                   = {5},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.27}
+}
+
+@Article{Dobbins1995,
+  Title                    = {{DQE}(f) of {F}our {G}enerations of {C}omputed {R}adiography {A}cquisition {D}evices},
+  Author                   = {Dobbins III, J. T. and Ergun, D. L. and Rutz, L. and Hinshaw, D. A and Blume, H. and Clark, D. C.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1995},
+  Pages                    = {1581-1593},
+  Volume                   = {22},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.18}
+}
+
+@PhdThesis{Elbakri2003,
+  Title                    = {{S}tatistical {R}econstruction {A}lgorithms for {P}olyenergetic {X}-ray {C}omputed {T}omography},
+  Author                   = {Elbakri, I. A.},
+  School                   = {Electrical Engineering in The University of Michigan},
+  Year                     = {2003},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.31}
+}
+
+@Article{Fan2012,
+  Title                    = {{CT} detector evaluation with complex random backgrounds},
+  Author                   = {Fan, H. and Barrett, H. H.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2012},
+  Volume                   = {8318},
+
+  Doi                      = {10.1117/12.912374},
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Fan-CT detector eval.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.02}
+}
+
+@Article{Fan2010,
+  Title                    = {{DR} with a {DSLR}: {D}igital {R}adiography with a {D}igital {S}ingle-{L}ens {R}eflex camera},
+  Author                   = {Fan, H. and Durko, H. L. and Moore, S. K. and Moore, J. and Miller, B. W. and Furenlid, L. R. and Pradhan, S. and Barrett, H. H.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2010},
+  Volume                   = {7622},
+
+  Doi                      = {10.1117/12.844056},
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Fan-DR with DSLR.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.02}
+}
+
+@Article{Feldkamp1984,
+  Title                    = {{P}ractical cone-beam algorithm},
+  Author                   = {Feldkamp, L. A. and Davis, L. C. and Kress, J. W.},
+  Journal                  = {J. Opt. Soc. Am. A},
+  Year                     = {1984},
+
+  Month                    = {June},
+  Number                   = {6},
+  Pages                    = {612-619},
+  Volume                   = {1},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\FDK.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Gagne2003,
+  Title                    = {{S}ignal detectability in digital radiography: {S}patial domain figures of merit},
+  Author                   = {Gagne, R. M. and Boswell, J. S. and Myers, K. J.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2003},
+
+  Month                    = {August},
+  Number                   = {8},
+  Pages                    = {2180-2193},
+  Volume                   = {30},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Gagne - Signal detectability in digital radiography.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Gallas2003,
+  Title                    = {Validating the use of channels to estimate the ideal linear observer},
+  Author                   = {Gallas, B. D. and Barrett, H. H.},
+  Journal                  = {J. Opt.Soc. Am. A},
+  Year                     = {2003},
+  Pages                    = {1725-1738},
+  Volume                   = {20},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.17}
+}
+
+@Article{Giakoumakis1989,
+  Title                    = {{A}bsolute efficiency of $\mathrm{Gd_2O_2S:Tb}$ screens under fluoroscopic conditions},
+  Author                   = {Giakoumakis, G. E. and Nomicos, C. D. and Sandilos, P. X.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {1989},
+  Number                   = {6},
+  Pages                    = {673-678},
+  Volume                   = {34},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Giakoumakis - Absolute efficiency of Gd2O2STb screens under fluoroscopic conditions.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{glendinning2001,
+  Title                    = {{M}easurement of the response of $\mathrm{Gd_2O_2S:Tb}$ phosphor to 6 {MV} x-rays},
+  Author                   = {Glendinning, A. G. and Hunt, S. G. and Bonnett, D. E},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2001},
+  Pages                    = {571-530},
+  Volume                   = {46},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@Article{Goldman2008,
+  Title                    = {{P}rinciple of {CT}: {M}ultislice {CT}},
+  Author                   = {Goldman, L. W.},
+  Journal                  = {J. Nucl. Med. Technol.},
+  Year                     = {2008},
+  Pages                    = {57-68},
+  Volume                   = {36},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Goldman - Principles of CT - multislice CT.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Goldman2007,
+  Title                    = {{P}rinciples of {CT}: {R}adiation {D}ose and {I}mage {Q}uality},
+  Author                   = {Goldman, L. W.},
+  Journal                  = {J. Nucl. Med. Technol.},
+  Year                     = {2007},
+  Number                   = {4},
+  Pages                    = {213-225},
+  Volume                   = {35},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Goldman - Principles of CT- radiation dose and image quality.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Goldman2007a,
+  Title                    = {{P}rinciple of {CT} and {CT} {T}echnology},
+  Author                   = {Goldman, L. W.},
+  Journal                  = {J. Nucl. Med. Technol.},
+  Year                     = {2007},
+  Pages                    = {115-128},
+  Volume                   = {35},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Goldman - Principles of CT and CT technology.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Gordon1970,
+  Title                    = {{A}lgebraic reconstruction techniques ({ART}) for three-dimensional electron microscopy and x-ray photography},
+  Author                   = {Gordon, R. and Bender, R. and Herman, G.T.},
+  Journal                  = {J. Theor. Biol},
+  Year                     = {1970},
+  Pages                    = {471-482},
+  Volume                   = {29},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.27}
+}
+
+@Article{Gullberg1990,
+  Title                    = {Estimation of geometric parameters and collimator evaluation for cone beam tomography},
+  Author                   = {Gullberg, G. T. and Tsui, B.M.W. and Crawford, C. R. and Ballard, J. G. and Hagius, J. T.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1990},
+  Pages                    = {264-272},
+  Volume                   = {17},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Gullberg1987,
+  Title                    = {Estimation of geogeometric parameters for fan beam tomography},
+  Author                   = {Gullberg, G. T. and Tsui, B. M. W. and Crawford, C. R. and Edgerton, E. R.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {1987},
+  Pages                    = {11581-1594},
+  Volume                   = {32},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Hestenes1952,
+  Title                    = {Methods of conjugate gradient for solving linear systems},
+  Author                   = {Hestenes, M. R. and Steifel, E.},
+  Journal                  = {J. Res. Nat. Bur. Stand.},
+  Year                     = {1952},
+  Pages                    = {409-436},
+  Volume                   = {49},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.14}
+}
+
+@Article{Hesterman2010,
+  Title                    = {{M}aximum-{L}ikelihood {E}stimation {W}ith a {C}ontracting-{G}rid {S}earch {A}lgorithm},
+  Author                   = {Hesterman, J. Y. and Caucci, L. and Kupinski, M. A. and Barrett, H. H. and Furenlid, L. R.},
+  Journal                  = {IEEE Trans. Nucl. Sci.},
+  Year                     = {2010},
+
+  Month                    = {June},
+  Number                   = {3},
+  Pages                    = {1077-1084},
+  Volume                   = {57},
+
+  File                     = {Contracting Grid:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Hesterman - Maximum likelihood estimation with a contracting grid search algorithm.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Hillen1987,
+  Title                    = {{I}maging {P}erformance of a {D}igital {S}torage {P}hsophor {S}ystem},
+  Author                   = {Hillen, W. and Schiebel, U. and Zaengel, T.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1987},
+  Pages                    = {744-751},
+  Volume                   = {14},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.18}
+}
+
+@Book{Hiseh2009,
+  Title                    = {Computed Tomography: Principles, Design, AArtifact, and Recent Advances},
+  Author                   = {Hiseh, J.},
+  Publisher                = {SPIE and John Wiley \& Sons, Inc},
+  Year                     = {2009},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.27}
+}
+
+@Article{Housfield1973,
+  Title                    = {Computerized transverse axial scanning (tomography). 1. {D}escription of system.},
+  Author                   = {Hounsfield, G. N.},
+  Journal                  = {Br. J. Radiol.},
+  Year                     = {1973},
+  Pages                    = {1016-1022},
+  Volume                   = {46},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.27}
+}
+
+@Article{Hsieh2000,
+  Title                    = {A practical cone beam aritfact correction algorithm},
+  Author                   = {Hsieh, J.},
+  Journal                  = {IEEE Nucl. Sci. Conf. R.},
+  Year                     = {2000},
+  Pages                    = {71-74},
+  Volume                   = {15},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Hsieh1999,
+  Title                    = {{T}hree-{D}imensional {A}rtifact {I}nduced by {P}rojection {W}eighting and {M}isalignment},
+  Author                   = {Hsieh, J.},
+  Journal                  = {IEEE Trans. Med. Imag.},
+  Year                     = {1999},
+  Pages                    = {364-368},
+  Volume                   = {18},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Hsieh1998,
+  Title                    = {Adaptive streak artifact reuction in computed tomography resulting from excessive x-ray photon noise},
+  Author                   = {Hsieh, J.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1998},
+  Pages                    = {2139-2147},
+  Volume                   = {25},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.31}
+}
+
+@Article{Hsieh2013,
+  Title                    = {{R}ecent {A}dvances in {CT} {I}mage {R}econstruction},
+  Author                   = {Hsieh, J. and Nett, B. and Yu, Z. and Sauer, K. and Thibault, J. B. and Bouman, C. A.},
+  Journal                  = {Curr. Radiol. Rep.},
+  Year                     = {2013},
+  Pages                    = {39-51},
+  Volume                   = {1},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.27}
+}
+
+@Article{Hsieh2007,
+  Title                    = {Conjugate cone beam reconstruction algorithm},
+  Author                   = {Hsieh, J. and Tang, X. and Thibault J. and Shaughnessy C. and Nilsen, R. A. and Williams, E.},
+  Journal                  = {Opt. Eng.},
+  Year                     = {2007},
+  Volume                   = {46},
+
+  Doi                      = {10.1117/1.2746866},
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{hunt5030,
+  Title                    = {Imaging performance of an amorphous selenium flat-panel detector for digital fluoroscopy},
+  Author                   = {Hunt, D. C. and Tousignant, O. and Demers, Y. and Laperriere, L. and Rowlands, J. A.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2003},
+  Volume                   = {5030},
+
+  Doi                      = {10.1117/12.480131},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.11}
+}
+
+@InBook{springer2007,
+  Title                    = {Springer Handbook of Electronic and Photonic Materials},
+  Author                   = {Kabir, M. and Kasap, S. and Rowlands, J.},
+  Chapter                  = {Photoconductors for {X}-{R}ay {I}mage {D}etectors},
+  Editor                   = {Kasap, S. and Capper, P.},
+  Pages                    = {1121-1137},
+  Publisher                = {Springer US},
+  Year                     = {2007},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.10.27}
+}
+
+@Book{Kak1999,
+  Title                    = {{P}rinciples of {C}omputerized {T}omographic {I}maging},
+  Author                   = {Kak, A. C. and Slaney, M.},
+  Editor                   = {Cotellessa, R. F.},
+  Publisher                = {IEEE Press.},
+  Year                     = {1988},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Books\\Principles of Computed Tomography\\CTI_Ch01.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.13}
+}
+
+@Article{Kalra2004,
+  Title                    = {{S}trategies for {CT} {R}adiation {D}ose {O}ptimization},
+  Author                   = {Kalra, M. K. and Maher, M. M. and Toth, T. L. and Hamberg, L. M. and Blake, M. A. and Shepard, J. and Saini, S.},
+  Journal                  = {Radiology},
+  Year                     = {2004},
+  Pages                    = {619-628},
+  Volume                   = {230},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Mannudeep K K - Strategiest for CT Radiation Dose Optimization.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Kandarakis2001,
+  Title                    = {{E}xperimental and theoretical assessment of the Performance of ${G}d_2{O}_2{S}:{T}b$ and ${L}a_2{O}_2{S}:{T}b$ phosphor and ${G}d_2{O}_2{S}:{T}b-{L}a_2{O}_2{S}:{T}b$ {M}ixtures for {X}-ray imaging},
+  Author                   = {Kandaraks, I. and Cavouras, D.},
+  Journal                  = {Eur. Radiol.},
+  Year                     = {2001},
+  Pages                    = {1083-1091},
+  Volume                   = {11},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.09}
+}
+
+@Article{Karabulut2006,
+  Title                    = {{L}ow dose {CT}: practices and strategies of radiologists in university hospitals},
+  Author                   = {Karabulut, N. and Macit, A.},
+  Journal                  = {Diagn. Interv. Radiol.},
+  Year                     = {2006},
+  Pages                    = {3-8},
+  Volume                   = {12},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Karabulut - low dose CT - practices and strategies of radiologists in university hospitals.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Karolczak2001,
+  Title                    = {Implementation of a cone-beam reconstruction algorithm for the single-circle source orbit with embedded misalignment correction using homogeneous coordinates},
+  Author                   = {Karolczak, M. and Schaller, S. and Engelke, K. and Lutz, A. and Taubenreuther, U. and Wiesent, K. and Kalender, W.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2001},
+  Pages                    = {2050-2069},
+  Volume                   = {28},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{kasap2006,
+  Title                    = {Recent advances in {X}-ray photoconductors for direct conversion {X}-ray image detectors},
+  Author                   = {Kasap, S. O. and Zahangir Kabir, M. and Rowlands, J. A.},
+  Journal                  = {Curr. Appl. Phys.},
+  Year                     = {2006},
+  Pages                    = {288-292},
+  Volume                   = {6},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.11}
+}
+
+@Book{kato1994,
+  Title                    = {Specification, acceptance testing and quality control of diagnostic x-ray imaging equipment},
+  Author                   = {Kato, H.},
+  Editor                   = {Seibert, J. and Barns, G. and Gould, R.},
+  Publisher                = {AAPM},
+  Year                     = {1994},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.15}
+}
+
+@Article{Katsevich2002,
+  Title                    = {Improved exact {FBP} algorithm for spiral {CT}},
+  Author                   = {Katsevich, A.},
+  Journal                  = {Adv. Appl. Math},
+  Year                     = {2004},
+  Pages                    = {681-697},
+  Volume                   = {32},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Katsevich2003,
+  Title                    = {{A} general schedule for constructng inversion algorithm for cone beam {CT}},
+  Author                   = {Katsevich, A.},
+  Journal                  = {Internat. J. Math. Math. Sci.},
+  Year                     = {2003},
+  Pages                    = {1305-1321},
+  Volume                   = {21},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Katsevich2002SIAM,
+  Title                    = {Theoretically exact filtered backprojection type inversion algorithm for spiral CT},
+  Author                   = {Katsevich, A.},
+  Journal                  = {SIAM J. Appl. Math.},
+  Year                     = {2002},
+  Pages                    = {2012„1¤72026},
+  Volume                   = {62},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Kim2008,
+  Title                    = {{O}n the {D}evelopment of {D}igital {R}adiology {D}etectors: {A} {R}eview},
+  Author                   = {Kim, H. K.},
+  Journal                  = {Int. J. Precis. Eng. Manuf.},
+  Year                     = {2008},
+  Pages                    = {86-100},
+  Volume                   = {9},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.24}
+}
+
+@Article{kim2005,
+  Title                    = {{D}evelopment of a lens-coupled {CMOS} detector for an {X}-ray inspection system},
+  Author                   = {Kim, H. K. and Ahn, J. K. and Cho, G.},
+  Journal                  = {Nucl. Instr. Meth. Phys. Res. A},
+  Year                     = {2005},
+  Pages                    = {210-216},
+  Volume                   = {545},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.16}
+}
+
+@Article{kim2001,
+  Title                    = {{D}evelopment and {E}valuation of a {D}igital {R}adiographic {S}ystem {B}ased on {CMOS} {I}mage {S}ensor},
+  Author                   = {Kim, H. K. and Cho, G. and Lee, S. W. and Shin, Y. H. and Cho, H. S.},
+  Journal                  = {IEEE Trans. Nucl. Sci.},
+  Year                     = {2001},
+  Pages                    = {662-666},
+  Volume                   = {48},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.16}
+}
+
+@Book{Knuth1998,
+  Title                    = {The Art of Computer Programming, Volume 3: Sorting and Searching (2nd Edition)},
+  Author                   = {Knuth, D.},
+  Publisher                = {Addison-Wesley},
+  Year                     = {1998},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.14}
+}
+
+@Article{Kolda2003,
+  Title                    = {Optimization by direct search: New persepctives on some classical and modern methods},
+  Author                   = {Kolda, T. G. and Lewis, R. M. and Torczon, V.},
+  Journal                  = {SIAM Rev.},
+  Year                     = {2003},
+  Number                   = {385-482},
+  Pages                    = {385„1¤7482},
+  Volume                   = {45},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.14}
+}
+
+@Article{lee2001,
+  Title                    = {{A} 3-{D} {X}-{R}ay {M}icrotomographic {S}ystem {W}ith a {CMOS} {I}mage {S}ensor},
+  Author                   = {Lee, S. W. and Kim, H. K. and Cho, G. and Shin, Y. H. and Won, Y. Y.},
+  Journal                  = {IEEE Trans. Nucl. Sci.},
+  Year                     = {2001},
+  Pages                    = {1503-1505},
+  Volume                   = {48},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.16}
+}
+
+@Misc{Lewis,
+  Title                    = {{P}rinciples of {CT} {D}osimetry},
+
+  Author                   = {Maria Lewis},
+  HowPublished             = {\url{http://www.impactscan.org/slides/impactcourse/principles%20of%20ct%20dosimetry/index.html}},
+  Month                    = {October},
+  Year                     = {2005},
+
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.13}
+}
+
+@Article{Li1994a,
+  Title                    = {A filtered backprojection algorithm for pinhole SPECT with a displaced center of rotation},
+  Author                   = {Li, J. and Jaszczak, R. J. and Greer, K. L. and Coleman, R. E.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {1994},
+  Pages                    = {165-176},
+  Volume                   = {38},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.16}
+}
+
+@Article{Li1993,
+  Title                    = {Determination of both mechanical and electronic shifts in cone-beam SPECT},
+  Author                   = {Li, J. and Jaszczak, R. J. and Wang, H. and Greer, K. L. and Coleman, R. E.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {1993},
+  Pages                    = {743-754},
+  Volume                   = {38},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.16}
+}
+
+@Article{Li1994b,
+  Title                    = {A cone-beam SPECT reconstruction algorithm with a displaced center of rotation},
+  Author                   = {Li, J. and Jaszczak, R. J. and Wang, H. and Gullberg, G. T. and Greer, K. L. and Coleman, R. E.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1994},
+  Pages                    = {145-152},
+  Volume                   = {21},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.16}
+}
+
+@Article{ludwig1972,
+  Title                    = {Evaluation of ${G}d_2{O}_2{S}:{T}b$ as a phosphor for the input screen of x-ray Image intensifier},
+  Author                   = {Ludwig, G. W. and Prener, J. S.},
+  Journal                  = {IEEE Trans. Nucl. Sci.},
+  Year                     = {1972},
+  Pages                    = {3-8},
+  Volume                   = {19},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.09}
+}
+
+@Article{madden2006,
+  Title                    = {{L}ens-{C}oupled {CCD} {D}etector for {X}-ray {C}rystallography},
+  Author                   = {Madden, T. J. and McGuigan, W. and Molitsky, M. J. and Naday, I. and McArthur, A. and Westbrook, E. M.},
+  Journal                  = {IEEE Trans. Nucl. Sci.},
+  Year                     = {2006},
+  Pages                    = {729-734},
+  Volume                   = {2},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.16}
+}
+
+@Article{Mettler2008,
+  Title                    = {{E}ffective {D}oses in {R}adiology and {D}iagnostic {N}uclear {M}edicine: {A} {C}atalog},
+  Author                   = {Mettler, F. A. and Huda, W. and Yoshizumi, T. T. and Mahesh, M.},
+  Journal                  = {Radiology},
+  Year                     = {2008},
+
+  Month                    = {July},
+  Pages                    = {254-263},
+  Volume                   = {248},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Mettler - Effective dose in radiology and diagnostic nuclear medicine.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@PhdThesis{Moore2011,
+  Title                    = {{A}daptive {X}-{R}ay {C}omputed {T}omography},
+  Author                   = {Moore, J.},
+  School                   = {The University of Arizona},
+  Year                     = {2011},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\PhD proposal\\MooreDissertationMain.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.13}
+}
+
+@Article{Moy1993,
+  Title                    = {{C}onversion efficiency and time response of phosphors for fast {X}-ray imaging with synchrotron radiation},
+  Author                   = {Moy, J. P. and Koch, A. and Nielsen, M. B.},
+  Journal                  = {Nucl. Instr. Meth. Phys. Res. A},
+  Year                     = {1993},
+  Pages                    = {581-586},
+  Volume                   = {326},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@PhdThesis{MyersThesis,
+  Title                    = {Visual perception in correlated noise},
+  Author                   = {Myers, K. J.},
+  School                   = {University of Arizona, Tucson, AZ},
+  Year                     = {1985},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.10.27}
+}
+
+@Article{Myers1987,
+  Title                    = {The addition of a channel mechanism to the ideal-observer model},
+  Author                   = {Myers, K. J. and Barrett, H. H.},
+  Journal                  = {J. Opt. Soc. Am. A},
+  Year                     = {1987},
+  Pages                    = {2447-2457},
+  Volume                   = {4},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.10.27}
+}
+
+@Article{Nikl2006,
+  Title                    = {{S}cintillation detectors for x-rays},
+  Author                   = {Nikl, M.},
+  Journal                  = {Meas. Sci. Technol.},
+  Year                     = {2006},
+  Pages                    = {R37-R54},
+  Volume                   = {17},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Nikl - Scintillation detectors for x-rays.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Noo2000,
+  Title                    = {Analytic method based on idenficiation of ellipse parameters for scanner calibration in cone-bean tomography},
+  Author                   = {Noo, F. and Clackdoyle, R. and Mennessier, C. and White, T. A. and Roney, T. J.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2000},
+  Pages                    = {3489-3508},
+  Volume                   = {45},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Origgi2006,
+  Title                    = {{S}urvey of computed tomography techniques and absorbed dose in {I}talian hospitals: a comparison between two methods to estimate the dose-length product and the effective dose and to verify fulfillment of the diagnostic reference levels},
+  Author                   = {Origgi, D. and Vigorito, S. and Villa, G. and Bellomi, M. and Tosi, G.},
+  Journal                  = {Eur. Radiol.},
+  Year                     = {2006},
+  Pages                    = {227-237},
+  Volume                   = {16},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Origgi - survey of CT techniques in italian hospitals.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Ouimette1998,
+  Title                    = {New large-area x-ray image sensor},
+  Author                   = {Ouimette, D. R. and Nudelman, S. and Aikens, R. S.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {1998},
+  Volume                   = {3336},
+
+  Doi                      = {10.1117/12.317047},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{Pan2004,
+  Title                    = {A unified analysis of FBP-based aalgorithm in helical cone-beam and circular cone- and fan-beam scans},
+  Author                   = {Pan, X. and Xia, D. and Zou, Y. and Yu, L.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2004},
+  Number                   = {4349-4369},
+  Pages                    = {4349-4369},
+  Volume                   = {49},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Panetta2008,
+  Title                    = {An optimization-based method for gegeometric calibration in cone-beam CT witwith dedicated phantoms},
+  Author                   = {Panetta, D. and Belcari, N. and Guerra, A. D. and Moehrs, S.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2008},
+  Pages                    = {3841-3861},
+  Volume                   = {53},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Pantos2011,
+  Title                    = {{A}dult patient radiation doses from non-cardiac {CT} examinations: a review of published results},
+  Author                   = {Pantos, I. and Thalassinou, S. and Argentos, S. and Kelekis, N. L. and Panayiotakis, G. and Efstathopoulos, E. P.},
+  Journal                  = {The British Journal of Radiology},
+  Year                     = {2011},
+  Pages                    = {293-303},
+  Volume                   = {84},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Pantos - Adult patient radiation doses from non-cardiac CT exams.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Que1995,
+  Title                    = {Xray detectors using amorphous selenium: Inherent spatial resolution},
+  Author                   = {Que, W. and Rowland, J. A.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1995},
+  Pages                    = {365},
+  Volume                   = {22},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{Roehrig2005,
+  Title                    = {{DQE} of a {CMOS} based digital imaging detector for appliation in mammography},
+  Author                   = {Roehrig, H. and Baysal, M. A. and Toker, E.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2005},
+
+  Month                    = {September},
+  Volume                   = {5923},
+
+  Booktitle                = {Penetrating Radiation Systems and Applications VII},
+  Doi                      = {10.1117/12.624959},
+  Editor                   = {F. Patrick Doty and H. Bradford Barber and Hans Roehrig},
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Roehrig - DQE of CMOS based detector for mammo.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Rolland1992,
+  Title                    = {Effect of random background inhomogeneity on observer detection performance},
+  Author                   = {Rolland, J. P. and Barrett, H. H.},
+  Journal                  = {J. Opt.Soc. Am. A},
+  Year                     = {1992},
+  Pages                    = {649-658},
+  Volume                   = {9},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.28}
+}
+
+@Article{Rougee1993,
+  Title                    = {Geometrical calibration of x-ray imaging chains for three-dimensional reconstruction},
+  Author                   = {Rougee, A. and Picard, C. Ponchut, C. and Trousset, Y.},
+  Journal                  = {Comput. Med. Imaging Graph.},
+  Year                     = {1993},
+  Pages                    = {295-300},
+  Volume                   = {17},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.29}
+}
+
+@Article{Rowlands2002,
+  Title                    = {The physics of computed radiography},
+  Author                   = {Rowlands, J. A.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2002},
+  Pages                    = {R123-R166},
+  Volume                   = {47},
+
+  File                     = {:F\:\\Papers\\Rowland - the physics of computed radiography.pdf:PDF},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{Sain2003,
+  Title                    = {Performance {E}valuation of a {M}odular {G}amma {C}amera {U}sing a {D}etectability {I}ndex},
+  Author                   = {Sain, J. and Barrett, H. H.},
+  Journal                  = {J. Nucl. Med.},
+  Year                     = {2003},
+  Pages                    = {58-66},
+  Volume                   = {44},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.10.27}
+}
+
+@Article{Samei1997,
+  Title                    = {{P}hysical measures of image quality in photostimulable phosphor radiographic systems},
+  Author                   = {Samei, E. and Flynn, M. J.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {1997},
+  Volume                   = {3032},
+
+  Doi                      = {10.1117/12.273999},
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.26}
+}
+
+@Article{Samei2008,
+  Title                    = {{D}etector or {S}ystem? {E}xtending the {C}oncept of {D}etective {Q}uantum {E}fficiency ot {C}haracterize the {P}erformance of {D}igitial {R}adiographic {I}maging {S}ystems},
+  Author                   = {Samei, E. and Ranger, N. T. and MacKenzie, A. and Honey, I. D. and Dobbsins III, J. T. and Ravin, C. E.},
+  Journal                  = {Radiology},
+  Year                     = {2008},
+  Pages                    = {926-937},
+  Volume                   = {249},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Samei - detector or system - extending DQE to DR.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Samei2004,
+  Title                    = {Fundamental imaging characteristics of a slot-scan digital chest radiographic system},
+  Author                   = {Samei, E. and Saunders, R. S. and Lo, J. Y. and Dobbins III, J. T. and Floyd, C. E. and Ravin, C. E.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2004},
+  Pages                    = {2687},
+  Volume                   = {31},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Book{CUDA2011,
+  Title                    = {CUDA BY EXAMPLE},
+  Author                   = {Sanders, J. and Kandrot, E.},
+  Publisher                = {Addison-Wesley},
+  Year                     = {2011},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.28}
+}
+
+@Article{Sawant2005,
+  Title                    = {Segmented crystalline scintillators: An Initial Investigation of High Quantum Efficiency Detectors for Megavoltage X-ray Imaging},
+  Author                   = {Sawant, A. and Antonuk, L. E. and El-Mohri, Y. and Zhao, Q. and Li, Y. and Su, Z. and Wang, Y. and Yamamoto, J. and Du, H. and Cunningham, I. A. and Klugerman, M. and Shah, K.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2005},
+  Pages                    = {3067-3083},
+  Volume                   = {32(10)},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{Seibert2004,
+  Title                    = {{X}-{R}ay {I}maging {P}hysics for {N}uclear {M}edicine {T}echnologists. {P}art 1: {B}asic {P}rinciples of {X}-{R}ay {P}roduction},
+  Author                   = {Seibert, J. A.},
+  Journal                  = {J. Nucl. Med. Technol.},
+  Year                     = {2004},
+  Pages                    = {139-147},
+  Volume                   = {32},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Seibert - basic principles of x-ray production.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Seibert2005,
+  Title                    = {{X}-{R}ay {I}maging {P}hysics for {N}uclear {M}edicine {T}echnologists. {P}art 2: {X}-{R}ay {I}nteractions and {I}mage {F}ormation},
+  Author                   = {Seibert, J. A. and Boone, J. M.},
+  Journal                  = {J. Nucl. Med. Technol.},
+  Year                     = {2005},
+  Pages                    = {3-18},
+  Volume                   = {33},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Seibert - x-ray interactions and image formation.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Seibert-DR2005,
+  Title                    = {Evaluation of an optically coupled {CCD} digital radiography system},
+  Author                   = {Seibert, J. A. and Kwan, A. and Boone, J. M. and Brown, P. and Winsor, R.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2005},
+  Volume                   = {5745},
+
+  Doi                      = {10.1117/12.595751},
+  File                     = {:F\:\\Papers\\Seibert - Evaluation of CCD DR system.pdf:PDF},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{shepherd1995,
+  Title                    = {{A} study of persistence in gadolinium oxysulphide x-ray phosphors},
+  Author                   = {Shepherd, J. A. and Gruner, S. M. and Tate, M. W. and Tecotzky, M},
+  Journal                  = {Proc. SPIE},
+  Year                     = {1995},
+  Volume                   = {2519},
+
+  Doi                      = {10.1117/12.211910},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@Article{Siddon1985,
+  Title                    = {{F}ast calculation of the exact radiological path for a three-dimensional {CT} array},
+  Author                   = {Siddon, R. L.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1985},
+  Pages                    = {252-255},
+  Volume                   = {12(2)},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.08.21}
+}
+
+@Article{Siewerdson2002,
+  Title                    = {{A} framework for noise-power spectrum analysis of multidimensional images},
+  Author                   = {Siewerdsen, J. H. and Cunningham, I. A. and Jaffray, D. A.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2002},
+
+  Month                    = {November},
+  Number                   = {11},
+  Pages                    = {2655-2671},
+  Volume                   = {29},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Siewerdsen - a framework for NPS analysis of multi-d images.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Silver1998,
+  Title                    = {High-helical-pitch cone-beam computed tomography},
+  Author                   = {Silver, M.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {1998},
+  Number                   = {847-855},
+  Pages                    = {847-855},
+  Volume                   = {43},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Simon2004,
+  Title                    = {PbO as direct conversion x-ray detector material},
+  Author                   = {Simon, M. and Ford R. A. and Franklin, A. R. and Grabowski, S. P. and Menser, B. and Much, G. and Nascetti, A. and Overdick, M. and Powell, M. J. and Wiechert, D. U.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2004},
+  Volume                   = {5368},
+
+  Doi                      = {10.1117-12.533010},
+  File                     = {:F\:\\Papers\\Simon - PbO as direct conversion x-ray detector material.pdf:PDF},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{Smekal2004,
+  Title                    = {Geometric misalignment and calibration in cone-beam tomography},
+  Author                   = {Smekal, L. and Kachelrie{\ss}, M. and Stepina, E. and Kalendar, W. A.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2004},
+  Pages                    = {2342-3266},
+  Volume                   = {31},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.28}
+}
+
+@Article{Sordeo2009,
+  Title                    = {Progress in the $D$evelopment of $\mathrm{CdTe}$ and $\mathrm{CdZnTe}$ $S$emicondutor $R$adiation $D$etectors for $A$strophysical and $M$edical $A$pplication},
+  Author                   = {Sordeo, S. D. and Abbene, L. and Caroli, E. and Mancini, A. M. and Zappettini, A. and Ubertini, P.},
+  Journal                  = {Sensors},
+  Year                     = {2009},
+  Pages                    = {3491-3526},
+  Volume                   = {9},
+
+  File                     = {:F\:\\Papers\\Sordeo - CdTe and CdZnTe radiation detectors.pdf:PDF},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{Stevens2001,
+  Title                    = {Alignment of a voluvolume tomography system},
+  Author                   = {Stevens, G. M. and Saunders, R. and Pelc N. J.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2001},
+  Pages                    = {1472-1481},
+  Volume                   = {28},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.15}
+}
+
+@Article{Street2002,
+  Title                    = {Approaching the theoretical x-ray sensitivity with $HgI_2$ direct detection image sensors},
+  Author                   = {Street, R. A. and Ready, S. E. and Melekhov, L. and Ho, J. and Zuck, A. and Breen, B. N.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {2002},
+  Volume                   = {4682},
+
+  Doi                      = {10.1117/12.465584},
+  File                     = {:F\:\\Papers\\Street - HgI2 direct detection image sensors.pdf:PDF},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{swank1974,
+  Title                    = {{M}easurement of absoprtion and noise in an x-ray image intensifier},
+  Author                   = {Swank, R. K.},
+  Journal                  = {J. Appl. Phys.},
+  Year                     = {1974},
+  Pages                    = {3673-3678},
+  Volume                   = {45},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@Article{swank1973,
+  Title                    = {{A}bsorption and noise in x-ray phosphors},
+  Author                   = {Swank, R. K.},
+  Journal                  = {J. Appl. Phys.},
+  Year                     = {1973},
+
+  Month                    = {September},
+  Number                   = {9},
+  Pages                    = {4199-4203},
+  Volume                   = {44},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.10}
+}
+
+@Article{Tang2006,
+  Title                    = {A three-dimensional-weighted cone beam filtered backprojection ({CB-FBP}) algorithm for image reconstruction in volumetric {CT}—helical scanning},
+  Author                   = {Tang, X. and Hsieh, J. Nilsen R. A. and Sandeep, D. and Dmitry, S. and Akira, H.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2006},
+  Number                   = {855-874},
+  Volume                   = {51},
+
+  Doi                      = {10.1088/0031-9155/51/4/007},
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{tate2005,
+  Title                    = {{A}rea x-ray detector based on a lens-coupled charge-coupled device},
+  Author                   = {Tate, M. W. and Chamberlain, D. and Gruner, S. M.},
+  Journal                  = {Rev. Sci. Instrum.},
+  Year                     = {2005},
+  Volume                   = {76},
+
+  Doi                      = {10.1063/1.2001307},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.16}
+}
+
+@Article{trauernicht1990,
+  Title                    = {{C}onversion noise measurement for front and back x-ray intensifying screens},
+  Author                   = {Trauernicht, D. P. and Van Metter, R. L},
+  Journal                  = {Proc. SPIE},
+  Year                     = {1990},
+  Volume                   = {1231},
+
+  Doi                      = {10.1117/12.18803},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.15}
+}
+
+@Article{trauernicht1988,
+  Title                    = {{T}he {M}easurement of {C}onversion {N}oise in {X}-ray {I}ntensifying {S}creens},
+  Author                   = {Trauernicht, D. P. and Van Metter, R. L.},
+  Journal                  = {Proc. SPIE},
+  Year                     = {1988},
+  Volume                   = {0914},
+
+  Doi                      = {10.1117/12.968622},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.15}
+}
+
+@Article{trevisan2014,
+  Title                    = {{M}easurement of {C}omputed {T}omography {D}ose {I}ndex for clinical scans},
+  Author                   = {Trevisan, D. and Ravanelli, D. and Valentini, A.},
+  Journal                  = {{R}adiation {P}rotection {D}osimetry},
+  Year                     = {2014},
+  Pages                    = {389-398},
+  Volume                   = {158},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.09}
+}
+
+@TechReport{UNSCEAR2010,
+  Title                    = {{UNSCEAR} 2010 {R}eport: {S}ummary of low-dose radiation effects on health},
+  Author                   = {UNSCEAR},
+  Institution              = {United Nations},
+  Year                     = {2010},
+
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.11.12}
+}
+
+@Article{VanUnnik1997,
+  Title                    = {{S}urvey of {CT} techniques and absorbed dose in arious {D}utch hospitals},
+  Author                   = {Van Unnik, J. G. and Broderse, J. J. and Geleijns, J. and Jansen, J. Th. M. and Zoetelief, J. and Zweers, D.},
+  Journal                  = {Br. J. Radiol.},
+  Year                     = {1997},
+  Pages                    = {367-371},
+  Volume                   = {70},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\van unnik - survey of CT techniques in dutch hospitals.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Wagner1985,
+  Title                    = {{U}nified {SNR} analysis of medical imaging systems},
+  Author                   = {Wagner, R. F. and Brown, D. G.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {1985},
+  Number                   = {6},
+  Pages                    = {489-518},
+  Volume                   = {30},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Wagner-Unified SNR analysis of medial imaging systems.pdf:PDF},
+  Keywords                 = {SNR},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
+@Article{Wagner1979,
+  Title                    = {{A}pplication of information theory to the assessment of computed tomography},
+  Author                   = {Wagner, R. F. and Brown, D. G. and Pastel, M. S.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1979},
+  Number                   = {2},
+  Pages                    = {83-94},
+  Volume                   = {6},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Wagner - Application of information theory to CT.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Wang1993,
+  Title                    = {A general cone-beam reconstruction algorithm},
+  Author                   = {Wang, G. and Lin, T. H. and Chen, P. Sinozaki, D. M.},
+  Journal                  = {IEEE Trans. Med. Imag.},
+  Year                     = {1993},
+  Pages                    = {486-496},
+  Volume                   = {12},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Wang2008,
+  Title                    = {An outlook on x-ray {CT} research and development},
+  Author                   = {Wang, G. and Yu, H. and De Man, B.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2008},
+  Pages                    = {1051-1064},
+  Volume                   = {35},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.14}
+}
+
+@Article{Wang1998,
+  Title                    = {Astigmatic single photon emission computed tomography imaging with a displaced center of rotation},
+  Author                   = {Wang, H. and Smith, M. F. and Stone, C. D. and Jaszczak, R. J.},
+  Journal                  = {Med. Phys.},
+  Year                     = {1998},
+  Pages                    = {1493-1501},
+  Volume                   = {25},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.04.16}
+}
+
+@Article{winch2001,
+  Title                    = {{X}-ray imaging using a consumer-grade digital camera},
+  Author                   = {Winch, N. M. and Edgar, A.},
+  Journal                  = {Nucl. Instr. Meth. Phys. Res. A},
+  Year                     = {2001},
+  Pages                    = {308-313},
+  Volume                   = {654},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.16}
+}
+
+@Article{Yang2006,
+  Title                    = {A geometric calibration method for cone beam {CT} systems},
+  Author                   = {Yang, K. and Kwan, A. L. and Miller, D. F. and Boone, J. M.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2006},
+  Pages                    = {1695-1706},
+  Volume                   = {33(6)},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.27}
+}
+
+@Article{Yao2012,
+  Title                    = {{S}mall-{A}nimal {PET}: {W}hat {I}s it, and {W}hy {D}o {W}e {N}eed {I}t?},
+  Author                   = {Yao, R. and Lecomte, R. and Crawford, E. S.},
+  Journal                  = {J. Nucl. Med. Technol.},
+  Year                     = {2012},
+  Pages                    = {157-165},
+  Volume                   = {40},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Yao - small animal PET - what is it and why do we need it.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29}
+}
+
+@Article{Ye2005,
+  Title                    = {A general exact reconstruction for cone-beam {CT} via backprojection-filtration},
+  Author                   = {Ye, Y. and Zhao, S. and Yu, H. Wang, G.},
+  Journal                  = {IEEE Trans. Med. Imag.},
+  Year                     = {2005},
+  Pages                    = {1190-1198},
+  Volume                   = {24},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Yorkston2007,
+  Title                    = {Recent ddevelopment in digital radiography detectors},
+  Author                   = {Yorkston, J.},
+  Journal                  = {Nucl. Instr. Meth. Phys. Res. A},
+  Year                     = {2007},
+  Pages                    = {974-985},
+  Volume                   = {580},
+
+  File                     = {:F\:\\Papers\\Yorkston - recent developments in DR detectors.pdf:PDF},
+  Owner                    = {Fan},
+  Timestamp                = {2014.02.25}
+}
+
+@Article{Zhuang2006,
+  Title                    = {New Families of exact fan-beam and cone-beam image reconstruction formulae via filtering the backprojection image of differentiated projection data along singly measured lines},
+  Author                   = {Zhuang, T. and Chen, G.},
+  Journal                  = {Inverse Probl.},
+  Year                     = {2006},
+  Pages                    = {991„1¤71006},
+  Volume                   = {22},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Article{Zou2004,
+  Title                    = {An extended data function and its generalized backprojection for image reconstruction in helical cone-beam {CT}},
+  Author                   = {Zou, Y. and Pan, X.},
+  Journal                  = {Phys. Med. Biol.},
+  Year                     = {2004},
+  Pages                    = {N383-387},
+  Volume                   = {49},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.03.28}
+}
+
+@Book{EmissionTom2004,
+  Title                    = {{E}mission {T}omography - {T}he {F}undamentals of {PET} and {SPECT}},
+  Editor                   = {Wernick, M. N and Aarsvold, J. N.},
+  Publisher                = {{E}lsevier {A}cademic {P}ress},
+  Year                     = {2004},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.08.21}
+}
+
+@Electronic{clarkvision,
+  Url                      = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.06}
+}
+
+@Manual{Cudatoolkit,
+  Title                    = {CUDA toolkit documentation},
+
+  Address                  = {docs.nvidia.com/cuda/index.html},
+  Edition                  = {5.5},
+  Organization             = {NVIDIA},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.08.25}
+}
+
+@Electronic{foveon,
+  Url                      = {www.foveon.com},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
+}
+
+@Electronic{maxmax,
+  Url                      = {www.maxmax.com/b&w_conversion.htm},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
+}
+
+@Electronic{microlensfig,
+  Organization             = {Toppan Photomasks, Inc.},
+  Url                      = {http://www.photomask.com/products/on-chip-color-filters},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.06}
+}
+
+@Electronic{sigmasd10,
+  Organization             = {cnet},
+  Url                      = {www.cnet.com/products/sigma-sd10/},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
+}
+
+@Electronic{stevesdigicams,
+  Url                      = {http://www.steves-digicams.com/2003_reviews/sigma_sd10_pg7.html},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
+}
+
+@Electronic{scintillatorImage,
+  Title                    = {{NDT} {W}iki {X}-ray - the {D}igital {X}-ray {E}ncyclopedia},
+  Month                    = {9},
+  Organization             = {VIDISCO},
+  Url                      = {http://www.vidisco.com/ndt_solutions/ndt_info_center/ndt_wiki_x_ray},
+  Year                     = {2014},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.17}
+}
+
+@Standard{NEMA2010,
+  Title                    = {{NEMA} {S}tandards {P}ublication {XR} 25-2010: {C}omputed {T}omography {D}ose {C}heck},
+  Institution              = {NEMA},
+  Organization             = {National Electrical Manufacturers Association},
+  Year                     = {2010},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\NEMA XR 25-2010.pdf:PDF},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
+@TechReport{UNSCEAR2008,
+  Title                    = {{UNSCEAR} 2008 {R}eport of the {G}eneral {A}ssembly {A}nnex {A}: {M}edical {E}xposure to {I}onizing {R}adiation},
+  Institution              = {United Nations},
+  Year                     = {2008},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\UNSCEAR - Sources and effects of ionizing radiation 2008.pdf:PDF},
+  Journal                  = {United Nations Scientific Committee on the Effects of Atomic Radiation},
+  Organization             = {United Nations Scientific Committee on the Effects of Atomic Radiation},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29},
+  Volume                   = {I}
+}
+
+@TechReport{ICRP30,
+  Title                    = {{I}nternational {C}ommission on {R}adiological {P}rotection. {L}imits for {I}ntakes of {R}adionuclides by {W}orkers},
+  Year                     = {1979},
+  Number                   = {4},
+  Type                     = {Annals of the ICRP},
+
+  Journal                  = {ICRP Publication 30. Annals of the ICRP},
+  Owner                    = {Helen_Fan},
+  Part                     = {Annals of the ICRP},
+  Publisher                = {Pergamon Press, New York},
+  Timestamp                = {2012.11.13},
+  Volume                   = {19}
 }
 
 @comment{jabref-meta: selector_review:}

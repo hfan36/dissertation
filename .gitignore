@@ -15,6 +15,7 @@
 *.gif
 *.xcf
 *.jpg
+*.svg
 
 ## ignore folders
 build/
@@ -69,6 +70,10 @@ build/
 
 # makeidx
 *.idx
+
+# others
+*.fig
+*.xlsx
 *.ilg
 *.ind
 *.ist
