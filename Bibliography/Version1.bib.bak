@@ -1,18 +1,5 @@
-% This file was created with JabRef 2.7b.
+% This file was created with JabRef 2.9.2.
 % Encoding: Cp1252
-
-@ARTICLE{Rougee1993,
-  author = {$\mathrm{Roug\acute{e}e}$, A. and Picard, C. Ponchut, C. and Trousset,
-	Y.},
-  title = {Geometrical calibration of x-ray imaging chains for three-dimensional
-	reconstruction},
-  journal = {Comput. Med. Imaging Graph.},
-  year = {1993},
-  volume = {17},
-  pages = {295-300},
-  owner = {Fan},
-  timestamp = {2014.09.29}
-}
 
 @TECHREPORT{AAPM93,
   author = {AAPM},
@@ -74,6 +61,29 @@
   timestamp = {2012.10.30}
 }
 
+@PHDTHESIS{AbbeyThesis,
+  author = {Abbey, C. K.},
+  title = {Assessment of reconstructed images},
+  school = {University of Arizona, Tucson, AZ},
+  year = {1998},
+  owner = {Fan},
+  timestamp = {2014.10.27}
+}
+
+@INBOOK{Abbey2000,
+  chapter = {Modeling {V}isual {D}etection {T}asks in {C}orrelated {I}mage {N}oise
+	with {L}inear {M}odel {O}bservers},
+  pages = {630-654},
+  title = {Handbook of Medical Imaging, Volume 1. Physics and Psychophysics},
+  publisher = {SPIE Press},
+  year = {2000},
+  editor = {Beutel, J. and Kundel, H. L. and Van Metter, R. L.},
+  author = {Abbey, C. K. and Bochud, F. O.},
+  volume = {I},
+  owner = {Fan},
+  timestamp = {2014.10.27}
+}
+
 @ARTICLE{Antonuk1990,
   author = {Antonuk, L. E. and Boudry, J. and Yorkston, J. and Wild, C. F. and
 	Longo, M. J. and Street, R. A.},
@@ -105,7 +115,7 @@
 	{S}inograms},
   journal = {IEEE Trans. Nucl. Sci.},
   year = {1990},
-  volume = {37(4)},
+  volume = {37},
   pages = {1525-1540},
   owner = {Fan},
   timestamp = {2014.04.15}
@@ -132,7 +142,7 @@
   journal = {Proc. SPIE},
   year = {2009},
   volume = {7263},
-  pages = {doi:10.1117/12.817795},
+  doi = {10.1117/12.817795},
   file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Barrett NEQ keynote SPIE 2009.pdf:PDF},
   owner = {Helen_Fan},
   timestamp = {2012.10.29}
@@ -437,7 +447,7 @@
   journal = {Proc. SPIE},
   year = {2012},
   volume = {8318},
-  pages = {doi:10.1117/12.912374},
+  doi = {10.1117/12.912374},
   file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Fan-CT detector eval.pdf:PDF},
   owner = {Helen_Fan},
   timestamp = {2012.11.02}
@@ -451,7 +461,7 @@
   journal = {Proc. SPIE},
   year = {2010},
   volume = {7622},
-  pages = {doi:10.1117/12.844056},
+  doi = {10.1117/12.844056},
   file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Fan-DR with DSLR.pdf:PDF},
   owner = {Helen_Fan},
   timestamp = {2012.11.02}
@@ -704,13 +714,13 @@
 }
 
 @ARTICLE{Hsieh2007,
-  author = {Hsieh,  J. and Tang,  X. and Thibault J. and Shaughnessy C. and Nilsen,
+  author = {Hsieh, J. and Tang, X. and Thibault J. and Shaughnessy C. and Nilsen,
 	R. A. and Williams, E.},
   title = {Conjugate cone beam reconstruction algorithm},
   journal = {Opt. Eng.},
   year = {2007},
   volume = {46},
-  pages = {doi:10.1117/1.2746866},
+  doi = {10.1117/1.2746866},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
 }
@@ -723,9 +733,21 @@
   journal = {Proc. SPIE},
   year = {2003},
   volume = {5030},
-  pages = {doi:10.1117/12.480131},
+  doi = {10.1117/12.480131},
   owner = {Fan},
   timestamp = {2014.09.11}
+}
+
+@INBOOK{springer2007,
+  chapter = {Photoconductors for {X}-{R}ay {I}mage {D}etectors},
+  pages = {1121-1137},
+  title = {Springer Handbook of Electronic and Photonic Materials},
+  publisher = {Springer US},
+  year = {2007},
+  editor = {Kasap, S. and Capper, P.},
+  author = {Kabir, M. and Kasap, S. and Rowlands, J.},
+  owner = {Fan},
+  timestamp = {2014.10.27}
 }
 
 @BOOK{Kak1999,
@@ -820,6 +842,8 @@
   title = {Improved exact {FBP} algorithm for spiral {CT}},
   journal = {Adv. Appl. Math},
   year = {2004},
+  volume = {32},
+  pages = {681-697},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
 }
@@ -909,7 +933,7 @@
 }
 
 @ARTICLE{lee2001,
-  author = {Lee, S. W. and Kim, H. K. and Cho, G., and Shin, Y.Shin, Y. H., Y.
+  author = {Lee, S. W. and Kim, H. K. and Cho, G. and Shin, Y. H. and Won, Y.
 	Y.},
   title = {{A} 3-{D} {X}-{R}ay {M}icrotomographic {S}ystem {W}ith a {CMOS} {I}mage
 	{S}ensor},
@@ -1029,6 +1053,26 @@
   timestamp = {2014.09.10}
 }
 
+@PHDTHESIS{MyersThesis,
+  author = {Myers, K. J.},
+  title = {Visual perception in correlated noise},
+  school = {University of Arizona, Tucson, AZ},
+  year = {1985},
+  owner = {Fan},
+  timestamp = {2014.10.27}
+}
+
+@ARTICLE{Myers1987,
+  author = {Myers, K. J. and Barrett, H. H.},
+  title = {The addition of a channel mechanism to the ideal-observer model},
+  journal = {J. Opt. Soc. Am. A},
+  year = {1987},
+  volume = {4},
+  pages = {2447-2457},
+  owner = {Fan},
+  timestamp = {2014.10.27}
+}
+
 @ARTICLE{Nikl2006,
   author = {Nikl, M.},
   title = {{S}cintillation detectors for x-rays},
@@ -1076,7 +1120,7 @@
   journal = {Proc. SPIE},
   year = {1998},
   volume = {3336},
-  pages = {doi:10.1117/12.317047},
+  doi = {10.1117/12.317047},
   owner = {Fan},
   timestamp = {2014.02.25}
 }
@@ -1138,9 +1182,9 @@
   journal = {Proc. SPIE},
   year = {2005},
   volume = {5923},
-  pages = {doi:10.1117/12.624959},
   month = {September},
   booktitle = {Penetrating Radiation Systems and Applications VII},
+  doi = {10.1117/12.624959},
   editor = {F. Patrick Doty and H. Bradford Barber and Hans Roehrig},
   file = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Roehrig - DQE of CMOS based detector for mammo.pdf:PDF},
   owner = {Helen_Fan},
@@ -1158,6 +1202,18 @@
   timestamp = {2014.02.28}
 }
 
+@ARTICLE{Rougee1993,
+  author = {Rougee, A. and Picard, C. Ponchut, C. and Trousset, Y.},
+  title = {Geometrical calibration of x-ray imaging chains for three-dimensional
+	reconstruction},
+  journal = {Comput. Med. Imaging Graph.},
+  year = {1993},
+  volume = {17},
+  pages = {295-300},
+  owner = {Fan},
+  timestamp = {2014.09.29}
+}
+
 @ARTICLE{Rowlands2002,
   author = {Rowlands, J. A.},
   title = {The physics of computed radiography},
@@ -1170,6 +1226,18 @@
   timestamp = {2014.02.25}
 }
 
+@ARTICLE{Sain2003,
+  author = {Sain, J. and Barrett, H. H.},
+  title = {Performance {E}valuation of a {M}odular {G}amma {C}amera {U}sing
+	a {D}etectability {I}ndex},
+  journal = {J. Nucl. Med.},
+  year = {2003},
+  volume = {44},
+  pages = {58-66},
+  owner = {Fan},
+  timestamp = {2014.10.27}
+}
+
 @ARTICLE{Samei1997,
   author = {Samei, E. and Flynn, M. J.},
   title = {{P}hysical measures of image quality in photostimulable phosphor
@@ -1177,7 +1245,7 @@
   journal = {Proc. SPIE},
   year = {1997},
   volume = {3032},
-  pages = {doi:10.1117/12.273999},
+  doi = {10.1117/12.273999},
   owner = {Fan},
   timestamp = {2014.03.26}
 }
@@ -1266,7 +1334,7 @@
   journal = {Proc. SPIE},
   year = {2005},
   volume = {5745},
-  pages = {doi:10.1117/12.595751},
+  doi = {10.1117/12.595751},
   file = {:F\:\\Papers\\Seibert - Evaluation of CCD DR system.pdf:PDF},
   owner = {Fan},
   timestamp = {2014.02.25}
@@ -1278,7 +1346,7 @@
   journal = {Proc. SPIE},
   year = {1995},
   volume = {2519},
-  pages = {doi:10.1117/12.211910},
+  doi = {10.1117/12.211910},
   owner = {Fan},
   timestamp = {2014.09.10}
 }
@@ -1330,7 +1398,7 @@
   journal = {Proc. SPIE},
   year = {2004},
   volume = {5368},
-  pages = {doi:10.1117-12.533010},
+  doi = {10.1117-12.533010},
   file = {:F\:\\Papers\\Simon - PbO as direct conversion x-ray detector material.pdf:PDF},
   owner = {Fan},
   timestamp = {2014.02.25}
@@ -1382,7 +1450,7 @@
   journal = {Proc. SPIE},
   year = {2002},
   volume = {4682},
-  pages = {doi:10.1117/12.465584},
+  doi = {10.1117/12.465584},
   file = {:F\:\\Papers\\Street - HgI2 direct detection image sensors.pdf:PDF},
   owner = {Fan},
   timestamp = {2014.02.25}
@@ -1405,7 +1473,7 @@
   journal = {J. Appl. Phys.},
   year = {1973},
   volume = {44},
-  pages = {41994203},
+  pages = {4199-4203},
   number = {9},
   month = {September},
   owner = {Fan},
@@ -1420,8 +1488,8 @@
   journal = {Phys. Med. Biol.},
   year = {2006},
   volume = {51},
-  pages = {doi:10.1088/0031-9155/51/4/007},
   number = {855-874},
+  doi = {10.1088/0031-9155/51/4/007},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
 }
@@ -1432,7 +1500,7 @@
   journal = {Rev. Sci. Instrum.},
   year = {2005},
   volume = {76},
-  pages = {doi:10.1063/1.2001307},
+  doi = {10.1063/1.2001307},
   owner = {Fan},
   timestamp = {2014.09.16}
 }
@@ -1444,7 +1512,7 @@
   journal = {Proc. SPIE},
   year = {1990},
   volume = {1231},
-  pages = {doi:10.1117/12.18803},
+  doi = {10.1117/12.18803},
   owner = {Fan},
   timestamp = {2014.09.15}
 }
@@ -1456,7 +1524,7 @@
   journal = {Proc. SPIE},
   year = {1988},
   volume = {0914},
-  pages = {doi:10.1117/12.968622},
+  doi = {10.1117/12.968622},
   owner = {Fan},
   timestamp = {2014.09.15}
 }
