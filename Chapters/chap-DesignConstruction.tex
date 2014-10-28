@@ -10,28 +10,127 @@ teleradiology is rare~\citep{telehealth2009, Graham2003}.
 
 The goal of our work is to develop an inexpensive x-ray imaging system intended for wide dissemination in the Himalayan regions of Nepal and other rural areas in developing countries.
 
-Two types of x-ray imaging systems with large field of view have been built.  This section describes the design and construction of these two systems, the portable digital radiography system and the computed tomography system.  Both systems were build based on similar concept, where a phosphor screen is imaged using a fast lens onto a pixelated detector.  The digital radiography system is solely a 2-D imaging system that include a phosphor screen, lens and camera.  The CT system is a test bench that can be used to test the performance of the x-ray imaging system using various scintillation screens and cameras.  The CT system has a powerful research grade x-ray tube that allows current and output kV adjustments with a relatively small source spot size.  In addition, the CT system is equipped with adjustable apertures, rotary stage, and linear translation stage that allows the system to test x-ray detection performance at different magnifications.
+Two types of x-ray imaging systems with large field of view have been built.  This section describes the design and construction of these two systems, the portable digital radiography system (DR) and the computed tomography (CT) system.  Both systems were build based on similar concept, where a phosphor screen is imaged using a fast lens onto a pixelated detector.  The digital radiography system is solely a 2-D imaging system that includes a phosphor screen, lens and camera.  The CT system is a test bench that can be used to test the performance of x-ray imaging systems using various scintillation screens and cameras.  The CT system has a powerful research grade x-ray tube that allows current and output kV adjustments with a relatively small source spot size.  In addition, the CT system is equipped with adjustable apertures, rotary stage, and linear translation stage that allows the system to test x-ray detection performance at different magnifications.
 
-\section{Design considerations for DR system}
-The digital radiography system uses the Nikon D700 camera with the Nikkor AF-S 50 mm F1.4 lens to image the phosphor screen ($\mathrm{Gd_2O_2S:Tb}$), shown in figure \ref{fig:DRcomponents}.  In the past, many has rejected this idea because the optical sensor is too small, therefore to fit the entire scene onto the detector, the camera has to moved far away from the phosphor screen so that the entire x ray image fits on the sensor.  That means that most of the light from the screen misses the lens, and the small amount of light that reaches the sensor is then lost in the electronic readout noise of the camera.  However this idea is starting to become more viable due to recent development of larger complementary metal oxide semiconductor (CMOS) detectors.  Currently we can purchase a DSLR with a full frame sensor as low as \$1500.  In spite of the low cost, however, they have excellent noise performance, even compared to expensive scientific-grade CCD cameras.  The Nikon D700 is a consumer grade digital single-lens Reflex (DSLR), it is equipped with a full frame CMOS detector (24 mm $\times$ 36 mm).  That means even at 12:1 demagnification, the field of view is 29 cm $\times$ 43 cm, adequate for chest radiography.  
+\section{Design considerations for the DR system}
+\label{sect:design_considerations_for_DR}
+\subsection{Cameras and lenses}
+\label{subsect:camera_lenses}
+The DSLRs considered here are ``full field'' cameras, which means that the sensor is approximately the same size as a frame of 35 mm film (24 mm $\times$ 36 mm).  This format is also referred to in the DSLR world as FX. Cameras in this class include the Canon 5D and 5D Mark II and the Nikon D700, D3X and D3S. Even larger sensors are also available; for example the MegaVision E6 which has a 37 mm $\times$ 49 mm sensor, but it is substantially more expensive than the ``prosumer'' (professional/consumer) full-field cameras.
 
-\begin{figure}[ht]
+A 24 mm $\times$ 36 mm sensor operated at 12:1 demagnification will allow the imaging of 29 cm $\times$ 43 cm field of view (FOV), adequate for chest radiography. For comparison, a 37 mm $\times$ 49 mm sensor will cover a comparable field at 8:1 demagnification. Of course, smaller FOVs require proportionally smaller demagnification factors. With a full-field camera, a 12 cm $\times$ 18 cm FOV can be achieved at 5:1 demagnification.
+
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.4\linewidth}
+		\centering
+		\includegraphics[width = 6cm]{Bayer_pattern_on_sensor.eps}
+		\caption{Bayer filter pattern on sensor}
+		\label{fig:bayer_pattern_on_sensor}
+	\end{subfigure}
+	\hspace{0.5cm}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\centering
+		\includegraphics[width = 6cm]{X3_tech_hero.jpg}
+		\caption{Foveon X3 sensor}
+		\label{fig:foveon_sensor}
+	\end{subfigure}
+\caption{Two methods of achieving color selectivity. ~\ref{fig:bayer_pattern_on_sensor} Bayer filter~\citep{wikibayer}, ~\ref{fig:foveon_sensor} by employing the Foveon X3 technology~\citep{foveon}}
+\label{fig:color_selectivity}	
+\end{figure}
+
+The color selectivity can be achieved with two methods.  The most commonly way is achieved by placing a mosaic color filters, or commonly known as Bayer filters, over the photosensitive pixels, shown in Fig.~\ref{fig:bayer_pattern_on_sensor}.  Usually half the pixels are sensitive to green light, a quarter of them are sensitive to blue light and a quarter to red light.  These color filters are a distinct drawback because they reduce the quantum efficiency of the sensor.  Fortunately, half of the pixels are well matched to the emission spectrum of green rare earth x-ray screen such as gadolinium oxy-sulfide ($\mathrm{Gd_2O_2S:Tb}$).  A less common method of creating color sensitivity on the detector is dubbed as the Foveon X3 sensor~\citep{foveon}.  Sensors that uses this technology features three layers of pixels each detecting a different color (RGB) to form a direct color image sensor that can capture color in a way very similar to colored film cameras, shown in Fig.~\ref{fig:foveon_sensor}.  It is possible that more photons entering the camera will be detected by the Foveon X3 sensor compared to a mosaic sensor, especially matching to the emission spectrum of $\mathrm{Gd_2O_2S:Tb}$ since the green light from the x-ray screen only needs to pass through a thin layer of blue sensor before being absorbed by the second layer of green sensor.  Unfortunately this technology is relatively new and only a limited number of cameras made by Sigma Corporation utilizes the Foveon sensor.  The Foveon X3 sensor has been noted as nosier than the senors in other DSLR that uses Bayer filter at low light conditions~\citep{sigmasd10, stevesdigicams}.  The only black-and-white DLSR is made by Leica named ``Henri'', which would provide a huge increase in collection efficiency though the camera itself costs over \$8000.  Another way to artificially produce black and white camera is by carefully removing the color filter on top of the sensor.  A company called LDP, LLC has been doing this since 1996.  Though this procedure typically terminates the camera's warranty with the original manufacturer, and they are only to convert a limited number of cameras~\citep{maxmax}.
+
+Most of the new DSLRs use CMOS (complementary metal oxide semiconductor) sensors rather than CCDs (charge-coupled devices), which means that they have circuitry for charge integration, preamplification, noise control and readout switching at each individual pixel. This circuitry greatly improves the camera's noise performance (see Sec.~\ref{subsect:noise}), but it reduces the silicon area that is available for the photosensors, and that in turn would further reduce the quantum efficiency were it not for two clever optical tricks employed by most of the major DSLR manufacturers. The first is to use an array of microlenses to concentrate light on the active sensor area, shown in Fig.~\ref{fig:microlensarray}. For light arriving at the sensor at normal incidence, each microlens focuses the light into the center of its photodetector element, but for non-normal incidence the light could be diverted to the insensitive areas between photodetectors.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{microlens}
+\caption{Microlens Array technology}
+\label{fig:microlensarray}
+\end{figure}
+
+This latter problem is avoided with so-called ``digital'' lenses, which just means that they are intended to be used with digital cameras. The important feature of digital lenses is that they are telecentric in image space, so the chief ray is always perpendicular to the sensor plane and hence parallel to the optical axes of the microlenses. The result is that nearly all of the light transmitted by the lens and color filters arrives at the active area of the CMOS sensor. 
+
+Canon, Nikon and other manufacturers supply fixed-focus (non-zoom) F/1.4 digital lenses for full-field DSLRs. Older lenses designed with use with 35 mm film cameras such as the Nikkor 50 mm, F/1.2, can also be used, but sensitivity at high field angle will be sacrificed because the lenses are not telecentric. Specialty lenses as fast as F/0.7 are available on the surplus market, but they do not usually cover the full FX format.
+
+\subsection{Spatial resolution}
+\label{subsect:spatial_resolution}
+The full-field DSLR sensors all have nominally either 12 or 24 megapixels (MP). The 12 MP cameras (e.g., Canon 5D or Nikon D700) have approximately a 2800 $\times$ 4300 array of 8.5 $\mathrm{\mu m}$ $\times$ 8.5 $\mathrm{\mu m}$ pixels, and the 24 MP cameras (e.g., Canon 5D Mark II or Nikon D3X) have approximately a 4000 $\times$ 6000 array of 6 $\mathrm{\mu m}$ $\times$ 6 $\mathrm{\mu m}$ pixels. If we consider 12:1 demagnification as for chest radiography, the 12 MP cameras provide effectively 100 $\mathrm{\mu m}$ $\times$ 100 $\mathrm{\mu m}$ pixels at the x-ray screen, and the 24 MP cameras provide 72 $\mathrm{\mu m}$ $\times$ 72 $\mathrm{\mu m}$ pixels. Larger effective pixels can readily be achieved by binning the sensor pixels during readout.
+
+Fixed-focus lenses designed for use with full-field DSLRs and used at full aperture typically have about 30 lp/mm resolution at 50\% MTF, which corresponds to a focal-plane resolution of about 15 $\mathrm{\mu m}$ FWHM. At a demagnification of 12:1, therefore, the lens contribution to the resolution at the x-ray screen is about 2.5 lp/mm at 50\% MTF or 180 $\mathrm{\mu m}$ FWHM.
+
+The other significant contributor to spatial blur is the screen itself. Lanex screens ($\mathrm{Gd_2O_2S:Tb}$) yield resolutions in the range 1 – 3 lp/mm at 50\% MTF depending on the speed of the screen. Columnar CsI screens, now available in chest size, can be as good as 5 lp/mm at 50\% MTF and a thickness of 150 $\mathrm{\mu m}$~\citep{Nagarkar1997}. The demagnification does not affect the screen contribution to the resolution.
+
+\subsection{Noise}
+\label{subsect:noise}
+A major concern with using DSLRs for DR is collecting sufficient light from the x-ray screen~\citep{Hejazi1997}. At 10:1 demagnification, a standard F/1.4 camera lens will collect about 0.1\% of the light emitted by a Lambertian source. Measured conversion efficiencies (from x-ray energy to optical energy) of $\mathrm{Gd_2O_2S:Tb}$ or $\mathrm{La_2O_2S}$ screens is in the range 18 - 20\%~\citep{Kandarakis2001}, which means that a single 50 keV x-ray photon will yield approximately 4,000 optical photons, each of energy around 2.5 eV (green). If we collect 0.1\% of them, then only 4 photons will reach the camera sensor, and if the sensor quantum efficiency is around 25\% (see Sec.~\ref{subsect:camera_lenses}), we get around 1 photoelectron per x-ray photon. These numbers improve somewhat if we use an F/1.2 lens or if we consider a smaller demagnification, and they could be improved further by removing the color filter or using one of the new brighter phosphors such as columnar CsI or $\mathrm{LaBr_3}$.
+
+In addition to the x-ray photon noise, the noise generated in the DSLR, referred to generically as read noise, is a major issue. The potential contributors to read noise are dark current; kTC noise, which arises from resetting the gated integrators in either CMOS or CCD sensors; thermal noise in the electronics, and 1/f or flicker noise. Of these components, we can readily dismiss dark-current noise, which is negligible compared to the other noise sources for the short exposures used in x-ray imaging. Similarly, pure thermal (Johnson) noise is negligible compared to kTC and 1/f noise in most practical sensors. With respect to these two remaining noise sources, modern CMOS sensors have a huge advantage over CCD sensors, even over expensive scientific-grade cameras, basically because they place a lot of electronic circuitry at the individual pixels rather than at the end of a charge-transfer chain as with a CCD~\citep{Magnan2003}.
+
+To understand this point, consider first kTC noise, which is endemic in both CMOS and CCD sensors. In both, the charge produced by the light is converted to a voltage by storing it on a capacitor, which should be reset to zero after each conversion. Basic thermodynamics, however, shows that the residual voltage on the capacitor cannot be truly zero but instead fluctuates with a variance of $kT/C$ ($k$ = Boltzmann's constant, $T$ = absolute temperature, $C$ = capacitance). One way of suppressing kTC noise (which really should be called $kT/C$ noise) is a process called correlated double sampling (CDS) in which the voltage on the capacitor is measured after each reset and then again after the charge is stored and before the next reset; the difference between the readings is proportional to the photoinduced charge with little residual error from the thermodynamic effects. Alternatively, a process called active reset can be used in which feedback control drives the residual voltage on the capacitor close to zero. 
+
+In a modern CMOS sensor, there is an integrating capacitor and a CDS or active-reset circuit at each pixel. The capacitor is reset and the sensor is exposed to light for a frame period (100 - 200 msec for a sensor that operates at 5 - 10 frames per second, as many DSLRs do), and then the capacitor is reset again. The CDS or active-reset circuit must therefore operate only once per frame, but the circuits at all pixels can operate in parallel, so the overall processing rate is millions of times higher. In a CCD, by contrast, the signal remains in the form of charge until it is shifted out to a capacitor. There is just one reset and CDS or active-reset circuit, and it must operate serially at the pixel rate rather than
+the frame rate.
+
+There is a similar advantage to CMOS detectors with respect to thermal and 1/f noise, both of which have a variance that is proportional to bandwidth. The lower circuit bandwidth associated with parallel processing at the pixel level automatically results in lower noise, and 1/f noise is further suppressed by CDS at the pixel level [6]. As a result, low-noise, scientific-grade CCDs are often read out at only 50,000 pixels per second, while prosumer DSLRs can go over a thousand times faster.
+
+An excellent source for quantitative comparisons of CCD and CMOS cameras and sensors is the Clarkvision website~\citep{clarkvision}. Tables and graphs given there show that prosumer DSLRs typically have an RMS read noise equivalent to about 3-5 electrons, but scientific-grade CCD cameras and sensors can be up to ten times worse, in spite of their much higher cost and much lower bandwidth.
+
+\subsection{Image Quality And DQE}
+\label{subsect:image_quality_DQE}
+A simple way to understand the effect of read noise on objective (task-based) image quality is to assume that all of the light emitted from a single x-ray interaction and collected by the lens ends up on a single pixel in the camera sensor. With the numbers given in Sec.~\ref{subsect:noise}, this might be a valid assumption if we use 2 $\times$ 2 or 3 $\times$ 3 pixel binning. 
+
+With this assumption, the performance of an ideal linear (Hotelling) observer~\citep{Barrett2004} for the task of detecting a known signal on a known background can readily be derived. The details will be published separately, but the Hotelling detectability is given by
+
+\begin{equation}
+SNR_{Hot}^2 = \sum\limits_{m=1}^{M}\, \frac{\bar{k}^2 (\Delta \overline{N}_m)^2}{\sigma_{read}^2 + \overline{N}_m (\bar{k} + \bar{k}^2)}
+\label{eq:SNR2_hot}
+\end{equation}
+
+\noindent where the sensor contains $M$ pixels, each of which is denoted by an index m; $\sigma_{read}^2$ is the variance of the read noise (expressed in electron units and assumed to be the same for all pixels); $\overline{N}_m$ is the mean number of x-ray interactions imaged to pixel $m$ when there is no signal present; $\Delta \overline{N}_m$ is a small change in that number when a signal is present, and $k$ is the mean number of photoelectrons produced by each x-ray interaction (again assumed to be independent of $m$).
+
+Following Gagne~\citep{Gagne2003}, we can define a task-specific DQE (detective quantum efficiency) by dividing the Hotelling detectability for the actual detector by the detectability on the same task for an ideal detector that has no read noise and $\bar{k}>> 1$.  For the task of detecting a uniform disk object on a flat background, we find
+
+\begin{equation}
+DQE = \frac{\bar{k}^2 \overline{N}}{\sigma_{read}^2 + \overline{N}(\bar{k} + \bar{k}^2)}
+\label{eq:DQE}
+\end{equation}
+
+\noindent where $\overline{N}$ is the common value of $\overline{N}_m$ for all pixels in the disk region. If the disk region is large compared to the optical blur, for example for detection of a 1 mm lesion, this same expression is obtained even without assuming that all of the light from one x-ray photon is imaged to a single camera pixel.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.35]{DRwDSLR_DQEfigure.png}
+\caption{DQE for detection of a uniform disk lesion on a flat background. Left: DQE vs. x-ray fluence (absorbed photons per 100 $\mathrm{\mu m}$ pixel) for fixed optical efficiency (2 photoelectrons per x-ray photon) and difference camera read-noise variances. Right: DQE vs. optical efficiency for different x-ray fluences and noise levels. Typical $\overline{N}_m$ in DR is 500 photons per pixel, and typical $\sigma_{read}^2$ in a modern DSLR is about 25 (5 electrons RMS).}
+\label{fig:DQE}
+\end{figure}
+
+The dependence of DQE on read noise, optical efficiency and x-ray fluence is shown in Fig.~\ref{fig:DQE}. Several limits are of interest. If there is no read noise but the lens is very inefficient so that $\bar{k} << 1$ the equation above predicts that the DQE of the detector (not including the x-ray screen) is simply $\bar{k}$.  If there is no read noise but the lens is sufficiently efficient that $\bar{k} << 1$, then we get DQE = 1. The case of interest, however, is when $\bar{k} \sim 1$ and the read noise is not zero. In that case, we can still get nearly quantum-limited performance, provided the x-ray fluence is high enough; if $\overline{N}_m(\bar{k}+\bar{k}^2) >> \sigma_{read}^2$, then the read-noise term in the denominator can be neglected and the DQE is $\bar{k}^2/(\bar{k}+\bar{k}^2)$. In order to do high-quality DR with a DSLR, therefore, it is very important to choose a camera with low read noise.
+
+\section{Prototype Digital Radiography System}
+Based on cost and the design considerations above, we chose a Nikon D700 camera with an AF-S Nikkor 50mm f/1.4G lens for the prototype.  These components are shown in Fig.~\ref{fig:DRcomponents}. We elected not to use a folding mirror, so the x rays transmitted by the screen impinged on the camera. By measuring the x-ray transmittance of the lens, however, we found that x-ray flux on the camera sensor was very small. No radiation damage was expected, and with several thousand x-ray exposures to date, none has been observed.
+
+The system is constructed on an extruded aluminum frame that folds down into a small suitcase as shown in Fig.~\ref{fig:DR1uncovered}. The vertical assembly on the right in that photo is an opaque bakelite sheet with a standard Lanex screen mounted on the side facing the camera. The screens are interchangeable, and both Lanex Regular and Lanex Fast have been used. There is a light-tight felt cloth shroud, shown in Fig.~\ref{fig:DR1covered}, and only a thin camera cable needs to emerge from the shroud during operation.
+
+For transport, the suitcase contains the aluminum frame and x-ray screens, the shroud, a laptop computer, a solar panel for charging the computer and camera, a dosimeter and miscellaneous tools. Exclusive of the camera, which was carried separately, it weighs about 45 pounds. The total cost of the system, including the camera, laptop and lens, was less than \$5,000.
+
+\begin{figure}[h]
 	\begin{subfigure}[b]{0.3\linewidth}
 		\centering
-		\includegraphics[width=1.5in]{NikkorLens.jpg}
-		\caption{Nikkor AF-S 50mm F1.4 lens}
+		\includegraphics[width=2in]{NikkorLens.jpg}
+		\caption{Nikkor lens}
 		\label{fig:nikonlens}
 	\end{subfigure}
 	\hspace{0.2cm}
 	\begin{subfigure}[b]{0.3\linewidth}
 		\centering
-		\includegraphics[width=1.5in]{NikonD700.jpg}
+		\includegraphics[width=2in]{NikonD700.jpg}
 		\caption{Nikon D700 camera}
 		\label{fig:nikoncamera}
 	\end{subfigure}
 	\hspace{0.2cm}
 	\begin{subfigure}[b]{0.3\linewidth}
-		\includegraphics[width=1.5in]{phosphorscreen.jpg}
+		\includegraphics[width=2in]{phosphorscreen.jpg}
 		\caption{Phosphor screen}
 		\label{fig:phosphorscreen}
 	\end{subfigure}
@@ -39,79 +138,48 @@ The digital radiography system uses the Nikon D700 camera with the Nikkor AF-S 5
 \label{fig:DRcomponents}
 \end{figure}
 
-One of the downside of using CMOS sensor is they have lower fill factor compared to CCDs because a portion of the detector real estate is taken up by readout electronics.  However microlens arrays placed on modern DSLRs helps to increase the fill factors by focusing more light onto the active sensor area.  Shown in figure \ref{fig:microlensarray}, for light arriving at the sensor at normal incidence, each microlens would focuses the light into the center of its photodetector element \ref{fig:microlensarray}.  For light arriving at the sensor at non-normal incidence the light could be diverted to the insensitive areas between photodetectors.  Fortunately this latter problem is avoided by lenses that are made to use on the DSLR cameras.  These lenses are made so they are telecentric in image space, which means the chief ray is perpendicular to the sensor plane and hence parallel to the optical axes of the microlenses.  The result is that nearly all of the light transmitted by the lens arrives at the active area of the CMOS sensor.
-
-\begin{figure}
+\begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{microlens}
-\caption{Microlens Array technology}
-\label{fig:microlensarray}
-\end{figure}
-
-Most consumer grade DSLRs are colored cameras.  Currently there are two main ways of capturing color in DSLR cameras, by using a mosaic color filter or by overlaying three color filters directly on top of the image sensor.  Majority of colored cameras in the market uses the mosaic filter commonly referred to as Bayer filter, while some DSLR cameras made by Sigma Corporation utilizes the latter method dubbed Foveon X3 technology \cite{foveon}.  
-
-In the mosaic filter method, the color sensitivity is created by using a color filter placed over each pixels, shown in figure \ref{fig:bayer_pattern_on_sensor}.  Usually half the pixels are sensitive to green light, a quarter of then sensitive to blue light and a quarter to red light.  These color filters are a distinct drawback because they reduce the quantum efficiency of the senor.  Fortunately, half of the pixels are well matched to the emission spectrum of green rare earth x-ray screen, Gadolinium Oxy-sulfide (\ce{Gd_2O_2S \colon Tb}).  Sensors that uses Foveon X3 technology features three layers of pixels each detects a different color (RGB) to form a direct color image sensor that can capture color in a way very similar to colored film cameras shown in figure \ref{fig:foveon_sensor}.  It is possible that more photons entering the camera will be detected by the Foveon X3 sensor compared to a mosaic sensor, especially matching to the emission spectrum of Gd2O2S:Tb since the green light from the x-ray screen only needs to pass through a thin layer of blue sensor before being absorbed by the second layer of green sensor.  Unfortunately this technology is relatively new and only a limited number of cameras employs the Foveon sensor.  The Foveon X3 sensor has been noted as noiser than the sensors in other DSLR sensors that uses Bayer filter at low light conditions \cite{sigmasd10} \cite{stevesdigicams}.
-
-\begin{figure}[ht]
-	\begin{subfigure}[b]{0.4\linewidth}
-		\centering
-		\includegraphics[width = 6cm]{Bayer_pattern_on_sensor.eps}
-		\caption{bayer pattern on sensor}
-		\label{fig:bayer_pattern_on_sensor}
-	\end{subfigure}
-	\hspace{0.5cm}
-	\begin{subfigure}[b]{0.4\linewidth}
-		\centering
-		\includegraphics[width = 6cm]{X3_tech_hero.jpg}
-		\caption{foveon sensor}
-		\label{fig:foveon_sensor}
-	\end{subfigure}
-\end{figure}
-
-To maximize light collection, it's important to use a lens at the lowest F number setting.  F number describes the amount of light that's collected by the lens in image space.  The equation for F number for an infinite conjugate optical system is given \ref{eq:Fnumber}.  For lenses that are not focused at infinity, the working F number describes the image forming light cone given and it is given by \ref{eq:workingfn_img}.  The F number in object space describes the cone of light that's collected by the lens.  It is related to the F number in image space by a magnification factor shown in equation \ref{eq:workingfn_obj}.  So when a 50 mm F1.4 lens is used to focus an object at 12:1 demagnification ($\frac{1}{12}$ magnification), its working number increases to 18.  This translates into approximately 0.95\% efficiency when we assume the x-ray screen is Lambertian and using \eqref{eq:lambertian}.  So consider an x-ray photon that pass through the x-ray screen and produces 5000 optical photon.  Only 48 will be collected by the lens and if the detector quantum efficiency is 50\%, we get approximatey 24 photoelectrons per incident x-ray photon.
-
-\comment{ what does 2 photoelectrons per incident x-ray photons mean? what about noise? as long as we get more photoelectrons than noise, we are good right?}
-
-\begin{equation}\label{eq:Fnumber}
-F = \frac{\mbox{focal length}}{\mbox{diameter of exit pupil}}
-\end{equation}
-	
-\begin{equation}\label{eq:workingfn_img}
-F_{working} = (1 - m)F
-\end{equation}
-	
-\begin{equation}\label{eq:workingfn_obj}
-F_{working} = \frac{1+m}{m}F
-\end{equation}
-	
-\begin{equation}\label{eq:lambertian}
-L\int_{2\,\pi} cos( \theta)\, d\Omega = L\int_{0}^{2\pi}d\phi \int_{0}^{u} sin(\theta) \, cos(\theta)\, d\theta
-\end{equation}
-	
-Several x-ray intensifying screens exist on the market and have been used to expose x-ray films for many decades.  Screens made from lanthanum (\ce{La_2O_2S\colon Tb}), yttrium (\ce{Y_2O_2S{\colon}Tb}), and calcium (\ce{CaWO_4})are common.  However both \ce{La_2O_2S\colon Tb} and \ce{Y_2O_2S{\colon}Tb} emits in UV or blue, and \ce{CaWO_4}'s emission is yellow.  \ce{Gd_2O_2S\colon Tb}'s emits green light, so it matches well with D700.
-
-\comment{blue and ultraviolet emitting phosphors such as lanthanum oxybromide LaOBr:Tm and barium fluorochloride BaFCl:Eu \citep{Barrett1981} }
-Used gadolinium oxy-sulfide because it matches really well the spectrum of the CCD and CMOS detectors.
-
-The first system shown in \ref{fig:DR1} was built in 2010 for Dr. Barrett's trekking trip to Nepal, where he was able to carry our system to various hospitals to take phantom images using their x-ray source. The structural frame of the DR system was assembled using extruded aluminum purchased from 80/20 Inc.  The entire frame was collapsible and fitted inside a large aluminum camera frame.  The case was further strengthen with aluminum brackets and the entire system weighed approximately 20 lb.  Special thanks to Jared Moore, Stephen Moore, Heather Durko, and Brian Miller for their expertise and help.  The field of view of the system was approximately 36 cm $\times$ 24 cm.  This is smaller than the standard US chest x-ray film but still adequate.  A black felt shroud was sewn together to cover the DR system to keep out stray light show in \ref{fig:DR1covered}.  The camera was controlled using a small laptop through a cable running into the felt cover.  Portable solar panel was used to charge the camera and laptop batteries.
-
-\begin{figure}[ht]
-\centering
-	\begin{subfigure}[b]{0.4\linewidth}
-	\includegraphics[width=1.5in]{portableDR_uncovered.jpg}
+	\begin{subfigure}[b]{0.45\linewidth}
+	\includegraphics[width=2.5in]{DR_uncovered.png}
 	\caption{DR system uncovered}
 	\label{fig:DR1uncovered}
 	\end{subfigure}
 \hspace{0.2cm}
-	\begin{subfigure}[b]{0.4\linewidth}
+	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
-	\includegraphics[width=1.5in]{portableDR_covered.jpg}
+	\includegraphics[width=2.5in]{DR_covered.png}
 	\caption{DR system covered}
 	\label{fig:DR1covered}
 	\end{subfigure}
-\caption{First portable DR system}
+\caption{First portable DR system that went to Nepal.  ~\ref{fig:DR1uncovered}: Prototype DR system showing x-ray screen on the right and Nikon D700 DSLR on the left.  The frame folds down into the suitcase for transport.  ~\ref{fig:DR1covered}: Same system but with light-tight shroud in place.  System is shown as set up in the Manang District Hospital, Chame, Nepal, with the breast phantom in position for imaging.}
 \label{fig:DR1}
 \end{figure}
+
+%To maximize light collection, it's important to use a lens at the lowest F number setting.  F number describes the amount of light that's collected by the lens in image space.  The equation for F number for an infinite conjugate optical system is given \ref{eq:Fnumber}.  For lenses that are not focused at infinity, the working F number describes the image forming light cone given and it is given by \ref{eq:workingfn_img}.  The F number in object space describes the cone of light that's collected by the lens.  It is related to the F number in image space by a magnification factor shown in equation \ref{eq:workingfn_obj}.  So when a 50 mm F1.4 lens is used to focus an object at 12:1 demagnification ($\frac{1}{12}$ magnification), its working number increases to 18.  This translates into approximately 0.95\% efficiency when we assume the x-ray screen is Lambertian and using \eqref{eq:lambertian}.  So consider an x-ray photon that pass through the x-ray screen and produces 5000 optical photon.  Only 48 will be collected by the lens and if the detector quantum efficiency is 50\%, we get approximatey 24 photoelectrons per incident x-ray photon.
+%
+%\comment{ what does 2 photoelectrons per incident x-ray photons mean? what about noise? as long as we get more photoelectrons than noise, we are good right?}
+%
+%\begin{equation}\label{eq:Fnumber}
+%F = \frac{\mbox{focal length}}{\mbox{diameter of exit pupil}}
+%\end{equation}
+%	
+%\begin{equation}\label{eq:workingfn_img}
+%F_{working} = (1 - m)F
+%\end{equation}
+%	
+%\begin{equation}\label{eq:workingfn_obj}
+%F_{working} = \frac{1+m}{m}F
+%\end{equation}
+%	
+%\begin{equation}\label{eq:lambertian}
+%L\int_{2\,\pi} cos( \theta)\, d\Omega = L\int_{0}^{2\pi}d\phi \int_{0}^{u} sin(\theta) \, cos(\theta)\, d\theta
+%\end{equation}
+%	
+%Several x-ray intensifying screens exist on the market and have been used to expose x-ray films for many decades.  Screens made from lanthanum (\ce{La_2O_2S\colon Tb}), yttrium (\ce{Y_2O_2S{\colon}Tb}), and calcium (\ce{CaWO_4})are common.  However both \ce{La_2O_2S\colon Tb} and \ce{Y_2O_2S{\colon}Tb} emits in UV or blue, and \ce{CaWO_4}'s emission is yellow.  \ce{Gd_2O_2S\colon Tb}'s emits green light, so it matches well with D700.
+%
+%\comment{blue and ultraviolet emitting phosphors such as lanthanum oxybromide LaOBr:Tm and barium fluorochloride BaFCl:Eu \citep{Barrett1981} }
+%Used gadolinium oxy-sulfide because it matches really well the spectrum of the CCD and CMOS detectors.
 
 The prototype system was taken to Nepal in spring, 2009, and tested in two clinics in the Kathmandu valley and in two district hospitals along the Annapurna Circuit Trail.  All locations had existing x-ray tubes, so no x-ray source was transported. Comparison film-screen images were obtained at the Nepali locations shown in XXX, and Computed Radiography (CR) images were obtained in Arizona shown in XXX.
 \comment{include breast and chest phantom comparison}  
@@ -140,6 +208,32 @@ The second system shown in \ref{fig:DR2} was built in 2012 for Dr. Wendel Gibby,
 	\end{subfigure}
 \caption{Second portable DR system}
 \label{fig:DR2}	
+\end{figure}
+
+\subsection{DR results}
+
+\begin{figure}
+\includegraphics[scale=0.3]{DR_breast_film.png}
+\caption{•}
+\label{fig:DR_breast_film}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.3]{DR_breast.png}
+\caption{•}
+\label{fig:DR_breast}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.3]{DR_chest_UA.png}
+\caption{•}
+\label{fig:DR_chest_film}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.3]{DR_chest.png}
+\caption{•}
+\label{fig:DR_chest}
 \end{figure}
 	
 \section{Prototype Computed Tomography (CT) System}
