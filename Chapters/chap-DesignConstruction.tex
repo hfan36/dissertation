@@ -1,9 +1,18 @@
 \chapter{Design and Construction of x-ray imaging systems}
 \label{chap:design_construction}
 
-Two types of x-ray imaging systems with large field of view have been built.  This section describes the design and construction of these two systems, the portable digital radiography system and the computed tomography (CT) system.  Both systems were build based on similar concept, where a phosphor screen is imaged using a fast lens onto a pixelated detector.  The digital radiography system is solely a 2D imaging system that include a phosphor screen, lens and camera.  The CT system is a test bench that can be used to test the performance of the x-ray imaging system using various scintillation screens and cameras.  The CT system has a powerful research grade x-ray tube that allows current and output kV adjustments with a relatively small source spot size.  In addition, the CT system is equipped with adjustable apertures, rotary stage, and linear translation stage that allows the system to test x-ray detection performance at different magnifications.
+\section{Introduction}
+Access to modern digital radiology is very limited in developing countries~\citep{telehealth2009}. The Himalayan regions of Nepal,
+India, Pakistan and Tibet present special difficulties because of lack of adequate roads, inconsistent or nonexistent power
+grids, little internet access and few trained physicians. In Nepal, for example, all of the remote district hospitals and
+many health outposts have x-ray facilities, but they are all film-based. There are very few resident radiologists, and
+teleradiology is rare~\citep{telehealth2009, Graham2003}.
 
-\section{Digital Radiograpy Systems}
+The goal of our work is to develop an inexpensive x-ray imaging system intended for wide dissemination in the Himalayan regions of Nepal and other rural areas in developing countries.
+
+Two types of x-ray imaging systems with large field of view have been built.  This section describes the design and construction of these two systems, the portable digital radiography system and the computed tomography system.  Both systems were build based on similar concept, where a phosphor screen is imaged using a fast lens onto a pixelated detector.  The digital radiography system is solely a 2-D imaging system that include a phosphor screen, lens and camera.  The CT system is a test bench that can be used to test the performance of the x-ray imaging system using various scintillation screens and cameras.  The CT system has a powerful research grade x-ray tube that allows current and output kV adjustments with a relatively small source spot size.  In addition, the CT system is equipped with adjustable apertures, rotary stage, and linear translation stage that allows the system to test x-ray detection performance at different magnifications.
+
+\section{Design considerations for DR system}
 The digital radiography system uses the Nikon D700 camera with the Nikkor AF-S 50 mm F1.4 lens to image the phosphor screen ($\mathrm{Gd_2O_2S:Tb}$), shown in figure \ref{fig:DRcomponents}.  In the past, many has rejected this idea because the optical sensor is too small, therefore to fit the entire scene onto the detector, the camera has to moved far away from the phosphor screen so that the entire x ray image fits on the sensor.  That means that most of the light from the screen misses the lens, and the small amount of light that reaches the sensor is then lost in the electronic readout noise of the camera.  However this idea is starting to become more viable due to recent development of larger complementary metal oxide semiconductor (CMOS) detectors.  Currently we can purchase a DSLR with a full frame sensor as low as \$1500.  In spite of the low cost, however, they have excellent noise performance, even compared to expensive scientific-grade CCD cameras.  The Nikon D700 is a consumer grade digital single-lens Reflex (DSLR), it is equipped with a full frame CMOS detector (24 mm $\times$ 36 mm).  That means even at 12:1 demagnification, the field of view is 29 cm $\times$ 43 cm, adequate for chest radiography.  
 
 \begin{figure}[ht]
