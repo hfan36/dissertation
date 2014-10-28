@@ -2,16 +2,6 @@
 % Encoding: Cp1252
 
 
-@TechReport{AAPM93,
-  Title                    = {Acceptance Testing and Quality Control of Photostimulable Storage Phosphor Imaging Systems},
-  Author                   = {AAPM},
-  Institution              = {AAPM},
-
-  Organization             = {American Association of Physicists in Medicine, Report No. 93},
-  Owner                    = {Fan},
-  Timestamp                = {2014.09.15}
-}
-
 @TechReport{aapm_headCT2012,
   Title                    = {{A}dult {R}outine {H}ead {CT} {P}rotocols {V}ersion 1.1},
   Author                   = {AAPM},
@@ -57,6 +47,17 @@
   Journal                  = {Report of AAPM Task Group 23 of the Diagnostic Imaging Council CT Committee},
   Owner                    = {Helen_Fan},
   Timestamp                = {2012.10.30}
+}
+
+@TechReport{AAPM93,
+  Title                    = {Acceptance Testing and Quality Control of Photostimulable Storage Phosphor Imaging Systems},
+  Author                   = {AAPM},
+  Institution              = {AAPM},
+  Year                     = {2006},
+
+  Organization             = {American Association of Physicists in Medicine, Report No. 93},
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.15}
 }
 
 @PhdThesis{AbbeyThesis,
@@ -343,6 +344,35 @@
   Timestamp                = {2014.03.26}
 }
 
+@Electronic{clarkvision,
+  Title                    = {{D}igital {C}amera {R}eviews and {S}ensor {P}erformance {S}ummary},
+
+  Address                  = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
+  Author                   = {Clark, R. N.},
+  HowPublished             = {\url{http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/}},
+  Month                    = {9},
+  Url                      = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
+  Year                     = {2014},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.06}
+}
+
+@Electronic{sigmasd10,
+  Title                    = {Sigma {SD}10 review},
+
+  Address                  = {www.cnet.com/products/sigma-sd10/},
+  Author                   = {CNET},
+  HowPublished             = {\url{http://www.cnet.com/products/sigma-sd10/}},
+  Month                    = {12},
+  Organization             = {cnet},
+  Url                      = {http://www.cnet.com/products/sigma-sd10/},
+  Year                     = {2004},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
+}
+
 @Book{Conn2008,
   Title                    = {{I}ntroduction to {D}erivative-{F}ree {O}ptimization, ser. {MPS}-{SIA}m {S}eries on {O}ptimization},
   Author                   = {Conn, A. R. and Scheinberg, K. and Vicente, L. N.},
@@ -419,6 +449,20 @@
   Timestamp                = {2014.03.27}
 }
 
+@Electronic{stevesdigicams,
+  Title                    = {{SIGMA} {SD}10 {FOVEON}, {S}teve's {C}onclusion},
+
+  Address                  = {http://www.steves-digicams.com/2003_reviews/sigma_sd10_pg7.html},
+  Author                   = {Steve's Digicams},
+  HowPublished             = {\url{http://www.steves-digicams.com/2003_reviews/sigma_sd10_pg7.html}},
+  Organization             = {Steve's Digicams},
+  Url                      = {http://www.steves-digicams.com/2003_reviews/sigma_sd10_pg7.html},
+  Year                     = {2003},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
+}
+
 @Article{Dobbins1995,
   Title                    = {{DQE}(f) of {F}our {G}enerations of {C}omputed {R}adiography {A}cquisition {D}evices},
   Author                   = {Dobbins III, J. T. and Ergun, D. L. and Rutz, L. and Hinshaw, D. A and Blume, H. and Clark, D. C.},
@@ -481,6 +525,20 @@
   File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\FDK.pdf:PDF},
   Owner                    = {Helen_Fan},
   Timestamp                = {2012.10.29}
+}
+
+@Electronic{foveon,
+  Title                    = {X3 {T}echnology},
+
+  Address                  = {www.foveon.com},
+  Author                   = {FOVEON},
+  HowPublished             = {\url{http://www.foveon.com}},
+  Organization             = {FOVEON},
+  Url                      = {http://www.foveon.com},
+  Year                     = {2010},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
 }
 
 @Article{Gagne2003,
@@ -745,6 +803,21 @@
   Doi                      = {10.1117/12.480131},
   Owner                    = {Fan},
   Timestamp                = {2014.09.11}
+}
+
+@TechReport{ICRP30,
+  Title                    = {{I}nternational {C}ommission on {R}adiological {P}rotection. {L}imits for {I}ntakes of {R}adionuclides by {W}orkers},
+  Author                   = {ICRP},
+  Year                     = {1979},
+  Number                   = {4},
+  Type                     = {Annals of the ICRP},
+
+  Journal                  = {ICRP Publication 30. Annals of the ICRP},
+  Owner                    = {Helen_Fan},
+  Part                     = {Annals of the ICRP},
+  Publisher                = {Pergamon Press, New York},
+  Timestamp                = {2012.11.13},
+  Volume                   = {19}
 }
 
 @InBook{springer2007,
@@ -1024,6 +1097,20 @@
   Timestamp                = {2014.09.16}
 }
 
+@Electronic{maxmax,
+  Title                    = {B$\&$W {C}onversion},
+
+  Address                  = {www.maxmax.com/b$\&$w_conversion.htm},
+  Author                   = {MaxMax.com},
+  HowPublished             = {\url{http://www.maxmax.com/b&w_conversion.htm}},
+  Organization             = {LDP LLC - MaxMax.com},
+  Url                      = {http://www.maxmax.com/b&w_conversion.htm},
+  Year                     = {2014},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.19}
+}
+
 @Article{Mettler2008,
   Title                    = {{E}ffective {D}oses in {R}adiology and {D}iagnostic {N}uclear {M}edicine: {A} {C}atalog},
   Author                   = {Mettler, F. A. and Huda, W. and Yoshizumi, T. T. and Mahesh, M.},
@@ -1084,6 +1171,18 @@
   Timestamp                = {2014.10.27}
 }
 
+@TechReport{NEMA2010,
+  Title                    = {{NEMA} {S}tandards {P}ublication {XR} 25-2010: {C}omputed {T}omography {D}ose {C}heck},
+  Author                   = {NEMA},
+  Institution              = {NEMA},
+  Year                     = {2010},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\NEMA XR 25-2010.pdf:PDF},
+  Organization             = {National Electrical Manufacturers Association},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.30}
+}
+
 @Article{Nikl2006,
   Title                    = {{S}cintillation detectors for x-rays},
   Author                   = {Nikl, M.},
@@ -1107,6 +1206,19 @@
 
   Owner                    = {Fan},
   Timestamp                = {2014.04.15}
+}
+
+@Manual{Cudatoolkit,
+  Title                    = {CUDA toolkit documentation},
+
+  Address                  = {docs.nvidia.com/cuda/index.html},
+  Author                   = {NVIDIA},
+  Edition                  = {5.5},
+  Organization             = {NVIDIA},
+  Year                     = {2014},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.08.25}
 }
 
 @Article{Origgi2006,
@@ -1170,6 +1282,20 @@
   File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\Pantos - Adult patient radiation doses from non-cardiac CT exams.pdf:PDF},
   Owner                    = {Helen_Fan},
   Timestamp                = {2012.10.29}
+}
+
+@Electronic{microlensfig,
+  Title                    = {On-Chip Color Filters},
+
+  Address                  = {http://www.photomask.com/products/on-chip-color-filters},
+  Author                   = {Toppan Photomasks},
+  HowPublished             = {\url{http://www.photomask.com/products/on-chip-color-filters}},
+  Organization             = {Toppan Photomasks, Inc.},
+  Url                      = {http://www.photomask.com/products/on-chip-color-filters},
+  Year                     = {2014},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.03.06}
 }
 
 @Article{Que1995,
@@ -1562,6 +1688,20 @@
   Timestamp                = {2012.11.12}
 }
 
+@TechReport{UNSCEAR2008,
+  Title                    = {{UNSCEAR} 2008 {R}eport of the {G}eneral {A}ssembly {A}nnex {A}: {M}edical {E}xposure to {I}onizing {R}adiation},
+  Author                   = {UNSCEAR},
+  Institution              = {United Nations},
+  Year                     = {2008},
+
+  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\UNSCEAR - Sources and effects of ionizing radiation 2008.pdf:PDF},
+  Journal                  = {United Nations Scientific Committee on the Effects of Atomic Radiation},
+  Organization             = {United Nations Scientific Committee on the Effects of Atomic Radiation},
+  Owner                    = {Helen_Fan},
+  Timestamp                = {2012.10.29},
+  Volume                   = {I}
+}
+
 @Article{VanUnnik1997,
   Title                    = {{S}urvey of {CT} techniques and absorbed dose in arious {D}utch hospitals},
   Author                   = {Van Unnik, J. G. and Broderse, J. J. and Geleijns, J. and Jansen, J. Th. M. and Zoetelief, J. and Zweers, D.},
@@ -1573,6 +1713,21 @@
   File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\van unnik - survey of CT techniques in dutch hospitals.pdf:PDF},
   Owner                    = {Helen_Fan},
   Timestamp                = {2012.10.29}
+}
+
+@Electronic{scintillatorImage,
+  Title                    = {{NDT} {W}iki {X}-ray - the {D}igital {X}-ray {E}ncyclopedia},
+
+  Address                  = {http://www.vidisco.com/ndt_solutions/ndt_info_center/ndt_wiki_x_ray},
+  Author                   = {VIDISCO},
+  HowPublished             = {\url{http://www.vidisco.com/ndt_solutions/ndt_info_center/ndt_wiki_x_ray}},
+  Month                    = {9},
+  Organization             = {VIDISCO-Leading X-ray Technologies},
+  Url                      = {http://www.vidisco.com/ndt_solutions/ndt_info_center/ndt_wiki_x_ray},
+  Year                     = {2014},
+
+  Owner                    = {Fan},
+  Timestamp                = {2014.09.17}
 }
 
 @Article{Wagner1985,
@@ -1690,7 +1845,7 @@
 }
 
 @Article{Yorkston2007,
-  Title                    = {Recent ddevelopment in digital radiography detectors},
+  Title                    = {Recent development in digital radiography detectors},
   Author                   = {Yorkston, J.},
   Journal                  = {Nucl. Instr. Meth. Phys. Res. A},
   Year                     = {2007},
@@ -1734,110 +1889,6 @@
 
   Owner                    = {Fan},
   Timestamp                = {2014.08.21}
-}
-
-@Electronic{clarkvision,
-  Url                      = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.03.06}
-}
-
-@Manual{Cudatoolkit,
-  Title                    = {CUDA toolkit documentation},
-
-  Address                  = {docs.nvidia.com/cuda/index.html},
-  Edition                  = {5.5},
-  Organization             = {NVIDIA},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.08.25}
-}
-
-@Electronic{foveon,
-  Url                      = {www.foveon.com},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.09.19}
-}
-
-@Electronic{maxmax,
-  Url                      = {www.maxmax.com/b&w_conversion.htm},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.09.19}
-}
-
-@Electronic{microlensfig,
-  Organization             = {Toppan Photomasks, Inc.},
-  Url                      = {http://www.photomask.com/products/on-chip-color-filters},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.03.06}
-}
-
-@Electronic{sigmasd10,
-  Organization             = {cnet},
-  Url                      = {www.cnet.com/products/sigma-sd10/},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.09.19}
-}
-
-@Electronic{stevesdigicams,
-  Url                      = {http://www.steves-digicams.com/2003_reviews/sigma_sd10_pg7.html},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.09.19}
-}
-
-@Electronic{scintillatorImage,
-  Title                    = {{NDT} {W}iki {X}-ray - the {D}igital {X}-ray {E}ncyclopedia},
-  Month                    = {9},
-  Organization             = {VIDISCO},
-  Url                      = {http://www.vidisco.com/ndt_solutions/ndt_info_center/ndt_wiki_x_ray},
-  Year                     = {2014},
-
-  Owner                    = {Fan},
-  Timestamp                = {2014.09.17}
-}
-
-@Standard{NEMA2010,
-  Title                    = {{NEMA} {S}tandards {P}ublication {XR} 25-2010: {C}omputed {T}omography {D}ose {C}heck},
-  Institution              = {NEMA},
-  Organization             = {National Electrical Manufacturers Association},
-  Year                     = {2010},
-
-  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\NEMA XR 25-2010.pdf:PDF},
-  Owner                    = {Helen_Fan},
-  Timestamp                = {2012.10.30}
-}
-
-@TechReport{UNSCEAR2008,
-  Title                    = {{UNSCEAR} 2008 {R}eport of the {G}eneral {A}ssembly {A}nnex {A}: {M}edical {E}xposure to {I}onizing {R}adiation},
-  Institution              = {United Nations},
-  Year                     = {2008},
-
-  File                     = {:C\:\\Users\\Helen_Fan\\Documents\\Papers\\UNSCEAR - Sources and effects of ionizing radiation 2008.pdf:PDF},
-  Journal                  = {United Nations Scientific Committee on the Effects of Atomic Radiation},
-  Organization             = {United Nations Scientific Committee on the Effects of Atomic Radiation},
-  Owner                    = {Helen_Fan},
-  Timestamp                = {2012.10.29},
-  Volume                   = {I}
-}
-
-@TechReport{ICRP30,
-  Title                    = {{I}nternational {C}ommission on {R}adiological {P}rotection. {L}imits for {I}ntakes of {R}adionuclides by {W}orkers},
-  Year                     = {1979},
-  Number                   = {4},
-  Type                     = {Annals of the ICRP},
-
-  Journal                  = {ICRP Publication 30. Annals of the ICRP},
-  Owner                    = {Helen_Fan},
-  Part                     = {Annals of the ICRP},
-  Publisher                = {Pergamon Press, New York},
-  Timestamp                = {2012.11.13},
-  Volume                   = {19}
 }
 
 @comment{jabref-meta: selector_review:}
