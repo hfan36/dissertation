@@ -183,9 +183,10 @@ For transport, the suitcase contains the aluminum frame and x-ray screens, the s
 
 The prototype system was taken to Nepal in spring, 2009, and tested in two clinics in the Kathmandu valley and in two district hospitals along the Annapurna Circuit Trail.  All locations had existing x-ray tubes, so no x-ray source was transported. A standard breast phantom was imaged with varying kVp and mAs and camera ISO settings at all four location sin Nepal and also in the Radiology Department of the University of Arizona.  Comparison film-screen images were obtained at the Nepali locations, and Computed Radiography (CR) images were objtained in Arizona.  Radiation exposure incident on the phantom was measured in all cases.
 
-A sample comparison is shown in Fig. 3. The film image on the right was acquired in Nepal but brought back to Arizona and digitized by photographing it with the Nikon D700 camera, trying to match the contrast presentation with that of the DSLR image on the left as closely as possible. All features of interest are visible in both images, but uneven development and several white blotches, probably from foreign matter on the screen, are evident on the film-screen image.
+A sample comparison is shown in Fig.~\ref{fig:DR_breast_both}. The film image on the right was acquired in Nepal but brought back to Arizona and digitized by photographing it with the Nikon D700 camera, trying to match the contrast presentation with that of the DSLR image on the left as closely as possible. All features of interest are visible in both images, but uneven development and several white blotches, probably from foreign matter on the screen, are evident on the film-screen image.
 
 \begin{figure}[h]
+\centering
 	\begin{subfigure}[b]{0.4\linewidth}
 		\includegraphics[scale=0.28]{DR_breast.png}
 		\caption{}
@@ -198,77 +199,85 @@ A sample comparison is shown in Fig. 3. The film image on the right was acquired
 		\label{fig:DR_breast_film}
 	\end{subfigure}
 	\caption{Images of the breast phantom taken with the same exposure in a Himalayan clinic in Nepal. \ref{fig:DR_breast}: Image taken with the DSLR system. \ref{fig:DR_breast_film} Image taken with local film-screen technique.}
-	\label{DR_breast_both}
+	\label{fig:DR_breast_both}
 \end{figure}
 
-A second comparison, conducted entirely in Arizona, is illustrated in Fig. 4. In this case a human skeleton embedded in plastic was the phantom, and the comparison was between the DSLR system and a Fuji CR system. The exposure conditions, noted in the caption, are not identical in this case, but we again made an effort to match the display contrasts. There is no evident difference in feature visibility, but of course this is not a definitive statement. A more detailed ROC-based comparison is planned, and the results will be reported separately.
+A second comparison, conducted entirely in Arizona, is illustrated in Fig.~\ref{fig:DR_chest_both}. In this case a human skeleton embedded in plastic was the phantom, and the comparison was between the DSLR system and a Fuji CR system. The exposure conditions, noted in the caption, are not identical in this case, but we again made an effort to match the display contrasts. There is no evident difference in feature visibility.
 
-\begin{figure}
-\includegraphics[scale=0.3]{DR_chest_UA.png}
-\caption{•}
-\label{fig:DR_chest_film}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.3]{DR_chest.png}
-\caption{•}
-\label{fig:DR_chest}
-\end{figure}
-	
-
-Comparison film-screen images were obtained at the Nepali locations shown in XXX, and Computed Radiography (CR) images were obtained in Arizona shown in XXX.
-\comment{include breast and chest phantom comparison}  
-The second system shown in \ref{fig:DR2} was built in 2012 for Dr. Wendel Gibby, a radiologist from Utah.  We made slight adjustment on the DR system.  The new version is slightly bigger though it is collapsible to a smaller size.  We made it so the system can be adjusted to various magnification.  Instead of based on a folding system, we made a sliding system where the camera can be slide into various positions to adjust for different field of views.  The entire system is designed to fit inside a large Pelican case and can be transported on wheels shown in \ref{fig:pelicancase}.  Only the DR frame and x-ray screen was included in this package because Dr. Gibby was going to provide the rest of the components.  
-
-\begin{figure}
-	\begin{subfigure}[b]{0.3\linewidth}
+\begin{figure}[h]
+\centering
+	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
-	\includegraphics[width=1.5in]{gibbysuitcase_stretch.jpg}
-	\caption{DR system}
+	\includegraphics[scale=0.19]{DR_chest_UA.png}
+	\caption{}
+	\label{fig:DR_chest_film}
+	\end{subfigure}
+	\hspace{1 cm}
+	\begin{subfigure}[b]{0.45\linewidth}
+	\includegraphics[scale=0.19]{DR_chest.png}
+	\caption{}
+	\label{fig:DR_chest}
+	\end{subfigure}
+\caption{Magnified portions of chest-phantom images taken at the University of Arizona with two different DR systems.~\ref{fig:DR_chest_film}: DSLR system, 80 kVp, 25mAs, ISO 4000.~\ref{fig:DR_chest}: Fuji XG5000 Computed Radiography system, 109 kVp, 10mAs.}
+\label{fig:DR_chest_both}
+\end{figure}
+
+\subsection{Second Prototype DR System}
+A second DR system was build in 2012 for Dr. Wendell Gibby, a radiologist from Utah.  Slight adjustments were made to the first system because Dr. Gibby desired to test the DR system using his own camera at various magnifications, so this system does not include its own DSLR camera.  This second system is slightly bigger than the first unit though it is still collapsible.  Instead of using a folding mechanism, we made so the camera can be slid into different magnification positions to adjust for different field of views.  The entire system fits inside a large Pelican camera case and can be transported on wheels.  Figure~\ref{fig:DR2} shows the second system in SolidWorks both in the measurement setup and the collapsible setup.
+
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.45\linewidth}
+	\centering
+	\includegraphics[width=2.8in]{gibbysuitcase_stretch.jpg}
+	\caption{Second DR system}
 	\label{DR2stretched}
 	\end{subfigure}
 \hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
+	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
-	\includegraphics[width=1.5in]{gibbysuitcase_collapsed.jpg}
-	\caption{DR system collapsed}
+	\includegraphics[width=2.8in]{gibbysuitcase_collapsed.jpg}
+	\caption{Second DR system collapsed}
 	\label{fig:DR2collapsed}
-	\end{subfigure}
-\hspace{0.2cm}	
-	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\includegraphics[width=1.5in]{pelican_case.jpg}
-	\caption{Pelican case for transport}
-	\label{fig:pelicancase}
 	\end{subfigure}
 \caption{Second portable DR system}
 \label{fig:DR2}	
 \end{figure}
 
-\subsection{DR results}
+%\hspace{0.2cm}	
+%	\begin{subfigure}[b]{0.3\linewidth}
+%	\centering
+%	\includegraphics[width=1.5in]{pelican_case.jpg}
+%	\caption{Pelican case for transport}
+%	\label{fig:pelicancase}
+%	\end{subfigure}
+
+\subsection{DR system results}
+When used with conventional x-ray screens, modern prosumer DSLRs are attractive detectors for DR. Compared to other consumer digital cameras, they have much lower read noise and substantially larger sensors, reducing the demagnification factor needed to cover a given FOV and hence increasing the light-collection efficiency. The use of microlenses to direct the light to the photosensitive region of each pixel along with telecentric ``digital lenses'' results in a sensor fill factor of, effectively, 100\%. For large fields of view (e.g., chest radiography), the optical collection efficiency is approximately 1 photoelectron per x-ray interaction, but this number can be improved either by using smaller fields or by removing the color filter on the camera. Because the DSLR read noise is so low, the DQE (not including the screen absorption) for a disk-detection task can exceed 50\%.  Compared to scientific-grade CCD cameras, the DSLRs have large advantages in cost, read noise and readout speed.  They cannot compete with CCDs in terms of quantum efficiency or dark current, but neither of these characteristics is critical for DR.  Compared to current CsI or amorphous selenium flat-panel detectors, the main advantage of the DSLR approach is cost and readout speed. The resolution and noise performance of the DSLR system may be comparable to those of flat-panel detectors, but more studies are needed to confirm this conjecture.  Compared to film-screen systems in rural clinics, a major advantage of the DSLR approach is the digital character of the data. A DSLR provides an instant digital image for display manipulation and telemedicine, and it eliminates concerns about control of the developing process. Moreover, the large dynamic range of the cameras should lead to fewer incorrect exposures than with film. The DSLRs may also offer advantages over film-screen in terms of resolution, noise and the dose required for equal objective image quality, but many more studies are needed.  Finally, we note that the DSLR approach has the potential to bring fluoroscopy into rural settings; some DSLRs can take continuous data at 30 fps.
 
 \section{Prototype Computed Tomography (CT) System}
-The results from the initial DR system was very promising, we were interested in testing different cameras and x-ray screen combination.  In addition we wanted to test the detector system for CT.  So the prototype computed tomography system was built for this reason.  Shown in Figure~\ref{fig:CTsystem}, the CT system frame was built using 80/20 extruded aluminum.  The x-ray tube mounted to a fixed location.  The x-rays generated from the tube will be converted to visible light after they passes through the vertical x-ray phosphor screen (Lanex Gd2O2S:Tb).  The visible light will then be re-directed via a 45 degrees folding mirror.  The camera and lens are mounted on a vertical translation stage to minimize direct x-ray exposure on the camera sensor.  To gather projection images at different angles, objects are place on a rotation stage and rotated about the vertical axis.  Safety measures were taken to minimize accidental x-ray exposures.  All three entrances into the lab were wired with visible warning signs when x-rays are generated.  These entrances were also attached to magnetic on/off switches that will shut off the power to the x-ray tube immediately if any doors were opened while the x-ray was turned on.  A hand held ``deadman's'' switch was also wired into place to ensure the operator must sit behind shielded area at all times while x-ray were generated.  A 36 \inches $\times$ 36 \inches $\times$ 5/8 \inches size lead sheet was placed behind the CT system to prevent direct x-rays from exiting the room.  These components are shown in Figure~\ref{fig:safety}.
+The results from the DR systems were very promising, we were interested in testing different cameras and x-ray screen combination.  In addition we wanted to test how well this concept would work on a CT system.  So the prototype computed tomography system was built for these reasons.  The system set up is shown in Figure~\ref{fig:CTsystem}.  Since this is only a prototype test bench system, we've decided to rotate the object on a leveled surface rather than rotating the x-ray tube and detector system on a gantry.  Thereby reducing the system complexity while still maintain our objectives.  The CT system frame was built using 80/20 extruded aluminum.  An x-ray tube is mounted to a fixed location.  The x-rays generated from the tube are converted to visible light after they have passed through the vertical x-ray phosphor screen located right behind the cylindrical object.  This can also be seen in Fig.~\ref{fig:CTlab}.  The visible light from the phosphor screen are re-directed vertically via a 45 degrees folding mirror.  The camera and lens are mounted on a vertical translation stage to minimize direct x-ray exposure to the camera sensor.
 
-\begin{figure}
-	\begin{subfigure}[b]{0.4\linewidth}
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
-	\includegraphics[width=1.2in]{CTsystem1.jpg}
-	\caption{CT system model}
+	\includegraphics[width=2.8in]{CTsystem1.jpg}
+	\caption{System model}
 	\label{fig:CTmodel}
 	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.4\linewidth}
+\hspace{1 cm}
+	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
-	\includegraphics[width=1.2in]{Capture_system.png}
-	\caption{CT system setup in lab}
+	\includegraphics[width=2.8in]{Capture_system.png}
+	\caption{System setup in the lab}
 	\label{fig:CTlab}
 	\end{subfigure}
-\caption{CT system configuration}
+\caption{System configuration}
 \label{fig:CTsystem}
 \end{figure}
 
-\begin{figure}
+Many safety measures were taken to minimize accidental x-ray exposure.  All three entrances into the lab were wired with visible warning signs when x-rays are generated.  These entrances were also attached to magnetic on/off switches that will trigger to shut off the power to the x-ray tube immediately if any doors were opened while the x-ray was turned on.  A hand held ``deadman's'' switch was also wired into place behind a shielded area to ensure an operator is present at all times while x-rays were generated. This is an extra step for safety so the operator can monitor the scanning process and to prevent anything bad from happening.  A 36 \inches $\times$ 36 \inches $\times$ 5/8 \inches size lead sheet was placed behind the CT system to prevent direct x-rays from penetrating the room.  Notable safety components are shown in Fig.~\ref{fig:safety}.
+
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.3\linewidth}
 	\includegraphics[width=1.5in]{Capture_xray_3.png} \\
@@ -294,6 +303,17 @@ The results from the initial DR system was very promising, we were interested in
 \caption{Safety mechanisms installed in the CT room}
 \label{fig:safety}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{X-ray source}
