@@ -108,11 +108,7 @@ DQE = \frac{\bar{k}^2 \overline{N}}{\sigma_{read}^2 + \overline{N}(\bar{k} + \ba
 The dependence of DQE on read noise, optical efficiency and x-ray fluence is shown in Fig.~\ref{fig:DQE}. Several limits are of interest. If there is no read noise but the lens is very inefficient so that $\bar{k} << 1$ the equation above predicts that the DQE of the detector (not including the x-ray screen) is simply $\bar{k}$.  If there is no read noise but the lens is sufficiently efficient that $\bar{k} << 1$, then we get DQE = 1. The case of interest, however, is when $\bar{k} \sim 1$ and the read noise is not zero. In that case, we can still get nearly quantum-limited performance, provided the x-ray fluence is high enough; if $\overline{N}_m(\bar{k}+\bar{k}^2) >> \sigma_{read}^2$, then the read-noise term in the denominator can be neglected and the DQE is $\bar{k}^2/(\bar{k}+\bar{k}^2)$. In order to do high-quality DR with a DSLR, therefore, it is very important to choose a camera with low read noise.
 
 \section{Prototype Digital Radiography System}
-Based on cost and the design considerations above, we chose a Nikon D700 camera with an AF-S Nikkor 50mm f/1.4G lens for the prototype.  These components are shown in Fig.~\ref{fig:DRcomponents}. We elected not to use a folding mirror, so the x rays transmitted by the screen impinged on the camera. By measuring the x-ray transmittance of the lens, however, we found that x-ray flux on the camera sensor was very small. No radiation damage was expected, and with several thousand x-ray exposures to date, none has been observed.
-
-The system is constructed on an extruded aluminum frame that folds down into a small suitcase as shown in Fig.~\ref{fig:DR1uncovered}. The vertical assembly on the right in that photo is an opaque bakelite sheet with a standard Lanex screen mounted on the side facing the camera. The screens are interchangeable, and both Lanex Regular and Lanex Fast have been used. There is a light-tight felt cloth shroud, shown in Fig.~\ref{fig:DR1covered}, and only a thin camera cable needs to emerge from the shroud during operation.
-
-For transport, the suitcase contains the aluminum frame and x-ray screens, the shroud, a laptop computer, a solar panel for charging the computer and camera, a dosimeter and miscellaneous tools. Exclusive of the camera, which was carried separately, it weighs about 45 pounds. The total cost of the system, including the camera, laptop and lens, was less than \$5,000.
+Based on the cost and the design considerations above, we chose a Nikon D700 camera with an AF-S Nikkor 50mm f/1.4G lens for the prototype.  We elected not to use a folding mirror, so the x rays transmitted by the screen impinged on the camera. By measuring the x-ray transmittance of the lens, however, we found that x-ray flux on the camera sensor was very small. No radiation damage was expected, and with several thousand x-ray exposures to date, none has been observed.
 
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.3\linewidth}
@@ -138,6 +134,8 @@ For transport, the suitcase contains the aluminum frame and x-ray screens, the s
 \label{fig:DRcomponents}
 \end{figure}
 
+The major components inside the DR system are shown in Fig.~\ref{fig:DRcomponents}.  The system is constructed on an extruded aluminum frame that folds down into a small suitcase as shown in Fig.~\ref{fig:DR1uncovered}. The vertical assembly on the right in that photo is an opaque bakelite sheet with a standard Lanex screen mounted on the side facing the camera. The screens are interchangeable, and both Lanex Regular and Lanex Fast have been used. There is a light-tight felt cloth shroud, shown in Fig.~\ref{fig:DR1covered}, and only a thin camera cable needs to emerge from the shroud during operation.
+
 \begin{figure}[h]
 \centering
 	\begin{subfigure}[b]{0.45\linewidth}
@@ -155,6 +153,8 @@ For transport, the suitcase contains the aluminum frame and x-ray screens, the s
 \caption{First portable DR system that went to Nepal.  ~\ref{fig:DR1uncovered}: Prototype DR system showing x-ray screen on the right and Nikon D700 DSLR on the left.  The frame folds down into the suitcase for transport.  ~\ref{fig:DR1covered}: Same system but with light-tight shroud in place.  System is shown as set up in the Manang District Hospital, Chame, Nepal, with the breast phantom in position for imaging.}
 \label{fig:DR1}
 \end{figure}
+
+For transport, the suitcase contains the aluminum frame and x-ray screens, the shroud, a laptop computer, a solar panel for charging the computer and camera, a dosimeter and miscellaneous tools. Exclusive of the camera, which was carried separately, it weighs about 45 pounds. The total cost of the system, including the camera, laptop and lens, was less than \$5,000.
 
 %To maximize light collection, it's important to use a lens at the lowest F number setting.  F number describes the amount of light that's collected by the lens in image space.  The equation for F number for an infinite conjugate optical system is given \ref{eq:Fnumber}.  For lenses that are not focused at infinity, the working F number describes the image forming light cone given and it is given by \ref{eq:workingfn_img}.  The F number in object space describes the cone of light that's collected by the lens.  It is related to the F number in image space by a magnification factor shown in equation \ref{eq:workingfn_obj}.  So when a 50 mm F1.4 lens is used to focus an object at 12:1 demagnification ($\frac{1}{12}$ magnification), its working number increases to 18.  This translates into approximately 0.95\% efficiency when we assume the x-ray screen is Lambertian and using \eqref{eq:lambertian}.  So consider an x-ray photon that pass through the x-ray screen and produces 5000 optical photon.  Only 48 will be collected by the lens and if the detector quantum efficiency is 50\%, we get approximatey 24 photoelectrons per incident x-ray photon.
 %
@@ -181,7 +181,42 @@ For transport, the suitcase contains the aluminum frame and x-ray screens, the s
 %\comment{blue and ultraviolet emitting phosphors such as lanthanum oxybromide LaOBr:Tm and barium fluorochloride BaFCl:Eu \citep{Barrett1981} }
 %Used gadolinium oxy-sulfide because it matches really well the spectrum of the CCD and CMOS detectors.
 
-The prototype system was taken to Nepal in spring, 2009, and tested in two clinics in the Kathmandu valley and in two district hospitals along the Annapurna Circuit Trail.  All locations had existing x-ray tubes, so no x-ray source was transported. Comparison film-screen images were obtained at the Nepali locations shown in XXX, and Computed Radiography (CR) images were obtained in Arizona shown in XXX.
+The prototype system was taken to Nepal in spring, 2009, and tested in two clinics in the Kathmandu valley and in two district hospitals along the Annapurna Circuit Trail.  All locations had existing x-ray tubes, so no x-ray source was transported. A standard breast phantom was imaged with varying kVp and mAs and camera ISO settings at all four location sin Nepal and also in the Radiology Department of the University of Arizona.  Comparison film-screen images were obtained at the Nepali locations, and Computed Radiography (CR) images were objtained in Arizona.  Radiation exposure incident on the phantom was measured in all cases.
+
+A sample comparison is shown in Fig. 3. The film image on the right was acquired in Nepal but brought back to Arizona and digitized by photographing it with the Nikon D700 camera, trying to match the contrast presentation with that of the DSLR image on the left as closely as possible. All features of interest are visible in both images, but uneven development and several white blotches, probably from foreign matter on the screen, are evident on the film-screen image.
+
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[scale=0.28]{DR_breast.png}
+		\caption{}
+		\label{fig:DR_breast}
+	\end{subfigure}
+	\hspace{1 cm}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[scale=0.28]{DR_breast_film.png}
+		\caption{}
+		\label{fig:DR_breast_film}
+	\end{subfigure}
+	\caption{Images of the breast phantom taken with the same exposure in a Himalayan clinic in Nepal. \ref{fig:DR_breast}: Image taken with the DSLR system. \ref{fig:DR_breast_film} Image taken with local film-screen technique.}
+	\label{DR_breast_both}
+\end{figure}
+
+A second comparison, conducted entirely in Arizona, is illustrated in Fig. 4. In this case a human skeleton embedded in plastic was the phantom, and the comparison was between the DSLR system and a Fuji CR system. The exposure conditions, noted in the caption, are not identical in this case, but we again made an effort to match the display contrasts. There is no evident difference in feature visibility, but of course this is not a definitive statement. A more detailed ROC-based comparison is planned, and the results will be reported separately.
+
+\begin{figure}
+\includegraphics[scale=0.3]{DR_chest_UA.png}
+\caption{•}
+\label{fig:DR_chest_film}
+\end{figure}
+
+\begin{figure}
+\includegraphics[scale=0.3]{DR_chest.png}
+\caption{•}
+\label{fig:DR_chest}
+\end{figure}
+	
+
+Comparison film-screen images were obtained at the Nepali locations shown in XXX, and Computed Radiography (CR) images were obtained in Arizona shown in XXX.
 \comment{include breast and chest phantom comparison}  
 The second system shown in \ref{fig:DR2} was built in 2012 for Dr. Wendel Gibby, a radiologist from Utah.  We made slight adjustment on the DR system.  The new version is slightly bigger though it is collapsible to a smaller size.  We made it so the system can be adjusted to various magnification.  Instead of based on a folding system, we made a sliding system where the camera can be slide into various positions to adjust for different field of views.  The entire system is designed to fit inside a large Pelican case and can be transported on wheels shown in \ref{fig:pelicancase}.  Only the DR frame and x-ray screen was included in this package because Dr. Gibby was going to provide the rest of the components.  
 
@@ -212,30 +247,6 @@ The second system shown in \ref{fig:DR2} was built in 2012 for Dr. Wendel Gibby,
 
 \subsection{DR results}
 
-\begin{figure}
-\includegraphics[scale=0.3]{DR_breast_film.png}
-\caption{•}
-\label{fig:DR_breast_film}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.3]{DR_breast.png}
-\caption{•}
-\label{fig:DR_breast}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.3]{DR_chest_UA.png}
-\caption{•}
-\label{fig:DR_chest_film}
-\end{figure}
-
-\begin{figure}
-\includegraphics[scale=0.3]{DR_chest.png}
-\caption{•}
-\label{fig:DR_chest}
-\end{figure}
-	
 \section{Prototype Computed Tomography (CT) System}
 The results from the initial DR system was very promising, we were interested in testing different cameras and x-ray screen combination.  In addition we wanted to test the detector system for CT.  So the prototype computed tomography system was built for this reason.  Shown in Figure~\ref{fig:CTsystem}, the CT system frame was built using 80/20 extruded aluminum.  The x-ray tube mounted to a fixed location.  The x-rays generated from the tube will be converted to visible light after they passes through the vertical x-ray phosphor screen (Lanex Gd2O2S:Tb).  The visible light will then be re-directed via a 45 degrees folding mirror.  The camera and lens are mounted on a vertical translation stage to minimize direct x-ray exposure on the camera sensor.  To gather projection images at different angles, objects are place on a rotation stage and rotated about the vertical axis.  Safety measures were taken to minimize accidental x-ray exposures.  All three entrances into the lab were wired with visible warning signs when x-rays are generated.  These entrances were also attached to magnetic on/off switches that will shut off the power to the x-ray tube immediately if any doors were opened while the x-ray was turned on.  A hand held ``deadman's'' switch was also wired into place to ensure the operator must sit behind shielded area at all times while x-ray were generated.  A 36 \inches $\times$ 36 \inches $\times$ 5/8 \inches size lead sheet was placed behind the CT system to prevent direct x-rays from exiting the room.  These components are shown in Figure~\ref{fig:safety}.
 
