@@ -1,4 +1,4 @@
-\chapter{Design and Construction of x-ray imaging systems}
+\chapter{DESIGN AND CONSTRUCTION OF X-RAY IMAGING SYSTEMS}
 \label{chap:design_construction}
 
 \section{Introduction}
@@ -275,49 +275,39 @@ The results from the DR systems were very promising, we were interested in testi
 \label{fig:CTsystem}
 \end{figure}
 
-Many safety measures were taken to minimize accidental x-ray exposure.  All three entrances into the lab were wired with visible warning signs when x-rays are generated.  These entrances were also attached to magnetic on/off switches that will trigger to shut off the power to the x-ray tube immediately if any doors were opened while the x-ray was turned on.  A hand held ``deadman's'' switch was also wired into place behind a shielded area to ensure an operator is present at all times while x-rays were generated. This is an extra step for safety so the operator can monitor the scanning process and to prevent anything bad from happening.  A 36 \inches $\times$ 36 \inches $\times$ 5/8 \inches size lead sheet was placed behind the CT system to prevent direct x-rays from penetrating the room.  Notable safety components are shown in Fig.~\ref{fig:safety}.
+Many safety measures were taken to minimize accidental x-ray exposure.  All three entrances into the lab were wired with visible warning signs when x-rays are generated.  These entrances were also attached to magnetic on/off switches that will trigger to shut off the power to the x-ray tube immediately if any doors were opened while the x-ray was turned on.  A hand held ``deadman's'' switch was also wired into place behind a shielded area to ensure an operator is present at all times while x-rays were generated. This is an extra step for safety so the operator can monitor the scanning process and to prevent anything bad from happening.  A 36 \inches $\times$ 36 \inches $\times$ 5/8 \inches size lead sheet was placed behind the CT system to prevent direct x-rays from penetrating the room.  These safety components are shown in Fig.~\ref{fig:safetycomponents} and Fig.~\ref{fig:leadshield}.
 
 \begin{figure}[h]
-	\centering
 	\begin{subfigure}[b]{0.3\linewidth}
-	\includegraphics[width=1.5in]{Capture_xray_3.png} \\
-	\vspace{0.2cm}
-	\includegraphics[width=1.5in]{Capture_deadswitch.png}
-	\caption{x-ray warning sign}
+	\includegraphics[width=1.5in]{Capture_xray_3.png}
+	\caption{}
 	\label{fig:xraywarningsign}
 	\end{subfigure}
 \hspace{0.2cm}
 	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
 	\includegraphics[width=1.5in]{Capture_interlock_middleDoor.png}
-	\caption{magnetic on/off switch on doors}
+	\caption{}
 	\label{fig:doorinterlock}
-	\end{subfigure}
-\hspace{0.2cm}
+	\end{subfigure}	
+\hspace{0.2cm}	
 	\begin{subfigure}[b]{0.3\linewidth}
-	\centering
-	\includegraphics[width=1.5in]{leadshield.png}
-	\caption{Lead shield}
-	\label{fig:leadshield}
+	\includegraphics[width=1.5in]{Capture_deadswitch.png}
+	\caption{}
+	\label{fig:deadmanswitch}
 	\end{subfigure}
-\caption{Safety mechanisms installed in the CT room}
-\label{fig:safety}
+\caption{Safety mechanisms installed in the x-ray room.~\ref{fig:xraywarningsign}: x-ray warning sign,~\ref{fig:doorinterlock}: magnetic on/off switch on doors,~\ref{fig:deadmanswitch}: ``deadman's'' switch}
+\label{fig:safetycomponents}
 \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
+\begin{figure}[h]
+\centering
+\includegraphics[width=3 in]{leadshield.png}	
+\caption{lead shield for stopping direct x-rays}
+\label{fig:leadshield}
+\end{figure}
 
 \subsection{X-ray source}
-The CT test bench system is equipped with a very powerful research grade x-ray tube from from Fisher Scientific, shown in Figure~\ref{fig:xraytube}.  It can generate x-ray beam up to 130 kV at 0.5 mA and any voltage and current values in between, though operation at low voltage and high current output is not recommended.  The x-ray tube has a very small spot size that varies with output power and operating voltage.  The spot sizes are showing in Table \ref{table:spotsizes}.  Resolution of any x-ray system will ultimately depends on the source size, so smaller spot size allows better resolution of x-ray images produced, though smaller spot size also limits the total current produced by the tube.  This problem can be easily overcome by increasing the exposure time on the camera.  The x-ray tube also has a very wide angular output illumination, with nominal angle at 54 degrees.  This allows us to limit the distance between the x-ray tube and the phosphor screen.
+The CT test bench system is equipped with a very powerful research grade x-ray tube from Fisher Scientific, shown in Figure~\ref{fig:xraytube}.  It can generate x-ray beam up to 130 kV at 0.5 mA and any voltage and current values in between, though operation at low voltage and high current output is not recommended.  The x-ray tube has a very small spot size, and can vary with output power and operating voltage.  The spot sizes are shown in Table~\ref{table:spotsizes}.  Resolution of any x-ray system will ultimately depends on the source size, so smaller spot size allows the x-ray images to have higher resolution, though smaller spot size also limits the total output produced by the x-ray tube.  This problem can be easily overcome by increasing the exposure time on the camera since scan duration is not our top priority.  The x-ray tube also has a very wide angular illumination output, with nominal angle at 54 degrees.  This allows us to limit the distance between the x-ray tube and the phosphor screen.
 
 \begin{figure}
 \begin{floatrow}
@@ -344,35 +334,30 @@ The CT test bench system is equipped with a very powerful research grade x-ray t
 \end{figure}
 
 \subsection{Cameras}
-We had three different cameras at our disposal to test on the CT system, shown in figure~\ref{fig:cameras}.  The Andor Neo, Nikon D700 and the PIXIS 2048B.  The Andor Neo employs a scientific CMOS sensor with rapid frame rates up to 30 fps at full frame.  The Neo camera is capable of operating at -40 $\deg$C using built-in TE coolers.  It came with LabView SDK and a 4GB data acquisition board so we can acquire data bursts at frame rates faster than PC write speed.  The Neo camera was integrated into the CT software in LabView. Currently to stabilize the camera's sensor temperature, we have attached the camera to an external water cooler for long term CT scan routines.  The Andor Neo camera does not have micro lens arrays in front of the detector.  The quantum efficiency is approximately 55 \% at $\mathrm{Gd_220_2S:Tb}$ emission wavelength.
+We have three different cameras at our disposal to test on the CT system, shown in Fig.~\ref{fig:cameras} and Table~\ref{table:cameras}.  These are the Andor Neo, Nikon D700 and the PIXIS 2048B.  The Andor Neo employs a scientific CMOS sensor with rapid frame rates up to 30 fps at full frame.  The Neo camera is capable of operating at -40 $\deg$C using built-in thermoelectric (TE) coolers in air.  The camera is purchased with a LabView software development kit (SDK) and a 4 GB data acquisition board so we can acquire data bursts at frame rates faster than the computer file-write speed.  The Neo camera was integrated into the CT software in LabView.  Currently, the camera's sensor temperature is cooled by attaching an external water cooler for longer CT scan routines.  The Andor Neo camera does not have microlens arrays in front of the detector.  The quantum efficiency is approximately 55\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength.
 
 
-The PIXIS 2048B is a ultra sensitive CCD camera.  It has a large detector and pixel size and can cool down to -60$\deg$C.  It does have low acquisition speed ranging from 100 KHz to 2 MHz.  Its quantum efficiency at $\mathrm{Gd_220_2S:Tb}$'s emission peak is over 95\%. The D700 Nikon camera is a consumer grade DSLR described in the previous section.
+The PIXIS 2048B is a ultra sensitive CCD camera.  It has a large detector and pixel size and can cool down to -60$\deg$C in air.  It has very slow acquisition speed ranging from 100 KHz to 2 MHz.  The quantum efficiency at is approximately is approximate over 95\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength. The D700 Nikon camera was described in the previous section.
 
 \begin{figure}
-\centering
-	\begin{subfigure}[b]{0.3\linewidth}
-	\includegraphics[width = 4cm]{neo_scmos_camera.jpg}
-	\caption{Andor Neo sCMOS}
+	\begin{subfigure}[b]{0.45\linewidth}
+	\centering
+	\includegraphics[width = 4 cm]{neo_scmos_camera.jpg}
+	\caption{}
 	\label{fig:neo}
 	\end{subfigure}
-\hspace{0.2cm}	
-	\begin{subfigure}[b]{0.3\linewidth}
-	\includegraphics[width=4cm]{pixis2048b.jpg}
-	\caption{PIXIS 2048B}
+\hspace{1 cm}	
+	\begin{subfigure}[b]{0.45\linewidth}
+	\centering
+	\includegraphics[width=4 cm]{pixis2048b.jpg}
+	\caption{}
 	\label{fig:pixis}
 	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.3\linewidth}
-	\includegraphics[width=4cm]{d700.jpg}
-	\caption{Nikon D700}
-	\label{fig:nikonD700}
-	\end{subfigure}
-\caption{Cameras used to test the CT system}
+\caption{Cameras used to test the CT system.~\ref{fig:neo}: Andor Neo sCMOS camera,~\ref{fig:pixis}: PIXIS 2048B CCD.}
 \label{fig:cameras}
 \end{figure}
 
-\begin{table}
+\begin{table}[h]
 \begin{tabular}{c|c|c|c}
 \hline
 Camera Model & Pixel Pitch ($\mu$m) & Sensor Size (mm) & Detector Type \\ \hline
@@ -381,12 +366,12 @@ Nikon D700 & 8.5 & 36 $\times$ 24 & CMOS \\ \hline
 PIXIS 2048B & 13.5 & 27.6 $\times$ 27.6 & CCD \\
 \hline
 \end{tabular}
-\caption{Cameras used on the CT system}
+\caption{Cameras for the CT system}
 \label{table:cameras}
 \end{table}
 
 \subsection{Shutter}
-The shutter assembly and aperture system is mounted on the front of the x-ray tube.  It is used to stop the x-ray beam and reduce x-ray exposure to the operator so to prevent the tube being turned on and off repeatedly.  The shutter assembly was originally designed by Dr. Jared Moore for the FaCT system.  The shutter plate has been modified to stop higher energy x-rays.  The shutter assembly is composed of a tungsten epoxy shutter, rotary solenoid, and optical sensor mounted on an aluminum holder, shown in Fig~\ref{fig:shutter}.  The shutter plate is created by Tungsten Heavy Powder \& Parts.
+The shutter assembly is mounted on the front of the x-ray tube. It is used to stop the x-ray beam and to reduce x-ray exposure to the operator and to prevent the tube being turned on and off repeatedly.  The shutter assembly was originally designed by Dr. Jared Moore for the FaCT system.  The shutter plate has been modified to stop higher energy x-rays.  The shutter assembly is composed of a tungsten epoxy shutter, a rotary solenoid, and an optical sensor all mounted to an aluminum holder, shown in Fig.~\ref{fig:shutter}.  The shutter plate was casted by Tungsten Heavy Powder \& Parts.
 
 \begin{figure}
 \centering
@@ -405,21 +390,22 @@ The shutter assembly and aperture system is mounted on the front of the x-ray tu
 \begin{figure}
 \centering
 \includegraphics[width = 6cm]{shutterboard.png}
-\caption{Electronic board for the shutter system}
+\caption{Electronic PCB board for the shutter system}
 \label{fig:shutterboard}
 \end{figure}
 
-The shutter assembly is controlled by an electronics shutter board, shown in figure \ref{fig:shutterboard} that was designed previously by Dr. Lars Furliend.  Please refer to Appendix for detailed drawing and parts list.  The optical sensor is used to double confirm when the shutter is opened.  The shutter board requires a +12 VDC power supply, the trigger is held at +5VDC when the shutter is closed and will open when the trigger signal is set to ground.  The trigger signal for the shutter assembly is controlled via a national instruments USB DAQ module, which is integrated into the CT acquisition software.
+The shutter assembly is controlled by an electronic PCB board and it was designed previously by Dr. Lars Furliend, shown in Fig.~\ref{fig:shutterboard}.  Please refer to Appendix X for detailed drawing and a parts list.  The optical sensor is used as a secondary source to make sure the shutter is fully open.  The PCB board requires a +12 VDC power supply, the trigger is held at +5VDC when the shutter is closed and opens when the trigger signal is set to ground.  The trigger signal for the shutter assembly is controlled via National Instruments USB DAQ module, and it is integrated into the CT acquisition software.
 		
 \subsection{Aperture assembly}
-The aperture assembly is used to shape the x-ray beam so it's projection size is slightly larger than the imaging field of view.  The maximum beam size at the lead shield should never exceed the size of the lead shield (36 \inches $\times$ 36 \inches).  The aperture assembly is constructed using four tungsten copper alloy plates (CW80) purchased from Leading Edge Metals \& Alloys Inc, shown in Fig~\ref{fig:aperture}.  The plate thickness (1/8 \inches) was calculated to ensure very little x-ray penetration up to 120 kV.  Linear translation stages were purchased from Velmex and were used to move individual blades.
+The aperture assembly is used to clip the x-ray beam so it's projection size is slightly larger than the imaging field of view.  The maximum beam size at the lead shield should never exceed the size of the lead shield (36 \inches $\times$ 36 \inches).  The aperture assembly is constructed using four tungsten copper alloy plates (CW80) purchased from Leading Edge Metals \& Alloys Inc, shown in Fig~\ref{fig:aperture}.  The plate thickness (1/8 \inches) was calculated to ensure very little x-ray penetration up to 120 kV.  Linear translation stages were used to move individual tungsten blades.  They were purchased from Velmex Inc.
 
 \begin{figure}
 \centering
-\placeholderimage[width=3cm,height=3cm]{ApertureAssembly.jpg}
+\includegraphics[height=6 cm]{Capture_aperture.png}
 \caption{Aperture assembly}
 \label{fig:aperture}
 \end{figure}
 
 \section{Summary}
-We have described the components that were used to construct both the digital radiography system and the prototype computed tomography system.  For the digital radiography system we have  explained the reasoning behind our camera selection and lens selection, and for the CT system we have shown the major components and the sub assemblies in the system.  We have also shown that the safety features that were employed in the CT system.
+We have described the components that were used to construct both the digital radiography system and the prototype computed tomography system.  For the digital radiography system we have explained the reasoning behind our camera selection and lens selection, and for the CT system we have shown the major components and the sub assemblies in the system.  We have also shown that the safety features that were employed in the CT system.
+We have described the design and construction of two digital radiography system.  We have expl
