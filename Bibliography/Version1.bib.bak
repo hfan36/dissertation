@@ -1103,11 +1103,14 @@
   timestamp = {2014.09.16}
 }
 
-@ARTICLE{,
+@ARTICLE{Magnan2003,
   author = {Magnan, P.},
   title = {Detection of visible photons in {CCD} and {CMOS}: {A} comparative
 	view},
   journal = {Nucl. Instr. Meth. Phys. Res. A},
+  year = {2003},
+  volume = {504},
+  pages = {199-212},
   owner = {Fan},
   timestamp = {2014.10.28}
 }

@@ -53,7 +53,7 @@ We have employed three steps in order to compute all the global calibration and 
 \label{fig:optical_mag}
 \end{figure}
 The optical magnification can be measured simply by placing an item of a known size at the x-ray screen and measure the image size of the object scaled on the sensor.  This can be done under white light.  In practice, a ruler was used as the object. We measured a small section of the ruler's length at the detector along with its tilt, $\theta$, to calculate the optical magnification power, $M$.  The procedure is illustrated in Fig.~\ref{fig:optical_mag}.
-
+\comment{explain how to get error bar on optical magnification?}
 \subsection{Calculate global parameters}
 
 To find the global system parameters we opted to use Lorenz von Smekal's calibration method~\citep{Smekal2004} that derives explicit analytic expressions for a set of fiducial markers.  This method does not require precise knowledge of the marker's spatial location inside the phantom, rather it uses the marker's projection orbit on a misaligned detector for the calculation.  These orbits are first analyzed using low spatial-frequency Fourier components.  The parameters are then calculated based on each individual point markers from the Fourier coefficients by using a series of equations.  The average of the parameters over the set of fiducial markers are used as the final result.  The corresponding standard deviation for each parameter are used as error bars in the estimation.
@@ -223,10 +223,10 @@ The contracting grid algorithm can broken down into five steps:
 \item For each parameter $\theta_i$, create a region of physically reasonable grid size $M_i$.
 \item Use Eq.~\ref{eq:least_square} and calculate the least-squared results of all parameter grid combinations.
 \item Find the set of parameters that generated the lowest least-squared result.
-\item Contract the grid size for each parameter as shown in \red{Fig X}.
+\item Contract the grid size for each parameter
 \item repeat steps 2-4 until the algorithm reaches a preset number of iterations.
 \end{enumerate}
-
+%\comment{ Include parameter grid sizes as a table?}
 For more detailed information regarding the contracting grid search algorithm, please refer to the paper by Jacob Y. Hesterman~\citep{Hesterman2010}.  Through experimentation, we have found that it is more efficient to first obtain a rough estimate of the parameters, $R_f$, $\theta^{obj}_z$, $\theta^{obj}_x$, and $\theta^{obj}_y$ before fully indulge into the contracting-grid algorithm.  A rough estimation of $R_f$ can simply be found by using the vertical separation between the point markers on the projection image ($\Delta z_0$) of a known phantom and applying it to the values $\Delta z_0/R_f$ calculated from the previous section.  $\theta^{obj}_x$ is the initial rotation orientation of the point markers about the $z$-axis, changing this value does not effect the overall projection locations of the point markers but it does greatly contributes to the least-squares sum of the contracting-grid algorithm.  So we tried to approximate its value in order to minimize the search duration later.  Finally the values for $\theta_x^{obj}$ and $\theta_y^{obj}$ are iterated over 360 degrees to get a rough approximation.  
 
 \subsection{Calibration Results}
@@ -239,7 +239,25 @@ Figure~\ref{fig:calibration_plot} shows the projections of the ball bearing from
 \label{fig:calibration_plot}
 \end{figure}
 
-\red{ Need a table for calibration tolerances}
+\begin{center}
+	\begin{table}[ht]\caption{Calibration Results}
+		\begin{tabular}{c | c | r}
+		\hline
+		Parameter &	Value & Standard Deviation \\ \hline \hline
+		$R$ & 1106.3 (mm) & 2.43 (mm)\\ \hline
+		$R_f$ & 900.7 (mm)&  NA \\ \hline
+		$d_x$ & 4.01 (mm)& 0.0028 (mm)\\ \hline
+		$d_z$ & -1.40 (mm)& 0.10 (mm)\\ \hline
+		$\theta_x$ & -0.019 (radians)& 1.0743 (radians)\\ \hline
+		$\theta_y$ & 0.0039 (radians)& 0.0003 (radians)\\ \hline
+		$\theta_z$ & -0.0047 (radians)& 0.0089 (radians)\\ \hline	
+		$M$ & 13.1 & 0.24 \\ \hline
+		\end{tabular}
+	\end{table}
+	\label{table:calibration_result}
+\end{center}
+
+Table~\ref{table:calibration_result} shows the calibration results.  Note that $R_f$ is calculated using contracting-grid algorithm, therefore we cannot measure its standard deviation.  The most important angular measurement is $\theta_y$ because it accounts for the image rotation about the optical axis.  Errors in this parameter can result in sever artifacts in the reconstruction image.  Both $\theta_x$ and $\theta_z$ are less important, in fact these values were assumed to be zero in some calibration methods~\citep{Noo2000, Cho2005, Yang2006}.  
 
 \section{Calibration Phantom}
 The phantom used in the calibration process was designed in SolidWorks and printed using the rapid prototype machine here at CGRI.  The phantom is composed of two separate pieces, a larger bracket that is used to mount to the rotation stage, and a smaller insert where various number of ball bearings and sizes can be attached.  These are shown in Fig.~\ref{fig:calibration_phantom}.
@@ -285,7 +303,7 @@ Upon close inspection, although we can see the ball bearings clearly, the image 
 \item \label{sort:10} Repeat step~\ref{sort:2}-\ref{sort:9} until image cluster size reaches zero.
 \end{enumerate}
 
-The main idea for this method is to assume that points close to each other belong in the same cluster.  This is the reasoning behind step \ref{sort:1} where we needed to sort all points by their coordinate position first.  We reason that after all points are sorted, then if we iteratively go through all points in the main array, all points that are within a cluster should be very close to each other.  We use the center-of-mass point as a reference to determine whether if the next point should be included in the current cluster.  The criteria for this determination is distance.  If the distance between the COM and the next point is close, then we classify the next point as a cluster point, and repeat until we have searched iteratively through all points in the image array, step~\ref{sort:2}-\ref{sort:6}.  Once a cluster is identified, we look through all the points in the array once more to double check and make sure we have not missed any points that should have belonged in this cluster (step~\ref{sort:7}).  Once this cluster is identified, we classify this cluster as either a ball bearing projection cluster, or a background noise cluster based on how many points are in this cluster and the cluster size (step~\ref{sort:8}).  A secondary array maps the points in the image array to the newly identified cluster so these points are not used when the algorithm repeats step~\ref{sort:2}-\ref{sort:9} in search for a new cluster.  Since this method iterates through the main image array twice for each cluster, outwardly it can be a very slow method.  However since we remove all points in the cluster each time a cluster is identified, the method speeds up as more clusters are found.  In fact, once the raw projection image is thresholded (before using this method).  We are left with only approximately 10,000 to 30,000 points, which is very manageable with MATLAB.  In the end this method only takes about 1-2 seconds to identify and calculate the centroid coordinates in each raw calibration image.  The calibration code can be downloaded from my git public repository: \url{https://bitbucket.org/hxfan/matlab_calc}.
+The main idea for this method is to assume that points close to each other belong in the same cluster.  This is the reasoning behind step \ref{sort:1} where we needed to sort all points by their coordinate position first.  We reason that after all points are sorted, then if we iteratively go through all points in the main array, all points that are within a cluster should be very close to each other.  We use the center-of-mass point as a reference to determine whether if the next point should be included in the current cluster.  The criteria for this determination is distance.  If the distance between the COM and the next point is close, then we classify the next point as a cluster point, and repeat until we have searched iteratively through all points in the image array, step~\ref{sort:2}-\ref{sort:6}.  Once a cluster is identified, we look through all the points in the array once more to double check and make sure we have not missed any points that should have belonged in this cluster (step~\ref{sort:7}).  Once this cluster is identified, we classify this cluster as either a ball bearing projection cluster, or a background noise cluster based on how many points are in this cluster and the cluster size (step~\ref{sort:8}).  A secondary array maps the points in the image array to the newly identified cluster so these points are not used when the algorithm repeats step~\ref{sort:2}-\ref{sort:9} in search for a new cluster.  Since this method iterates through the main image array twice for each cluster, outwardly it can be a very slow method.  However since we remove all points in the cluster each time a cluster is identified, the method speeds up as more clusters are found.  In fact, once the raw projection image is thresholded (before using this method).  We are left with only approximately 10,000 to 30,000 points, which is very manageable with MATLAB.  In the end this method only takes about 1-2 seconds to identify and calculate the centroid coordinates in each raw calibration image.  The calibration code can be downloaded from my git public repository: \hyperref[]{\url{https://bitbucket.org/hxfan/matlab_calc}}.
 
 Figure~\ref{fig:clustering_algorithm} provides a graphical description of the clustering algorithm we have described in this section.  In this figure, each point represent a point from the projection image after thresholding.  The number above each point represents their rank order after the points are sorted by the coordinate position (y coordinate).  The center-of-mass point is used as a reference to find the next cluster point, and it is re-calculated after the next cluster point is identified.  Shown in the figure, once the 6th cluster point is identified, the distance between the center-of-mass point and point 7 exceeds $R_{point \; cluster}$, therefore point 7 and 8 does not belong to cluster 1 and will not be used to calculate the next center-of-mass point.  Also shown is the center-of-mass point after point 24 is identified. The distance $d_3$ between center-of-mass point and point 25 exceeds $R_{point \; cluster}$ therefore point 25 is also ruled out and does not belong to cluster 1.  Cluster 2 includes point 7, 8, 13, and 14 however this cluster is too small so it is classified as noise cluster.  Point 25 is by itself therefore ruled out as belonging to any cluster.  Cluster 1 and cluster 3 are classified as ball bearing projection clusters with corresponding centroid positions.
 
@@ -297,7 +315,6 @@ Figure~\ref{fig:clustering_algorithm} provides a graphical description of the cl
 \end{figure}
 
 \comment{ Should I provide an example using real calibration image? }
-
 
 \section{Summary}
 In this chapter we have described the calibration method for the prototype CT system.  We begin by providing an overview of some of the existing methods for calibrating bench-top x-ray CT systems.  Then we followed by defining the geometry of the system and describing the steps that were taken to extrapolate all 14 parameters of the system.  The final result of the system parameters are shown in section~\ref{subsect:cali_results}.  The last two sections of this chapter were dedicated to describing the physical calibration phantom and the algorithm that were used to extract the ball bearing projection points from raw calibration images.  
