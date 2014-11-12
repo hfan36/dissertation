@@ -319,6 +319,18 @@
   Timestamp                = {2014.09.09}
 }
 
+@Article{Chen2003,
+  Title                    = {A new framework of image reconstrution from fan beam pprojections},
+  Author                   = {Chen, G. H.},
+  Journal                  = {Med. Phys.},
+  Year                     = {2003},
+  Pages                    = {1151-1161},
+  Volume                   = {30},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.11.11}
+}
+
 @Article{Chen1992,
   Title                    = {A theoretical framework of regional cone-beam tomography},
   Author                   = {Chen, J.},
@@ -844,6 +856,18 @@
   Timestamp                = {2014.03.28}
 }
 
+@Article{Hu1996,
+  Title                    = {An improved cone-beam reconstruction algorithm for the circular orbit},
+  Author                   = {Hu, H.},
+  Journal                  = {Scanning},
+  Year                     = {1996},
+  Pages                    = {572-581},
+  Volume                   = {18},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.11.11}
+}
+
 @Article{hunt5030,
   Title                    = {Imaging performance of an amorphous selenium flat-panel detector for digital fluoroscopy},
   Author                   = {Hunt, D. C. and Tousignant, O. and Demers, Y. and Laperriere, L. and Rowlands, J. A.},
@@ -869,6 +893,16 @@
   Publisher                = {Pergamon Press, New York},
   Timestamp                = {2012.11.13},
   Volume                   = {19}
+}
+
+@TechReport{Impact2002,
+  Title                    = {{F}our {S}lice {CT} {S}canner {C}omparison {R}eport},
+  Author                   = {ImPACT},
+  Institution              = {Imaging Performance Assessment of {CT} Scanners},
+  Year                     = {2002},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.11.11}
 }
 
 @InBook{springer2007,
@@ -969,7 +1003,7 @@
   Timestamp                = {2014.09.15}
 }
 
-@Article{Katsevich2002,
+@Article{Katsevich2004,
   Title                    = {Improved exact {FBP} algorithm for spiral {CT}},
   Author                   = {Katsevich, A.},
   Journal                  = {Adv. Appl. Math},
@@ -1069,6 +1103,7 @@
   Author                   = {Kudo, H. and Saito, T},
   Journal                  = {IEEE Nucl. Sci. Symp. Med. Imaging Conf.},
   Year                     = {1994},
+  Pages                    = {1710-1714},
 
   Owner                    = {Ryan-Helen},
   Timestamp                = {2014.11.10}
@@ -1266,6 +1301,18 @@
   Organization             = {National Electrical Manufacturers Association},
   Owner                    = {Helen_Fan},
   Timestamp                = {2012.10.30}
+}
+
+@Article{Nett2007,
+  Title                    = {Arc-based cone-beam reconstruction algorithm using an equal weighting scheme},
+  Author                   = {Nett, B. C. and Zhuang T. L. and Leng, S. and Chen, G. H.},
+  Journal                  = {J. X-ray. Sci. Tech.},
+  Year                     = {2007},
+  Pages                    = {19-48},
+  Volume                   = {15},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.11.11}
 }
 
 @Article{Nikl2006,
@@ -1799,6 +1846,20 @@
   Timestamp                = {2014.11.10}
 }
 
+@InCollection{Ulzheimer2009,
+  Title                    = {Multislice CT: Current Technology and Future Developments},
+  Author                   = {Ulzheimer, S. and Flohr, T.},
+  Booktitle                = {Multislice CT},
+  Publisher                = {Springer Berlin Heidelberg},
+  Year                     = {2009},
+  Editor                   = {Reiser, M. F. and Becker, C. R. and Nikolaou, K. and Glazer, G.},
+  Pages                    = {3-23},
+  Series                   = {Medical Radiology},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.11.11}
+}
+
 @TechReport{UNSCEAR2010,
   Title                    = {{UNSCEAR} 2010 {R}eport: {S}ummary of low-dose radiation effects on health},
   Author                   = {UNSCEAR},
@@ -1890,6 +1951,18 @@
 
   Owner                    = {Ryan-Helen},
   Timestamp                = {2014.03.28}
+}
+
+@Article{Wang1993,
+  Title                    = {A general cone-beam reconstruction algorithm},
+  Author                   = {Wang, G. and Lin, T. H. and Cheng, P. and Shinozaki D. M.},
+  Journal                  = {IEEE Trans. Med. Imag.},
+  Year                     = {1993},
+  Pages                    = {486-496},
+  Volume                   = {12},
+
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.11.11}
 }
 
 @Article{Wang2008,
@@ -1993,7 +2066,7 @@
 }
 
 @Article{Zeng2004,
-  Title                    = {Review of recent ddevelopment in cone-beam {CT} reconstruction aalgorithm for long-object problem},
+  Title                    = {Review of recent development in cone-beam {CT} reconstruction aalgorithm for long-object problem},
   Author                   = {Zeng, K. and Chen, Z.},
   Journal                  = {Image Anal. Stereol.},
   Year                     = {2004},
@@ -2046,6 +2119,11 @@
 
   Owner                    = {Fan},
   Timestamp                = {2014.10.28}
+}
+
+@Article{,
+  Owner                    = {Ryan-Helen},
+  Timestamp                = {2014.11.11}
 }
 
 @comment{jabref-meta: selector_review:}
