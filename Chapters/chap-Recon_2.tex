@@ -82,24 +82,29 @@ Iterative reconstruction techniques try to solve for the object using projection
 From a historical perspective, the very first reconstructed CT image was created using the algebraic iterative reconstruction (ART) method where the method tries find the object by solving a series of linear equations, $\mathrm{A\,\mathbf{x} = \mathbf{b}}$.  In terms of image reconstruction $\mathrm{\mathbf{x}}$ are the object voxels that need to be reconstructed, $\mathrm{A}$ is the system matrix used for producing the raw data and $\mathrm{\mathbf{b}}$ are the pixels of the measured raw data.  The entries of the matrix $\mathrm{A}$ correspond to x-rays from the source through the object volume to the detector pixels.  Solving for the object voxels involves inverting the large matrix A.  Starting from ART, there evolved a series of algorithms that would try to converge to the solution faster, reduce noise, reduce problems with streak artifacts, but in general all ART-based methods are non-statistical and model the geometry of the acquisition process better than common analytical methods based on FBP.  Therefore ART-based methods can better deal with sparse data and an irregular sampling of acquisition positions\citep{Beister2012}.
 
 \subsection{Statistical Iterative reconstruction techniques}
-Statistical iterative reconstruction techniques has been used extensively in single photon emission tomography (SPECT) and positron emission tomography (PET) where low photon rates and noise are major issues.  Since the increase in public awareness of CT radiation and a need to reduce the risks associated with radiation, transitioning to statistical iterative reconstruction techniques has the potential of lowering radiation dose while suppressing image noise from low-dose scan techniques.  Therefore, it is crucial that the mathematical model of the CT image system is accurate for the success of the reconstruction algorithm to ensure modeling errors are suppressed and does not grow and form artifacts in the iterative process.  There are two types of models that are typically use in the iterative reconstruction algorithm, a physical model that involves the geometry of the system and a statistical model that tries to formulate the noise within the imaging system.
+Statistical iterative reconstruction techniques has been used extensively in single photon emission tomography (SPECT) and positron emission tomography (PET) where low photon rates and noise are major issues.  Since the increase in public awareness of CT radiation and a need to reduce the risks associated with radiation, transitioning to statistical iterative reconstruction techniques has the potential of lowering radiation dose while suppressing image noise from low-dose scan techniques.  Therefore, it is crucial that the mathematical model of the CT image system is accurate for the success of the reconstruction algorithm to ensure modeling errors are suppressed and does not grow and form artifacts in the iterative process.  There are two types of models that are typically use in iterative reconstruction algorithms, a physical model that involves the geometry of the system and a statistical model that tries to formulate the noise within the imaging system.
 
-Unlike analytical reconstruction where numerous physical assumptions were used to make the mathematics manageable.  For example, the size of the x-ray focal spot is assumed to be infinitely small, the shape and dimension of each detector cell are ignored, and all x-ray photon interactions are assumed to take place at a point located at the geometric center of the detector cell.  Iterative reconstruction requires no prior assumptions about the geometry of the system.  Iterative reconstruction allows for better modeling of the image forming process and can account for any physical process limited by the computational power of the current computer.  For example, a commonly used model is to cast multiple pencil rays through the x-ray focal spot, image voxel, and the detector pixel to mimic different x-ray photon paths going through the object and the summation of the rays on each detector are used to approximate the CT image forming system. Needless to say, this method is extremely time consuming.  Another commonly used approach is to model the "shadow" cast by each image voxel onto the detector and rely on the point-response function to model the forward projection process of the CT system, where the response function is non-stationary and changes with the voxel location to account for different magnifications and orientations.  Comparatively, this method is computationally more efficient.  Shown in Fig~\ref{fig:physical_modeling}.
+The physical model of the CT system can account for any physical process and is only limited by the computational power of the processing computer.  Unlike analytical reconstruction techniques where numerous physical assumptions were made to allow for the mathematics to be manageable, where the size of the x-ray focal spot is assumed to be infinitely small; the shape and dimension of the detector cells were ignored; and all x-ray photon interactions were assumed to take place at the center of the detector cell.
 
-
+Unlike the analytical reconstruction techniques where numerous physical assumptions has to be made to allow for the mathematics to be more manageable, physical models used by the iterative algorithm can account for any physical process and is only limited by the computational power of the processing computer.  For example, analytical solution usually assume that the x-ray focal spot is infinitely small; the shape and dimension of the detector cells are ignored and all x-ray photon interactions were assumed to take place at the center of the detector cells.  Iterative reconstruction requires no prior assumption about the geometry of the system.  For example, a commonly used model is to cast multiple pencil rays through the x-ray focal spot, image voxel, and the detector pixel to mimic different x-ray photon paths through the object.  The summation of the rays on each detector are used to approximate the CT image system. Needless to say, this method is extremely time consuming.  Another commonly used approach is to model the "shadow" casted by each image voxel onto the detector and rely on the point-response function to model the forward projection process of the CT system, where the response function is non-stationary and changes with the voxel location to account for different magnifications and orientations.  Comparatively, this method is computationally more efficient.  These two models are shown in Fig~\ref{fig:physical_modeling}.
+%\begin{figure}
+%
+%	\begin{subfigure}[b]{0.4\linewidth}
+%
+%	\includegraphics[width = 7cm]{pencil_beam_model.png}	
+%	\end{subfigure}
+%\hspace{0.2cm}
+%	\begin{subfigure}[b]{0.4\linewidth}
+%
+%	\includegraphics[width = 7cm]{psf_model.png}
+%	\end{subfigure}
+%\caption{examples of physical modeling in Hsieh's paper}
+%\label{fig:physical_modeling}
+%\end{figure}
 
 \begin{figure}
-
-	\begin{subfigure}[b]{0.4\linewidth}
-
-	\includegraphics[width = 7cm]{pencil_beam_model.png}	
-	\end{subfigure}
-\hspace{0.2cm}
-	\begin{subfigure}[b]{0.4\linewidth}
-
-	\includegraphics[width = 7cm]{psf_model.png}
-	\end{subfigure}
-\caption{examples of physical modeling in Hsieh's paper}
+\includegraphics[scale=1]{ct_IR_model}
+\caption{Common physical models for the iterative reconstruction algorithm. (a) The pencil beam model (b) The PSF model.}
 \label{fig:physical_modeling}
 \end{figure}
 
