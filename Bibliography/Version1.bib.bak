@@ -280,7 +280,7 @@
 }
 
 @ARTICLE{Bunch1987,
-  author = {Bunch, P. C. an d Huff, K. E. and Van Metter, R.},
+  author = {Bunch, P. C. and Huff, K. E. and Van Metter, R.},
   title = {Analysis of the detective quantum efficiency of a radiographic screen-film
 	combination},
   journal = {J. Opt. Soc. Am. A},
@@ -1812,7 +1812,7 @@
   timestamp = {2014.11.13}
 }
 
-@ARTICLE{Tang2006b,
+@ARTICLE{Tang2006a,
   author = {Tang, X. Y. and Hsieh, J. and Nilsen, R. A. and McOlash, S. M.},
   title = {Extending three-dimensional weighted cone beam  filtered backprojection
 	({CB-FBP}) algorithm for image reconstruction in volumetric {CT}

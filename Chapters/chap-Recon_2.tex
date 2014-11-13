@@ -34,51 +34,59 @@ The second type and the most widely used scanning method is the helical/spiral g
 \end{figure}
 
 Methods of solving for exact cone beam image reconstruction have been independently reported by Tuy, Smith, and Grangeat as early as 1983~\citep{Tuy1983, Smith1985, Grangeat1991}.  The requirements in all of these algorithms is that the object must be completely covered by the detector from all view angles.  However, objects in medicine and many industrial inspections are very long, which will require a very large area detector to cover the entire length of the object.  Not to mention, in most of these objects, only a smaller section is of interest.  The problem of solving for a smaller ROI without scanning the entire object is extremely challenging.  Intuitively, we need to collect all the x-ray paths that penetrates the ROI for reconstruction.  However parts of these x-ray beams are ``corrupted'' by other parts of the objects, so they no longer represent the ROI exclusively.  We can try to solve the ``corrupted'' parts of the x-ray paths but they are often missing because the detector was not large enough to collect all the information.  This problem is known as data truncation, or missing data.  Method of solving the exact solution to a long object problem with a ROI was proposed by Tam in 1998 using a spiral-and-two-sircle scan path for ROI imaging~\citep{Tam1998}, shown in Fig.~\ref{fig:tam_circle}.  Unfortunately it is not entire trivial to merge the truncated data from multiple helical turns,  which would also increase radiation dose and scan time.  This problem was not solved until early 2002 by Katsevich's breakthrough~\citep{Katsevich2002SIAM, Katsevich2003, Katsevich2004}.
+%
+%\begin{figure}[h]
+%	\begin{subfigure}[b]{0.2\linewidth}
+%		\includegraphics[scale=0.7]{circle-plus-line.eps}
+%		\caption{}
+%		\label{fig:circle-line}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.2\linewidth}
+%		\includegraphics[scale=0.7]{circle-plus-arc.eps}
+%		\caption{}
+%		\label{fig:circle-arc}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.2\linewidth}
+%		\includegraphics[scale=0.7]{dual-circle.eps}
+%		\caption{}
+%		\label{fig:dual-circle}
+%	\end{subfigure}
+%	\begin{subfigure}[b]{0.2\linewidth}
+%		\includegraphics[scale=0.7]{saddle.eps}
+%		\caption{}
+%		\label{fig:saddle}
+%	\end{subfigure}
+%\caption{Different scanning trajectories for complete sampling. \ref{fig:circle-line}: circle-plus-line, \ref{fig:circle-arc}: circle-plus-arc, %\ref{fig:dual-circle}: dual circle, and \ref{fig:saddle}: saddle}
+%\label{fig:scanning_trajectories}
+%\end{figure}
 
 \begin{figure}[h]
-	\begin{subfigure}[b]{0.2\linewidth}
-		\includegraphics[scale=0.7]{circle-plus-line.eps}
-		\caption{}
-		\label{fig:circle-line}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.2\linewidth}
-		\includegraphics[scale=0.7]{circle-plus-arc.eps}
-		\caption{}
-		\label{fig:circle-arc}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.2\linewidth}
-		\includegraphics[scale=0.7]{dual-circle.eps}
-		\caption{}
-		\label{fig:dual-circle}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.2\linewidth}
-		\includegraphics[scale=0.7]{saddle.eps}
-		\caption{}
-		\label{fig:saddle}
-	\end{subfigure}
-\caption{Different scanning trajectories for complete sampling. \ref{fig:circle-line}: circle-plus-line, \ref{fig:circle-arc}: circle-plus-arc, \ref{fig:dual-circle}: dual circle, and \ref{fig:saddle}: saddle}
+\includegraphics[scale=1]{scanning_trajectories}
+\caption{Different scanning trajectories for complete sampling. (a) circle-plus-line (b) circle-plus-arc (c) dual circles (d) saddle}
 \label{fig:scanning_trajectories}
 \end{figure}
 
 Since Katsevich's invention, various sophisticated formulas have been proposed and developed for exact reconstruction using longitudinally and transversely truncated projection data, and for various scanning geometries shown in Fig.~\ref{fig:scanning_trajectories}.  However, although these algorithms are highly sophisticated and novel, they are computationally expensive compared to the popular FBP algorithms not mention difficult to build in hardware.  Currently, most CT manufacturers still use the approximate cone-beam reconstruction algorithms instead of exact cone-beam reconstruction algorithms for two reasons.  First, the data requirements for exact reconstruction are still too difficult due to physical constraints.  Secondly, often times the approximate algorithms already provide very good sometimes even better performance compared to the exact reconstruction method, which may not have the best noise characteristics~\citep{Wang2008}.  It will be interesting to see when exact algorithm will over take approximate algorithm in the future.
 
 \subsection{Iterative Reconstruction Techniques}
-Iterative reconstruction techniques try to solve for the object using projection images in an iterative fashion, where the solution to the object at the current iteration will be used for the next iteration.  All iterative reconstruction methods consist of three major steps which are repeated iteratively until a final solution is reached.  First, a forward projection of the object create an estimate of the raw data.  Second the estimated raw data and the real measured data are compared and a correction term is calculated.  Third, the correction term is back projected onto the object to create a new estimate of the object.  This process is repeated until either a fixed umber of iteration is reached or the object estimation reaches a predefined criterion, shown in \ref{fig:generalIR}
+Iterative reconstruction techniques try to solve for the object using projection images in an iterative fashion, where the solution to the object at the current iteration will be used for the next iteration.  All iterative reconstruction methods consist of three major steps which are repeated iteratively until a final solution is reached.  First, a forward projection of the object creates an estimate of the raw data.  Second, the estimated raw data and the real measured data are compared and a correction term is calculated.  Third, the correction term is back projected onto the object to create a new estimate of the object.  Shown in Fig.~\ref{fig:generalIR}, this process is repeated until either a fixed umber of iteration is reached or the object estimation reaches a predefined criterion.
 
 \begin{figure}
 \centering
-\includegraphics[width = 10cm]{iterative_recon_process.png}
-\caption{general process of iterative algorithm, Beister paper}
+\includegraphics[width = 13cm]{iterative_recon_process.png}
+\caption{The general process of iterative algorithm~\citep{Beister2012}.}
 \label{fig:generalIR}
 \end{figure}
 
 \subsection{Algebraic Iterative reconstruction techniques}
-From a historical perspective, the very first reconstructed CT image was created using the algebraic iterative reconstruction (ART) method where it tries find the object by solving a series of linear equations Ax = b, where in terms of image reconstruction x are the voxels of the volume to be reconstructed, A is the system matrix used for producing the raw data and b are the pixels of the measured raw data.  The entries of the matrix A correspond to rays from the x-ray source through the object volume to the detector pixels.  Starting from ART, there evolved a series of algorithms that would try to converge faster, reduce noise, reduce problems with streak artifacts, but in general all ART-based methods are non-statistical and model the geometry of the acquisition process better than common analytical methods based on FBP.  Therefore ART-based methods can better deal with sparse data and an irregular sampling of acquisition positions\citep{Beister2012}.
+From a historical perspective, the very first reconstructed CT image was created using the algebraic iterative reconstruction (ART) method where the method tries find the object by solving a series of linear equations, $\mathrm{A\,\mathbf{x} = \mathbf{b}}$.  In terms of image reconstruction $\mathrm{\mathbf{x}}$ are the object voxels that need to be reconstructed, $\mathrm{A}$ is the system matrix used for producing the raw data and $\mathrm{\mathbf{b}}$ are the pixels of the measured raw data.  The entries of the matrix $\mathrm{A}$ correspond to x-rays from the source through the object volume to the detector pixels.  Solving for the object voxels involves inverting the large matrix A.  Starting from ART, there evolved a series of algorithms that would try to converge to the solution faster, reduce noise, reduce problems with streak artifacts, but in general all ART-based methods are non-statistical and model the geometry of the acquisition process better than common analytical methods based on FBP.  Therefore ART-based methods can better deal with sparse data and an irregular sampling of acquisition positions\citep{Beister2012}.
 
 \subsection{Statistical Iterative reconstruction techniques}
-Statistical iterative reconstruction techniques has been used extensively in single photon emission computed tomography (SPECT) and positron emission tomography (PET) to where low photon rates and noise are major issues.  With the increase of public awareness of CT-induced radiation, and the need to reduce the associated risks. Transition of statistical IR to CT carries high promises of lowering radiation dose while suppressing noise for low-dose clinical protocols and techniques.  However, accurate modeling is necessary to ensure that modeling errors do not grow during the iterative convergence process that would form artifacts in the reconstructed images.  There are two parts when it comes to modeling the CT system, the physical model that involves the geometry of the system and the statistical model that involves the detector noise of the system.  
+Statistical iterative reconstruction techniques has been used extensively in single photon emission tomography (SPECT) and positron emission tomography (PET) where low photon rates and noise are major issues.  Since the increase in public awareness of CT radiation and a need to reduce the risks associated with radiation, transitioning to statistical iterative reconstruction techniques has the potential of lowering radiation dose while suppressing image noise from low-dose scan techniques.  Therefore, it is crucial that the mathematical model of the CT image system is accurate for the success of the reconstruction algorithm to ensure modeling errors are suppressed and does not grow and form artifacts in the iterative process.  There are two types of models that are typically use in the iterative reconstruction algorithm, a physical model that involves the geometry of the system and a statistical model that tries to formulate the noise within the imaging system.
 
-Unlike analytical reconstruction where numerous physical assumptions were used to make the mathematics manageable.  For example, the size of the x-ray focal spot is assumed to be infinitely small, the shape and dimension of each detector cell are ignored, and all x-ray photon interactions are assumed to take place at a point located at the geometric center of the detector cell.  Iterative reconstruction requires no prior assumptions about the geometry of the system.  Iterative reconstruction allows for better modeling of the image forming process and can account for any physical process limited by the computational power of the current computer.  For example, a commonly used model is to cast multiple pencil rays through the x-ray focal spot, image voxel, and the detector pixel to mimic different x-ray photon paths going through the object and the summation of the rays on each detector are used to approximate the CT image forming system. Needless to say, this method is extremely time consuming.  Another commonly used approach is to model the "shadow" cast by each image voxel onto the detector and rely on the point-response function to model the forward projection process of the CT system, where the response function is non-stationary and changes with the voxel location to account for different magnifications and orientations.  Comparatively, this method is computationally more efficient.  Shown in figure \ref{fig:physical_modeling}.
+Unlike analytical reconstruction where numerous physical assumptions were used to make the mathematics manageable.  For example, the size of the x-ray focal spot is assumed to be infinitely small, the shape and dimension of each detector cell are ignored, and all x-ray photon interactions are assumed to take place at a point located at the geometric center of the detector cell.  Iterative reconstruction requires no prior assumptions about the geometry of the system.  Iterative reconstruction allows for better modeling of the image forming process and can account for any physical process limited by the computational power of the current computer.  For example, a commonly used model is to cast multiple pencil rays through the x-ray focal spot, image voxel, and the detector pixel to mimic different x-ray photon paths going through the object and the summation of the rays on each detector are used to approximate the CT image forming system. Needless to say, this method is extremely time consuming.  Another commonly used approach is to model the "shadow" cast by each image voxel onto the detector and rely on the point-response function to model the forward projection process of the CT system, where the response function is non-stationary and changes with the voxel location to account for different magnifications and orientations.  Comparatively, this method is computationally more efficient.  Shown in Fig~\ref{fig:physical_modeling}.
+
+
 
 \begin{figure}
 
@@ -100,7 +108,7 @@ The statistical model or the noise model tries to incorporate the statistics of 
 Once both the geometry and the noise of CT system are properly modeled, a cost function is need to be chosen.  The iterative process is used to search for the minimum of the cost function and the solution that minimizes the cost function is the reconstructed object.  This cost function, sometimes called an objective functional, typically consist of two components, a data agreement part tries to see the difference between the experimental data and the object that generated the data based on the model, and a regularizing term sometimes called a penalty function that depends only on the object and serves as a prior such as positivity.  If the functional is strictly convex, then the minimum is unique and all algorithms should obtain the same image if run to convergence.  The only issues are then which algorithm will find the minimum most efficiently and with the least computing resources.  In practice, however, iterative algorithms may not be run to convergence, and the resulting image depends on the algorithm, the initial estimate and the stopping rule.
 
 \section{Maximum Likelihood Expectation Maximization (MLEM) }
-In this project, we used the Maximum Likelihood Expectation Maximization algorithm for the reconstruction process without any regularization function.  The MLEM algorithm is shown in equation \ref{eq:MLEM} \citep{EmissionTom2004}, where $g$ is the projection image data vector, $H$ is the imaging matrix that relates the object voxels to image pixels, and $f$ is the object vector.  Note that this equation assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model. 
+In this project, we used the Maximum Likelihood Expectation Maximization algorithm for the reconstruction process without any regularization functions.  The MLEM algorithm is shown in equation \ref{eq:MLEM} \citep{EmissionTom2004}, where $g$ is the projection image data vector, $H$ is the imaging matrix that relates the object voxels to image pixels, and $f$ is the object vector.  Note that this equation assumes that the detector pixels are identical and independently distributed, and each detector pixel follows a Gaussian noise model. 
 \begin{equation}
 \hat{f}^{(n+1)}_{j} = \frac{\hat{f}^{(n)}_j}{{\sum\limits_{i'}} h_{i'j}} \; 
 						\sum\limits_{i} h_{ij} \, \frac{g_{i}}{\sum\limits_{k} h_{ik} \hat{f}_{k}^{(n)}}
