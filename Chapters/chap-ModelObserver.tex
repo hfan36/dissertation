@@ -135,32 +135,42 @@ The Hotelling observer implements the optimal linear discriminant. The correlati
 
 \begin{figure}[ht]
 	\begin{subfigure}[b]{0.3\linewidth}
-		\label{fig:varyN0}
 		\includegraphics[scale=0.8]{varyN0}
+		\caption{}
+		\label{fig:varyN0}
 	\end{subfigure}
 	\hspace{0.2cm}
 	\begin{subfigure}[b]{0.3\linewidth}
-		\label{fig:varySigma}
 		\includegraphics[scale=0.8]{varySigma}
+		\caption{}
+		\label{fig:varySigma}
 	\end{subfigure}
-	\hspace{0.2cm}
+	\hspace{0.2cm}	
 	\begin{subfigure}[b]{0.3\linewidth}
-		\label{fig:varykbar}
 		\includegraphics[scale=0.8]{varykbar}
+		\caption{}
+		\label{fig:varykbar}
 	\end{subfigure}
-	
 	\begin{subfigure}[b]{0.3\linewidth}
-		\label{fig:varyPixel}
 		\includegraphics[scale=0.8]{varyPixel}
-	\end{subfigure}
-	\hspace{0.2cm}
+		\caption{}
+		\label{fig:varyPixel}
+	\end{subfigure}	
+	\hspace{0.2cm}	
 	\begin{subfigure}[b]{0.3\linewidth}
-		\label{fig:varyBG}
 		\includegraphics[scale=0.8]{varyBG}
+		\caption{}
+		\label{fig:varyBG}
 	\end{subfigure}
-\caption{Contrast-Detail diagram for SNR = 2 using a detector with $816 \times 816$ pixels for $\eta = 1$ and $\sigma_{read} = 2$.  \ref{fig:varyN0}: $\bar{k} = 2$, and $\sigma_{read} = 2$ when $\overline{N}_0 = $10, 50 and 100.  \ref{fig:varySigma} $\bar{k} = 2$, and $\overline{N}_0 = 50$ when $ \sigma_{read} = $1, 2 and 5.  \ref{fig:varykbar} $\bar{N}_0 = 50$ and $\sigma_{read} = 2$ when $\bar{k} = $1, 2, 5 and 16.  \ref{fig:varyPixel} using 4 detectors with $816 \times 816$ pixels, $612 \times 612$ pixels, $408 \times 408$ pixels, and $306 \times 306$ pixels when $\sigma_{read} = 2$, $\overline{N}_0 =$ 50 photons/0.01 mm$^2$, and $\bar{k} = 2$. \ref{fig:varyBG} CD diagram for lumpy background and uniform background when $\overline{N}_0 =$ 50, $\sigma_{read} = $1, and $\bar{k} = $2}
+\caption{Contrast-Detail diagram for SNR = 2 using a detector with $816 \times 816$ pixels for $\eta = 1$ and $\sigma_{read} = 2$.  (a): $\bar{k} = 2$, and $\sigma_{read} = 2$ when $\overline{N}_0 = $10, 50 and 100.  (b): $\bar{k} = 2$, and $\overline{N}_0 = 50$ when $ \sigma_{read} = $1, 2 and 5.  (c): $\bar{N}_0 = 50$ and $\sigma_{read} = 2$ when $\bar{k} = $1, 2, 5 and 16.  (d): using 4 detectors with $816 \times 816$ pixels, $612 \times 612$ pixels, $408 \times 408$ pixels, and $306 \times 306$ pixels when $\sigma_{read} = 2$, $\overline{N}_0 =$ 50 photons/0.01 mm$^2$, and $\bar{k} = 2$. (e): CD diagram for lumpy background and uniform background when $\overline{N}_0 =$ 50, $\sigma_{read} = $1, and $\bar{k} = $2}
 \label{fig:CD} 
 \end{figure}
+
+%\begin{figure}
+%\includegraphics[scale=1]{CD-diagrams.eps}
+%\caption{Contrast-Detail diagram for SNR = 2 using a detector with $816 \times 816$ pixels for $\eta = 1$ and $\sigma_{read} = 2$.  (a): $\bar{k} = 2$, and $\sigma_{read} = 2$ when $\overline{N}_0 = $10, 50 and 100.  (b): $\bar{k} = 2$, and $\overline{N}_0 = 50$ when $ \sigma_{read} = $1, 2 and 5.  (c): $\bar{N}_0 = 50$ and $\sigma_{read} = 2$ when $\bar{k} = $1, 2, 5 and 16.  (d): using 4 detectors with $816 \times 816$ pixels, $612 \times 612$ pixels, $408 \times 408$ pixels, and $306 \times 306$ pixels when $\sigma_{read} = 2$, $\overline{N}_0 =$ 50 photons/0.01 mm$^2$, and $\bar{k} = 2$. (e): CD diagram for lumpy background and uniform background when $\overline{N}_0 =$ 50, $\sigma_{read} = $1, and $\bar{k} = $2}
+%\label{fig:CD} 
+%\end{figure}
 
 \noindent
 There is a linear relationship between the contrast of the signal at the detector and the SNR so a contrast-detail diagram can be calculated for a fixed SNR value.  The variables considered here are $\bar{k}$, $\overline{N}_0$, $\sigma_{read}$, the number of pixels in the detector, and the type of background (i.e. uniform vs. random).  Figure~\ref{fig:CD} shows the relationship between the variables considered in this study.  The contrast vs. detail diagrams were displayed in log-log scale to show that for a fixed SNR value, the contrast required to detect the signal increases exponentially as the signal size decreases.  As expected, $\overline{N}_0$, $\sigma_{read}$, and $\bar{k}$ are big factors that contributes to the performance of the detector shown in Fig.~\ref{fig:varyN0}~\ref{fig: varySigma}~\ref{fig:varykbar}.  The figures showed that an increase in  $\overline{N}_0$ and $\bar{k}$ provided better detector performance while $\sigma_{read}$ decreased performance.  Figure~\ref{fig:varyPixel} showed that for a fixed incident $\overline{N}_0$ per detector area, the performance decreased slightly with increased number of detector pixels.  Note that for all of the results, we did not see a point where the slope of the contrast-detail diagram transitioned from linear slope to asymptotic slope. According to Wagner and Brown~\citep{Wagner1979} this transition should occur when the signal size is near the spatial resolution limit of the detector.  We did not observer a significant change in the slope when signal sizes reached the detector pixel size.  A similar pattern was also noticed in Sain's~\citep{Sain2003} modular gamma camera experiment where the channelized Hotelling observer was also employed with Laguerre-Gauss templates.  Further evaluations are needed to verify this anomaly.

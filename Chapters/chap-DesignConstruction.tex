@@ -30,7 +30,7 @@ A 24 mm $\times$ 36 mm sensor operated at 12:1 demagnification will allow the im
 		\caption{}
 		\label{fig:foveon_sensor}
 	\end{subfigure}
-\caption{Two methods of achieving color selectivity. ~\ref{fig:bayer_pattern_on_sensor} Bayer filter~\citep{wikibayer}, ~\ref{fig:foveon_sensor} by employing the Foveon X3 technology~\citep{foveon}}
+\caption{Two methods of achieving color selectivity, using (a): the Bayer filter~\citep{wikibayer}, or (b): using the Foveon X3 technology~\citep{foveon}.}
 \label{fig:color_selectivity}	
 \end{figure}
 
@@ -41,7 +41,7 @@ Most of the new DSLRs use CMOS (complementary metal oxide semiconductor) sensors
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{microlens}
-\caption{Microlens Array technology~\citep{microlensfig}}
+\caption{The microlens array technology~\citep{microlensfig}.}
 \label{fig:microlensarray}
 \end{figure}
 
@@ -76,7 +76,7 @@ An excellent source for quantitative comparisons of CCD and CMOS cameras and sen
 \label{subsect:image_quality_DQE}
 A simple way to understand the effect of read noise on objective (task-based) image quality is to assume that all of the light emitted from a single x-ray interaction and collected by the lens ends up on a single pixel in the camera sensor. With the numbers given in Sec.~\ref{subsect:noise}, this might be a valid assumption if we use 2 $\times$ 2 or 3 $\times$ 3 pixel binning. 
 
-With this assumption, the performance of an ideal linear (Hotelling) observer~\citep{Barrett2004} for the task of detecting a known signal on a known background can readily be derived. The details will be published separately, but the Hotelling detectability is given by
+With this assumption, the performance of an ideal linear (Hotelling) observer~\citep{Barrett2004} for the task of detecting a known signal on a known background can readily be derived. The details will be published separately, but the Hotelling detectability is given by,
 
 \begin{equation}
 SNR_{Hot}^2 = \sum\limits_{m=1}^{M}\, \frac{\bar{k}^2 (\Delta \overline{N}_m)^2}{\sigma_{read}^2 + \overline{N}_m (\bar{k} + \bar{k}^2)}
@@ -96,8 +96,8 @@ DQE = \frac{\bar{k}^2 \overline{N}}{\sigma_{read}^2 + \overline{N}(\bar{k} + \ba
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.35]{DRwDSLR_DQEfigure.png}
-\caption{DQE for detection of a uniform disk lesion on a flat background. Left: DQE vs. x-ray fluence (absorbed photons per 100 $\mathrm{\mu m}$ pixel) for fixed optical efficiency (2 photoelectrons per x-ray photon) and difference camera read-noise variances. Right: DQE vs. optical efficiency for different x-ray fluences and noise levels. Typical $\overline{N}_m$ in DR is 500 photons per pixel, and typical $\sigma_{read}^2$ in a modern DSLR is about 25 (5 electrons RMS).}
+\includegraphics[scale=1]{DRwDSLR_DQEfigure.eps}
+\caption{DQE for detection of a uniform disk lesion on a flat background. (a): DQE vs. x-ray fluence (absorbed photons per 100 $\mathrm{\mu m}$ pixel) for fixed optical efficiency (2 photoelectrons per x-ray photon) and difference camera read-noise variances. (b): DQE vs. optical efficiency for different x-ray fluences and noise levels. Typical $\overline{N}_m$ in DR is 500 photons per pixel, and typical $\sigma_{read}^2$ in a modern DSLR is about 25 (5 electrons RMS).}
 \label{fig:DQE}
 \end{figure}
 
@@ -109,44 +109,44 @@ Based on the cost and the design considerations above, we chose a Nikon D700 cam
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.3\linewidth}
 		\centering
-		\includegraphics[width=2in]{NikkorLens.jpg}
-		\caption{Nikkor lens}
+		\includegraphics[width=1.9in]{NikkorLens.jpg}
+		\caption{}
 		\label{fig:nikonlens}
 	\end{subfigure}
 	\hspace{0.2cm}
 	\begin{subfigure}[b]{0.3\linewidth}
 		\centering
-		\includegraphics[width=2in]{NikonD700.jpg}
-		\caption{Nikon D700 camera}
+		\includegraphics[width=1.9in]{NikonD700.jpg}
+		\caption{}
 		\label{fig:nikoncamera}
 	\end{subfigure}
 	\hspace{0.2cm}
 	\begin{subfigure}[b]{0.3\linewidth}
-		\includegraphics[width=2in]{phosphorscreen.jpg}
-		\caption{Phosphor screen}
+		\includegraphics[width=1.9in]{phosphorscreen.jpg}
+		\caption{}
 		\label{fig:phosphorscreen}
 	\end{subfigure}
-\caption{Major components of the DR system}
+\caption{The imaging components that was used in the DR system, (a): Nikkor lens, (b): Nikon D700 camera, (c): phosphor screen.}
 \label{fig:DRcomponents}
 \end{figure}
 
-The major components inside the DR system are shown in Fig.~\ref{fig:DRcomponents}.  The system is constructed on an extruded aluminum frame that folds down into a small suitcase as shown in Fig.~\ref{fig:DR1uncovered}. The vertical assembly on the right in that photo is an opaque bakelite sheet with a standard Lanex screen mounted on the side facing the camera. The screens are interchangeable, and both Lanex Regular and Lanex Fast have been used. There is a light-tight felt cloth shroud, shown in Fig.~\ref{fig:DR1covered}, and only a thin camera cable needs to emerge from the shroud during operation.
+The imaging components inside the DR system are shown in Fig.~\ref{fig:DRcomponents}.  The system is constructed on an extruded aluminum frame that folds down into a small suitcase as shown in Fig.~\ref{fig:DR1uncovered}. The vertical assembly on the right in that photo is an opaque bakelite sheet with a standard Lanex screen mounted on the side facing the camera. The screens are interchangeable, and both Lanex Regular and Lanex Fast have been used. There is a light-tight felt cloth shroud, shown in Fig.~\ref{fig:DR1covered}, and only a thin camera cable needs to emerge from the shroud during operation.
 
 \begin{figure}[h]
 \centering
 	\begin{subfigure}[b]{0.45\linewidth}
 	\includegraphics[width=2.5in]{DR_uncovered.png}
-	\caption{DR system uncovered}
+	\caption{}
 	\label{fig:DR1uncovered}
 	\end{subfigure}
 \hspace{0.2cm}
 	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
 	\includegraphics[width=2.5in]{DR_covered.png}
-	\caption{DR system covered}
+	\caption{}
 	\label{fig:DR1covered}
 	\end{subfigure}
-\caption{First portable DR system that went to Nepal.  ~\ref{fig:DR1uncovered}: Prototype DR system showing x-ray screen on the right and Nikon D700 DSLR on the left.  The frame folds down into the suitcase for transport.  ~\ref{fig:DR1covered}: Same system but with light-tight shroud in place.  System is shown as set up in the Manang District Hospital, Chame, Nepal, with the breast phantom in position for imaging.}
+\caption{First portable DR system that went to Nepal.  (a): The uncovered prototype DR system showing x-ray screen on the right and Nikon D700 DSLR on the left.  The frame folds down into the suitcase for transport.  (b): The same system but covered with light-tight shroud in place.  System is shown as set up in the Manang District Hospital, Chame, Nepal, with the breast phantom in position for imaging.}
 \label{fig:DR1}
 \end{figure}
 
@@ -194,7 +194,7 @@ A sample comparison is shown in Fig.~\ref{fig:DR_breast_both}. The film image on
 		\caption{}
 		\label{fig:DR_breast_film}
 	\end{subfigure}
-	\caption{Images of the breast phantom taken with the same exposure in a Himalayan clinic in Nepal. \ref{fig:DR_breast}: Image taken with the DSLR system. \ref{fig:DR_breast_film} Image taken with local film-screen technique.}
+	\caption{Images of the breast phantom taken with the same exposure in a Himalayan clinic in Nepal, (a): an image taken with the DSLR system, and (b): an image taken with local film-screen technique.}
 	\label{fig:DR_breast_both}
 \end{figure}
 
@@ -225,17 +225,17 @@ A second DR system was build in 2012 for Dr. Wendell Gibby, a radiologist from U
 	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
 	\includegraphics[width=2.8in]{gibbysuitcase_stretch.JPG}
-	\caption{Second DR system}
+	\caption{}
 	\label{DR2stretched}
 	\end{subfigure}
 \hspace{0.2cm}
 	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
 	\includegraphics[width=2.8in]{gibbysuitcase_collapsed.JPG}
-	\caption{Second DR system collapsed}
+	\caption{}
 	\label{fig:DR2collapsed}
 	\end{subfigure}
-\caption{Second portable DR system}
+\caption{The second portable DR system, showing (a): the DR system in imaging mode and (b): the system collapsed.}
 \label{fig:DR2}	
 \end{figure}
 
@@ -257,17 +257,17 @@ The results from the DR systems were very promising, we were interested in testi
 	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
 	\includegraphics[width=2.8in]{CTsystem1.JPG}
-	\caption{System model}
+	\caption{}
 	\label{fig:CTmodel}
 	\end{subfigure}
 \hspace{1 cm}
 	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
 	\includegraphics[width=2.8in]{Capture_system.PNG}
-	\caption{System setup in the lab}
+	\caption{}
 	\label{fig:CTlab}
 	\end{subfigure}
-\caption{System configuration}
+\caption{The CT system configuration, (a): system model designed in SolidWorks, (b): the system setup i the lab.}
 \label{fig:CTsystem}
 \end{figure}
 
@@ -291,14 +291,14 @@ Many safety measures were taken to minimize accidental x-ray exposure.  All thre
 	\caption{}
 	\label{fig:deadmanswitch}
 	\end{subfigure}
-\caption{Safety mechanisms installed in the x-ray room.~\ref{fig:xraywarningsign}: x-ray warning sign,~\ref{fig:doorinterlock}: magnetic on/off switch on doors,~\ref{fig:deadmanswitch}: ``deadman's'' switch}
+\caption{Safety mechanisms installed in the x-ray room. (a): x-ray warning sign, (b): magnetic on/off switch on doors, (c) ``deadman's'' switch}
 \label{fig:safetycomponents}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=3 in]{leadshield.png}	
-\caption{lead shield for stopping direct x-rays}
+\caption{The lead shield for stopping direct x-rays.}
 \label{fig:leadshield}
 \end{figure}
 
@@ -310,7 +310,7 @@ The CT test bench system is equipped with a very powerful research grade x-ray t
 \ffigbox{%
   \includegraphics[scale=0.3]{x-raytube.jpg}%
 }{%
-  \caption{x-ray tube}%
+  \caption{The x-ray tube.}%
   \label{fig:xraytube}
 }
 \capbtabbox{%
@@ -322,7 +322,7 @@ The CT test bench system is equipped with a very powerful research grade x-ray t
 	$\le$ 100 $\mu m$ @ 65 watts, 130 kV \\ \hline
 	\end{tabular}
 }{%
-  \caption{x-ray tube spot sizes}%
+  \caption{The x-ray tube spot sizes.}%
   \label{table:spotsizes}
 }
 \end{floatrow}
@@ -349,7 +349,7 @@ The PIXIS 2048B is a ultra sensitive CCD camera.  It has a large detector and pi
 	\caption{}
 	\label{fig:pixis}
 	\end{subfigure}
-\caption{Cameras used to test the CT system.~\ref{fig:neo}: Andor Neo sCMOS camera,~\ref{fig:pixis}: PIXIS 2048B CCD.}
+\caption{Cameras used to test the CT system. (a): Andor Neo sCMOS camera, (b): PIXIS 2048B CCD.}
 \label{fig:cameras}
 \end{figure}
 
@@ -378,7 +378,7 @@ The shutter assembly is mounted to the front of the x-ray tube. It is used to st
 	\begin{subfigure}{0.3\linewidth}
 	\placeholderimage[width=2cm,height=2cm]{opticalsensor.JPG}
 	\end{subfigure}	
-\caption{x-ray shutter assembly}
+\caption{The x-ray shutter assembly}
 \comment{give the assembly picture then show individual components}
 \label{fig:shutter}
 \end{figure}
