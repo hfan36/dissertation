@@ -330,10 +330,10 @@ The CT test bench system is equipped with a very powerful research grade x-ray t
 \end{figure}
 
 \subsection{Cameras}
-We have three different cameras at our disposal to test on the CT system, shown in Fig.~\ref{fig:cameras} and Table~\ref{table:cameras}.  These are the Andor Neo, Nikon D700 and the PIXIS 2048B.  The Andor Neo employs a scientific CMOS sensor with rapid frame rates up to 30 fps at full frame.  The Neo camera is capable of operating at -40 $\deg$C using built-in thermoelectric (TE) coolers in air.  The camera is purchased with a LabView software development kit (SDK) and a 4 GB data acquisition board so we can acquire data bursts at frame rates faster than the computer file-write speed.  The Neo camera was integrated into the CT software in LabView.  Currently, the camera's sensor temperature is cooled by attaching an external water cooler for longer CT scan routines.  The Andor Neo camera does not have microlens arrays in front of the detector.  The quantum efficiency is approximately 55\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength.
+We have three different cameras at our disposal to test on the CT system, shown in Fig.~\ref{fig:cameras} and Table~\ref{table:cameras}.  These are the Andor Neo, Nikon D700 and the PIXIS 2048B.  The Andor Neo employs a scientific CMOS sensor with rapid frame rates up to 30 fps at full frame.  The Neo camera is capable of operating at -40 $\degree$C using built-in thermoelectric (TE) coolers in air.  The camera is purchased with a LabView software development kit (SDK) and a 4 GB data acquisition board so we can acquire data bursts at frame rates faster than the computer file-write speed.  The Neo camera was integrated into the CT software in LabView.  Currently, the camera's sensor temperature is cooled by attaching an external water cooler for longer CT scan routines.  The Andor Neo camera does not have microlens arrays in front of the detector.  The quantum efficiency is approximately 55\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength.
 
 
-The PIXIS 2048B is a ultra sensitive CCD camera.  It has a large detector and pixel size and can cool down to -60$\deg$C in air.  It has very slow acquisition speed ranging from 100 KHz to 2 MHz.  The quantum efficiency at is approximately is approximate over 95\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength. The D700 Nikon camera was described in the previous section.
+The PIXIS 2048B is a ultra sensitive CCD camera.  It has a large detector and pixel size and can cool down to -60$\degree$C in air.  It has very slow acquisition speed ranging from 100 KHz to 2 MHz.  The quantum efficiency at is approximately is approximate over 95\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength. The D700 Nikon camera was described in the previous section.
 
 \begin{figure}
 	\begin{subfigure}[b]{0.45\linewidth}
@@ -367,35 +367,35 @@ PIXIS 2048B & 13.5 & 27.6 $\times$ 27.6 & CCD \\
 \end{table}
 
 \subsection{Shutter}
-The shutter assembly is mounted to the front of the x-ray tube. It is used to stop the x-ray beam and to reduce x-ray exposure to the operator and to prevent the tube being turned on and off repeatedly.  The shutter assembly was originally designed by Jared Moore for the FaCT system.  The shutter plate has been modified to stop higher energy x-rays.  The shutter assembly is composed of a tungsten epoxy shutter, a rotary solenoid, and an optical sensor all mounted to an aluminum holder, shown in Fig.~\ref{fig:shutter}.  The shutter plate was casted by Tungsten Heavy Powder \& Parts.
+The shutter assembly is mounted to the front of the x-ray tube. It is used to stop the x-ray beam and to reduce x-ray exposure to the operator and to prevent the tube being turned on and off repeatedly.  The shutter assembly was originally designed by Jared Moore for the FaCT system and it has been modified to stop higher energy x-rays.  The shutter assembly is composed of a tungsten epoxy shutter, a rotary solenoid, and an optical sensor all mounted to an aluminum holder that can accommodate for various x-ray filters, shown in Fig.~\ref{fig:shutter}.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
-	\begin{subfigure}{0.3\linewidth}
-	\includegraphics[width=5cm]{shuttersystem.png}
-	\end{subfigure}
-\hspace*{1cm}
-	\begin{subfigure}{0.3\linewidth}
-	\placeholderimage[width=2cm,height=2cm]{opticalsensor.JPG}
-	\end{subfigure}	
-\caption{The x-ray shutter assembly}
-\comment{give the assembly picture then show individual components}
-\label{fig:shutter}
+	\includegraphics[scale=1]{ShutterSystemWLabel.eps}
+	\caption{The x-ray shutter assembly}
+	\label{fig:shutter}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width = 6cm]{shutterboard.png}
+\includegraphics[scale = 1]{ShutterBoard_front_back.eps}
 \caption{Electronic PCB board for the shutter system}
 \label{fig:shutterboard}
 \end{figure}
 
-The shutter assembly is controlled by an electronic PCB board and it was designed previously by Lars Furliend, shown in Fig.~\ref{fig:shutterboard}.  Please refer to Appendix X for detailed drawing and a parts list.  The optical sensor is used as secondary source to make sure the shutter is fully open.  The PCB board requires a +12 VDC power supply.  The trigger that controls shutter is held at +5VDC when the shutter is closed and will open when the trigger signal is pulled to ground.  The trigger signal for the shutter assembly is controlled via a National Instruments USB DAQ module, and it is integrated into the CT acquisition software.
+The shutter assembly is controlled by an electronic PCB board and it was designed previously by Lars Furliend, shown in Fig.~\ref{fig:shutterboard}.  The PCB board controls the rotary solenoid by first feeding the solenoid with a large burst of current.  This current rotates the solenoid and throws the shutter plate to the open position.  An oscillating holding current follows the large current burst, which keeps the shutter at the open position and prevents the solenoid from over heating.  Fig.~\ref{fig:solenoid_schematic} shows the schematic diagram for the shutter board and Appendix~\ref{app:partslist} provides a list of the components that were used for the shutter.  The optical switch is used to double check to make sure the shutter is fully open.  The PCB board is powered by a +24 VDC power supply.  The trigger that controls shutter is held at +5VDC when the shutter is fully closed and will open when the it is set to ground.  This trigger signal for the shutter assembly is controlled via a National Instruments USB DAQ module, and it is integrated into the CT acquisition software.
+
+\begin{sidewaysfigure}[h]
+\centering
+\includegraphics[scale=0.6]{Solenoid_diagram.eps}
+\caption{Schematic for the solenoid PCB board}
+\label{fig:solenoid_schematic}
+\end{sidewaysfigure}
 		
 \subsection{Aperture assembly}
-The aperture assembly is used to clip the x-ray beam so it's projection size is slightly larger than the imaging field of view.  The maximum beam size at the lead shield should never exceed the size of the lead shield (36 \inches $\times$ 36 \inches).  The aperture assembly is constructed using four tungsten copper alloy plates (CW80) purchased from Leading Edge Metals \& Alloys Inc, shown in Fig~\ref{fig:aperture}.  The plate thickness (1/8 \inches) was calculated to ensure very little x-ray penetration up to 130 kVps.  Linear translation stages were used to move individual tungsten blades.  The linear translation stages were manufactured by Velmex Inc.
+The aperture assembly is used to mask the x-ray beam so it's projection size is slightly larger than the imaging field of view.  The maximum beam size at the lead shield should never exceed the size of the lead shield (36 \inches $\times$ 36 \inches).  The aperture assembly is constructed using four tungsten copper alloy plates (CW80) purchased from Leading Edge Metals \& Alloys Inc, shown in Fig~\ref{fig:aperture}.  The plate thickness (1/8 \inches) was calculated to ensure very little x-ray penetration up to 130 kVp.  Linear translation stages, purchased from Velmex, were used to move individual tungsten blades.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[height=6 cm]{Capture_aperture.PNG}
 \caption{Aperture assembly}
