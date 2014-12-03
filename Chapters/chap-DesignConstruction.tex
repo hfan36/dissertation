@@ -2,19 +2,19 @@
 \label{chap:design_construction}
 
 \section{Introduction}
-Access to modern digital radiology is very limited in developing countries~\citep{telehealth2009}. The Himalayan regions of Nepal, India, Pakistan and Tibet present special difficulties because of lack of adequate roads, inconsistent or nonexistent power grids, little internet access and few trained physicians. In Nepal, for example, all of the remote district hospitals and many health outposts have x-ray facilities, but they are all film-based. There are very few resident radiologists, and teleradiology is rare~\citep{telehealth2009, Graham2003}.
+Access to modern digital radiology is very limited in developing countries~\citep{telehealth2009}. The Himalayan regions of Nepal, India, Pakistan, and Tibet present special difficulties because of lack of adequate roads, inconsistent or nonexistent power grids, little internet access, and few trained physicians. In Nepal, for example, all of the remote district hospitals and many health outposts have x-ray facilities, but they are all film-based. There are very few resident radiologists, and teleradiology is rare~\citep{telehealth2009, Graham2003}.
 
 The goal of our work is to develop an inexpensive x-ray imaging system intended for wide dissemination in the Himalayan regions of Nepal and other rural areas in developing countries.
 
-Two types of x-ray imaging systems with large field of view have been built.  This section describes the design and construction of these two systems, the portable digital radiography system (DR) and the computed tomography (CT) system.  Both systems were built based on similar concept, where a phosphor screen is imaged using a fast lens onto a pixelated detector.  The digital radiography system is solely a 2-D planar imaging system that includes a phosphor screen, lens and camera.  The CT system is a test bench that can be used to test the performance of x-ray imaging systems using various scintillation screens and cameras.  The CT system has a powerful research grade x-ray tube that allows current and output kVp adjustments with a relatively small source spot size.  In addition, the CT system is equipped with adjustable apertures, a rotary stage, and linear translation stages that allows the system to test x-ray detection performances at different magnifications.
+Two types of x-ray imaging systems with large fields of view (FOV) have been built.  This section describes the design and construction of these two systems: the portable digital radiography system (DR) and the computed tomography (CT) system.  Both systems were built based on a similar concept, where a phosphor screen is imaged onto a pixelated detector using a fast lens.  The digital radiography system is solely a 2D planar-imaging system that includes a phosphor screen, lens, and camera.  The CT system is a test bench that can be used to test the performance of x-ray imaging systems using various scintillation screens and cameras.  The CT system has a powerful research-grade x-ray tube that allows current and output kVp adjustments with a relatively small source spot size.  In addition, the CT system is equipped with adjustable apertures, a rotary stage, and linear translation stages that allow the system to test x-ray detection performances at different magnifications.
 
 \section{Design considerations for the DR system}
 \label{sect:design_considerations_for_DR}
 \subsection{Cameras and lenses}
 \label{subsect:camera_lenses}
-The DSLRs considered here are ``full field'' cameras, which means that the sensor is approximately the same size as a frame of 35 mm film (24 mm $\times$ 36 mm).  This format is also referred to in the DSLR world as FX. Cameras in this class include the Canon 5D and 5D Mark II and the Nikon D700, D3X and D3S. Even larger sensors are also available; for example the MegaVision E6 which has a 37 mm $\times$ 49 mm sensor, but it is substantially more expensive than the ``prosumer'' (professional/consumer) full-field cameras.
+The DSLRs considered here are ``full-field'' cameras, which means that the sensor is approximately the same size as a frame of 35 mm film (24 mm $\times$ 36 mm).  This format is also referred to in the DSLR world as FX. Cameras in this class include the Canon 5D and 5D Mark II, and the Nikon D700, D3X and D3S. Even larger sensors are also available; for example, the MegaVision E6 which has a 37 mm $\times$ 49 mm sensor, but it is substantially more expensive than the ``prosumer'' (professional/consumer) full-field cameras.
 
-A 24 mm $\times$ 36 mm sensor operated at 12:1 demagnification will allow the imaging of 29 cm $\times$ 43 cm field of view (FOV), adequate for chest radiography. For comparison, a 37 mm $\times$ 49 mm sensor will cover a comparable field at 8:1 demagnification. Of course, smaller FOVs require proportionally smaller demagnification factors.  With a full-field camera, a 12 cm $\times$ 18 cm FOV can be achieved at 5:1 demagnification.
+A 24 mm $\times$ 36 mm sensor operated at 12:1 demagnification will allow the imaging of 29 cm $\times$ 43 cm FOV, adequate for chest radiography. For comparison, a 37 mm $\times$ 49 mm sensor will cover a comparable field at 8:1 demagnification. Of course, smaller FOVs require proportionally smaller demagnification factors.  With a full-field camera, a 12 cm $\times$ 18 cm FOV can be achieved at 5:1 demagnification.
 
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.4\linewidth}
@@ -30,81 +30,81 @@ A 24 mm $\times$ 36 mm sensor operated at 12:1 demagnification will allow the im
 		\caption{}
 		\label{fig:foveon_sensor}
 	\end{subfigure}
-\caption{Two methods of achieving color selectivity, using (a): the Bayer filter~\citep{wikibayer}, or (b): using the Foveon X3 technology~\citep{foveon}.}
+\caption{Two methods of achieving color selectivity using (a): the Bayer filter~\citep{wikibayer}: or (b): the Foveon X3 technology~\citep{foveon}.}
 \label{fig:color_selectivity}	
 \end{figure}
 
-The color selectivity can be achieved with two methods.  The most common way is attained by placing a mosaic color filter, or commonly known as a Bayer filter, over the photosensitive pixels, shown in Fig.~\ref{fig:bayer_pattern_on_sensor}.  Usually half the pixels are sensitive to green light, a quarter of them are sensitive to blue light and a quarter to red light.  These color filters are a distinct drawback because they reduce the quantum efficiency of the sensor.  Fortunately, half of the pixels are well matched to the emission spectrum of green rare earth x-ray screen such as gadolinium oxy-sulfide ($\mathrm{Gd_2O_2S:Tb}$).  A less common method of creating color sensitivity on the detector is dubbed as the Foveon X3 sensor~\citep{foveon}.  Sensors that use this technology features three layers of pixels each detecting a different color (RGB) to form a direct color image sensor that can capture color in a way very similar to colored film cameras, shown in Fig.~\ref{fig:foveon_sensor}.  It is possible that more photons entering the camera will be detected by the Foveon X3 sensor compared to a mosaic sensor, especially matching to the emission spectrum of $\mathrm{Gd_2O_2S:Tb}$ since the green light from the x-ray screen only needs to pass through a thin layer of blue sensor before being absorbed by the second layer of green sensor.  Unfortunately this technology is relatively new and currently only a limited number of cameras made by Sigma Corporation employs the Foveon sensor.  The Foveon X3 sensor has been noted as nosier than the senors in other DSLR that uses Bayer filter at low light conditions~\citep{sigmasd10, stevesdigicams}.  The only black-and-white DLSR is made by Leica named ``Henri'', which would provide a huge increase in collection efficiency though the camera itself costs over \$8000.  Another way to artificially produce black and white camera is by carefully removing the color filter on top of the sensor.  A company called LDP, LLC has been doing this since 1996.  Though this procedure typically terminates the camera's warranty with the original manufacturer, and they are only able to convert a limited number of cameras~\citep{maxmax}.
+The color selectivity can be achieved with two methods.  The most common way is attained by placing a mosaic color filter, commonly known as a Bayer filter, over the photosensitive pixels (Fig.~\ref{fig:bayer_pattern_on_sensor}).  Usually, half of the pixels are sensitive to green light, a quarter of them are sensitive to blue light, and a quarter to red light.  These color filters are a distinct drawback because they reduce the quantum efficiency of the sensor.  Fortunately, half of the pixels are well matched to the emission spectrum of green rare earth x-ray screens, such as gadolinium oxy-sulfide ($\mathrm{Gd_2O_2S:Tb}$).  A less common method of creating color sensitivity on the detector is dubbed as the Foveon X3 sensor~\citep{foveon}.  Sensors that use this technology feature three layers of pixels, each detecting a different color (RGB) to form a direct color-image sensor that can capture color in a way very similar to colored film cameras (Fig.~\ref{fig:foveon_sensor}).  It is possible that more photons entering the camera will be detected by the Foveon X3 sensor compared to a mosaic sensor, particularly matching to the emission spectrum of $\mathrm{Gd_2O_2S:Tb}$ since the green light from the x-ray screen only needs to pass through a thin layer of blue sensor before being absorbed by the second layer of green sensor.  Unfortunately, this technology is relatively new, and only a limited number of cameras currently made by Sigma Corporation employs the Foveon sensor.  The Foveon X3 sensor has been noted as noisier than the sensors in other DSLRs that use the Bayer filter at low-light conditions~\citep{sigmasd10, stevesdigicams}.  The only black-and-white DLSR named ``Henri'' is made by Leica, which would provide a huge increase in collection efficiency though the camera itself costs over \$8,000.  Another way to artificially produce black and white camera is by carefully removing the color filter on top of the sensor.  A company called LDP, LLC has been doing this since 1996.  This procedure typically terminates the camera's warranty with the original manufacturer, and they are only able to convert a limited number of cameras~\citep{maxmax}.
 
-Most of the new DSLRs use CMOS (complementary metal oxide semiconductor) sensors rather than CCDs (charge-coupled devices), which means that they have circuitry for charge integration, preamplification, noise control and readout switching at each individual pixel. This circuitry greatly improves the camera's noise performance (see Sec.~\ref{subsect:noise}), but it reduces the silicon area that is available for the photosensors, and that in turn would further reduce the quantum efficiency were it not for two clever optical tricks employed by most of the major DSLR manufacturers. The first is to use an array of microlenses to concentrate light on the active sensor area, shown in Fig.~\ref{fig:microlensarray}. For light arriving at the sensor at normal incidence, each microlens focuses the light into the center of its photodetector element, but for non-normal incidence the light could be diverted to the insensitive areas between photodetectors.
+Most of the new DSLRs use CMOS (complementary metal oxide semiconductor) sensors rather than CCDs (charge-coupled devices), which means that they have circuitry for charge integration, preamplification, noise control, and readout switching at each individual pixel. This circuitry greatly improves the camera's noise performance (see Sec.~\ref{subsect:noise}), but it reduces the silicon area that is available for the photosensors, and that in turn would further reduce the quantum efficiency were it not for two clever optical tricks employed by most of the major DSLR manufacturers. The first is to use an array of microlenses to concentrate light on the active sensor area, shown in Fig.~\ref{fig:microlensarray}. For light arriving at the sensor at normal incidence, each microlens focuses the light into the center of its photodetector element, but for non-normal incidence, the light could be diverted to the insensitive areas between photodetectors.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\linewidth]{microlens}
-\caption{The microlens array technology~\citep{microlensfig}.}
+\caption{The microlens-array technology~\citep{microlensfig}.}
 \label{fig:microlensarray}
 \end{figure}
 
-This latter problem is avoided with so-called ``digital'' lenses, which just means that they are intended to be used with digital cameras. The important feature of digital lenses is that they are telecentric in image space, so the chief ray is always perpendicular to the sensor plane and hence parallel to the optical axes of the microlenses. The result is that nearly all of the light transmitted by the lens and color filters arrives at the active area of the CMOS sensor. 
+This latter problem is avoided with so-called ``digital'' lenses, which simply means that they are intended to be used with digital cameras. The important feature of digital lenses is that they are telecentric in image space, so the chief ray is always perpendicular to the sensor plane and hence parallel to the optical axes of the microlenses. The result is that nearly all of the light transmitted by the lens and color filters arrives at the active area of the CMOS sensor. 
 
-Canon, Nikon and other manufacturers supply fixed-focus (non-zoom) F/1.4 digital lenses for full-field DSLRs. Older lenses designed with use with 35 mm film cameras such as the Nikkor 50 mm, F/1.2, can also be used, but sensitivity at high field angle will be sacrificed because the lenses are not telecentric. Specialty lenses as fast as F/0.7 are available on the surplus market, but they do not usually cover the full FX format.
+Canon, Nikon, and other manufacturers supply fixed-focus (non-zoom) F/1.4 digital lenses for full-field DSLRs. Older lenses designed with use with 35 mm film cameras such as the Nikkor 50 mm, F/1.2, can also be used, but sensitivity at high field angle will be sacrificed because the lenses are not telecentric. Specialty lenses as fast as F/0.7 are available on the surplus market, but they do not usually cover the full FX format.
 
 \subsection{Spatial resolution}
 \label{subsect:spatial_resolution}
-The full-field DSLR sensors all have nominally either 12 or 24 megapixels (MP). The 12 MP cameras (e.g., Canon 5D or Nikon D700) have approximately a 2800 $\times$ 4300 array of 8.5 $\mathrm{\mu m}$ $\times$ 8.5 $\mathrm{\mu m}$ pixels, and the 24 MP cameras (e.g., Canon 5D Mark II or Nikon D3X) have approximately a 4000 $\times$ 6000 array of 6 $\mathrm{\mu m}$ $\times$ 6 $\mathrm{\mu m}$ pixels. If we consider 12:1 demagnification as for chest radiography, the 12 MP cameras provide effectively 100 $\mathrm{\mu m}$ $\times$ 100 $\mathrm{\mu m}$ pixels at the x-ray screen, and the 24 MP cameras provide 72 $\mathrm{\mu m}$ $\times$ 72 $\mathrm{\mu m}$ pixels. Larger effective pixels can readily be achieved by binning the sensor pixels during readout.
+The full-field DSLR sensors all have nominally either 12 or 24 megapixels (MP). The 12 MP cameras (e.g., Canon 5D or Nikon D700) have approximately a 2,800 $\times$ 4,300 array of 8.5 $\mathrm{\mu m}$ $\times$ 8.5 $\mathrm{\mu m}$ pixels, and the 24 MP cameras (e.g., Canon 5D Mark II or Nikon D3X) have approximately a 4,000 $\times$ 6,000 array of 6 $\mathrm{\mu m}$ $\times$ 6 $\mathrm{\mu m}$ pixels. If we consider 12:1 demagnification as for chest radiography, the 12 MP cameras provide effectively 100 $\mathrm{\mu m}$ $\times$ 100 $\mathrm{\mu m}$ pixels at the x-ray screen, and the 24 MP cameras provide 72 $\mathrm{\mu m}$ $\times$ 72 $\mathrm{\mu m}$ pixels. Larger effective pixels can readily be achieved by binning the sensor pixels during readout.
 
 Fixed-focus lenses designed for use with full-field DSLRs and used at full aperture typically have about 30 lp/mm resolution at 50\% MTF, which corresponds to a focal-plane resolution of about 15 $\mathrm{\mu m}$ FWHM. At a demagnification of 12:1, therefore, the lens contribution to the resolution at the x-ray screen is about 2.5 lp/mm at 50\% MTF or 180 $\mathrm{\mu m}$ FWHM.
 
-The other significant contributor to spatial blur is the screen itself. Lanex screens ($\mathrm{Gd_2O_2S:Tb}$) yield resolutions in the range 1 - 3 lp/mm at 50\% MTF depending on the speed of the screen. Columnar CsI screens, now available in chest size, can be as good as 5 lp/mm at 50\% MTF and a thickness of 150 $\mathrm{\mu m}$~\citep{Nagarkar1997}. The demagnification does not affect the screen contribution to the resolution.
+The other significant contributor to spatial blur is the screen itself. Lanex screens ($\mathrm{Gd_2O_2S:Tb}$) yield resolutions in the range of 1-3 lp/mm at 50\% MTF depending on the speed of the screen. Columnar CsI screens, now available in chest size, can be as good as 5 lp/mm at 50\% MTF and can have a thickness of 150 $\mathrm{\mu m}$~\citep{Nagarkar1997}. The demagnification does not affect the screen contribution to the resolution.
 
 \subsection{Noise}
 \label{subsect:noise}
-A major concern with using DSLRs for DR is collecting sufficient light from the x-ray screen~\citep{Hejazi1997}. At 10:1 demagnification, a standard F/1.4 camera lens will collect about 0.1\% of the light emitted by a Lambertian source. Measured conversion efficiencies (from x-ray energy to optical energy) of $\mathrm{Gd_2O_2S:Tb}$ or $\mathrm{La_2O_2S}$ screens is in the range 18 - 20\%~\citep{Kandarakis2001}, which means that a single 50 keV x-ray photon will yield approximately 4,000 optical photons, each of energy around 2.5 eV (green). If we collect 0.1\% of them, then only 4 photons will reach the camera sensor, and if the sensor quantum efficiency is around 25\% (see Sec.~\ref{subsect:camera_lenses}), we get around 1 photoelectron per x-ray photon. These numbers improve somewhat if we use an F/1.2 lens or if we consider a smaller demagnification, and they could be improved further by removing the color filter or using one of the new brighter phosphors such as columnar CsI or $\mathrm{LaBr_3}$.
+A major concern with using DSLRs for DR is collecting sufficient light from the x-ray screen~\citep{Hejazi1997}. At 10:1 demagnification, a standard F/1.4 camera lens will collect about 0.1\% of the light emitted by a Lambertian source. Measured conversion efficiencies (from x-ray energy to optical energy) of $\mathrm{Gd_2O_2S:Tb}$ or $\mathrm{La_2O_2S}$ screens are in the range of 18-20\%~\citep{Kandarakis2001}, which means that a single 50 keV x-ray photon will yield approximately 4,000 optical photons, each with energy around 2.5 eV (green). If we collect 0.1\% of them, then only 4 photons will reach the camera sensor, and if the sensor quantum efficiency is around 25\% (see Sec.~\ref{subsect:camera_lenses}), we obtain around 1 photoelectron per x-ray photon. These numbers improve somewhat if we use an F/1.2 lens or if we consider a smaller demagnification, and they could be improved further by removing the color filter or using one of the new brighter phosphors such as columnar CsI or $\mathrm{LaBr_3}$.
 
 In addition to the x-ray photon noise, the noise generated in the DSLR, referred to generically as read noise, is a major issue. The potential contributors to read noise are dark current; kTC noise, which arises from resetting the gated integrators in either CMOS or CCD sensors; thermal noise in the electronics, and 1/f or flicker noise. Of these components, we can readily dismiss dark-current noise, which is negligible compared to the other noise sources for the short exposures used in x-ray imaging. Similarly, pure thermal (Johnson) noise is negligible compared to kTC and 1/f noise in most practical sensors. With respect to these two remaining noise sources, modern CMOS sensors have a huge advantage over CCD sensors, even over expensive scientific-grade cameras, basically because they place a lot of electronic circuitry at the individual pixels rather than at the end of a charge-transfer chain as with a CCD~\citep{Magnan2003}.
 
 To understand this point, consider first kTC noise, which is endemic in both CMOS and CCD sensors. In both, the charge produced by the light is converted to a voltage by storing it on a capacitor, which should be reset to zero after each conversion. Basic thermodynamics, however, shows that the residual voltage on the capacitor cannot be truly zero but instead fluctuates with a variance of $kT/C$ ($k$ = Boltzmann's constant, $T$ = absolute temperature, $C$ = capacitance). One way of suppressing kTC noise (which really should be called $kT/C$ noise) is a process called correlated double sampling (CDS) in which the voltage on the capacitor is measured after each reset and then again after the charge is stored and before the next reset; the difference between the readings is proportional to the photoinduced charge with little residual error from the thermodynamic effects. Alternatively, a process called active reset can be used in which feedback control drives the residual voltage on the capacitor close to zero. 
 
-In a modern CMOS sensor, there is an integrating capacitor and a CDS or active-reset circuit at each pixel. The capacitor is reset and the sensor is exposed to light for a frame period (100 - 200 msec for a sensor that operates at 5 - 10 frames per second, as many DSLRs do), and then the capacitor is reset again. The CDS or active-reset circuit must therefore operate only once per frame, but the circuits at all pixels can operate in parallel, so the overall processing rate is millions of times higher. In a CCD, by contrast, the signal remains in the form of charge until it is shifted out to a capacitor. There is just one reset and CDS or active-reset circuit, and it must operate serially at the pixel rate rather than
+In a modern CMOS sensor, there is an integrating capacitor and a CDS or active-reset circuit at each pixel. The capacitor is reset and the sensor is exposed to light for a frame period (100-200 msec for a sensor that operates at 5-10 frames per second, as many DSLRs do), and then the capacitor is reset again. The CDS or active-reset circuit must therefore operate only once per frame, but the circuits at all pixels can operate in parallel, so the overall processing rate is millions of times higher. In a CCD, by contrast, the signal remains in the form of charge until it is shifted out to a capacitor. There is just one reset and CDS or active-reset circuit, and it must operate serially at the pixel rate rather than
 the frame rate.
 
 There is a similar advantage to CMOS detectors with respect to thermal and 1/f noise, both of which have a variance that is proportional to bandwidth. The lower circuit bandwidth associated with parallel processing at the pixel level automatically results in lower noise, and 1/f noise is further suppressed by CDS at the pixel level [6]. As a result, low-noise, scientific-grade CCDs are often read out at only 50,000 pixels per second, while prosumer DSLRs can go over a thousand times faster.
 
 An excellent source for quantitative comparisons of CCD and CMOS cameras and sensors is the Clarkvision website~\citep{clarkvision}. Tables and graphs given there show that prosumer DSLRs typically have an RMS read noise equivalent to about 3-5 electrons, but scientific-grade CCD cameras and sensors can be up to ten times worse, in spite of their much higher cost and much lower bandwidth.
 
-\subsection{Image Quality And DQE}
+\subsection{Image quality and Detective Quantum Efficiency (DQE)}
 \label{subsect:image_quality_DQE}
 A simple way to understand the effect of read noise on objective (task-based) image quality is to assume that all of the light emitted from a single x-ray interaction and collected by the lens ends up on a single pixel in the camera sensor. With the numbers given in Sec.~\ref{subsect:noise}, this might be a valid assumption if we use 2 $\times$ 2 or 3 $\times$ 3 pixel binning. 
 
 With this assumption, the performance of an ideal linear (Hotelling) observer~\citep{Barrett2004} for the task of detecting a known signal on a known background can readily be derived. The details will be published separately, but the Hotelling detectability is given by,
-
+%
 \begin{equation}
 SNR_{Hot}^2 = \sum\limits_{m=1}^{M}\, \frac{\bar{k}^2 (\Delta \overline{N}_m)^2}{\sigma_{read}^2 + \overline{N}_m (\bar{k} + \bar{k}^2)}
 \label{eq:SNR2_hot}
 \end{equation}
-
-\noindent where the sensor contains $M$ pixels, each of which is denoted by an index m; $\sigma_{read}^2$ is the variance of the read noise (expressed in electron units and assumed to be the same for all pixels); $\overline{N}_m$ is the mean number of x-ray interactions imaged to pixel $m$ when there is no signal present; $\Delta \overline{N}_m$ is a small change in that number when a signal is present, and $k$ is the mean number of photoelectrons produced by each x-ray interaction (again assumed to be independent of $m$).
+%
+where the sensor contains $M$ pixels, each of which is denoted by an index m; $\sigma_{read}^2$ is the variance of the read noise (expressed in electron units and assumed to be the same for all pixels); $\overline{N}_m$ is the mean number of x-ray interactions imaged to pixel $m$ when there is no signal present; $\Delta \overline{N}_m$ is a small change in that number when a signal is present, and $k$ is the mean number of photoelectrons produced by each x-ray interaction (again assumed to be independent of $m$).
 
 Following Gagne~\citep{Gagne2003}, we can define a task-specific DQE (detective quantum efficiency) by dividing the Hotelling detectability for the actual detector by the detectability on the same task for an ideal detector that has no read noise and $\bar{k}>> 1$.  For the task of detecting a uniform disk object on a flat background, we find
-
+%
 \begin{equation}
 DQE = \frac{\bar{k}^2 \overline{N}}{\sigma_{read}^2 + \overline{N}(\bar{k} + \bar{k}^2)}
 \label{eq:DQE}
 \end{equation}
+%
+where $\overline{N}$ is the common value of $\overline{N}_m$ for all pixels in the disk region. If the disk region is large compared to the optical blur, for example for detection of a 1 mm lesion, this same expression is obtained even without assuming that all of the light from one x-ray photon is imaged to a single camera pixel.
 
-\noindent where $\overline{N}$ is the common value of $\overline{N}_m$ for all pixels in the disk region. If the disk region is large compared to the optical blur, for example for detection of a 1 mm lesion, this same expression is obtained even without assuming that all of the light from one x-ray photon is imaged to a single camera pixel.
-
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[scale=1]{DRwDSLR_DQEfigure.eps}
-\caption{DQE for detection of a uniform disk lesion on a flat background. (a): DQE vs. x-ray fluence (absorbed photons per 100 $\mathrm{\mu m}$ pixel) for fixed optical efficiency (2 photoelectrons per x-ray photon) and difference camera read-noise variances. (b): DQE vs. optical efficiency for different x-ray fluences and noise levels. Typical $\overline{N}_m$ in DR is 500 photons per pixel, and typical $\sigma_{read}^2$ in a modern DSLR is about 25 (5 electrons RMS).}
+\caption{DQE for detection of a uniform disk lesion on a flat background. (a): DQE vs. x-ray fluence (absorbed photons per 100 $\mathrm{\mu m}$ pixel) for fixed optical efficiency (2 photoelectrons per x-ray photon) and difference camera read-noise variances. (b): DQE vs. optical efficiency for different x-ray fluences and noise levels. Typical $\overline{N}_m$ in DR is 500 photons per pixel, and typical $\sigma_{read}^2$ in a modern DSLR is about 25 photons per pixel(5 electrons RMS).}
 \label{fig:DQE}
 \end{figure}
 
 The dependence of DQE on read noise, optical efficiency and x-ray fluence is shown in Fig.~\ref{fig:DQE}. Several limits are of interest. If there is no read noise but the lens is very inefficient so that $\bar{k} << 1$ the equation above predicts that the DQE of the detector (not including the x-ray screen) is simply $\bar{k}$.  If there is no read noise but the lens is sufficiently efficient that $\bar{k} << 1$, then we get DQE = 1. The case of interest, however, is when $\bar{k} \sim 1$ and the read noise is not zero. In that case, we can still get nearly quantum-limited performance, provided the x-ray fluence is high enough; if $\overline{N}_m(\bar{k}+\bar{k}^2) >> \sigma_{read}^2$, then the read-noise term in the denominator can be neglected and the DQE is $\bar{k}^2/(\bar{k}+\bar{k}^2)$. In order to do high-quality DR with a DSLR, therefore, it is very important to choose a camera with low read noise.
 
-\section{Prototype Digital Radiography System}
-Based on the cost and the design considerations above, we chose a Nikon D700 camera with an AF-S Nikkor 50mm f/1.4G lens for the prototype.  We elected not to use a folding mirror, so the x rays transmitted by the screen impinged on the camera. By measuring the x-ray transmittance of the lens, however, we found that x-ray flux on the camera sensor was very small. No radiation damage was expected, and with several thousand x-ray exposures to date, none has been observed.
+\section{Prototype digital radiography system}
+Based on the cost and the design considerations above, we chose a Nikon D700 camera with an AF-S Nikkor 50 mm f/1.4G lens for the prototype.  Because we elected not to use a folding mirror, the x-rays transmitted by the screen impinged on the camera. By measuring the x-ray transmittance of the lens, however, we found that the x-ray flux on the camera sensor was very small. No radiation damage was expected, and with several thousand x-ray exposures to date, none has been observed.
 
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.3\linewidth}
@@ -126,12 +126,12 @@ Based on the cost and the design considerations above, we chose a Nikon D700 cam
 		\caption{}
 		\label{fig:phosphorscreen}
 	\end{subfigure}
-\caption{The imaging components that was used in the DR system, (a): Nikkor lens, (b): Nikon D700 camera, (c): phosphor screen.}
+\caption{The imaging components that were used in the DR system, (a): Nikkor lens, (b): Nikon D700 camera, and (c): phosphor screen.}
 \label{fig:DRcomponents}
 \end{figure}
 
-The imaging components inside the DR system are shown in Fig.~\ref{fig:DRcomponents}.  The system is constructed on an extruded aluminum frame that folds down into a small suitcase as shown in Fig.~\ref{fig:DR1uncovered}. The vertical assembly on the right in that photo is an opaque bakelite sheet with a standard Lanex screen mounted on the side facing the camera. The screens are interchangeable, and both Lanex Regular and Lanex Fast have been used. There is a light-tight felt cloth shroud, shown in Fig.~\ref{fig:DR1covered}, and only a thin camera cable needs to emerge from the shroud during operation.
-
+The imaging components inside the DR system are shown in Fig.~\ref{fig:DRcomponents}.  The system is constructed on an extruded aluminum frame that folds down into a small suitcase as shown in Fig.~\ref{fig:DR1uncovered}. The vertical assembly on the right side in that figure is an opaque bakelite sheet with a standard Lanex screen mounted on the side facing the camera. The screens are interchangeable, and both Lanex Regular and Lanex Fast have been used. There is a light-tight felt cloth shroud, where only a thin camera cable needs to emerge from the shroud during operation, shown in Fig.~\ref{fig:DR1covered}.
+%
 \begin{figure}[h]
 \centering
 	\begin{subfigure}[b]{0.45\linewidth}
@@ -146,11 +146,11 @@ The imaging components inside the DR system are shown in Fig.~\ref{fig:DRcompone
 	\caption{}
 	\label{fig:DR1covered}
 	\end{subfigure}
-\caption{First portable DR system that went to Nepal.  (a): The uncovered prototype DR system showing x-ray screen on the right and Nikon D700 DSLR on the left.  The frame folds down into the suitcase for transport.  (b): The same system but covered with light-tight shroud in place.  System is shown as set up in the Manang District Hospital, Chame, Nepal, with the breast phantom in position for imaging.}
+\caption{First portable DR system that went to Nepal.  (a): The uncovered prototype DR system showing an x-ray screen on the right and Nikon D700 DSLR camera on the left.  The frame folds down into the suitcase for transport.  (b): The same system but covered with a light-tight felt shroud in place.  The system is shown as set up in the Manang District Hospital, Chame, Nepal, with the breast phantom in position for imaging.}
 \label{fig:DR1}
 \end{figure}
 
-For transport, the suitcase contains the aluminum frame and x-ray screens, the shroud, a laptop computer, a solar panel for charging the computer and camera, a dosimeter and miscellaneous tools. Exclusive of the camera, which was carried separately, it weighs about 45 pounds. The total cost of the system, including the camera, laptop and lens, was less than \$5,000.
+For transport, the suitcase contains the aluminum frame and x-ray screens, the shroud, a laptop computer, a solar panel for charging the computer and camera, a dosimeter and miscellaneous tools. Exclusive of the camera, which was carried separately, the DR system weighs about 45 pounds. The total cost of the system, including the camera, laptop, and lens, was less than \$5,000.
 
 %To maximize light collection, it's important to use a lens at the lowest F number setting.  F number describes the amount of light that's collected by the lens in image space.  The equation for F number for an infinite conjugate optical system is given \ref{eq:Fnumber}.  For lenses that are not focused at infinity, the working F number describes the image forming light cone given and it is given by \ref{eq:workingfn_img}.  The F number in object space describes the cone of light that's collected by the lens.  It is related to the F number in image space by a magnification factor shown in equation \ref{eq:workingfn_obj}.  So when a 50 mm F1.4 lens is used to focus an object at 12:1 demagnification ($\frac{1}{12}$ magnification), its working number increases to 18.  This translates into approximately 0.95\% efficiency when we assume the x-ray screen is Lambertian and using \eqref{eq:lambertian}.  So consider an x-ray photon that pass through the x-ray screen and produces 5000 optical photon.  Only 48 will be collected by the lens and if the detector quantum efficiency is 50\%, we get approximatey 24 photoelectrons per incident x-ray photon.
 %
@@ -177,9 +177,9 @@ For transport, the suitcase contains the aluminum frame and x-ray screens, the s
 %\comment{blue and ultraviolet emitting phosphors such as lanthanum oxybromide LaOBr:Tm and barium fluorochloride BaFCl:Eu \citep{Barrett1981} }
 %Used gadolinium oxy-sulfide because it matches really well the spectrum of the CCD and CMOS detectors.
 
-The prototype system was taken to Nepal in spring, 2009, and tested in two clinics in the Kathmandu valley and in two district hospitals along the Annapurna Circuit Trail.  All locations had existing x-ray tubes, so no x-ray source was transported. A standard breast phantom was imaged with varying kVp and mAs and camera ISO settings at all four location sin Nepal and also in the Radiology Department of the University of Arizona.  Comparison film-screen images were obtained at the Nepali locations, and Computed Radiography (CR) images were objtained in Arizona.  Radiation exposure incident on the phantom was measured in all cases.
+The prototype system was taken to Nepal in spring, 2009, and tested in two clinics in the Kathmandu valley and in two district hospitals along the Annapurna Circuit Trail.  Because all locations had existing x-ray tubes, no x-ray source was transported. A standard breast phantom was imaged with varying kVp and mAs and camera ISO settings at all four locations in Nepal and also in the Radiology Department of the University of Arizona.  Comparison film-screen images were obtained at the Nepali locations, and Computed Radiography (CR) images were obtained in Arizona.  Radiation exposure incidents on the phantom were measured in all cases.
 
-A sample comparison is shown in Fig.~\ref{fig:DR_breast_both}. The film image on the right was acquired in Nepal but brought back to Arizona and digitized by photographing it with the Nikon D700 camera, trying to match the contrast presentation with that of the DSLR image on the left as closely as possible. All features of interest are visible in both images, but uneven development and several white blotches, probably from foreign matter on the screen, are evident on the film-screen image.
+A sample comparison using a breast phantom is shown in Fig.~\ref{fig:DR_breast_both}. The film image on the right was acquired in Nepal but brought back to Arizona and digitized by photographing it with the Nikon D700 camera, attempting to match the contrast presentation with that of the DSLR image on the left as closely as possible. All features of interest are visible in both images, but uneven development and several white blotches, probably from foreign matter on the screen, are evident on the film-screen image.
 
 \begin{figure}[h]
 \centering
@@ -194,11 +194,11 @@ A sample comparison is shown in Fig.~\ref{fig:DR_breast_both}. The film image on
 		\caption{}
 		\label{fig:DR_breast_film}
 	\end{subfigure}
-	\caption{Images of the breast phantom taken with the same exposure in a Himalayan clinic in Nepal, (a): an image taken with the DSLR system, and (b): an image taken with local film-screen technique.}
+	\caption{Images of the breast phantom taken with the same exposure in a Himalayan clinic in Nepal, (a): an image taken with the DSLR system, and (b): an image taken with a local film-screen technique.}
 	\label{fig:DR_breast_both}
 \end{figure}
 
-A second comparison, conducted entirely in Arizona, is illustrated in Fig.~\ref{fig:DR_chest_both}. In this case a human skeleton embedded in plastic was the phantom, and the comparison was between the DSLR system and a Fuji CR system. The exposure conditions, noted in the caption, are not identical in this case, but we again made an effort to match the display contrasts. There is no evident difference in feature visibility.
+A second comparison, conducted entirely in Arizona, is illustrated in Fig.~\ref{fig:DR_chest_both}. In this case, a human skeleton embedded in plastic was the phantom, and the comparison was between the DSLR system and a Fuji CR system. The exposure conditions, noted in the caption, are not identical in this case, but we again made an effort to match the display contrasts. There is no evident difference in feature visibility.
 
 \begin{figure}[h]
 \centering
@@ -214,12 +214,12 @@ A second comparison, conducted entirely in Arizona, is illustrated in Fig.~\ref{
 	\caption{}
 	\label{fig:DR_chest}
 	\end{subfigure}
-\caption{Magnified portions of chest-phantom images taken at the University of Arizona with two different DR systems.~\ref{fig:DR_chest_film}: DSLR system, 80 kVp, 25mAs, ISO 4000.~\ref{fig:DR_chest}: Fuji XG5000 Computed Radiography system, 109 kVp, 10mAs.}
+\caption{Magnified portions of chest-phantom images taken at the University of Arizona with two different DR systems. (b): DSLR system, 80 kVp, 25mAs, ISO 4000. (b): Fuji XG5000 Computed Radiography system, 109 kVp, 10mAs.}
 \label{fig:DR_chest_both}
 \end{figure}
 
-\subsection{Second Prototype DR System}
-A second DR system was build in 2012 for Dr. Wendell Gibby, a radiologist from Utah.  Slight adjustments were made to the first system because Dr. Gibby desired to test the DR system using his own camera at various magnifications, so this system does not include its own DSLR camera.  This second system is slightly bigger than the first unit though it is still collapsible.  Instead of using a folding mechanism, we made so the camera can be slid into different magnification positions to adjust for different field of views.  The entire system fits inside a large Pelican camera case and can be transported on wheels.  Figure~\ref{fig:DR2} shows the second system in SolidWorks both in the measurement setup and the collapsible setup.
+\subsection{Second prototype DR system}
+A second DR system was build in 2012 for Dr. Wendell Gibby, a radiologist from Utah.  Slight adjustments were made to the first system because Dr. Gibby desired to test the DR system using his own camera at various magnifications; thus, this system does not include its own DSLR camera.  This second system is slightly bigger than the first unit, although it is still collapsible.  Instead of using a folding mechanism, we made so that the camera can be slid into different magnification positions to adjust for different fields of view.  The entire system fits inside a large Pelican camera case and can be transported on wheels.  Figure~\ref{fig:DR2} shows the second system in SolidWorks, both in the measurement setup and the collapsible setup.
 
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.45\linewidth}
@@ -235,7 +235,7 @@ A second DR system was build in 2012 for Dr. Wendell Gibby, a radiologist from U
 	\caption{}
 	\label{fig:DR2collapsed}
 	\end{subfigure}
-\caption{The second portable DR system, showing (a): the DR system in imaging mode and (b): the system collapsed.}
+\caption{The second portable DR system, showing (a): the DR system in imaging mode, (b): the system collapsed.}
 \label{fig:DR2}	
 \end{figure}
 
@@ -248,10 +248,10 @@ A second DR system was build in 2012 for Dr. Wendell Gibby, a radiologist from U
 %	\end{subfigure}
 
 \subsection{DR system results}
-When used with conventional x-ray screens, modern prosumer DSLRs are attractive detectors for DR. Compared to other consumer digital cameras, they have much lower read noise and substantially larger sensors, reducing the demagnification factor needed to cover a given FOV and hence increasing the light-collection efficiency. The use of microlenses to direct the light to the photosensitive region of each pixel along with telecentric ``digital lenses'' results in a sensor fill factor of, effectively, 100\%. For large fields of view (e.g., chest radiography), the optical collection efficiency is approximately 1 photoelectron per x-ray interaction, but this number can be improved either by using smaller fields or by removing the color filter on the camera. Because the DSLR read noise is so low, the DQE (not including the screen absorption) for a disk-detection task can exceed 50\%.  Compared to scientific-grade CCD cameras, the DSLRs have large advantages in cost, read noise and readout speed.  They cannot compete with CCDs in terms of quantum efficiency or dark current, but neither of these characteristics is critical for DR.  Compared to current CsI or amorphous selenium flat-panel detectors, the main advantage of the DSLR approach is cost and readout speed. The resolution and noise performance of the DSLR system may be comparable to those of flat-panel detectors, but more studies are needed to confirm this conjecture.  Compared to film-screen systems in rural clinics, a major advantage of the DSLR approach is the digital character of the data. A DSLR provides an instant digital image for display manipulation and telemedicine, and it eliminates concerns about control of the developing process. Moreover, the large dynamic range of the cameras should lead to fewer incorrect exposures than with film. The DSLRs may also offer advantages over film-screen in terms of resolution, noise and the dose required for equal objective image quality, but many more studies are needed.  Finally, we note that the DSLR approach has the potential to bring fluoroscopy into rural settings; some DSLRs can take continuous data at 30 fps.
+When used with conventional x-ray screens, modern prosumer DSLRs are attractive detectors for DR.  Compared to other consumer digital cameras, they have much lower read noise and substantially larger sensors, reducing the demagnification factor needed to cover a given FOV and hence increasing the light-collection efficiency.  The use of microlenses to direct the light to the photosensitive region of each pixel along with telecentric ``digital lenses'' results in a sensor fill factor of, effectively, 100\%. For large fields of view (e.g., chest radiography), the optical collection efficiency is approximately 1 photoelectron per x-ray interaction, but this number can be improved either by using smaller fields or by removing the color filter on the camera. Because the DSLR read noise is so low, the DQE (not including the screen absorption) for a disk-detection task can exceed 50\%.  Compared to scientific-grade CCD cameras, the DSLRs have significant advantages in cost, read noise, and readout speed.  They cannot compete with CCDs in terms of quantum efficiency or dark current, but neither of these characteristics is critical for DR.  Compared to current CsI or amorphous selenium flat-panel detectors, the main advantage of the DSLR approach is cost and readout speed. The resolution and noise performance of the DSLR system may be comparable to those of flat-panel detectors, but more studies are needed to confirm this conjecture.  Compared to film-screen systems in rural clinics, a major advantage of the DSLR approach is the digital character of the data. A DSLR provides an instant digital image for display manipulation and telemedicine, and it eliminates concerns about control of the developing process. Moreover, the large dynamic range of the cameras should lead to fewer incorrect exposures than with film. The DSLRs may also offer advantages over film-screen in terms of resolution, noise, and the dose required for equal objective image quality, but many more studies are needed in this area.  Finally, we note that the DSLR approach has the potential to bring fluoroscopy into rural settings; some DSLRs can take continuous data at 30 fps.
 
 \section{Prototype Computed Tomography (CT) System}
-The results from the DR systems were very promising, we were interested in testing different cameras and x-ray screen combinations.  In addition we wanted to test how well this concept would work on a CT system.  So the prototype computed tomography system was built for these reasons.  The system set up is shown in Fig.~\ref{fig:CTsystem}.  Since this is only a prototype test bench system, we have decided to rotate the object on a leveled surface rather than rotating the x-ray tube and detector system on a gantry.  Thereby reducing the system's complexity while still maintaining our objectives.  The CT system frame was built using 80/20 extruded aluminum.  An x-ray tube is mounted to a fixed location.  The x-rays generated from the tube are converted to visible light after they have passed through the vertical x-ray phosphor screen located right behind the cylindrical object.  This can be seen in Fig.~\ref{fig:CTlab}.  The visible light from the phosphor screen are re-directed vertically via a 45 degrees front surface folding mirror.  The camera and lens are mounted on a vertical translation stage to minimize direct x-ray exposure to the camera sensor.
+The previous results from the DR systems were very promising, we were interested in testing different cameras and x-ray screen combinations.  In addition, we wanted to test how well this concept would work on a CT system.  Therefore, the prototype computed tomography system was built.  The system setup is shown in Fig.~\ref{fig:CTsystem}.  Since this is only a prototype test bench system, we decided to rotate the object on a leveled surface rather than rotating the x-ray tube and detector system on a gantry, thereby reducing the system's complexity while still maintaining our objectives.  The frame of the CT system was built using 80/20 extruded aluminum, and an x-ray tube is mounted to a fixed location.  The x-rays generated from the tube are converted to visible light after they have passed through the vertical x-ray phosphor screen located behind the cylindrical object, seen in Fig.~\ref{fig:CTlab}.  The visible light from the phosphor screen is re-directed vertically via a 45$\degree$ front-surface folding mirror.  The camera and lens are mounted on a vertical translation stage to minimize direct x-ray exposure to the camera sensor.
 
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.45\linewidth}
@@ -267,12 +267,12 @@ The results from the DR systems were very promising, we were interested in testi
 	\caption{}
 	\label{fig:CTlab}
 	\end{subfigure}
-\caption{The CT system configuration, (a): system model designed in SolidWorks, (b): the system setup i the lab.}
+\caption{The CT system configuration, (a): system model designed in SolidWorks, (b): the system setup in the lab.}
 \label{fig:CTsystem}
 \end{figure}
 
-Many safety measures were taken to minimize accidental x-ray exposure.  All three entrances into the lab were wired with visible warning signs and will lit up when x-rays are generated.  These entrances were also attached to magnetic on/off switches that will trigger to shut off the power to the x-ray tube immediately if any doors were opened while the x-rays were being generated.  A hand held ``deadman's'' switch was wired into place behind a shielded room to ensure an operator is present at all times while x-rays were present.  This is an extra step for safety so the operator can monitor the scanning process and to prevent anything disastrous from happening.  A 36 \inches $\times$ 36 \inches $\times$ 5/8 \inches size lead sheet was placed behind the CT system to prevent direct x-rays from penetrating the room.  These safety components are shown in Fig.~\ref{fig:safetycomponents} and Fig.~\ref{fig:leadshield}.
-
+Many safety measures were taken to minimize accidental x-ray exposure.  All three entrances into the lab were wired with visible warning signs which will light up when x-rays are generated.  These entrances were also attached to magnetic on/off switches that will shut off the power to the x-ray tube immediately if any doors are opened while the x-rays were being generated.  A hand-held ``deadman's'' switch was wired into place behind a shielded room to ensure that an operator is present at all times while x-rays were being generated.  This is an extra safety step so that the operator can monitor the scanning process in order to prevent anything disastrous from happening.  A 36 \inches $\times$ 36 \inches $\times$ 5/8 \inches size lead sheet was placed behind the CT system to prevent direct x-rays from penetrating the room.  These safety components are shown in Fig.~\ref{fig:safetycomponents}-~\ref{fig:leadshield}.
+%
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.3\linewidth}
 	\includegraphics[width=1.5in]{Capture_xray_3.PNG}
@@ -291,10 +291,10 @@ Many safety measures were taken to minimize accidental x-ray exposure.  All thre
 	\caption{}
 	\label{fig:deadmanswitch}
 	\end{subfigure}
-\caption{Safety mechanisms installed in the x-ray room. (a): x-ray warning sign, (b): magnetic on/off switch on doors, (c) ``deadman's'' switch}
+\caption{Safety mechanisms installed in the x-ray room. (a): x-ray warning sign, (b): magnetic on/off switch on doors, (c) ``deadman's'' switch.}
 \label{fig:safetycomponents}
 \end{figure}
-
+%
 \begin{figure}[h]
 \centering
 \includegraphics[width=3 in]{leadshield.png}	
@@ -303,8 +303,8 @@ Many safety measures were taken to minimize accidental x-ray exposure.  All thre
 \end{figure}
 
 \subsection{X-ray source}
-The CT test bench system is equipped with a very powerful research grade x-ray tube from Fisher Scientific, shown in Fig.~\ref{fig:xraytube}.  It can generate x-ray beam up to 130 kVp with maximum current ats 0.5 mA and any voltage and current values in between, though operation at low voltage and high current output is not recommended.  The x-ray tube has a very small spot size and can vary with output power and operating voltage.  The spot sizes are shown in Table~\ref{table:spotsizes}.  Resolution of any x-ray system will ultimately depends on the source size, so smaller spot size allows the x-ray images to have higher resolution, though smaller spot size also limits the total output produced by the x-ray tube.  This problem can be easily overcome by increasing the exposure time on the camera since scan duration is not our top priority.  The x-ray tube also has a very wide angular illumination output, with nominal angle at 54 degrees.  This allows us to limit the distance between the x-ray tube and the phosphor screen.
-
+The CT test bench system is equipped with a very powerful research grade x-ray tube from Fisher Scientific, shown in Fig.~\ref{fig:xraytube}.  It can generate x-ray beams up to 130 kVp with maximum current at 0.5 mA and any voltage and current values in between, although operation at low voltage and high-current output is not recommended.  The x-ray tube has a very small spot size and can vary with output power and operating voltage.  The spot sizes are shown in Table~\ref{table:spotsizes}.  Resolution of any x-ray system will ultimately depend on the source size; thus, smaller spot sizes allow the x-ray images to have higher resolution, although smaller spot sizes also limit the total output produced by the x-ray tube.  This problem can be easily overcome by increasing the exposure time on the camera since scan duration is not our top priority.  The x-ray tube also has a very wide angular illumination output, with a nominal angle at 54$\degree$.  This allows us to limit the distance between the x-ray tube and the phosphor screen.
+%
 \begin{figure}
 \begin{floatrow}
 \ffigbox{%
@@ -326,15 +326,13 @@ The CT test bench system is equipped with a very powerful research grade x-ray t
   \label{table:spotsizes}
 }
 \end{floatrow}
-
 \end{figure}
 
 \subsection{Cameras}
-We have three different cameras at our disposal to test on the CT system, shown in Fig.~\ref{fig:cameras} and Table~\ref{table:cameras}.  These are the Andor Neo, Nikon D700 and the PIXIS 2048B.  The Andor Neo employs a scientific CMOS sensor with rapid frame rates up to 30 fps at full frame.  The Neo camera is capable of operating at -40 $\degree$C using built-in thermoelectric (TE) coolers in air.  The camera is purchased with a LabView software development kit (SDK) and a 4 GB data acquisition board so we can acquire data bursts at frame rates faster than the computer file-write speed.  The Neo camera was integrated into the CT software in LabView.  Currently, the camera's sensor temperature is cooled by attaching an external water cooler for longer CT scan routines.  The Andor Neo camera does not have microlens arrays in front of the detector.  The quantum efficiency is approximately 55\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength.
+We have three different cameras at our disposal to test on the CT system, shown in Fig.~\ref{fig:cameras} and Table~\ref{table:cameras}.  These are the Andor Neo, Nikon D700, and the PIXIS 2048B.  The Andor Neo employs a scientific CMOS sensor with rapid frame rates up to 30 fps at full frame and is capable of operating at -40$\degree$C using built-in thermoelectric (TE) coolers in air.  The camera is purchased with a LabView software development kit (SDK) and a 4 GB data acquisition board so that we can acquire data bursts at frame rates faster than the computer file-write speed.  The Neo camera was integrated into the CT software in LabView.  Currently, the camera's sensor temperature is cooled by attaching an external water cooler for longer CT scan routines.  The Andor Neo camera does not have microlens arrays in front of the detector.  The quantum efficiency is approximately 55\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength.
 
-
-The PIXIS 2048B is a ultra sensitive CCD camera.  It has a large detector and pixel size and can cool down to -60$\degree$C in air.  It has very slow acquisition speed ranging from 100 KHz to 2 MHz.  The quantum efficiency at is approximately is approximate over 95\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength. The D700 Nikon camera was described in the previous section.
-
+The PIXIS 2048B is an ultra sensitive CCD camera, which has a large detector and pixel size and can cool down to -60$\degree$C in air.  It has a very slow acquisition speed ranging from 100 KHz to 2 MHz.  The quantum efficiency is approximately over 95\% at $\mathrm{Gd_2O_2S:Tb}$'s emission wavelength. The D700 Nikon camera was described in the previous section.
+%
 \begin{figure}
 	\begin{subfigure}[b]{0.45\linewidth}
 	\centering
@@ -357,34 +355,34 @@ The PIXIS 2048B is a ultra sensitive CCD camera.  It has a large detector and pi
 \begin{tabular}{c|c|c|c}
 \hline
 Camera Model & Pixel Pitch ($\mu$m) & Sensor Size (mm) & Detector Type \\ \hline
-Andor Neo & 6.5 & 16.6 $\times$ 14.0 & scientific CMOS \\ \hline
+Andor Neo & 6.5 & 16.6 $\times$ 14.0 & Scientific CMOS \\ \hline
 Nikon D700 & 8.5 & 36 $\times$ 24 & CMOS \\ \hline
 PIXIS 2048B & 13.5 & 27.6 $\times$ 27.6 & CCD \\
 \hline
 \end{tabular}
-\caption{Cameras for the CT system}
+\caption{Cameras for the CT system.}
 \label{table:cameras}
 \end{table}
 
 \subsection{Shutter}
-The shutter assembly is mounted to the front of the x-ray tube. It is used to stop the x-ray beam and to reduce x-ray exposure to the operator and to prevent the tube being turned on and off repeatedly.  The shutter assembly was originally designed by Jared Moore for the FaCT system and it has been modified to stop higher energy x-rays.  The shutter assembly is composed of a tungsten epoxy shutter, a rotary solenoid, and an optical sensor all mounted to an aluminum holder that can accommodate for various x-ray filters, shown in Fig.~\ref{fig:shutter}.
-
+The shutter assembly is mounted to the front of the x-ray tube, and is used to stop the x-ray beam, reduce x-ray exposure to the operator, and to prevent the tube from being repeatedly turned on and off.  The shutter assembly was originally designed by Jared Moore for the FaCT system and it has been modified to stop higher energy x-rays.  The shutter assembly is composed of a tungsten epoxy shutter, a rotary solenoid, and an optical sensor all mounted to an aluminum holder that can accommodate for various x-ray filters, shown in Fig.~\ref{fig:shutter}.
+%
 \begin{figure}[h]
 \centering
 	\includegraphics[scale=1]{ShutterSystemWLabel.eps}
-	\caption{The x-ray shutter assembly}
+	\caption{The x-ray shutter assembly.}
 	\label{fig:shutter}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale = 1]{ShutterBoard_front_back.eps}
-\caption{Electronic PCB board for the shutter system}
+\caption{Electronic PCB board for the shutter system.}
 \label{fig:shutterboard}
 \end{figure}
 
-The shutter assembly is controlled by an electronic PCB board and it was designed previously by Lars Furliend, shown in Fig.~\ref{fig:shutterboard}.  The PCB board controls the rotary solenoid by first feeding the solenoid with a large burst of current.  This current rotates the solenoid and throws the shutter plate to the open position.  An oscillating holding current follows the large current burst, which keeps the shutter at the open position and prevents the solenoid from over heating.  Fig.~\ref{fig:solenoid_schematic} shows the schematic diagram for the shutter board and Appendix~\ref{app:partslist} provides a list of the components that were used for the shutter.  The optical switch is used to double check to make sure the shutter is fully open.  The PCB board is powered by a +24 VDC power supply.  The trigger that controls shutter is held at +5VDC when the shutter is fully closed and will open when the it is set to ground.  This trigger signal for the shutter assembly is controlled via a National Instruments USB DAQ module, and it is integrated into the CT acquisition software.
-
+The shutter assembly is controlled by an electronic PCB board and was designed by Lars Furliend, shown in Fig.~\ref{fig:shutterboard}.  The PCB board controls the rotary solenoid by first feeding the solenoid with a large burst of current.  This current rotates the solenoid and throws the shutter plate to the open position.  An oscillating holding current follows the large current burst, which keeps the shutter at the open position and prevents the solenoid from over heating.  Fig.~\ref{fig:solenoid_schematic} shows the schematic diagram for the shutter board and Appendix~\ref{app:partslist} provides a list of the components that were used for the shutter.  The optical switch is used to double check to make sure the shutter is fully open.  The PCB board is powered by a +24 VDC power supply.  The trigger that controls shutter is held at +5VDC when the shutter is fully closed and will open when the it is set to ground.  This trigger signal for the shutter assembly is controlled via a National Instruments USB DAQ module, and it is integrated into the CT acquisition software.
+%
 \begin{sidewaysfigure}[h]
 \centering
 \includegraphics[scale=0.6]{Solenoid_diagram.eps}
@@ -393,8 +391,8 @@ The shutter assembly is controlled by an electronic PCB board and it was designe
 \end{sidewaysfigure}
 		
 \subsection{Aperture assembly}
-The aperture assembly is used to mask the x-ray beam so it's projection size is slightly larger than the imaging field of view.  The maximum beam size at the lead shield should never exceed the size of the lead shield (36 \inches $\times$ 36 \inches).  The aperture assembly is constructed using four tungsten copper alloy plates (CW80) purchased from Leading Edge Metals \& Alloys Inc, shown in Fig~\ref{fig:aperture}.  The plate thickness (1/8 \inches) was calculated to ensure very little x-ray penetration up to 130 kVp.  Linear translation stages, purchased from Velmex, were used to move individual tungsten blades.
-
+The aperture assembly is used to mask the x-ray beam so that its projection size is slightly larger than the imaging field of view.  The maximum beam size at the lead shield should never exceed the size of the lead shield itself(36 \inches $\times$ 36 \inches).  The aperture assembly is constructed using four tungsten copper alloy plates (CW80) purchased from Leading Edge Metals \& Alloys Inc., shown in Fig~\ref{fig:aperture}.  The plate thickness (1/8 \inches) was calculated to ensure very little x-ray penetration up to 130 kVp.  Linear translation stages, purchased from Velmex Inc., were used to move individual tungsten blades.
+%
 \begin{figure}[h]
 \centering
 \includegraphics[height=6 cm]{Capture_aperture.PNG}
@@ -406,4 +404,4 @@ The aperture assembly is used to mask the x-ray beam so it's projection size is 
 
 
 \section{Summary}
-We have described the components that were used to construct both the digital radiography system and the prototype computed tomography system.  For the digital radiography system we have explained the reasoning behind our camera selection and lens selection, and for the CT system we have shown the major components and the sub assemblies in the system.  We have also shown that the safety features that were employed in the CT system.  
+We have described the components that were used to construct both the digital radiography system and the prototype computed tomography system.  For the digital radiography system we have explained the reasoning behind our camera selection and lens selection; for the CT system, we have shown the major components and the subassemblies in the system.  We have also shown the safety features that were employed in the CT system.  
