@@ -9,124 +9,169 @@ Comment on how x-ray imaging is an important diagnostic tool in medical imaging.
 Digital radiography systems can be divided into two general groups using two different readout processes.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter in a cassette form which later requires a separate optical readout process to record the image.  Typically, this separate readout process requires human intervention to transfer the storage phosphor cassette from the patient to the laser-scanning station.  Systems that acquire images using this method are commonly known as Computed Radiography (CR) systems, which have been commercially available for almost two decades.  They are used for various applications and produce images with excellent image quality; however, they are not the focus of this dissertation.  For more information, please refer to the review articles by Rowlands~\citep{Rowlands2002} and Kato~\citep{kato1994}, and the American Association of Physicists in Medicine (AAPM) Report no. 93.~\citep{AAPM93}.  The second group of radiography system is an integrated system where the x-ray is detected and read out by the same device without any human intervention.  These are commonly known as Digital Radiography (DR) systems and are the focus of this chapter.
 
 \section{Digital Radiography (DR) detectors}
-Modern x-ray digital radiography (DR) detectors were made possible by the extensive investment into the development of active-matrix liquid-crystal flat-panel display (AMLCD) technology found in modern large LCD displays.  This technology created a way of manufacturing large-area integrated circuits called active-matrix arrays that enabled semiconductors, such as amorphous silicon, to be deposited across a large area on glass substrates.  The medical device community took advantage of this technology to form the basis of digital radiography detectors, or sometimes called flat-panel detectors (FPD), by coupling x-ray sensitive materials, such as photoconductors or phosphors, with large-area arrays that are created to store and readout the products of the x-ray interactions with sensitive materials, resulting in an image.  There are two general approaches to create an x-ray detector, direct and indirect.  We give a brief overview of the two approaches in the following section.
+Modern x-ray digital radiography (DR) detectors were made possible by the considerable investment into developing active-matrix liquid-crystal flat-panel display (AMLCD) found in modern monitors and flat screen TVs.  This technology created a way of manufacturing large-area integrated circuits called active-matrix arrays that enabled semiconductors, such as amorphous silicon, to be deposited across a large area on glass substrates.  The medical device community took advantage of this technology and form the basis of digital radiography detectors.  Sometimes called flat-panel detectors (FPD), they are build by coupling x-ray sensitive materials with large-area arrays that are created to store and readout the products of the x-ray interactions with sensitive materials, resulting in an image.  There are two general approaches to create an x-ray detector, direct and indirect.  We will give a brief overview of the two approaches in the following section.
 
 \subsection{Direct approach}
-The term direct and indirect refers to the outputs of initial x-ray interactions with the detection material rather than the design of the active-matrix arrays.  In the direct approach, an x-ray interaction with a photoconductor produces electron-hole pairs at the interaction site.  The detector signal is produced directly by collecting the electrons when an electric field is applied to the photoconductor.  Currently, only amorphous-Selenium (a-Se) has been used in commercial x-ray detectors.  So we will try to give example using this material whenever possible.  
-
-The x-ray sensitivity of detectors made using the direct approach depends on the photoconductor's ability to convert incident x-rays into collectible charges by the active-matrix arrays.  Several factors of the photoconductors effects its x-ray sensitivity.  First is the quantum efficiency of the photoconductor material.  The quantum efficiency refers to the absorbed fraction of incident radiation that is useful in creating electron-hole pairs.  The quantum efficiency for an x-ray of energy $E$ is given by $A_Q = 1 - exp[-\alpha (E, Z, d) T]$, where $T$ is the material's thickness, $\alpha$ is the linear attenuation coefficient of the material that is a function of the x-ray energy, the atomic number of the material, and the density of the material respectively.  High quantum efficiency can be achieved by increasing the material's thickness, or choosing a material with high Z value.  
-
-Once radiation is absorbed in the material, we want the material to create as many electron-hole pairs as possible per incident x-ray photon.  
-When an x-ray photon is absorbed in the photoconductor medium, the absorbed energy excites a electron from the valence band to the conduction band via the photoelectric effect, leaving behind a hole in the valence band.  As this first energetic photoelectron traverse through the material, it causes further ionization and produces more electron-hole pairs within the material.  
-%The amount of energy required to create one electron-hole pair is called the $W$-value, which is dependent on the band-gap energy of the photoconductor.  The charges created from an absorbed x-ray radiation of energy $\Delta E$ is equal to $e \Delta E / W$, where $e$ is the charge of an electron.
-
-Once electron-hole pairs are created, they must be collected onto an external storage element, or capacitor.  An electric field is applied to the photoconductor so the electrons and holes drift towards the opposite ends of the material surface.  Since the electrons and holes can be lost due to recombination, or trapped within the material.  Another important factor of the photoconductor is the mean distance traveled by a charge carrier before it is trapped or lost.  This distance, also called Schubwegs ($S = \mu \tau E$), depends on the carrier's drift mobility, lifetime, and the applied electric field, respectively.  For example, this distance is typically between 0.3 to 3 mm for an electron, and 6.5 to 65 mm for a hole under 10 V$\mu m^{-1}$ in a-Se.  One problem that can effect direct x-ray detector is image lag and ghosting produced within the photoconductor material.  Image lag refers to the carried-over image produced from previous exposures to the next exposure.  This is caused by the trapped charges from one exposure becoming detrapped and readout by the subsequent image.  Ghosting refers to the trapped charges acting as recombination centers for the generated charges, which reduces the lifetime of the charge carriers and the x-ray sensitivity.  These problems can be reduced by making sure the carrier's mean drift distance is larger than the material thickness.
-
-One of the biggest disadvantage of using a-Se is that very high voltage is needed to activate the a-Se layer.  For example, a-Se requires an internal field of approximately 10 V$\mu m^{-1}$.  For a 500 $\mu m$ layer of a-Se, the voltage required is approximately 5000 V.  This voltage drop is applied in series across the photoconductor and the pixel storage element.  Fortunately the capacitance of a ~500 $\mu m$ a-Se is small and the storage capacitance is usually designed to be ~1pF, so the potential across the storage capacitor is only ~10 V and the rest of the voltage is dropped across a-Se.  However under faulty conditions, the large potential can damage the active-matrix array.  Another disadvantage of the direct approach is that common material like a-Se has low atomic number, Z = 34, which is rather low for higher diagnostic energies (~100 keV).  As a result, a-Se is usually used in mammography devices operating at 20-30 kVp.  
+The term direct and indirect refers to the outputs of initial x-ray interactions with the detection material rather than the design of the active-matrix arrays.  In the direct approach, an x-ray interaction with a photoconductor produces electron-hole pairs at the interaction site.  The detector signal is produced directly by collecting the electrons when an electric field is applied to the photoconductor, shown in Fig~\ref{fig:photoconductor_cross_section}.  Currently, only amorphous-Selenium (a-Se) has been used in commercial x-ray detectors.
 %
-%  First, the band structure for photoconductors and semiconductors only differs in their band-gap energy.  The band-gap energy for semiconductor is ~1 eV, and ~2 eV for photoconductors, shown in Fig. X.  In a semiconductor, only a few free carriers are  present by thermal generation with band-gap energy at ~1 eV.  Since the band-gap energy of a photoconductor is at ~2 eV, there are almost no free carriers generated at room temperature.  Second, high atomic number, Z, of the photoconductors means that the diagnostic x-rays are absorbed and is dominated by the photoelectric effect, where a very energetic photoelectron is produced.  As this photoelectron traverse through the detection material, it causes further ionization and releases more electron-hole pairs within the material.  
-%  
-%
-\subsection{Indirect approach}
-In the indirect approach, detection materials such as phosphors or scintillators are placed in close contact with the active-matrix array.  An x-ray interaction in the detection material produces lower-energy photons typically in the visible range.  These lower-energy photons are then collected by a photosensitive element in each pixel which in turn generates electrical charges, where they are stored and readout by the active-matrix array to form an image.  The term indirect refers to the fact that x-ray interactions are detected indirectly using the electrical charges produced by the lower energy photons from the detection material rather than the electrical charges produced directly within the detection material.
-
-Similar to photoconductors, we want phosphors and scintillators to absorb and convert as much incident radiation as possible into lower-energy photons.  
-
-\subsection{Readout arrays}
-
-\section{Lens-coupled x-ray detectors}
-
-\section{Summary}
-
-
-
-\subsection{X-ray Converters}
-\label{subsect:x-ray_converters}
-The x-ray digital radiography system is composed of two main components.  The first component is an x-ray converter that converts x-ray photons into secondary quanta.  The second component is a readout array that measures the output from the first component.  There are two general classes of x-ray converters: photoconductors and scintillators, shown in Fig.~\ref{fig:x-ray_detector}.
-
 \begin{figure}[ht]
 \centering
-	\begin{subfigure}[h]{0.3\linewidth}
-		\includegraphics[scale=1]{x-ray_detector_photoconductor.eps}
-		\caption{}
-		\label{fig:xray_photoconductor}
-	\end{subfigure}
-	\hspace{2 cm}
-	\begin{subfigure}[h]{0.3\linewidth}
-		\includegraphics[scale=1]{x-ray_detector_scintillator.eps}
-		\caption{}
-		\label{fig:xray_scintillator}
-	\end{subfigure}
-	\caption{Two types of x-ray converts, (a): a photoconductor, and (b): a scintillator.}
-	\label{fig:x-ray_detector}
-\end{figure}
-
-The first type of x-ray converters is a photoconductor, shown Fig.~\ref{fig:xray_photoconductor}.  The photoconductor absorbs the incident x-ray photon and converts it into an electron-hole pair.  The electron-hole pair drifts under an applied electric field, which is then collected by a capacitor inside each pixel.  The charge is read out via multiple electronic stages and converted into a digital signal.  Figure~\ref{fig:photoconductor_cross_section} shows a cross-section of a photoconductor.  The performance of an x-ray photoconductor is limited mainly by its x-ray sensitivity, noise, and image lag.  X-ray sensitivity refers primarily to the photoconductor's material used to interact with an x-ray.  Usually, a high atomic number, Z, will have a higher probability to interact with an x-ray, and hence higher x-ray sensitivity.  Another factor that affects the x-ray sensitivity is referred to as the $W$-value, which is proportional to the band gap energy in the material.  $W$-value is defined as the average energy required to create a single electron-hole pair.  Ideally, an extremely sensitive photoconductor should have a low $W$-value.  However, because a low $W$-value can also contribute to high thermal noise, there is a trade-off between x-ray sensitivity and noise.  Finally, image lag and ghosting in photoconductors are caused by incomplete charge collection and large charge fluctuations due to the trapping and detrapping of charge carriers by various traps or defects in the band gap.  These can be avoided or reduced by ensuring that the mean drift length of the generated charge carriers is greater than the thickness of the photoconductors~\citep{Kim2008, kasap2006}.  The most common material for photoconductors is amorphous selenium (a-Se) and is the most widely used material in commercial products.  Due to its low Z, a-Se is usually used in mammography devices operating at 20-30 kVp.  The low energy of the Se k-edge gives the material an absorption advantage over scintillator materials such as CsI(Tl) for the same material thickness~\citep{Yorkston2007}.  Other types of photoconductors, such as $\mathrm{PbI_2}$, $\mathrm{HgI_2}$, $\mathrm{PbO}$, $\mathrm{CdTe}$, and $\mathrm{CdZnTe}$, have been reported~\citep{springer2007}.  Photoconductors rely on electron-hole pair diffusion rather than optical photon diffusion, which means they do not have adequate time to diffuse laterally from their initial creation location before being collected.  As a result, photoconductors can achieve much higher resolution compared to scintillators.  The devices based on a-Se can provide spatial resolution that is close to the theoretical maximum predicted by a perfect Rect function response from the pixel~\citep{hunt5030}. 
-
-\begin{figure}[ht]
-\centering
-\includegraphics[scale = 0.5]{photoconductor_kasap2006.png}
-\caption{A cross-section of a photoconductor pixel~\citep{kasap2006}.}
+\includegraphics[scale = 1]{photoconductor_kasap.eps}
+\caption{A cross-section of a photoconductor pixel~\citep{kasap2006}.  The charges are created by an incident x-ray photon, collected onto the capacitor, then readout through a thin-film transistor (TFT) by turning on the gate line and finally passing through a charge amplifier.}
 \label{fig:photoconductor_cross_section}
 \end{figure}
 
-The second type of x-ray converter is a scintillator, shown in Fig.~\ref{fig:xray_scintillator}.  Scintillators absorb x-ray photons and re-emit lower-energy photons typically in the visible range.  Traditional film-screen cassette systems use powdered phosphors screens such as gadolinium oxy-sulphide ($\mathrm{Gd_2O_2S \colon Tb}$) and place the screens on both sides of an x-ray film.  The light produced from the scintillator screens was then used to expose the film to create an image.  These traditional x-ray screens typically produce $\sim$1,000-2,000 visible photons per absorbed x-ray photon~\citep{trauernicht1988, trauernicht1990}. Newer types of scintillators such as columnar CsI(Tl) are grown as crystals in needle-like structures.  This allows these scintillators to be made much thicker, which increases the number of x-rays absorbed while maintaining the light spread in the scintillator compared to traditional powdered phosphor screens.  Figure~\ref{fig:scintillators} shows the scintillator structure of $\mathrm{Gd_2O_2S:Tb}$ vs. columnar CsI(Tl).
+The x-ray sensitivity of detectors made using the direct approach depends on the photoconductor's ability to convert incident x-rays into collectible charges by the active-matrix arrays.  Several factors of the photoconductors effects its x-ray sensitivity.  First is the quantum efficiency of the photoconductor material.  The quantum efficiency refers to the absorbed fraction of incident radiation that is useful in creating electron-hole pairs.  The quantum efficiency for an x-ray of energy $E$ is given by $\eta_Q = 1 - exp[-\alpha (E, Z, d) T]$, where $T$ is the material's thickness, $\alpha$ is the linear attenuation coefficient of the material that is a function of the x-ray energy ($E$), the atomic number of the material ($Z$), and the density of the material ($d$).  High quantum efficiency can be achieved by increasing the material's thickness, or choosing a material with high $Z$ value.  
 
+Once radiation is absorbed in the material, we want the material to create as many electron-hole pairs as possible per incident x-ray photon.  When an x-ray photon is absorbed in the photoconductor medium, the absorbed energy excites a electron from the valence band to the conduction band via the photoelectric effect, leaving behind a hole in the valence band.  As this first energetic photoelectron traverse through the material, it causes further ionization and produces more electron-hole pairs within the material.  
+
+As soon as the electron-hole pairs are created, they must be collected onto an external storage element, or capacitor.  Electric field applied to the photoconductor causes the electrons and holes to drift towards the electrodes that are placed on opposite ends of the material's surface.  Since the electrons and holes can be lost due to recombination, or trapped within the material.  Another important factor of the photoconductor is the mean distance traveled by a charge carrier before it is trapped or lost.  This distance, also called Schubwegs, given by $S = \mu \tau E$, depends on the carrier's drift mobility ($\mu$), lifetime ($\tau$), and the applied electric field ($E$).  For example, this distance is typically between 0.3 to 3 $mm$ for an electron, and 6.5 to 65 $mm$ for a hole under 10 $V \mu m^{-1}$ in a-Se.  One problem that can effect direct x-ray detector is image lag and ghosting produced within the photoconductor material.  Image lag refers to the carried-over image produced from previous exposures to the next exposure.  This is caused by the trapped charges from one exposure becoming detrapped and readout by the subsequent image.  Ghosting refers to the trapped charges acting as recombination centers for the generated charges, which reduces the lifetime of the charge carriers and the x-ray sensitivity.  These problems can be reduced by making sure the carrier's mean drift distance is larger than the material's thickness.
+
+One of the biggest disadvantage of using a-Se is that very high voltage is needed to activate the a-Se layer.  For example, a-Se requires an internal field of approximately 10 $V \mu m^{-1}$.  For a 500 $\mu m$ layer of a-Se, the voltage required is approximately 5,000 $V$.  This voltage drop is applied in series across the photoconductor and the pixel storage element.  Fortunately the capacitance of a $\sim$500 $\mu m$ a-Se is small and the storage capacitance is usually designed to be $\sim$1$pF$, so the potential across the storage capacitor is only $\sim$10 $V$ and the rest of the voltage is dropped across a-Se.  However under faulty conditions, the large potential can damage the active-matrix array.  Another disadvantage of the direct approach is that common material like a-Se has low atomic number, $Z$ = 34, which is rather low for higher diagnostic x-ray energies ($\sim$60 $keV$).  As a result, a-Se is usually used in mammography devices operating at 20-30 $kVp$.  
+
+\subsection{Indirect approach}
+In the indirect approach, detection materials such as phosphors or scintillators are placed in close contact with the active-matrix array.  An x-ray interaction in the detection material produces lower-energy photons typically in the visible range.  These lower-energy photons are then collected by a photosensitive element, such as a photodiode, in each pixel which in turn generates electrical charges.  These charges are then stored and readout by the active-matrix array to form an image.  The term indirect refers to the fact that x-ray interactions are detected indirectly using the electrical charges produced by the lower energy photons from the detection material rather than the electrical charges produced directly within the detection material.  The most common materials used in flat-panel detectors that employ the indirect approach are $\mathrm{Gd_2O_2S:Tb}$, a phosphor, and $\mathrm{CsI:Tl}$, a scintillator. 
+%
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.1]{scintillator_band.eps}
+\caption{Energy band structure of (a) a semiconductor/photoconductor scintillator and (b) a scintillator}.
+\label{fig:scintillator_band}
+\end{figure}
+%
+Similar to photoconductors, we want phosphors and scintillators to absorb and convert as much incident radiation as possible into lower energy photons.  Historically, powdered phosphors were deposited on plastic screens and were mainly used in x-ray imaging to expose photographic films; scintillators were grown as crystals and were used to detect high energy x- and gamma-rays~\citep{Nikl2006}.  Despite phosphor screens and scintillators are prepared differently, the fundamental physics behind both are identical.  Shown in Fig~\ref{fig:scintillator_band}, the band structure of a scintillator is very similar to a photoconductor, except that the band-gap between the valence and conduction band is much larger.  When an incident radiation, such as an x-ray photon, is absorbed in the material.  It results in an electron to jump from the valence band to the conduction band, leaving a hole behind in the valence band.  The electron can return to the valence band by emission of a photon, however, this process is extremely inefficient in a normal crystal.  In addition, since the band-gap energy in a scintillator is fairly high, the wavelength of the emitted photon will be much higher than the wavelengths in visible spectrum.  To improve the efficiency of photon emission, small amount of impurities, called activators, were added to the scintillators.  This result in additional energy bands in the forbidden gap.  When electron-hole pairs are created via a photoelectron or other energetic electron, a hole in the valence band will quickly move up into the activator ground state, ionizing the activator site.  When an electron in the conduction band encounters the ionized activator site, it can drop into the activator site.  The electron can then neutralize the activator site by de-excite from the excited state into the ground state and emit a visible photon~\citep{Knoll2010}.  Since the energy of a visible photon is small ($\sim$2-3 eV) compared to the energy of an x-ray photon, many visible photons can be produced from the absorption of one x-ray photon.  For example, in $\mathrm{Gd_2O_2S:Tb}$, a 60 keV x-ray photon will produce approximately 3600 green photon each with energy $\sim$2.4 eV~\citep{Rowlands2000}.
+%
 \begin{figure}[ht]
 \includegraphics[width = 10cm]{scintilators.jpg}
 \caption{Two different types of scintillator structures viewed under SEM~\citep{scintillatorImage}}
 \label{fig:scintillators}
 \end{figure}
+%
+One of the main issues with phosphor screen is that the spatial resolution can be affected by factors such as phosphor grain size, the phosphor packing ratio, and screen thickness.  Shown in Fig X, thicker screens increase the probability of an x-ray interaction, but lowers the spatial resolution because visible photons will scatter more inside before exiting the screen.  Screens made with larger phosphor grains produce more light, though with lower spatial resolution compared with screens made with finer grain sizes.  Newer types of scintillators such as columnar $\mathrm{CsI:Tl}$ are grown as crystals in needle-like structures.  This allows these scintillators to be made much thicker, which increases the probability of x-ray absorption while maintaining the light spread within the scintillator compared to traditional powdered phosphor screens, this can be seen in Fig.~\ref{fig:scintillators}.
 
-%X-ray detectors that uses scintillators requires the scintillator to be thick enough to stop x-rays while limiting the amount of light spread in order to preserve spatial resolution.  The spatial resolution of a-Se based detectors does not depend on the photonconductor's thickness since the electron-hole pairs created inside the photoconductor does not drift laterally once it's created due to the biased voltage.  Rather, the detection efficiency is decreased as the a-Se layer increases.  This is because as the a-Se layer increases,  the charge carriers has more chance to be absorbed by the a-Se layer itself and decrease the number of charge carriers arriving at the charge collecting capacitor.
-%Since x-rays are ionizing radiation, we need to limit the exposure to the object, i.e. the human body, with as little radiation as possible while still be able to produce accurate diagnostic images.  This means that the x-ray converter needs to be able to absorb and convert as many incident x-ray photon as possible.  
+\subsection{Readout arrays}
+%
+\begin{figure}[h]
+\includegraphics[width = 8cm]{active-matrix_array.png}
+\caption{Schematic diagram of the main components of an active matrix array that are used to control the readout process~\citep{Fahrig2008}.}
+\label{fig:schematic_active-matrix_array}
+\end{figure}
+%
+Although the active-matrix arrays designed for detectors employing indirect and direct approach are slightly different, the readout scheme for both are exactly the same.  Unlike charge-coupled devices (CCD), during readout the signals in active-matrix array are not transferred from one pixel to a neighboring pixel.  Instead, the signal in each pixel element is transferred directly to the readout amplifier.  Shown in Fig.~\ref{fig:schematic_active-matrix_array}, each row of the active-matrix array requires a separate gate line, and each column of the array are connected to a separate data line with its own charge amplifier.  During readout, the first row of the array is turned on while all other rows are put in their off state.  The signals from each pixel along this row are then read out one pixel at a time by the data line.  Once all pixels have been readout in this first row, the control switches the first row to the off state and turn on the second row where the procedure repeats again until all pixels in the flat-panel array are readout.  
 
-\subsection{Secondary Quantum Detectors}
-The most prevalent secondary quantum detectors are based on hydrogenated amorphous silicon (a-Si:H) arrays.  The fabrication technique is called plasma-enhanced chemical vapor deposition (PECVD), and its main commercial use is in the display market.  The fabrication process can routinely create devices as large as the body parts that are being imaged, up to $\sim$43 $\times$ 43 $\mathrm{cm^2}$.  This means that the detectors can have very high collection efficiencies with $\sim$50$\%$ and up to as high as $\sim$90$\%$~\citep{Yorkston2007}.
-Figure~\ref{fig:a-Si:H array} shows a general layout of the pixels on an a-Si:H array.  
-
-\begin{figure}[ht]
-\includegraphics[scale=0.5]{si_array_kim.png}
-\caption{The readout pixel array based on the a-Si:H photodiode~\citep{Kim2008}.}
-\label{fig:a-Si:H array}
+\subsection{Fill factor}
+%
+\begin{figure}[h]
+\includegraphics[scale=1]{mushroom_electrodes.eps}
+\caption{Photomicrographs showing the pixel arrays with (a) a photodiode and (b) a storage capacitor.  Mushroom electrodes are used to increase the effective fill-factor of a pixel (c).}
+\label{fig:pixel_fill_factor}
+\end{figure}
+%
+\begin{figure}[h]
+\includegraphics[scale=1]{mushroom_electrodes.eps}
+\caption{Mushroom electrodes are used to increase the effective fill-factor of a pixel.}
+\label{fig:mushroom_electrodes}
 \end{figure}
 
-The sensing or storage element on the a-Si:H array depends on the type of x-ray converter used.  When used with a photoconductor, the storage element is a capacitor, where the a-Si:H array directly measures the electron-hole pairs that are created when x-ray photons are incident on the photoconductor.  When using the a-Si:H array with a scintillator, the storage element is a photodiode, which absorbs the visible light created by the scintillator after x-ray photons are absorbed. The photodiode then converts the visible light into electron-hole pairs.  As a result, the a-Si:H array made with photodiodes are often referred to as \textit{indirect} detectors because the photodiode is used as an intermediate step to convert visible light from the scintillator into electron-hole pairs.  The a-Si:H arrays made with photoconductors are referred to as \textit{direct} detectors because they directly measure the amount of electron-hole pairs created in the photoconductor by the a-Si:H pixel arrays.  In both cases, the final measurement is electrical charge.  
+One of the most important factor in flat-panel detector is the fill factor, which is the fraction of the pixel area that's sensitive to incoming signal.  In the indirect approach, this is the fraction of the photodiode area in the entire pixel, which include the photodiode, electrodes, the readout switch, and various control lines as shown in Fig.~\ref{fig:pixel_fill_factor}.  This is very similar in the direct approach, however, the effective fill-factor is much higher because the use of mushroom electrodes that extend over the top of the switching elements, bending the electric field and the charges away from dead zones so they can be collected onto the capacitor as seen in Fig.~\ref{fig:mushroom_electrodes}.  The design rule that is used to fabricate a particular active-matrix array governs many factors such as the thickness of the metallic lines and gaps between neighboring pixels, which are usually independent of the pixel sizes.  As a result, as pixels are made into smaller and smaller sizes, there is a threshold below where the fill factor will drop significantly, as seen in Fig. X.
 
-Once electrical charges are accumulated on the storage element, the pixels are read out in a line-by-line mode by changing the control voltage on individual switch control lines.  Then, the individual pixels are read out through each data line.  The signal from each pixel is passed through peripheral readout electronics.  These readout electronics usually incorporate correlated double sampling and attempts to eliminate the 1/f noise and dc offset from the signal.  The signal also passes through a series of amplifiers and multiplexers and eventually to an analog-to-digital converter (ADC) before it is transferred to memory.  
+\section{Lens-coupled x-ray detectors}
+The idea of using a lens-coupled camera system as an x-ray detector has been proposed and rejected before.  The basic problem comes down to the collection efficiency of the photons produced by the phosphor or scintillator.  Although collection efficiency of flat-panel detectors depends on their fill-factor, the collection efficiency of lens-coupled x-ray detectors depends on the image magnification and lens.
 
-The leading manufacturer that uses a-Se technology is Hologic, which focuses mainly on mammography equipment, while GE HealthCare is the leading medical equipment company that pioneered the development of flat panel detectors (FPD) with CsI:Tl scintillators.  Most x-ray imaging detectors currently on the market are based on one of these two technologies.  
-
-\section{Lens-Coupled X-ray Detectors}
-The idea of using a lens-coupled camera system as an x-ray detector has been proposed and rejected before.  The basic problem comes down to photon collection efficiency.  While the phosphor screen must be at least the size of the object to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  From geometrical optics, we know that the magnification of a lens, $M = -q/p$, depends on the distance between the object to the lens $p$ and the distance from the lens to the image $q$. This same magnification is also the ratio between the size of the object and image.  Therefore, if the $M$ between the object and image is quite large, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
+While the phosphor screen must be at least the size of the object to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  Shown in Fig. X, from geometrical optics, we know that the magnification of a lens, $m = -q/p$, depends on the distance between the object to the lens $p$ and the distance from the lens to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image is quite large, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
 
 Recent sensor technology has improved tremendously, making it easier to purchase a camera with a large sensor size.  Current consumer-grade digital single-lens reflex (DSLR) cameras can be purchased with 36 mm $\times$ 24 mm detector size at around \$2000.  This improvement in sensor size allows us to decrease the distance between the lens and phosphor screen, therefore improving the photon collection efficiency.
 
 In this dissertation, two x-ray imaging systems, a digital radiography (DR) system and a computed tomography (CT) system that were built using the concept of lens-coupled detector system are introduced in chapter~\ref{chap:design_construction}.  A method of evaluating x-ray CT detectors using an observer model is presented in chapter~\ref{chap:model_observer}.   The x-ray CT system presented is a fully functioning image system complete with calibration and reconstruction algorithms.  These algorithms are explained in chapters~\ref{chap:calibration} and~\ref{chap:reconstruction}.  Finally, a few system designs for a potential brain imaging application are presented in chapter~\ref{chap:brain_imaging}.  
 
-\section{Notes}
-\comment{notes from the medical imaging hand book, chapter on flat-panel x-ray detectors}
 
-Indirect x-ray detection means that the image formation process is first converted from x-rays to visible photons, then finally to electrical charge.
-
-The active-matrix arrays used in the direct detection approach are ``\textit{similar to those used in display applications where charge on a capacitor plate controls the light transmission through the liquid crystal in AMLCDs}''.  It is called direct detection because the image formation is transferred from x-rays directly to electrical charge with no intermediate stage.
-
-The terms indirect or direct refers to the x-ray detection process where as the flat-panel array serve as an x-ray fluence detector rather than individual x-ray photon detector.
-
-Active-matrix arrays do not transfer signal from pixel to neighboring pixel but from the pixel element directly to the read out amplifier.  Each row of the active-matrix array is controlled separately by control voltage lines, and each column has separate read out amplifier.  As a result, the pixels are read out one horizontal line at a time.
-
-major disadvantage of the direct approach using a-Se is 1: it require a very high voltage to activate the a-Se layer.  If any manufacturing fault where to occur, this high voltage could damage the active-matrix array.  Also, a-Se has a low Z, and requires thick layers for high quantum efficiency at diagnostic energies (~100 keV).  
-
-an important advantage of a-Se is that it is uniform in imaging properties to a very fine scale (an amorphous material is entirely free from granularity), and can be easierly and cheaply made in large areas by a low-temperature process.
-
-$E_g$, energy gap of a photoconductor is ~2eV.  There are essentially no free carriers at room temperature.  another requirement is that carriers released by radiation have sufficient lifetime to reach the surface of the detection volume and be collected by the attached electrodes.  Such insulators are called photoconductors.
-
-W, the amount of energy necessary to create an electron-hole pair (e-h pair).  According to Klein~\citep{Klein1969}, on average, the energy of W is ~ 3$E_g$ to release an e-h pair.  Except a-Se, which has a high value of W (W = 42 eV.
-
-An important requirement of any x-ray photoconductor is that both holes and electrons should have Schubwegs ($S_h$ and $S_e$) that are much longer than the photoconductor thickness (T), that is, $S_h$ and $S_e$ >> T.  The Schubweb is the mean distance traversed by a charge carrier before it is trapped and given by the expression:
-\begin{equation}
-S = \mu \tau E,
-\end{equation}
-where $\mu$ is the drift mobility, $\tau$ is the carrier lifetime, and E is the applied field.  Typical applied field of E = 10 V $\mu m^{-1}$, which translate to $S_h$~6.5 to 65 mm and $S_e$ ~=.3 to 3 mm.  Typically a-Se is made to 0.2 to 1 mm, the importance of electron lifetime in controlling the x-ray photoconductivity can be appreciated.
-
-
+%\subsection{X-ray Converters}
+%\label{subsect:x-ray_converters}
+%The x-ray digital radiography system is composed of two main components.  The first component is an x-ray converter that converts x-ray photons into secondary quanta.  The second component is a readout array that measures the output from the first component.  There are two general classes of x-ray converters: photoconductors and scintillators, shown in Fig.~\ref{fig:x-ray_detector}.
+%
+%\begin{figure}[ht]
+%\centering
+%	\begin{subfigure}[h]{0.3\linewidth}
+%		\includegraphics[scale=1]{x-ray_detector_photoconductor.eps}
+%		\caption{}
+%		\label{fig:xray_photoconductor}
+%	\end{subfigure}
+%	\hspace{2 cm}
+%	\begin{subfigure}[h]{0.3\linewidth}
+%		\includegraphics[scale=1]{x-ray_detector_scintillator.eps}
+%		\caption{}
+%		\label{fig:xray_scintillator}
+%	\end{subfigure}
+%	\caption{Two types of x-ray converts, (a): a photoconductor, and (b): a scintillator.}
+%	\label{fig:x-ray_detector}
+%\end{figure}
+%
+%The first type of x-ray converters is a photoconductor, shown Fig.~\ref{fig:xray_photoconductor}.  The photoconductor absorbs the incident x-ray photon and converts it into an electron-hole pair.  The electron-hole pair drifts under an applied electric field, which is then collected by a capacitor inside each pixel.  The charge is read out via multiple electronic stages and converted into a digital signal.  Figure~\ref{fig:photoconductor_cross_section} shows a cross-section of a photoconductor.  The performance of an x-ray photoconductor is limited mainly by its x-ray sensitivity, noise, and image lag.  X-ray sensitivity refers primarily to the photoconductor's material used to interact with an x-ray.  Usually, a high atomic number, Z, will have a higher probability to interact with an x-ray, and hence higher x-ray sensitivity.  Another factor that affects the x-ray sensitivity is referred to as the $W$-value, which is proportional to the band gap energy in the material.  $W$-value is defined as the average energy required to create a single electron-hole pair.  Ideally, an extremely sensitive photoconductor should have a low $W$-value.  However, because a low $W$-value can also contribute to high thermal noise, there is a trade-off between x-ray sensitivity and noise.  Finally, image lag and ghosting in photoconductors are caused by incomplete charge collection and large charge fluctuations due to the trapping and detrapping of charge carriers by various traps or defects in the band gap.  These can be avoided or reduced by ensuring that the mean drift length of the generated charge carriers is greater than the thickness of the photoconductors~\citep{Kim2008, kasap2006}.  The most common material for photoconductors is amorphous selenium (a-Se) and is the most widely used material in commercial products.  Due to its low Z, a-Se is usually used in mammography devices operating at 20-30 kVp.  The low energy of the Se k-edge gives the material an absorption advantage over scintillator materials such as CsI(Tl) for the same material thickness~\citep{Yorkston2007}.  Other types of photoconductors, such as $\mathrm{PbI_2}$, $\mathrm{HgI_2}$, $\mathrm{PbO}$, $\mathrm{CdTe}$, and $\mathrm{CdZnTe}$, have been reported~\citep{springer2007}.  Photoconductors rely on electron-hole pair diffusion rather than optical photon diffusion, which means they do not have adequate time to diffuse laterally from their initial creation location before being collected.  As a result, photoconductors can achieve much higher resolution compared to scintillators.  The devices based on a-Se can provide spatial resolution that is close to the theoretical maximum predicted by a perfect Rect function response from the pixel~\citep{hunt5030}. 
+%
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[scale = 0.5]{photoconductor_kasap2006.png}
+%\caption{A cross-section of a photoconductor pixel~\citep{kasap2006}.}
+%\label{fig:photoconductor_cross_section}
+%\end{figure}
+%
+%The second type of x-ray converter is a scintillator, shown in Fig.~\ref{fig:xray_scintillator}.  Scintillators absorb x-ray photons and re-emit lower-energy photons typically in the visible range.  Traditional film-screen cassette systems use powdered phosphors screens such as gadolinium oxy-sulphide ($\mathrm{Gd_2O_2S \colon Tb}$) and place the screens on both sides of an x-ray film.  The light produced from the scintillator screens was then used to expose the film to create an image.  These traditional x-ray screens typically produce $\sim$1,000-2,000 visible photons per absorbed x-ray photon~\citep{trauernicht1988, trauernicht1990}. Newer types of scintillators such as columnar CsI(Tl) are grown as crystals in needle-like structures.  This allows these scintillators to be made much thicker, which increases the number of x-rays absorbed while maintaining the light spread in the scintillator compared to traditional powdered phosphor screens.  Figure~\ref{fig:scintillators} shows the scintillator structure of $\mathrm{Gd_2O_2S:Tb}$ vs. columnar CsI(Tl).
+%
+%\begin{figure}[ht]
+%\includegraphics[width = 10cm]{scintilators.jpg}
+%\caption{Two different types of scintillator structures viewed under SEM~\citep{scintillatorImage}}
+%\label{fig:scintillators}
+%\end{figure}
+%
+%%X-ray detectors that uses scintillators requires the scintillator to be thick enough to stop x-rays while limiting the amount of light spread in order to preserve spatial resolution.  The spatial resolution of a-Se based detectors does not depend on the photonconductor's thickness since the electron-hole pairs created inside the photoconductor does not drift laterally once it's created due to the biased voltage.  Rather, the detection efficiency is decreased as the a-Se layer increases.  This is because as the a-Se layer increases,  the charge carriers has more chance to be absorbed by the a-Se layer itself and decrease the number of charge carriers arriving at the charge collecting capacitor.
+%%Since x-rays are ionizing radiation, we need to limit the exposure to the object, i.e. the human body, with as little radiation as possible while still be able to produce accurate diagnostic images.  This means that the x-ray converter needs to be able to absorb and convert as many incident x-ray photon as possible.  
+%
+%\subsection{Secondary Quantum Detectors}
+%The most prevalent secondary quantum detectors are based on hydrogenated amorphous silicon (a-Si:H) arrays.  The fabrication technique is called plasma-enhanced chemical vapor deposition (PECVD), and its main commercial use is in the display market.  The fabrication process can routinely create devices as large as the body parts that are being imaged, up to $\sim$43 $\times$ 43 $\mathrm{cm^2}$.  This means that the detectors can have very high collection efficiencies with $\sim$50$\%$ and up to as high as $\sim$90$\%$~\citep{Yorkston2007}.
+%Figure~\ref{fig:a-Si:H array} shows a general layout of the pixels on an a-Si:H array.  
+%
+%\begin{figure}[ht]
+%\includegraphics[scale=0.5]{si_array_kim.png}
+%\caption{The readout pixel array based on the a-Si:H photodiode~\citep{Kim2008}.}
+%\label{fig:a-Si:H array}
+%\end{figure}
+%
+%The sensing or storage element on the a-Si:H array depends on the type of x-ray converter used.  When used with a photoconductor, the storage element is a capacitor, where the a-Si:H array directly measures the electron-hole pairs that are created when x-ray photons are incident on the photoconductor.  When using the a-Si:H array with a scintillator, the storage element is a photodiode, which absorbs the visible light created by the scintillator after x-ray photons are absorbed. The photodiode then converts the visible light into electron-hole pairs.  As a result, the a-Si:H array made with photodiodes are often referred to as \textit{indirect} detectors because the photodiode is used as an intermediate step to convert visible light from the scintillator into electron-hole pairs.  The a-Si:H arrays made with photoconductors are referred to as \textit{direct} detectors because they directly measure the amount of electron-hole pairs created in the photoconductor by the a-Si:H pixel arrays.  In both cases, the final measurement is electrical charge.  
+%
+%Once electrical charges are accumulated on the storage element, the pixels are read out in a line-by-line mode by changing the control voltage on individual switch control lines.  Then, the individual pixels are read out through each data line.  The signal from each pixel is passed through peripheral readout electronics.  These readout electronics usually incorporate correlated double sampling and attempts to eliminate the 1/f noise and dc offset from the signal.  The signal also passes through a series of amplifiers and multiplexers and eventually to an analog-to-digital converter (ADC) before it is transferred to memory.  
+%
+%The leading manufacturer that uses a-Se technology is Hologic, which focuses mainly on mammography equipment, while GE HealthCare is the leading medical equipment company that pioneered the development of flat panel detectors (FPD) with CsI:Tl scintillators.  Most x-ray imaging detectors currently on the market are based on one of these two technologies.  
+%
+%\section{Lens-Coupled X-ray Detectors}
+%The idea of using a lens-coupled camera system as an x-ray detector has been proposed and rejected before.  The basic problem comes down to photon collection efficiency.  While the phosphor screen must be at least the size of the object to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  From geometrical optics, we know that the magnification of a lens, $M = -q/p$, depends on the distance between the object to the lens $p$ and the distance from the lens to the image $q$. This same magnification is also the ratio between the size of the object and image.  Therefore, if the $M$ between the object and image is quite large, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
+%
+%Recent sensor technology has improved tremendously, making it easier to purchase a camera with a large sensor size.  Current consumer-grade digital single-lens reflex (DSLR) cameras can be purchased with 36 mm $\times$ 24 mm detector size at around \$2000.  This improvement in sensor size allows us to decrease the distance between the lens and phosphor screen, therefore improving the photon collection efficiency.
+%
+%In this dissertation, two x-ray imaging systems, a digital radiography (DR) system and a computed tomography (CT) system that were built using the concept of lens-coupled detector system are introduced in chapter~\ref{chap:design_construction}.  A method of evaluating x-ray CT detectors using an observer model is presented in chapter~\ref{chap:model_observer}.   The x-ray CT system presented is a fully functioning image system complete with calibration and reconstruction algorithms.  These algorithms are explained in chapters~\ref{chap:calibration} and~\ref{chap:reconstruction}.  Finally, a few system designs for a potential brain imaging application are presented in chapter~\ref{chap:brain_imaging}.  
+%
+%\section{Notes}
+%\comment{notes from the medical imaging hand book, chapter on flat-panel x-ray detectors}
+%
+%Indirect x-ray detection means that the image formation process is first converted from x-rays to visible photons, then finally to electrical charge.
+%
+%The active-matrix arrays used in the direct detection approach are ``\textit{similar to those used in display applications where charge on a capacitor plate controls the light transmission through the liquid crystal in AMLCDs}''.  It is called direct detection because the image formation is transferred from x-rays directly to electrical charge with no intermediate stage.
+%
+%The terms indirect or direct refers to the x-ray detection process where as the flat-panel array serve as an x-ray fluence detector rather than individual x-ray photon detector.
+%
+%Active-matrix arrays do not transfer signal from pixel to neighboring pixel but from the pixel element directly to the read out amplifier.  Each row of the active-matrix array is controlled separately by control voltage lines, and each column has separate read out amplifier.  As a result, the pixels are read out one horizontal line at a time.
+%
+%major disadvantage of the direct approach using a-Se is 1: it require a very high voltage to activate the a-Se layer.  If any manufacturing fault where to occur, this high voltage could damage the active-matrix array.  Also, a-Se has a low Z, and requires thick layers for high quantum efficiency at diagnostic energies (~100 keV).  
+%
+%an important advantage of a-Se is that it is uniform in imaging properties to a very fine scale (an amorphous material is entirely free from granularity), and can be easierly and cheaply made in large areas by a low-temperature process.
+%
+%$E_g$, energy gap of a photoconductor is ~2eV.  There are essentially no free carriers at room temperature.  another requirement is that carriers released by radiation have sufficient lifetime to reach the surface of the detection volume and be collected by the attached electrodes.  Such insulators are called photoconductors.
+%
+%W, the amount of energy necessary to create an electron-hole pair (e-h pair).  According to Klein~\citep{Klein1969}, on average, the energy of W is ~ 3$E_g$ to release an e-h pair.  Except a-Se, which has a high value of W (W = 42 eV.
+%
+%An important requirement of any x-ray photoconductor is that both holes and electrons should have Schubwegs ($S_h$ and $S_e$) that are much longer than the photoconductor thickness (T), that is, $S_h$ and $S_e$ >> T.  The Schubweb is the mean distance traversed by a charge carrier before it is trapped and given by the expression:
+%\begin{equation}
+%S = \mu \tau E,
+%\end{equation}
+%where $\mu$ is the drift mobility, $\tau$ is the carrier lifetime, and E is the applied field.  Typical applied field of E = 10 V $\mu m^{-1}$, which translate to $S_h$~6.5 to 65 mm and $S_e$ ~=.3 to 3 mm.  Typically a-Se is made to 0.2 to 1 mm, the importance of electron lifetime in controlling the x-ray photoconductivity can be appreciated.
+%
+%
