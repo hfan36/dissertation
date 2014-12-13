@@ -40,20 +40,26 @@ In the indirect approach, detection materials such as phosphors or scintillators
 \end{figure}
 
 Similar to photoconductors, we want phosphors and scintillators to absorb and convert as much incident radiation as possible into lower energy photons.  Historically, powdered phosphors were deposited on plastic screens and were mainly used in x-ray imaging to expose photographic films; scintillators were grown as crystals and were used to detect high energy x- and gamma-rays~\citep{Nikl2006}.  Despite that phosphor screens and scintillators were prepared differently, the fundamental physics behind both are identical.  Shown in Fig~\ref{fig:scintillator_band}, the band structure of a scintillator is very similar to a photoconductor, except that the band-gap between the valence and conduction band is much larger.  When an incident radiation, such as an x-ray photon, is absorbed in the material.  It results in an electron to jump from the valence band to the conduction band, leaving a hole behind in the valence band.  The electron can return to the valence band by emission of a photon, however, this process is extremely inefficient in a normal crystal.  In addition, since the band-gap energy in a scintillator is fairly high, the wavelength of the emitted photon will be much higher than the wavelengths in visible spectrum.  To improve the efficiency of photon emission, small amount of impurities, called activators, were added to the scintillators.  This result in additional energy bands in the forbidden gap.  When electron-hole pairs are created via a photoelectron or other energetic electron, a hole in the valence band will quickly move up into the activator ground state, ionizing the activator site.  When an electron in the conduction band encounters the ionized activator site, it can drop into the activator site.  The electron can then neutralize the activator site by de-excite from the excited state into the ground state and emit a visible photon~\citep{Knoll2010}.  Since the energy of a visible photon is small ($\sim$2-3 eV) compared to the energy of an x-ray photon, many visible photons can be produced from the absorption of one x-ray photon.  For example, in $\mathrm{Gd_2O_2S:Tb}$, a 60 keV x-ray photon will produce approximately 3,600 green photon each with energy $\sim$2.4 eV~\citep{Rowlands2000}.
-%
-%\begin{figure}[ht]
-%\includegraphics[width = 8cm]{scintilators.jpg}
-%\caption{Two different types of scintillator structures viewed under SEM~\citep{scintillatorImage}}
-%\label{fig:scintillators}
-%\end{figure}
 
 \begin{figure}[h]
-\includegraphics[width = 8cm]{Phosphor_screen_layer_barrettswindell.PNG}
-\caption{Cross section of a phosphor screen.  Dimensions shown are typical for commonly used systems~\citep{Barrett1981}.}
+\includegraphics[scale = 1]{phosphorscreen_structure.eps}
+\caption{Cross section of a phosphor screen~\citep{Barrett1981}.}
 \label{fig:phosphor_cross_section}
 \end{figure}
 
-One of the main issues with phosphor screen is that the spatial resolution can be affected by many factors such as screen thickness, and the materials used in the screen.  Thicker screen increases the probability of x-ray interactions, but lowers the spatial resolution because when a photon exits a phosphor grain, it will scatter off the neighboring phosphor grains until it escapes the screen.  High resolution occurs when the visible photon escapes the screen close to its emission site.  The photon will have to travel a longer distance in the thicker screen, which lowers the spatial resolution.  Shown in Fig.~\ref{fig:phosphor_cross_section}, phosphor screens are typically made with several layers starting with a stiff plastic support to discourage severe bending.  The phosphor powders are sandwiched between a protective layer and a backing layer.  The backing layer can be made with either a absorptive material to discourage optical diffusion, this increases spatial resolution at the cost of lowering the total number photons escaping the screen.  The backing layer can also be made with a white diffusive material to increase the light output at the cost of spatial resolution.  These effects can be seen in Fig X.  Newer types of scintillators such as columnar $\mathrm{CsI:Tl}$ are grown as crystals in needle-like structures, which help guide the emitted photons towards the surface.  This allows thicker scintillators to be made, which increases the probability of x-ray absorption while limiting light spread within the material compared to traditional powdered phosphor screens, this is shown in Fig.~\ref{fig:scintillators}.
+\begin{figure}[h]
+\includegraphics[scale=1]{phosphorscreen_grains.eps}
+\caption{The effects of (a) A thick phosphor layer, (b) a thin phosphor layer, and (c) an absorptive backing of x-ray screens on spatial resolution.}
+\label{fig:phosphor_effects}
+\end{figure}
+
+One of the main issues with phosphor screen is that the spatial resolution can be affected by many factors such as screen thickness, and the materials used in the screen.  Thicker screen increases the probability of x-ray interactions, but lowers the spatial resolution because when a photon exits a phosphor grain, it will scatter off the neighboring phosphor grains until it escapes the screen.  High resolution occurs when the visible photon escapes the screen close to its emission site.  The photon will have to travel a longer distance in the thicker screen, which lowers the spatial resolution.  Shown in Fig.~\ref{fig:phosphor_cross_section}, phosphor screens are typically made with several layers starting with a stiff plastic support to discourage severe bending.  The phosphor powders are sandwiched between a protective layer and a backing layer.  The backing layer can be made with either a absorptive material to discourage optical diffusion, this increases spatial resolution at the cost of lowering the total number photons escaping the screen.  The backing layer can also be made with a white diffusive material to increase the light output at the cost of spatial resolution.  These effects can be seen in Fig~\ref{fig:phosphor_effects}.  Newer types of scintillators such as columnar $\mathrm{CsI:Tl}$ are grown as crystals in needle-like structures, which help guide the emitted photons towards the surface.  This allows thicker scintillators to be made, which increases the probability of x-ray absorption while limiting light spread within the material compared to traditional powdered phosphor screens, this is shown in Fig.~\ref{fig:scintillators}.
+
+\begin{figure}[h]
+\includegraphics[width = 7cm]{scintilators.jpg}
+\caption{$\mathrm{Gd_2O_2S:Tb}$ phosphor and CsI scintillator viewed under SEM~\citep{scintillatorImage}}
+\label{fig:scintillators}
+\end{figure}
 
 \subsection{Readout arrays}
 
