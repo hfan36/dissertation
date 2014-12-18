@@ -508,7 +508,7 @@
   Timestamp                = {2014.03.31}
 }
 
-@Article{,
+@Article{Fahrig2008,
   Title                    = {Design, performance, and applications of a hybrid {X}-{R}ay/{MR} system for interventional guidance},
   Author                   = {Fahrig, R. and Ganguly, A. and Lillaney, P. and Bracken, J. and Rowlands, J. A. and Wen, Z. and Yu, H. and Rieke, V. and Santos, J. M. and Pauly, K. B. and Sze, D. Y. and Frisoli, J. K. and Daniel, B. L. and Pelc, N. J.},
   Journal                  = {Proc. IEEE},
