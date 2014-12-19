@@ -94,7 +94,7 @@ One of the most important factor in flat-panel detector is the fill factor, whic
 \end{figure}
 
 \section{Lens-coupled x-ray detectors}
-The idea of using a lens-coupled camera system as an x-ray detector has been proposed and rejected before.  The basic problem comes down to the collection efficiency of the photons produced by the phosphor or scintillator.  Although collection efficiency of flat-panel detectors depends on their fill-factor, the collection efficiency of lens-coupled x-ray detectors depends on the image magnification and the lens f-number.
+The idea of using a lens-coupled camera system as an x-ray detector has been proposed and rejected before.  The basic problem comes down to the collection efficiency of the photons produced by the phosphor or scintillator.  Although collection efficiency of flat-panel detectors depends on their fill-factor, the collection efficiency of lens-coupled x-ray detectors depends on the image magnification and the lens F-number.
 
 \begin{figure}[h]
 \includegraphics[scale=1.2]{lens_magnification.eps}
@@ -102,54 +102,61 @@ The idea of using a lens-coupled camera system as an x-ray detector has been pro
 \label{fig:lens_magnification}
 \end{figure}
 
-While the phosphor screen must be at least the size of the object to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  Shown in Fig.~\ref{fig:lens_magnification}, from geometrical optics, we know that the magnification of a lens, $m = -q/p$, depends on the distance between the object to the lens $p$ and the distance from the lens to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image size is quite large, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
+While the phosphor screen must be at least the size of the object to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  Shown in Fig.~\ref{fig:lens_magnification}a, the magnification of a lens, $m$, is given by
+%
+\begin{equation}
+m = -q/p,
+\label{eqn:magnification}
+\end{equation}
+%
+where it depends on the distance between the object to the lens, $p$, and the distance from the lens to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image size is quite large as shown in Fig.~\ref{fig:lens_magnification}b, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
 
 Recent sensor technology has improved tremendously, making it easier to purchase a camera with a large sensor size.  Current consumer-grade digital single-lens reflex (DSLR) cameras can be purchased with 36 mm $\times$ 24 mm detector size at around \$2000.  This improvement in sensor size allows us to decrease the distance between the lens and phosphor screen, therefore improving the photon collection efficiency.
 
-The collection efficiency is the projected solid angle subtended by the source and collected by the lens onto the camera detector.  Since the distance between the x-ray phosphor screen is quite large compared to the lens diameter, we can derive the collection efficiency expression using paraxial optics where $sin (\theta) \approx \theta$ as shown in Fig. X.  For a point on the optical axis $p$ distance away from the front principle plane, the height of the ray $h$ can be approximated paraxially as $h = p \, \theta$ in object space, and equal to $q \, \theta'$ in image space.  The marginal ray angle $\theta$, can then be calculated as
+The collection efficiency is the projected solid angle subtended by the source, which is collected by the lens onto the camera detector.  We can derive the collection efficiency by first assuming that that the lens can be treated as a thin lens.  This is when the distances $p$ and $q$ are measured using the front and rear principle planes, so we can still use the basic imaging equation, $p^{-1} + q^{-1} = f^{-1}$ and Eqn.~\ref{eqn:magnification}.  If the lens is used in conditions that does not satisfy paraxial approximation but is well corrected for spherical and coma aberrations, we can use the Abbe sine condition to derive the collection efficiency.  Shown in Fig.~\ref{fig:Abbe}, the Abbe sine condition uses spherical surfaces rather than principal planes.  Here the distance $p$ and $q$ are the radius of the spherical surface rather than the distance from the object to the principal planes.  The condition states that $sin \theta / p = sin \theta' / q$ even when paraxial approximation ($sin \theta \approx tan \theta \approx \theta $) does not hold true, which might be the case when imaging a large object with a fast lens.
 %
-\begin{equation}
-\theta = \frac{q}{p} \theta'.
-\end{equation}
-%
-We know from paraxial optics, the F-number describes the image-space cone of light for an object at infinity~\citep{greivenkampfieldguide},
+\begin{figure}[h]
+\includegraphics[width = 6cm]{AbbeSineCondition.png}
+\caption{The Abbe sine condition~\citep{Barrett2004}.}
+\label{fig:Abbe}
+\end{figure}
+
+From geometrical optics, the F-number describes the image-space cone of light for an object at infinity using~\citep{greivenkampfieldguide},
 %
 \begin{equation}
 F \equiv \frac{f_E}{D_{EP}},
 \end{equation}
 %
-where $D_{EP}$ is the diameter of the entrance pupil and $f_E$ is the effective focal length.  For objects not at infinity, we can use the working F-number to describe the image forming cone for finite conjugates as,
+where $D_{EP}$ is the diameter of the entrance pupil and $f_E$ is the effective focal length.  For objects not at infinity, we can use the working F-number to describe the image forming cone as,
 %
 \begin{equation}
 F_{w} \approx (1 + m) \, F,
 \end{equation}
 %
-where m is the absolute magnification.  The marginal ray angle in image space, $\theta'$, can then be related to the working F-number as,
+where $m$ is the absolute magnification.  The marginal ray angle in image space can then be related to the working F-number as,
 %
 \begin{equation}
-\theta' \approx \frac{1}{2 F_{w}} = \frac{1}{2 F \, (1+m)}.
+sin \theta' = \frac{1}{2 F_{w}} = \frac{1}{2 F \, (1+m)}.
 \end{equation}
 %
-Since the magnification $m = q/p$, we can derive the expression for the marginal ray angle as,
+Using Eqn.~\ref{eqn:magnification}, and the Abbe sine condition, we can derive the expression for the marginal ray angle in object space as,
 %
 \begin{equation}
-\theta = \frac{m}{2 F \, (1+m)}.
+sin \theta = \frac{m}{2 F \, (1+m)}.
 \label{eqn:marginal_ray_angle}
 \end{equation}
-%
-which is also the collection half-angle of the lens.  
 
 For a Lambertian surface emitter such as the x-ray phosphor screen, where the radiance, $L_0$, is completely independent of viewing direction, we find the radiant exitance $M$ is equal to,
 %
 \begin{equation}
 \begin{aligned}
 M_{lamb} & = \int_{2\pi} L_0 \, cos \theta \, d\Omega = L_0 \int_0^{2 \pi} d\phi \int_0^{\theta} sin \theta \, cos \theta \, d\theta \\
-  & = L_0 \pi \, sin^2 \theta. \\
+  & = L_0 \pi \, sin^2 \theta.
 \label{eqn:exitance}
 \end{aligned}
 \end{equation}
 %
-For a non-Lambertian surface, the the radiance of the source depends on the viewing angle such that $L = L_0 \, cos \theta $.  Using similar approach as Eqn.~\ref{eqn:exitance}, the radiant exitance for a non-Lambertian source is
+where $d\Omega = sin \theta d\phi d\theta$ and when integrated over $\theta$ and $\phi$ is the projected solid angle.  For a non-Lambertian surface, the the radiance of the source depends on the viewing angle such that $L = L_0 \, cos \theta $.  Using similar approach as Eqn.~\ref{eqn:exitance}, the radiant exitance for a non-Lambertian source is
 %
 \begin{equation}
 \begin{aligned}
@@ -158,7 +165,7 @@ M_{non-lamb} & = \int_{2 \pi} L_s \, cos\theta \, d\Omega = L_0 \int_0^{2 \pi} d
 \end{aligned}
 \end{equation}
 %
-Thus, we can see that the collection efficiency for a Lambertian source is $\pi sin^2 \theta$, and the collection efficiency for a non-Lambertian source is $\frac{2 \pi}{3} (1-cos^3 \theta)$.  For small angles where $sin^2 \theta \approx \theta^2$, and $1 - cos^3 \theta \approx \frac{3}{2}\theta^2$, the collection efficiency is the same for both types of sources, $\pi \theta^2$, which inserting Eqn.~\ref{eqn:marginal_ray_angle} equals to
+Thus, we can see that the collection efficiency for a Lambertian source is $\pi sin^2 \theta$, and the collection efficiency for a non-Lambertian source is $\frac{2 \pi}{3} (1-cos^3 \theta)$.  For small angles where $sin^2 \theta \approx \theta^2$, and $1 - cos^3 \theta \approx \frac{3}{2}\theta^2$, the collection efficiency is the same for both types of sources, $\pi \theta^2$, which after inserting Eqn.~\ref{eqn:marginal_ray_angle} equals to
 \begin{equation}
 \Omega = \frac{\pi \, m^2}{4 F^2 (1 + m)^2}.
 \end{equation}
