@@ -6,7 +6,7 @@ Comment on how x-ray imaging is an important diagnostic tool in medical imaging.
 
 \section{Review of X-ray Detectors}
 \label{sect:review_x-ray_det}
-Digital radiography systems can be divided into two general groups using two different readout processes.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter in a cassette form which later requires a separate optical readout process to record the image.  Typically, this separate readout process requires human intervention to transfer the storage phosphor cassette from the patient to the laser-scanning station.  Systems that acquire images using this method are commonly known as Computed Radiography (CR) systems, which have been commercially available for almost two decades.  They are used for various applications and produce images with excellent image quality; however, they are not the focus of this dissertation.  For more information, please refer to the review articles by Rowlands~\citep{Rowlands2002} and Kato~\citep{kato1994}, and the American Association of Physicists in Medicine (AAPM) Report no. 93.~\citep{AAPM93}.  The second group of radiography system is an integrated system where the x-ray is detected and read out by the same device without any human intervention.  These are commonly known as Digital Radiography (DR) systems and are the focus of this chapter.
+Digital radiography systems can be divided into two general groups using two different readout processes.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter in a cassette form which later requires a separate optical readout process to record the image.  Typically, this separate readout process requires human intervention to transfer the storage phosphor cassette from the patient to the laser-scanning station.  Systems that acquire images using this method are commonly known as Computed Radiography (CR) systems, which have been commercially available for almost two decades.  They are used for various applications and produce images with excellent image quality; however, they are not the focus of this dissertation.  For more information, please refer to the review articles by Rowlands~\citep{Rowlands2002} and Kato~\citep{kato1994}, and the American Association of Physicists in Medicine (AAPM) Report No. 93.~\citep{AAPM93}.  The second group of radiography system is an integrated system where the x-ray is detected and read out by the same device without any human intervention.  These are commonly known as Digital Radiography (DR) systems and are the focus of this chapter.
 
 \section{Digital Radiography (DR) detectors}
 Modern x-ray digital radiography (DR) detectors were made possible by the considerable investment into developing active-matrix liquid-crystal flat-panel display (AMLCD) found in modern monitors and flat screen TVs.  This technology created a way of manufacturing large-area integrated circuits called active-matrix arrays that enabled semiconductors, such as amorphous silicon, to be deposited across a large area on glass substrates.  The medical device community took advantage of this technology and form the basis of digital radiography detectors.  Sometimes called flat-panel detectors (FPD), they are built by coupling x-ray sensitive materials with the active-matrix arrays that are created to store and readout the products of the x-ray interactions with sensitive materials, resulting in an image.  There are two general approaches to create an x-ray detector, direct and indirect.  We will give a brief overview of the two approaches in the following section.
@@ -49,7 +49,7 @@ Similar to photoconductors, we want phosphors and scintillators to absorb and co
 
 \begin{figure}[h]
 \includegraphics[scale=1]{phosphorscreen_grains.eps}
-\caption{The effects of (a) A thick phosphor layer, (b) a thin phosphor layer, and (c) an absorptive backing of x-ray screens on spatial resolution.}
+\caption{The effects of (a) a thick phosphor layer, (b) a thin phosphor layer, and (c) an absorptive backing of x-ray screens on spatial resolution.}
 \label{fig:phosphor_effects}
 \end{figure}
 
@@ -97,23 +97,21 @@ One of the most important factor in flat-panel detector is the fill factor, whic
 The idea of using a lens-coupled camera system as an x-ray detector has been proposed and rejected before.  The basic problem comes down to the collection efficiency of the photons produced by the phosphor or scintillator.  Although collection efficiency of flat-panel detectors depends on their fill-factor, the collection efficiency of lens-coupled x-ray detectors depends on the image magnification and the lens F-number.
 
 \begin{figure}[h]
-\includegraphics[scale=1.2]{lens_magnification.eps}
-\caption{The blah blah blah}
+\includegraphics[scale=1.2]{lens_magnification2.eps}
+\caption{A comparison of (a) an imaging system with a light collection angle $\theta_1$ and $\lvert m_1 \rvert = q_1/p_1$, and (b) another imaging system with the same field of view but with a much larger light collection angle $\theta_2$ due to a faster lens and a larger detector size, where $ \lvert m_2 \rvert = q_2/p_2$ is larger than $\lvert m_1 \rvert$.}
 \label{fig:lens_magnification}
 \end{figure}
 
-While the phosphor screen must be at least the size of the object to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  Shown in Fig.~\ref{fig:lens_magnification}a, the magnification of a lens, $m$, is given by
+While the phosphor screen must be at least the size of the object to be imaged, the lens must be able to capture the entire field of view and image the phosphor screen onto a CMOS or CCD detector with limited size.  Shown in Fig.~\ref{fig:lens_magnification}, the magnification of a lens, $m$, is given by
 %
 \begin{equation}
 m = -q/p,
 \label{eqn:magnification}
 \end{equation}
 %
-where it depends on the distance between the object to the lens, $p$, and the distance from the lens to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image size is quite large as shown in Fig.~\ref{fig:lens_magnification}b, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
+where it depends on the distance between the object to the lens, $p$, and the distance from the lens to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image size is quite large as shown in Fig.~\ref{fig:lens_magnification}a, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three, shown in Fig.~\ref{fig:lens_magnification}b.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
 
-Recent sensor technology has improved tremendously, making it easier to purchase a camera with a large sensor size.  Current consumer-grade digital single-lens reflex (DSLR) cameras can be purchased with 36 mm $\times$ 24 mm detector size at around \$2000.  This improvement in sensor size allows us to decrease the distance between the lens and phosphor screen, therefore improving the photon collection efficiency.
-
-The collection efficiency is the projected solid angle subtended by the source, which is collected by the lens onto the camera detector.  We can derive the collection efficiency by first assuming that that the lens can be treated as a thin lens.  This is when the distances $p$ and $q$ are measured using the front and rear principle planes, so we can still use the basic imaging equation, $p^{-1} + q^{-1} = f^{-1}$ and Eqn.~\ref{eqn:magnification}.  If the lens is used in conditions that does not satisfy paraxial approximation but is well corrected for spherical and coma aberrations, we can use the Abbe sine condition to derive the collection efficiency.  Shown in Fig.~\ref{fig:Abbe}, the Abbe sine condition uses spherical surfaces rather than principal planes.  Here the distance $p$ and $q$ are the radius of the spherical surface rather than the distance from the object to the principal planes.  The condition states that $sin \theta / p = sin \theta' / q$ even when paraxial approximation ($sin \theta \approx tan \theta \approx \theta $) does not hold true, which might be the case when imaging a large object with a fast lens.
+The collection efficiency is the projected solid angle subtended by the source, which is collected by the lens onto the camera detector.  We can derive the collection efficiency by first assuming that that the lens can be treated as a thin lens.  This is when the distances $p$ and $q$ are measured using the front and rear principle planes, so we can still use the basic imaging equation, $p^{-1} + q^{-1} = f^{-1}$ and Eqn.~\ref{eqn:magnification}.  If the lens is used in conditions that does not satisfy paraxial approximation but is well corrected for spherical and coma aberrations, we can use the Abbe sine condition to derive the collection efficiency.  Shown in Fig.~\ref{fig:Abbe}, the Abbe sine condition uses spherical surfaces rather than principal planes.  Here the distance $p$ and $q$ are the radius of the spherical surface rather than the distance from the object to the principal planes.  The condition states that $p \, sin \theta = q \, sin \theta'$ even when paraxial approximation ($sin \theta \approx tan \theta \approx \theta $) does not hold true, which might be the case when imaging a large object with a fast lens.
 %
 \begin{figure}[h]
 \includegraphics[width = 6cm]{AbbeSineCondition.png}
@@ -121,7 +119,7 @@ The collection efficiency is the projected solid angle subtended by the source, 
 \label{fig:Abbe}
 \end{figure}
 
-From geometrical optics, the F-number describes the image-space cone of light for an object at infinity using~\citep{greivenkampfieldguide},
+From optics, the F-number describes the image-space cone of light for an object at infinity using~\citep{greivenkampfieldguide},
 %
 \begin{equation}
 F \equiv \frac{f_E}{D_{EP}},
@@ -156,20 +154,22 @@ M_{lamb} & = \int_{2\pi} L_0 \, cos \theta \, d\Omega = L_0 \int_0^{2 \pi} d\phi
 \end{aligned}
 \end{equation}
 %
-where $d\Omega = sin \theta d\phi d\theta$ and when integrated over $\theta$ and $\phi$ is the projected solid angle.  For a non-Lambertian surface, the the radiance of the source depends on the viewing angle such that $L = L_0 \, cos \theta $.  Using similar approach as Eqn.~\ref{eqn:exitance}, the radiant exitance for a non-Lambertian source is
+where $d\Omega = sin \theta \, d\phi \, d\theta$ and is the total projected solid angle when integrated over $\theta$ and $\phi$.  For a non-Lambertian surface, the the radiance of the source depends on the viewing angle such that $L = L_0 \, cos \theta $.  Using similar approach as Eqn.~\ref{eqn:exitance}, the radiant exitance for a non-Lambertian source is
 %
 \begin{equation}
 \begin{aligned}
-M_{non-lamb} & = \int_{2 \pi} L_s \, cos\theta \, d\Omega = L_0 \int_0^{2 \pi} d\phi \int_0^{\theta} sin\theta \, cos^2 \theta \, d\theta \\
+M_{non-lamb} & = \int_{2 \pi} L \, cos\theta \, d\Omega = L_0 \int_0^{2 \pi} d\phi \int_0^{\theta} sin\theta \, cos^2 \theta \, d\theta \\
     & = L_0 \, \frac{2 \pi}{3} (1 - cos^3 \theta ).
 \end{aligned}
 \end{equation}
 %
-Thus, we can see that the collection efficiency for a Lambertian source is $\pi sin^2 \theta$, and the collection efficiency for a non-Lambertian source is $\frac{2 \pi}{3} (1-cos^3 \theta)$.  For small angles where $sin^2 \theta \approx \theta^2$, and $1 - cos^3 \theta \approx \frac{3}{2}\theta^2$, the collection efficiency is the same for both types of sources, $\pi \theta^2$, which after inserting Eqn.~\ref{eqn:marginal_ray_angle} equals to
+Thus, we can see that the collection efficiency for a Lambertian source is $\pi sin^2 \theta$, and the collection efficiency for a non-Lambertian source is $\frac{2 \pi}{3} (1-cos^3 \theta)$.  For small angles where $sin^2 \theta \approx 1 - cos^3 \theta \approx \frac{3}{2}\theta^2$, the collection efficiency is the same for both types of sources, which after inserting Eqn.~\ref{eqn:marginal_ray_angle} equals to
 \begin{equation}
 \Omega = \frac{\pi \, m^2}{4 F^2 (1 + m)^2}.
 \end{equation}
-However, when the collection angle increases, the discrepancy between the two sources changes and can be seen in Fig.X.  Since $\theta$ is fairly small in both cases, the collection efficiency is identical.
+However, when the collection angle increases, the discrepancy between the two sources increases.  Since $\theta$ is fairly small in both cases, the collection efficiencies are identical.
+
+Recent sensor technology has improved tremendously, making it easier to purchase a camera with a large sensor size.  Current consumer-grade digital single-lens reflex (DSLR) cameras can be purchased with 36 mm $\times$ 24 mm detector size at around \$2000.  This improvement in sensor size allows us to decrease the distance between the lens and phosphor screen, therefore improving the photon collection efficiency.
 
 In this dissertation, two x-ray imaging systems, a digital radiography (DR) system and a computed tomography (CT) system that were built using the concept of lens-coupled detector system are introduced in chapter~\ref{chap:design_construction}.  A method of evaluating x-ray CT detectors using an observer model is presented in chapter~\ref{chap:model_observer}.   The x-ray CT system presented is a fully functioning image system complete with calibration and reconstruction algorithms.  These algorithms are explained in chapters~\ref{chap:calibration} and~\ref{chap:reconstruction}.
 

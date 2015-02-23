@@ -76,7 +76,7 @@ An excellent source for quantitative comparisons of CCD and CMOS cameras and sen
 \label{subsect:image_quality_DQE}
 A simple way to understand the effect of read noise on objective (task-based) image quality is to assume that all of the light emitted from a single x-ray interaction and collected by the lens ends up on a single pixel in the camera sensor. With the numbers given in Sec.~\ref{subsect:noise}, this might be a valid assumption if we use 2 $\times$ 2 or 3 $\times$ 3 pixel binning. 
 
-With this assumption, the performance of an ideal linear (Hotelling) observer~\citep{Barrett2004} for the task of detecting a known signal on a known background can readily be derived. The details will be published separately, but the Hotelling detectability is given by,
+With this assumption, the performance of an ideal linear (Hotelling) observer~\citep{Barrett2004} for the task of detecting a known signal on a known background can readily be derived.  The Hotelling detectability is given by,
 %
 \begin{equation}
 SNR_{Hot}^2 = \sum\limits_{m=1}^{M}\, \frac{\bar{k}^2 (\Delta \overline{N}_m)^2}{\sigma_{read}^2 + \overline{N}_m (\bar{k} + \bar{k}^2)}
@@ -104,7 +104,7 @@ where $\overline{N}$ is the common value of $\overline{N}_m$ for all pixels in t
 The dependence of DQE on read noise, optical efficiency and x-ray fluence is shown in Fig.~\ref{fig:DQE}. Several limits are of interest. If there is no read noise but the lens is very inefficient so that $\bar{k} << 1$ the equation above predicts that the DQE of the detector (not including the x-ray screen) is simply $\bar{k}$.  If there is no read noise but the lens is sufficiently efficient that $\bar{k} << 1$, then we get DQE = 1. The case of interest, however, is when $\bar{k} \sim 1$ and the read noise is not zero. In that case, we can still get nearly quantum-limited performance, provided the x-ray fluence is high enough; if $\overline{N}_m(\bar{k}+\bar{k}^2) >> \sigma_{read}^2$, then the read-noise term in the denominator can be neglected and the DQE is $\bar{k}^2/(\bar{k}+\bar{k}^2)$. In order to do high-quality DR with a DSLR, therefore, it is very important to choose a camera with low read noise.
 
 \section{Prototype digital radiography system}
-Based on the cost and the design considerations above, we chose a Nikon D700 camera with an AF-S Nikkor 50 mm f/1.4G lens for the prototype.  Because we elected not to use a folding mirror, the x-rays transmitted by the screen impinged on the camera. By measuring the x-ray transmittance of the lens, however, we found that the x-ray flux on the camera sensor was very small. No radiation damage was expected, and with several thousand x-ray exposures to date, none has been observed.
+Based on the cost and the design considerations above, we chose a Nikon D700 camera with an AF-S Nikkor 50 mm F/1.4G lens for the prototype.  Because we elected not to use a folding mirror, the x-rays transmitted by the screen impinged on the camera. By measuring the x-ray transmittance of the lens, however, we found that the x-ray flux on the camera sensor was very small. No radiation damage was expected, and with several thousand x-ray exposures to date, none has been observed.
 
 \begin{figure}[h]
 	\begin{subfigure}[b]{0.3\linewidth}
@@ -400,8 +400,7 @@ The aperture assembly is used to mask the x-ray beam so that its projection size
 \label{fig:aperture}
 \end{figure}
 
-\subsection{Software control}
-
+%\subsection{Software control}
 
 \section{Summary}
 We have described the components that were used to construct both the digital radiography system and the prototype computed tomography system.  For the digital radiography system we have explained the reasoning behind our camera selection and lens selection; for the CT system, we have shown the major components and the subassemblies in the system.  We have also shown the safety features that were employed in the CT system.  
