@@ -111,7 +111,7 @@ m = -q/p,
 %
 where it depends on the distance between the object to the lens, $p$, and the distance from the lens to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image size is quite large as shown in Fig.~\ref{fig:lens_magnification}a, then the distance between the object to lens must be large as well.  This means that the lens must subtend a small solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a large detector, a faster lens, or all three, shown in Fig.~\ref{fig:lens_magnification}b.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
 
-The collection efficiency is the projected solid angle subtended by the source, which is collected by the lens onto the camera detector.  We can derive the collection efficiency by first assuming that that the lens can be treated as a thin lens.  This is when the distances $p$ and $q$ are measured using the front and rear principle planes, so we can still use the basic imaging equation, $p^{-1} + q^{-1} = f^{-1}$ and Eqn.~\ref{eqn:magnification}.  If the lens is used in conditions that does not satisfy paraxial approximation but is well corrected for spherical and coma aberrations, we can use the Abbe sine condition to derive the collection efficiency.  Shown in Fig.~\ref{fig:Abbe}, the Abbe sine condition uses spherical surfaces rather than principal planes.  Here the distance $p$ and $q$ are the radius of the spherical surface rather than the distance from the object to the principal planes.  The condition states that $p \, sin \theta = q \, sin \theta'$ even when paraxial approximation ($sin \theta \approx tan \theta \approx \theta $) does not hold true, which might be the case when imaging a large object with a fast lens.
+The collection efficiency is the projected solid angle subtended by the source, which is collected by the lens onto the camera detector.  We can derive the collection efficiency by first assuming that the lens can be treated as a thin lens.  This is when the distances $p$ and $q$ are measured using the front and rear principle planes, so we can still use the basic imaging equation, $p^{-1} + q^{-1} = f^{-1}$ and Eqn.~\ref{eqn:magnification}.  If the lens is used in conditions that does not satisfy paraxial approximation but is well corrected for spherical and coma aberrations, we can use the Abbe sine condition to derive the collection efficiency.  Shown in Fig.~\ref{fig:Abbe}, the Abbe sine condition uses spherical surfaces rather than principal planes.  Here the distance $p$ and $q$ are the radius of the spherical surface rather than the distance from the object to the principal planes.  The condition states that $p \, sin \theta = q \, sin \theta'$ even when paraxial approximation ($sin \theta \approx tan \theta \approx \theta $) does not hold true, which might be the case when imaging a large object with a fast lens.
 %
 \begin{figure}[h]
 \includegraphics[width = 6cm]{AbbeSineCondition.png}
@@ -128,19 +128,19 @@ F \equiv \frac{f_E}{D_{EP}},
 where $D_{EP}$ is the diameter of the entrance pupil and $f_E$ is the effective focal length.  For objects not at infinity, we can use the working F-number to describe the image forming cone as,
 %
 \begin{equation}
-F_{w} \approx (1 + m) \, F,
+F_{w} \approx (1 + \lvert m \rvert) \, F.
 \end{equation}
-%
-where $m$ is the absolute magnification.  The marginal ray angle in image space can then be related to the working F-number as,
+
+The marginal ray angle in image space can then be related to the working F-number as,
 %
 \begin{equation}
-sin \theta' = \frac{1}{2 F_{w}} = \frac{1}{2 F \, (1+m)}.
+sin \theta' = \frac{1}{2 F_{w}} = \frac{1}{2 F \, (1+ \lvert m \rvert)}.
 \end{equation}
 %
 Using Eqn.~\ref{eqn:magnification}, and the Abbe sine condition, we can derive the expression for the marginal ray angle in object space as,
 %
 \begin{equation}
-sin \theta = \frac{m}{2 F \, (1+m)}.
+sin \theta = \frac{ \lvert m \rvert }{2 F \, (1+ \lvert m \rvert )}.
 \label{eqn:marginal_ray_angle}
 \end{equation}
 
@@ -165,7 +165,7 @@ M_{non-lamb} & = \int_{2 \pi} L \, cos\theta \, d\Omega = L_0 \int_0^{2 \pi} d\p
 %
 Thus, we can see that the collection efficiency for a Lambertian source is $\pi sin^2 \theta$, and the collection efficiency for a non-Lambertian source is $\frac{2 \pi}{3} (1-cos^3 \theta)$.  For small angles where $sin^2 \theta \approx 1 - cos^3 \theta \approx \frac{3}{2}\theta^2$, the collection efficiency is the same for both types of sources, which after inserting Eqn.~\ref{eqn:marginal_ray_angle} equals to
 \begin{equation}
-\Omega = \frac{\pi \, m^2}{4 F^2 (1 + m)^2}.
+\Omega = \frac{\pi \, m^2}{4 F^2 (1 + \lvert m \vert )^2}.
 \end{equation}
 However, when the collection angle increases, the discrepancy between the two sources increases.  Since $\theta$ is fairly small in both cases, the collection efficiencies are identical.
 
