@@ -66,7 +66,7 @@ The optical magnification can be measured under white light by placing an item o
 In order to find the global system parameters, we opted to use Smekal's calibration method~\citep{Smekal2004} that derives explicit analytic expressions for a set of fiducial markers.  This method does not require precise knowledge of the marker's spatial location inside the phantom; rather, it uses the marker's projection orbit on a misaligned detector for the calculation.  These orbits are first analyzed using low spatial-frequency Fourier components.  The parameters are then calculated based on each individual point marker from the Fourier coefficients by using a series of equations.  The averages of the parameters over the set of fiducial markers are used as the final result.  The corresponding standard deviations for each parameter are used as error bars in the estimation.
 %
 \begin{figure}[ht]
-\includegraphics[scale=1]{smekal_system2.eps}
+\includegraphics[scale=1]{smekal_system3.eps}
 \caption{Calibration steps to calculate global parameters}
 \label{fig:smekal_method}
 \end{figure}
@@ -185,7 +185,7 @@ U_k = & \frac{2}{N}\sum_{n=1}^{N} u_n \cos (k \alpha_n), \hspace{0.3cm} k = 0, .
 %
 and analogously for $V_k$ and $\tilde{V_k}$.  Only the first three Fourier components were needed in the misalignment calculation.  Thus, the method is insensitive to high frequency fluctuations and uncertainties that stem from marker-point extraction between different projection angles.  These Fourier coefficients and the results from Step 1 are used to calculate the final system parameters by going through some intermediate equations.  These equations are shown in Appendix X.
 
-The result of Smekal's method calculates ten parameters.  These are the detector rotation misalignment, $\theta_x$,$\theta_y$,$\theta_z$, detector position misalignment, $d_x$,$d_z$, $R$, and $R_y'$, where $R_y' = R + d_y$.  This method also provides the object marker initial location with respect to $R_f$, i.e., $x_0/R_f$, $y_0/R_f$, $z_0/R_f$.  Unfortunately, $R_f$ and marker initial locations are presented together and can no longer be separated using Smekal's calibration method.  To overcome this problem, we used the contracting grid algorithm to search for $R_f$.  In order to complete this last step, we need to estimate the six nuisance parameters, $\theta_x^{obj}, \theta_y^{obj}, \theta_z^{obj}, x_0, y_0, z_0$.
+The result of Smekal's method calculates ten parameters.  These are the detector rotation misalignment, $\theta_x$,$\theta_y$,$\theta_z$, detector position misalignment, $d_x$,$d_z$, $R$, and $R_y'$, where $R_y' = R + d_y$.  This method also provides the object marker initial location with respect to $R_f$, i.e., $x_0/R_f$, $y_0/R_f$, $z_0/R_f$.  Unfortunately, $R_f$ and marker initial locations are presented together and can no longer be separated using Smekal's calibration method.
 
 %\begin{figure}
 %\centering
@@ -207,6 +207,8 @@ The result of Smekal's method calculates ten parameters.  These are the detector
 %\end{figure}
 
 \subsection{Calculating the nuisance parameters and $R_{f}$}
+In order to calculate $R_{f}$, we have opted to use an iterative search method.  There are numerous search algorithms that can be used to search a parameter vector that resides in a multi-dimensional space.  We have opted to use the contracting-grid algorithm that allows identification of a function's minimum in a fixed number of iterations using a fixed grid size.  Along this search process for $R_f$, we must also calculate the values for six nuisance parameters.  
+
 The contracting grid algorithm is based on maximum-likelihood estimation.  The maximum-likelihood method can generally be formulated as a search over parameter space as,
 %
 \begin{equation}
@@ -214,15 +216,7 @@ The contracting grid algorithm is based on maximum-likelihood estimation.  The m
 \mathrm{\boldsymbol{\hat{\theta}}} = \arg\max_{\mathbf{\theta}} \; \mathrm{\lambda (\boldsymbol{\theta} | \mathbf{g})} = \arg\max_{\theta} \; \mathrm{pr( \mathbf{g}|\boldsymbol{\theta})},
 \end{equation}
 %
-where $\boldsymbol{\theta}$ is a vector composed of parameters of interest, $\mathbf{g}$ is the data vector, $\lambda$ is the likelihood of observing $\mathbf{g}$, and $\boldsymbol{\hat{\theta}}$ is a vector of estimated parameters.  The data vector, $\mathbf{g}$, in our case are the projection points of the phantom markers on the misaligned detector. The parameter vector $\boldsymbol{\theta}$ is composed of the targeted system parameter, $R_f$, and the nuisance parameters ($\theta_x^{obj}, \theta_y^{obj}, \theta_z^{obj}, x_0, y_0, z_0$).
-
-In order to solve Eq.~\ref{eq:mlem}, we have assumed that the noise on each pixel is independent and identically distributed Gaussian noise.  So $\mathrm{pr( \mathbf{g} | \mathbf{\theta} })$, is a collection of zero-mean Gaussian functions with identical variances.  Equation~\ref{eq:mlem} can be written equivalently as
-%
-\begin{equation}
-\label{eq:ln_mlem}
-\mathrm{\boldsymbol{\hat{\theta}}} = \arg\max_{\theta} \; \mathrm{ ln[ pr( \mathbf{g}|\boldsymbol{\theta}) ]}.
-\end{equation}
-The maximum-likelihood solution to a zero-mean Gaussian function is then reduced to solve
+where $\boldsymbol{\theta}$ is a vector composed of parameters of interest, $\mathbf{g}$ is the data vector, $\lambda$ is the likelihood of observing $\mathbf{g}$, and $\boldsymbol{\hat{\theta}}$ is a vector of estimated parameters.  The data vector, $\mathbf{g}$, in our problem are the coordinates of the phantom marker projection points on the misaligned detector. The parameter vector $\boldsymbol{\theta}$ is composed of the targeted system parameter, $R_f$, and the nuisance parameters ($\theta_x^{obj}, \theta_y^{obj}, \theta_z^{obj}, x_0, y_0, z_0$).  We have also assumed that the probability model, $\mathrm{pr( \mathbf{g}|\boldsymbol{\theta})}$, is a multivariate Gaussian function with a diagonal covariance matrix.  The variances in the diagonal matrix represent how well we can estimate the phantom marker projection coordinates on the misaligned detector.  Assuming that our ability to estimate these coordinates are the same for each marker, the variances in the covariance matrix are identical.  Using our assumptions, the maximum-likelihood solution is then reduced to solve
 %
 \begin{equation}
 \arg\min_{\theta} \| \mathbf{g} - \mathbf{\bar{g}}(\mathbf{\theta}) \|^2,
@@ -231,33 +225,30 @@ The maximum-likelihood solution to a zero-mean Gaussian function is then reduced
 %
 which is equivalent to the least-squares solution.  In other words, find the parameter vector $\boldsymbol{\theta}$ that minimizes the mean-squared difference between the observed data, $\mathbf{g}$, and the parameter-dependent mean, $\mathbf{\bar{g}}\mathbf{(\theta)}$, calculated using Eq.~\ref{eq:rotation_matrix}~-~\ref{eq:detQ}.  
 
-There are numerous search algorithms that can be used to search for the vector $\boldsymbol{\theta$} that resides in a multi-dimensional space.  We have opted to use the contracting-grid algorithm that allows identification of a function's minimum in a fixed number of iterations using a fixed grid size.  The grid used in the algorithm is the range of values that each parameter can take on.  The size of the grid is the number of points used for each parameter in each iteration.  Since we can physically measure each parameter in the beginning, at least within a few millimeters or degrees, the grid are centered about these measured initial values.  We have set the size for distance measurements to be $\pm 5$ mm and orientation measurements to be $\pm 3 \degree$.  We have chosen to set the number of grid points to be 4 in order to limit the amount of time used in each iteration. 
-
-The contracting-grid algorithm can broken down into five steps:
-%
-\begin{enumerate}
-\item For each parameter $\theta_i$, create a region of physically reasonable grid size $M_i$.
-\item Use Eq.~\ref{eq:least_square} and calculate the least-squared results of all parameter grid combinations.
-\item Find the set of parameters that generated the lowest least-squared result.
-\item Contract the grid size for each parameter.
-\item Repeat Steps 2-4 until the algorithm reaches a preset number of iterations.
-\end{enumerate}
-%\comment{ Include parameter grid sizes as a table?}
-
-The spacing within each parameter grid for the k-th iteration is
+The parameter grid used in the algorithm is a discrete set of numbers each centered about the parameter value.  The initial spacing within each parameter grid is $\Delta \theta^0 = D_i/(N-1)$, where $D_i$ is the grid size and $N$ is the number of grid points used for each parameter, which we have kept as a constant value.  Since we can physically measure each parameter in the beginning, at least within a few millimeters or degrees, the grids are centered about these initial values.  We have set the grid size, $D_i$ for distance measurements to be $\pm 5$ mm and orientation measurements to be $\pm 3 \degree$.  We have chosen to set the number of grid points, $N$, to be 4 in order to limit the amount of time used in each iteration.  In the subsequent iterations, the grid size for the $k^{th}$ iteration contracts to a smaller size using
 %
 \begin{equation}
 \label{eq:parameter_spacing}
 \Delta \theta^k = \frac{\Delta \theta^{k-1}}{\gamma},
 \end{equation}
 %
-where $\gamma$ is the contracting rate.  For more detailed information regarding the contracting-grid search algorithm, please refer to the paper by Jacob Y. Hesterman~\citep{Hesterman2010}.  
+where $\gamma$ is the contracting rate, and a new set of parameters are chosen as the new grid centers.  The contracting-grid algorithm can broken down into five steps:
+%
+\begin{enumerate}
+\item For each parameter $\theta_i$, create a region of physically reasonable grid size.
+\item Use Eq.~\ref{eq:least_square} and calculate the least-squared results of all parameter grid combinations.
+\item Find the set of parameters that generated the lowest least-squared result.  This is the starting point for the next iteration.
+\item Contract the grid size for centered about the parameters from the previous step using Eq.~\ref{eq:parameter_spacing}.
+\item Repeat Steps 2-4 until the algorithm reaches a preset number of iterations.
+\end{enumerate}
+%\comment{ Include parameter grid sizes as a table?} 
+For more detailed information regarding the contracting-grid search algorithm, please refer to the paper by Jacob Y. Hesterman~\citep{Hesterman2010}.  
 
 Through experimentation, we have found that it is more efficient to first obtain a rough estimate of the parameters, $R_f$, $\theta^{obj}_z$, $\theta^{obj}_x$, and $\theta^{obj}_y$ ,before fully indulging into the contracting-grid algorithm.  A rough estimation of $R_f$ can simply be found by using the vertical separation between the point markers on the projection image ($\Delta z_0$) of a known phantom and applying it to the values $\Delta z_0/R_f$ calculated from the previous section.  $\theta^{obj}_x$ is the initial rotation orientation of the point markers about the z-axis, changing this value does not affect the overall projection locations of the point markers but it does greatly contribute to the least-squares sum of the contracting-grid algorithm.  Therefore, we have approximated its value in order to minimize the search duration later.  Finally, the values for $\theta_x^{obj}$ and $\theta_y^{obj}$ are iterated over 360$\degree$ to obtain the initial parameters.
 
 \subsection{Calibration results}
 \label{subsect:cali_results}
-Figure~\ref{fig:calibration_plot} shows the projections of the ball bearings from experiment vs. the projections of point markers using the calibration parameters.  We have tested various grid size ranging from 2 to 10 and contracting rate between 1.05 to 1.3.  Larger grid size requires more time to compute, slower contracting rate takes longer to converge.  Through experimentation, we have settled to use 100 contracting-grid iterations with a grid size of 4 for each parameter at a contracting rate of 1.05.
+Figure~\ref{fig:calibration_plot} shows the projections of the ball bearings from experiment vs. the projections of point markers using the calibration parameters.  We have tested various number of grid points ranging from 2 to 10 and contracting rate between 1.05 to 1.3.  Larger grid size requires more time to compute while slower contracting rate takes longer to converge.  Through experimentation, we have settled to use 100 contracting-grid iterations with a 4 grid points for each parameter at a contracting rate of 1.05.
 %
 \begin{figure}[h]
 \includegraphics[scale=0.7]{calibration_plot.eps}
