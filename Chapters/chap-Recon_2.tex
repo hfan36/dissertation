@@ -84,7 +84,7 @@ From a historical perspective, the very first reconstructed CT image was created
 \begin{equation}
 \mathrm{A\,\mathbf{x} = \mathbf{b}}.
 \label{eqn:art}
-\end{equation}.  
+\end{equation}
 %
 In terms of image reconstruction, the elements of $\mathrm{\mathbf{x}}$ are the object voxel values that need to be reconstructed, $\mathrm{A}$ is the system matrix that models the production of the image data, and the elements of $\mathrm{\mathbf{b}}$ are the pixels values of the measured raw data.  The entries of the matrix $\mathrm{A}$ correspond to x-rays from the source through the object volume to the detector pixels.  Solving for the object voxel values involves solving for Eqn~\ref{eqn:art}, where $\mathrm{A}$ is most likely not a square matrix and fairly large in size.  Starting from ART, a series of algorithms evolved that would try to converge to the solution faster, reduce noise, and reduce problems with streak artifacts; however, in general, all ART-based methods are non-statistical and model the geometry of the acquisition process better than common analytical methods based on FBP.  Therefore, ART-based methods can better deal with sparse data and an irregular sampling of acquisition positions~\citep{Beister2012}.
 
@@ -299,27 +299,27 @@ The sensitivity used in the MLEM algorithm represents the contribution of all de
 Figure~\ref{fig:reconstructedimage} shows the center slice of a reconstructed object after X iterations.
 
 \subsection{Reconstruction results}
-The prototype CT system has a XXX field of view, the x-ray magnification can be manually changed along with its optical magnification.  
-\comment{
-how to show the x-ray magnification, optical magnification as a function of FOV
-}
-\begin{figure}
-\centering
-placeholderimage[width=5cm, height=5cm]{reconstructedimage.png}
-\label{fig:reconstructedimage}
-\caption{reconstructed image slice after X iteration}
-\end{figure}
-\comment{show reconstruction image for maximum and minimum FOV?}
+%The prototype CT system has a XXX field of view, the x-ray magnification can be manually changed along with its optical magnification.  
+%\comment{
+%how to show the x-ray magnification, optical magnification as a function of FOV
+%}
+%\begin{figure}
+%\centering
+%placeholderimage[width=5cm, height=5cm]{reconstructedimage.png}
+%\label{fig:reconstructedimage}
+%\caption{reconstructed image slice after X iteration}
+%\end{figure}
+%\comment{show reconstruction image for maximum and minimum FOV?}
 
-\subsection{Current algorithm limitations and assumptions}
-Here are our assumptions and limitations in the algorithm we've implemented:
-\begin{enumerate}
-\item Each x-ray originate outside of the object volume, travels completely through the object.  So no ray will ever begin or end inside any voxel.
-\item Object volume in each axis are divisible by 4, although it can be modified inside the code.
-\item The number of detectors in both the trans-axial and axial directions can only be two to the power of $n$ (i.e. $2^n$ ).
-\item Any ray traveling exactly along any voxel plane will not be calculated.
-\end{enumerate}
-
+%\subsection{Current algorithm limitations and assumptions}
+%Here are our assumptions and limitations in the algorithm we've implemented:
+%\begin{enumerate}
+%\item Each x-ray originate outside of the object volume, travels completely through the object.  So no ray will ever begin or end inside any voxel.
+%\item Object volume in each axis are divisible by 4, although it can be modified inside the code.
+%\item The number of detectors in both the trans-axial and axial directions can only be two to the power of $n$ (i.e. $2^n$ ).
+%\item Any ray traveling exactly along any voxel plane will not be calculated.
+%\end{enumerate}
+%
 
 %\comment{
 %in the appendix explain the functions that are included in the algorithm\\
