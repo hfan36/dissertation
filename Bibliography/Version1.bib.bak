@@ -181,6 +181,16 @@
   timestamp = {2014.02.27}
 }
 
+@ARTICLE{Barrett1997,
+  author = {Barrett, H. H. and Wagner, R. F. and Myers, K. J.},
+  title = {Correlated point process in radiological imaging},
+  journal = {Proc. SPIE, Medical Imaging 1997: Physics of Medical Imaging},
+  year = {1997},
+  pages = {110-124},
+  owner = {Fan},
+  timestamp = {2015.03.12}
+}
+
 @ARTICLE{Bauhs2008,
   author = {Bauhs, J. A. and Vrieze, T. J. and Primak, A. N. and Bruesewitz,
 	M. R. and McCollough, C. H.},
@@ -368,7 +378,7 @@
   month = {9},
   year = {2014},
   title = {{D}igital {C}amera {R}eviews and {S}ensor {P}erformance {S}ummary},
-  howpublished = {\url{http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/}},
+  howpublished = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
   address = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
   url = {http://www.clarkvision.com/imagedetail/digital.sensor.performance.summary/},
   owner = {Fan},
@@ -903,6 +913,16 @@
   year = {2002},
   owner = {Ryan-Helen},
   timestamp = {2014.11.11}
+}
+
+@BOOK{Janesick2000,
+  title = {Scientific {C}harge-{C}oupled {D}evices},
+  publisher = {SPIE Press},
+  year = {2000},
+  editor = {James R. Janesick},
+  author = {James R. Janesick},
+  owner = {Fan},
+  timestamp = {2015.03.13}
 }
 
 @INBOOK{springer2007,
@@ -1579,6 +1599,18 @@
   timestamp = {2014.10.27}
 }
 
+@ARTICLE{Samei2003,
+  author = {Samei, E. and Flynn, M. J.},
+  title = {An experimental comparison of detector performance for direct and
+	indirect digital radiography systems},
+  journal = {Med. Phys.},
+  year = {2003},
+  volume = {30(4)},
+  pages = {608-622},
+  owner = {Fan},
+  timestamp = {2015.03.20}
+}
+
 @ARTICLE{Samei1997,
   author = {Samei, E. and Flynn, M. J.},
   title = {{P}hysical measures of image quality in photostimulable phosphor
@@ -1589,6 +1621,18 @@
   doi = {10.1117/12.273999},
   owner = {Fan},
   timestamp = {2014.03.26}
+}
+
+@ARTICLE{Samei1998,
+  author = {Samei, E. and Flynn, M. J. and Reimann, D. A.},
+  title = {A method for measuring the presampled {MTF} fo digital radiographic
+	systems usng an edge test device},
+  journal = {Med. Phys.},
+  year = {1998},
+  volume = {25},
+  pages = {102-113},
+  owner = {Fan},
+  timestamp = {2015.03.19}
 }
 
 @ARTICLE{Samei2008,
@@ -2193,6 +2237,18 @@
   pages = {83-87},
   owner = {Fan},
   timestamp = {2014.11.06}
+}
+
+@ARTICLE{Zhou2011,
+  author = {Zhou, Z. and Gao, F. and Zhao, H. and Zhang, L.},
+  title = {Techniques to improve the accuracy of noise power spectrum measurements
+	in digital x-ray imaging based on background trends removal},
+  journal = {Med. Phys.},
+  year = {2011},
+  volume = {38(3)},
+  pages = {1600-1610},
+  owner = {Fan},
+  timestamp = {2015.03.20}
 }
 
 @ARTICLE{Zhuang2006,
