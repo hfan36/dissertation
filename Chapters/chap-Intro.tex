@@ -1,12 +1,6 @@
 \chapter{INTRODUCTION}
 \label{chap:intro}
-
-Comment on how x-ray imaging is an important diagnostic tool in medical imaging. 
-%Although both technology are used in the medical industry with great performance.  A way to lower the cost for x-ray imaging is by using a lens-coupled camera system to image the primary x-ray converted image onto a smaller detector.
-
-\section{Review of X-ray Detectors}
-\label{sect:review_x-ray_det}
-Digital radiography systems can be divided into two general groups using two different readout processes.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter in a cassette form which later requires a separate optical readout process to record the image.  Typically, this separate readout process requires human intervention to transfer the storage phosphor cassette from the patient to the laser-scanning station.  Systems that acquire images using this method are commonly known as Computed Radiography (CR) systems, which have been commercially available for almost two decades.  They are used for various applications and produce images with excellent image quality; however, they are not the focus of this dissertation.  For more information, see the review articles by Rowlands~\citep{Rowlands2002} and Kato~\citep{kato1994}, and the American Association of Physicists in Medicine (AAPM) Report No. 93.~\citep{AAPM93}.  
+Digital radiography systems are an important diagnostic tool for modern medicine.  They can be divided into two general groups using two different readout processes.  The first is based on storage phosphors where the x-ray image is first stored in an x-ray converter in a cassette form which later requires a separate optical readout process to record the image.  Typically, this separate readout process requires human intervention to transfer the storage phosphor cassette from the patient to the laser-scanning station.  Systems that acquire images using this method are commonly known as Computed Radiography (CR) systems, which have been commercially available for almost two decades.  They are used for various applications and produce images with excellent image quality; however, they are not the focus of this dissertation.  For more information, see the review articles by Rowlands~\citep{Rowlands2002} and Kato~\citep{kato1994}, and the American Association of Physicists in Medicine (AAPM) Report No. 93.~\citep{AAPM93}.  
 
 The second group of radiography system is an integrated system where the x-ray is detected and read out by the same device without any human intervention.  These are commonly known as Digital Radiography (DR) systems and are the focus of this chapter.
 
@@ -111,7 +105,7 @@ m = -q/p,
 \label{eqn:magnification}
 \end{equation}
 %
-where it depends on the distance between the object to the lens' front principal plane (P), $p$, and the distance from the lens' rear principal plane (P') to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image size is quite large as shown in Fig.~\ref{fig:lens_magnification}a, then the distance between the object and the lens must be large as well.  This means that the lens must subtend a smaller solid angle in order to capture the entire field of view of the object, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a larger detector, a lens with a larger numerical aperture (NA), or all three, shown in Fig.~\ref{fig:lens_magnification}b.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
+where it depends on the distance between the object to the lens' front principal plane (P), $p$, and the distance from the lens' rear principal plane (P') to the image $q$.  This same magnification is also the ratio between the size of the object and image.  Therefore, if $m$ between the object and image size is quite large as shown in Fig.~\ref{fig:lens_magnification}a, then the distance between the object and the lens must be large as well.  This means the lens collects a smaller solid angle that is subtended by the object in order to capture the entire field of view, resulting in low photon collection efficiency.  The only way to overcome this problem is by having either a smaller field of view, a larger detector, a lens with a larger numerical aperture (NA), or all three, shown in Fig.~\ref{fig:lens_magnification}b.  As a result, previous lens-coupled x-ray detector systems have limited to small scale imaging applications~\citep{lee2001, kim2005, tate2005, madden2006}.  
 
 The collection efficiency is the projected solid angle subtended by the source, which is collected by the lens onto the camera detector.  We can derive the collection efficiency by first assuming that the lens can be treated as a thin lens.  This is when the distances $p$ and $q$ are measured using the front and rear principal planes, so we can still use the basic imaging equation, $p^{-1} + q^{-1} = f^{-1}$ and Eqn.~\ref{eqn:magnification}.  If the lens is used in conditions that do not satisfy paraxial approximation but are well corrected for spherical and coma aberrations, we can use the Abb$\acute{\mathrm{e}}$ sine condition to derive the collection efficiency.  Shown in Fig.~\ref{fig:Abbe}, the Abb$\acute{\mathrm{e}}$ sine condition uses spherical surfaces rather than principal planes.  Here the distance $p$ and $q$ are the radius of the spherical surface rather than the distance from the object to the principal planes.  The condition states that $p \, sin \theta = q \, sin \theta'$ even when paraxial approximation ($sin \theta \approx tan \theta \approx \theta $) does not hold true, which might be the case when imaging a large object with a lens that has a large NA.
 %
@@ -160,8 +154,8 @@ where $d\Omega = sin \theta \, d\phi \, d\theta$ and is the total projected soli
 %
 \begin{equation}
 \begin{aligned}
-M_{non-lamb} & = \int_{2 \pi} L \, cos\theta \, d\Omega = L_0 \int_0^{2 \pi} d\phi \int_0^{\theta} sin\theta \, cos^2 \theta \, d\theta \\
-    & = L_0 \, \frac{2 \pi}{3} (1 - cos^3 \theta ).
+M_{non-lamb} & = \int_{2 \pi} L \, cos\theta \, d\Omega = L_0 \int_0^{2 \pi} d\phi \int_0^{\pi/2} sin\theta \, cos^2 \theta \, d\theta \\
+    & = \pi L_0 \, \frac{2}{3}.
 \end{aligned}
 \end{equation}
 %

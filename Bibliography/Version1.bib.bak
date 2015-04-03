@@ -82,6 +82,14 @@
   timestamp = {2014.10.27}
 }
 
+@TECHREPORT{,
+  author = {Andor},
+  title = {Read Noise},
+  institution = {Andor},
+  owner = {Fan},
+  timestamp = {2015.03.28}
+}
+
 @ARTICLE{Antonuk1990,
   author = {Antonuk, L. E. and Boudry, J. and Yorkston, J. and Wild, C. F. and
 	Longo, M. J. and Street, R. A.},
@@ -495,6 +503,18 @@
   pages = {1581-1593},
   owner = {Fan},
   timestamp = {2014.03.18}
+}
+
+@ARTICLE{Dobbins2006,
+  author = {Dobbins III, J. T. and Sain, J. and Ranger, N. T. and Chen, Y.},
+  title = {Intercomparison of methods for image quality characterization. {II}.
+	{N}oise power spectrum},
+  journal = {Med. Phys.},
+  year = {2006},
+  volume = {33(5)},
+  pages = {1466-1475},
+  owner = {Fan},
+  timestamp = {2015.03.28}
 }
 
 @PHDTHESIS{Elbakri2003,
@@ -2144,6 +2164,21 @@
   pages = {1493-1501},
   owner = {Fan},
   timestamp = {2014.04.16}
+}
+
+@ARTICLE{Wang2012,
+  author = {Wang, Y. and Baldoni, G. and Rhodes, W. H. and Brecher, C. and Shah,
+	A. and Shirwadkar, U. and Glodo, J. and Cherepy, N. and Payne, S.},
+  title = {Transparent {G}arnet {D}etection {S}cintillators for {G}amma-ray
+	{D}etection},
+  journal = {Proc. SPIE 8507, Hard X-Ray, Gamma-Ray and Neutron Detector Physics
+	XIV},
+  year = {2012},
+  volume = {857017},
+  pages = {1-8},
+  doi = {doi:10.1117/12.956437},
+  owner = {Fan},
+  timestamp = {2015.04.01}
 }
 
 @ELECTRONIC{wikibayer,
