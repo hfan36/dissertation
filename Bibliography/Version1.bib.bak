@@ -321,6 +321,17 @@
   timestamp = {2014.04.16}
 }
 
+@BOOK{Bushberg2002,
+  title = {The essential physics of medical imaging},
+  publisher = {Lippincott Williams \& Wilkins},
+  year = {2002},
+  editor = {John, Joyce-Rachel},
+  author = {Bushberg, Jerrold T. and Seibert, J. Anthony, and Leidholdt Jr.,
+	Edwin M. and Boone, John M.},
+  owner = {Fan},
+  timestamp = {2015.04.08}
+}
+
 @ARTICLE{Cavouras2000,
   author = {Cavouras, D. and Kandaraks, I. and Nomicos, C. D. and Bakas, A. and
 	Panayiotakis, G. S.},
@@ -354,6 +365,21 @@
   pages = {342-350},
   owner = {Ryan-Helen},
   timestamp = {2014.11.10}
+}
+
+@ARTICLE{Cherepy2009,
+  author = {Cherepy, N.J. and Payne, S. A. and Asztalos, S. J. and Hull, F. and
+	Kuntz, J. D. and Niedermayr, T. and Pimputkar, S. and Roberts, J.
+	J. and Sanner, R. D. and Tillotson, T. M. and van Loef, E. and Wilson,
+	C. M. and Shah, K. S. and Roy, U. N. and Hawrami, R. and Burger,
+	A. and Boatner, L. A. and Choong, W. S. and Moses, W. W.},
+  title = {Scintillators with {P}otential to {S}upersede {L}anthanum {B}romide},
+  journal = {IEEE Trans. Nucl. Sci.},
+  year = {2009},
+  volume = {56(3)},
+  pages = {873-880},
+  owner = {Fan},
+  timestamp = {2015.04.01}
 }
 
 @ARTICLE{Cho2005,
@@ -756,6 +782,18 @@
   pages = {11581-1594},
   owner = {Fan},
   timestamp = {2014.04.15}
+}
+
+@ARTICLE{Hajdok2006,
+  author = {Hajdok, G. and Yao, J. and Battista, J. J. and Cunningham, I. A.},
+  title = {Signal and noise transfer properties of photoelectric interactions
+	in diagnostic x-ray imagign detectors},
+  journal = {Med. Phys.},
+  year = {2006},
+  volume = {33(10)},
+  pages = {3601-3620},
+  owner = {Fan},
+  timestamp = {2015.04.08}
 }
 
 @ARTICLE{Hejazi1997,
