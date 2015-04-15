@@ -1084,6 +1084,17 @@
   timestamp = {2014.12.08}
 }
 
+@ARTICLE{Kasap2002,
+  author = {Kasap, S. O. and Rowlands, J. A.},
+  title = {Direct-conversion flat-panel x-ray image detectors},
+  journal = {IEE Proc.-Circuits Devices Syst.},
+  year = {2002},
+  volume = {149},
+  pages = {85-96},
+  owner = {Fan},
+  timestamp = {2015.04.09}
+}
+
 @ARTICLE{kasap2006,
   author = {Kasap, S. O. and Zahangir Kabir, M. and Rowlands, J. A.},
   title = {Recent advances in {X}-ray photoconductors for direct conversion
@@ -1140,6 +1151,18 @@
   pages = {2012�2026},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
+}
+
+@ELECTRONIC{wiki_photoelectric,
+  author = {Kieranmaher},
+  year = {2015},
+  title = {Basic {P}hysics of {D}igital {R}adiography/{T}he {P}atient},
+  howpublished = {\url{http://en.wikibooks.org/wiki/Basic_Physics_of_Digital_Radiography/The_Patient}},
+  organization = {WIKIBOOKS},
+  address = {\url{http://en.wikibooks.org/wiki/Basic_Physics_of_Digital_Radiography/The_Patient}},
+  url = {http://en.wikibooks.org/wiki/Basic_Physics_of_Digital_Radiography/The_Patient},
+  owner = {Fan},
+  timestamp = {2015.04.14}
 }
 
 @ARTICLE{Kim2008,
@@ -1376,6 +1399,15 @@
   file = {:C\:\\Users\\Helen_Fan\\Documents\\PhD proposal\\MooreDissertationMain.pdf:PDF},
   owner = {Helen_Fan},
   timestamp = {2012.11.13}
+}
+
+@BOOK{Mort1989,
+  title = {The {A}natomy of {X}erography - {I}ts {I}nvention and {E}valuation},
+  publisher = {Jefferson, {N}.{C}. : {M}c{F}arland},
+  year = {1989},
+  author = {Mort, J.},
+  owner = {Fan},
+  timestamp = {2015.04.10}
 }
 
 @ARTICLE{Moy1993,
