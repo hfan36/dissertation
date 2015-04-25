@@ -52,7 +52,7 @@
   author = {AAPM},
   title = {Acceptance Testing and Quality Control of Photostimulable Storage
 	Phosphor Imaging Systems},
-  institution = {AAPM},
+  institution = {{A}merican {A}ssociation of {P}hysicists in {M}edicine},
   year = {2006},
   organization = {American Association of Physicists in Medicine, Report No. 93},
   owner = {Fan},
@@ -69,25 +69,17 @@
 }
 
 @INBOOK{Abbey2000,
-  chapter = {Chapter 11. Modeling {V}isual {D}etection {T}asks in {C}orrelated
-	{I}mage {N}oise with {L}inear {M}odel {O}bservers},
+  chapter = {11. Modeling {V}isual {D}etection {T}asks in {C}orrelated {I}mage
+	{N}oise with {L}inear {M}odel {O}bservers},
   pages = {630-654},
-  title = {Handbook of Medical Imaging, Volume 1. Physics and Psychophysics},
+  title = {Handbook of Medical Imaging},
   publisher = {SPIE Press},
   year = {2000},
   editor = {Beutel, J. and Kundel, H. L. and Van Metter, R. L.},
   author = {Abbey, C. K. and Bochud, F. O.},
-  volume = {I},
+  volume = {I. Physics and Psychophysics},
   owner = {Fan},
   timestamp = {2014.10.27}
-}
-
-@TECHREPORT{,
-  author = {Andor},
-  title = {Read Noise},
-  institution = {Andor},
-  owner = {Fan},
-  timestamp = {2015.03.28}
 }
 
 @ARTICLE{Antonuk1990,
@@ -230,7 +222,7 @@
 @ARTICLE{Beister2012,
   author = {Beister, M. and Kolditz, D. and Kalender, W. A.},
   title = {{I}terative reconstruction methods in {X}-ray {CT}},
-  journal = {Phys. Med.},
+  journal = {Physica Medica},
   year = {2012},
   volume = {28},
   pages = {94-108},
@@ -768,7 +760,6 @@
   volume = {1497},
   series = {Lecture Notes in Mathematics},
   pages = {66-97},
-  doi = {10.1007/BFb0084509},
   owner = {Ryan-Helen},
   timestamp = {2014.11.10}
 }
@@ -1056,8 +1047,8 @@
 
 @ARTICLE{Kandarakis2001,
   author = {Kandaraks, I. and Cavouras, D.},
-  title = {{E}xperimental and theoretical assessment of the Performance of $\mathrm{Gd_2O_2S:Tb}$
-	and $\mathrm{La_2O_2S:Tb}$ phosphor and $\mathrm{Gd_2O_2S:Tb-La_2O_2S:Tb}$
+  title = {{E}xperimental and theoretical assessment of the Performance of $\mathrm{Gd_2O_2S}$:Tb
+	and $\mathrm{La_2O_2S}$:Tb phosphor and $\mathrm{Gd_2O_2S}$:Tb-${La_2O_2S}$:Tb
 	{M}ixtures for {X}-ray imaging},
   journal = {Eur. Radiol.},
   year = {2001},
@@ -1172,7 +1163,7 @@
   journal = {SIAM J. Appl. Math.},
   year = {2002},
   volume = {62},
-  pages = {2012�2026},
+  pages = {2012-2026},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
 }
@@ -1530,7 +1521,7 @@
 @ARTICLE{Noo1999,
   author = {Noo, F. and Defrise, M. and Clackdoyle, R.},
   title = {Single-slice rebinning method for helical cone-beam {CT}},
-  journal = {Phys. Med. Bi},
+  journal = {Phys. Med. Biol.},
   year = {1999},
   volume = {44},
   pages = {561-570},
@@ -2018,12 +2009,11 @@
   author = {Tang, X. and Hsieh, J. Nilsen R. A. and Sandeep, D. and Dmitry, S.
 	and Akira, H.},
   title = {A three-dimensional-weighted cone beam filtered backprojection ({CB-FBP})
-	algorithm for image reconstruction in volumetric {CT}梙elical scanning},
+	algorithm for image reconstruction in volumetric {CT} - helical scanning},
   journal = {Phys. Med. Biol.},
   year = {2006},
   volume = {51},
-  number = {855-874},
-  doi = {10.1088/0031-9155/51/4/007},
+  pages = {855-874},
   owner = {Ryan-Helen},
   timestamp = {2014.03.28}
 }
@@ -2031,7 +2021,7 @@
 @ARTICLE{Tang2004,
   author = {Tang, X. Y. and Hsieh, J.},
   title = {A filtered backprojection algorithm for cone beam reconstruction
-	using rorotation filtering under helical source trajectory},
+	using rotation filtering under helical source trajectory},
   journal = {Med. Phys.},
   year = {2004},
   volume = {31},
@@ -2059,7 +2049,6 @@
   journal = {Rev. Sci. Instrum.},
   year = {2005},
   volume = {76},
-  doi = {10.1063/1.2001307},
   owner = {Fan},
   timestamp = {2014.09.16}
 }
@@ -2270,7 +2259,6 @@
   year = {2012},
   volume = {857017},
   pages = {1-8},
-  doi = {doi:10.1117/12.956437},
   owner = {Fan},
   timestamp = {2015.04.01}
 }

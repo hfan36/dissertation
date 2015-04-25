@@ -52,14 +52,14 @@ We have employed three steps in order to compute all of the calibration and nuis
 \begin{figure}[ht]
 \centering
 \includegraphics[width = 9cm]{Edmund_target.JPG}
-\caption{Resolution chart from Edmund Optics}
+\caption{Resolution chart from Edmund Optics.}
 \label{fig:edmund_target}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=1]{optical_mag7.eps}
-\caption{Procedure for obtaining the optical magnification factor ($M$) using Edmund Optics' resolution chart}
+\caption{Procedure for obtaining the optical magnification factor ($M$) using Edmund Optics' resolution chart.}
 \label{fig:optical_mag}
 \end{figure}
 The optical magnification can be measured under white light by placing an item of a known size at the phosphor screen and measuring the image size of the object scaled on the sensor.  In practice, we used a resolution chart purchased from Edmund Optics, shown in Fig.~\ref{fig:edmund_target} and focused our camera on the 1 line per mm bar section of the resolution chart.  For each row of the image, we fitted the data to the first order of the Fourier series using the ``fit()'' function in MATLAB.  The phase shift of each row of the image corresponds to the bar target rotation.  Once the image is corrected for rotation by use ``imrotate()'' function, we can then average the image over rows and calculate the period of the bar target.  This procedure is illustrated in Fig.~\ref{fig:optical_mag}.
@@ -70,7 +70,7 @@ In order to find the global system parameters, we opted to use Smekal's calibrat
 %
 \begin{figure}[ht]
 \includegraphics[scale=1]{smekal_system3.eps}
-\caption{Calibration steps to calculate global parameters}
+\caption{Calibration steps to calculate global parameters.}
 \label{fig:smekal_method}
 \end{figure}
 
@@ -362,9 +362,11 @@ Figure~\ref{fig:clustering_algorithm} provides a graphical description of the cl
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=1.2]{clustering_algorithm}
-\caption{A graphical description of the clustering algorithm.  Here, the number above each point indicates its rank order after the points are sorted according to the sort direction.  $R_{point \; cluster}$ is a predetermined distance after looking through the raw calibration image.  The center-of-mass point is recalculated after each cluster point is identified.  After the center-of-mass point is recalculated once point 6 is identified, the distance $d_1$ is much greater than $R_{point \; cluster}$; therefore, points 7 and 8 are ruled out from cluster 1, as well as point 13 and 14.  Point 25 is also ruled out because $d_3$ is much greater than the $R_{point \; cluster}$ after the center-of-mass point is recalculated once point 24 is identified.  Cluster 2 is classified as noise cluster because it does not have enough points within the cluster.  Cluster 3 is identified as a ball bearing projection cluster because of its size and the number of points within the cluster.}
+\caption{A graphical description of the clustering algorithm.  }
 \label{fig:clustering_algorithm}
 \end{figure}
+
+%Here, the number above each point indicates its rank order after the points are sorted according to the sort direction.  $R_{point \; cluster}$ is a predetermined distance after looking through the raw calibration image.  The center-of-mass point is recalculated after each cluster point is identified.  After the center-of-mass point is recalculated once point 6 is identified, the distance $d_1$ is much greater than $R_{point \; cluster}$; therefore, points 7 and 8 are ruled out from cluster 1, as well as point 13 and 14.  Point 25 is also ruled out because $d_3$ is much greater than the $R_{point \; cluster}$ after the center-of-mass point is recalculated once point 24 is identified.  Cluster 2 is classified as noise cluster because it does not have enough points within the cluster.  Cluster 3 is identified as a ball bearing projection cluster because of its size and the number of points within the cluster.
 
 %\comment{ Should I provide an example using real calibration image? }
 
