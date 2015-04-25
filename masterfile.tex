@@ -1,6 +1,6 @@
 \include{header}
-%\usepackage[disable]{todonotes} % notes not showed
-\usepackage{todonotes}
+\usepackage[disable]{todonotes} % notes not showed
+%\usepackage{todonotes}
 
 %%=====================================================
 %% new comands 
@@ -22,16 +22,26 @@
 \newcommand{\red}[1]
 {{\bfseries \color{red} #1}}
 
+\usepackage{bibentry}
+\nobibliography*
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
 %%======================================================
 %%% include only chapters
 %%======================================================
 %Title: X-ray imaging using CCD/CMOS detectors
-\includeonly{./Chapters/chap-Intro}
+%\includeonly{./Chapters/chap-Intro}
 %\includeonly{./Chapters/chap-DesignConstruction}
 %\includeonly{./Chapters/chap-ModelObserver}
 %\includeonly{./Chapters/chap-GeomCalib}
 %\includeonly{./Chapters/chap-Recon_2}
 %\includeonly{./Notes/recon_code}
+%\includeonly{./Chapters/chap-conclusion}
 %\includeonly{./Chapters/chap-BrainImgApplication}
 %\includeonly{./Chapters/appen-partslist}
 %%======================================================
@@ -39,22 +49,24 @@
 %%======================================================
 
 \begin{document}
-%\include{Approval}
+
+\include{Approval}
+
 %% Include the ``Acknowledgements''
-%\incacknowledgements{acknowledgements}
+\incacknowledgements{acknowledgements}
 
 %% Include the ``Dedication''
 %\incdedication{dedication}
 
 %%===============================================
 % Create a ``Table of Contents''
-%\tableofcontents
+\tableofcontents
 
 % Create a ``List of Figures''
-%\listoffigures
+\listoffigures
 
 % Create a ``List of Tables''
-%\listoftables
+\listoftables
 
 \include{./Abstract/abstract}
 
@@ -74,12 +86,13 @@
 
 % Include the various appendices
 \appendix
+\include{./Chapters/appen-partslist}
 %\include{./Chapters/chap-Moffitt}
 %\include{./Notes/estimation_theory}
 %\include{./Notes/noise_in_detectors}
 %\include{./Notes/detection}
-%\include{./Notes/recon_code}
-%\include{./Chapters/appen-partslist}
+\include{./Notes/recon_code}
+
 %\include{./Notes/projection_equations}
 %\todo[inline]{need a parts list for everything}
 

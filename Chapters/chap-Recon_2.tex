@@ -28,8 +28,9 @@ CT scanning geometry can be divided into two general categories, depending on th
 The second and the most widely used scanning method is the helical/spiral geometry.  The approach to solve the helical cone beam reconstruction can be generally divided into two categories: approximate and exact reconstruction methods.  The most common method to solve this problem is the approximate reconstruction technique derived from the original FDK algorithm and later generalized to spiral scan by Ge Wang~\citep{Wang1993}.  Many authors have also succeeded in creating helical cone-beam algorithms based on the Feldkamp method~\citep{Wang1992, Kudo1991, Yan1992, Smith1992, Noo1999, Kachelriess2000, Tang2004, Tang2006a, Tang2006b}.  As noted by Wang, ``\textit{The key idea is to correct cone-beam data into fan-beam counterparts in a heuristic way.  As a primary example, a cone-beam datum along an oblique ray can be approximately converted to the fan-beam counterpart along a transverse ray by multiplying the former with the cosine of the angle between the oblique and transverse rays}''~\citep{Wang2007}.
 %
 \begin{figure}[h]
-\includegraphics[width = 13cm]{Tam_figure.PNG}
-\caption{Spiral-and-two-circles scan path for ROI imaging as proposed by Tam et al.~\citep{Tam1998}.}
+%\includegraphics[width = 13cm]{Tam_figure.PNG}
+\includegraphics[width = 9cm]{helix.pdf}
+\caption{Spiral-and-two-circles scan path for ROI imaging as proposed by Tam et al..}
 \label{fig:tam_circle}
 \end{figure}
 %
@@ -61,7 +62,7 @@ Methods of solving for exact cone beam image reconstruction have been independen
 %\end{figure}
 %
 \begin{figure}[h]
-\includegraphics[scale=1]{scanning_trajectories}
+\includegraphics[scale=0.95]{scanning_trajectories}
 \caption{Different scanning trajectories for complete sampling. (a) circle-plus-line; (b) circle-plus-arc; (c) dual circles; and (d) saddle.}
 \label{fig:scanning_trajectories}
 \end{figure}
@@ -74,9 +75,10 @@ Iterative reconstruction techniques attempt to solve for the object using projec
 \begin{figure}
 \centering
 \includegraphics[scale = 0.9]{iterative_recon_process.eps}
-\caption{The general process of iterative algorithm~\citep{Beister2012}.}
+\caption[]{The general process of iterative algorithm\footnotemark.}
 \label{fig:generalIR}
 \end{figure}
+\footnotetext{Reprinted from: Physica Medica, 28, Bester, M., Kolditz, D., and Kalender, W. A., Iterative reconstruction methods in X-ray CT, 94-108, Copyright(2012), with permission from Elsevier.}
 
 \subsection{Algebraic Iterative Reconstruction Techniques}
 From a historical perspective, the very first reconstructed CT image was created using the algebraic iterative reconstruction (ART) method, where the method attempts to find the object by solving a series of linear equations,
@@ -95,11 +97,23 @@ Statistical iterative reconstruction techniques have been used extensively in si
 
 Unlike the analytical reconstruction techniques, where many physical assumptions must be made to allow for the mathematics to be more manageable, physical models used by the iterative algorithm can account for any physical process and are only limited by the computational power of the processing computer.  For example, analytical solutions usually assume that the x-ray focal spot is infinitely small; the shape and dimension of the detector cells are ignored so that all x-ray photon interactions were assumed to take place at the center of the detector cells.  Iterative reconstruction algorithms require no prior assumption about the geometry of the system.  For example, a commonly used model is to cast multiple pencil rays through the x-ray focal spot, the image voxel, and the detector pixel to mimic different x-ray photon paths through the object.  The summation of the x-rays at each detector cell is then used to approximate the CT image system, shown in Fig.~\ref{fig:physical_modeling}a. Needless to say, this method is extremely time-consuming and computationally intensive.  Another commonly used approach is to model the ``shadow'' cast by each image voxel onto the detector cells and rely on the point-response function to model the forward projection process of the CT system, where the response function is non-stationary and changes with the voxel location to account for different magnifications and orientations, shown in Fig.~\ref{fig:physical_modeling}b.  Comparatively, this method is computationally more efficient~\citep{Hsieh2013}.
 %
-\begin{figure}
-\includegraphics[scale=1]{ct_IR_model}
-\caption{Common physical models used for the iterative reconstruction algorithm. (a) the pencil beam model; and (b) the point-response model.}
+\begin{figure*}
+	\begin{minipage}{0.4\linewidth}
+	\includegraphics[width=6cm]{Capture_IR1.png}
+	\subcaption{}
+	\end{minipage}
+	%
+	\begin{minipage}{0.4\linewidth}
+	\includegraphics[width=6cm]{Capture_IR2.png}
+	\subcaption{}
+	\end{minipage}
+%\includegraphics[scale=1]{ct_IR_model}
+\caption[]{Common physical models used for the iterative reconstruction algorithm\footnotemark. (a) The pencil beam model; and (b) the point-response model.}
 \label{fig:physical_modeling}
-\end{figure}
+\end{figure*}
+
+\footnotetext{\bibentry{Hsieh2013}, with kind permission from Springer Science and Business Media.}
+
 
 The statistical model or the noise model attempts to incorporate the statistics of the detected photon into the reconstruction process.  This may include incident photon flux variations, also known as the Poisson distribution, though it is approximate due to the poly-energetic x-ray source used in CT, the energy-dependent light production in the scintillator, shot noise in photodiodes, and electronic noise in readout electronics. The most common noise model is the zero-mean Gaussian noise.
 
@@ -276,8 +290,8 @@ Normally, $d$ is calculated using a loop until a desired number of rays are reac
 The ray trace process can be accomplished by closely following the Siddon's algorithm up until Eq.~\ref{eq:siddon_ijkminmax}.  Since each ray is traced simultaneously, we cannot calculate and presort the entire set, $\{ \alpha \}$, for each ray on the GPU.  Instead we opted to calculate and sort $\{ \alpha \}$ on-the-fly, where parametric values $\alpha_x$, $\alpha_y$, and $\alpha_z$ are calculated simultaneously and independently on the GPU device memory for each ray starting with $\alpha_x(1)$, $\alpha_y(1)$, $\alpha_z(1)$.  A loop is used to trace the rays from beginning to end.  Each time the loop executes, the minimum of the three values is found, we then increment the alpha index by 1 only for the parametric value of the corresponding plane.  This minimum value is set to $\alpha(m)$, and is used to calculate for $d$ along with the the value from the previous loop, $\alpha(m-1)$.  The loop is carried out until all values in the set, $\{ \alpha \}$, were computed because we know both $\alpha_{min}$ and $\alpha_{max}$ from previous calculations and all the indices of the object planes for all rays.  In addition, because the number of elements, $n$, in the set, $\{ \alpha \} $, can be calculated using Eq.~\ref{eq:siddon_n}, we can also set the loop to ran for a fixed number of iterations equal to the ray with the maximum $n$ while setting a proper terminating condition for all other rays in the loop.  As a result, $\ {\alpha\ }$ is not computed all at once, but rather computed and sorted on-the-fly where only the most current of the two values, $\alpha(m)$ and $\alpha(m-1)$ are stored in device memory.  
 %
 \begin{sidewaysfigure}
-\includegraphics[scale=0.9]{siddon_flowchart.eps}
-\caption{A flow chart of Siddon's algorithm implementation on CUDA}
+\includegraphics[scale=0.85]{siddon_flowchart.eps}
+\caption{The algorithm for Siddon's implementation on CUDA.}
 \label{fig:siddon_algorithm_flow_chart}
 \end{sidewaysfigure}
 %
@@ -290,15 +304,52 @@ The forward projector was implemented following Siddon's algorithm and Fig.~\ref
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.9]{siddon_flowchart_sensitivity.eps}
-\caption{Flow chart for sensitivity calculation.}
+\includegraphics[scale=1]{siddon_flowchart_sensitivity.eps}
+\caption{Algorithm for sensitivity calculation.}
 \label{fig:sensitivityslices}
 \end{figure}
 
-The sensitivity used in the MLEM algorithm represents the contribution of all detector values at all projection angles on the object volume.  This was calculated by first setting all detector values to one, then back filling the object voxel values using the back projector for all scanned angles, shown in Fig~\ref{fig:sensitivityslices}.  Note that the sensitivity changes depending on the geometry of the CT system, number of object volume, number of detector pixels, and scan routine.  As a result, the sensitivity is always computed in the beginning of each reconstruction event.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.  Figure~\ref{fig:sensitivityslices} shows a few slices through the sensitivity volume using a set of CT parameters.
-Figure~\ref{fig:reconstructedimage} shows the center slice of a reconstructed object after X iterations.
+The sensitivity used in the MLEM algorithm represents the contribution of all detector values at all projection angles on the object volume.  This was calculated by first setting all detector values to one, then back filling the object voxel values using the back projector for all scanned angles.  The sensitivity changes depending on the geometry of the CT system, number and size of the object volume, number of detector pixels, and scan routine.  As a result, the sensitivity is always computed in the beginning of each reconstruction event.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{sensitivity.pdf}
+\caption{A Central slice of the sensitivity volume calculated using a fixed CT geometry and scan angles for three different object volume setup.}
+\label{fig:sensitivityslices}
+\end{figure}
+
+The sensitivity of the CT system depends on its scan geometry.  The sensitivity calculated in the reconstruction algorithm requires both the CT geometry and scan routine.  The sensitivity is then computed in the object voxel volume parameters defined in the parameter sheet.  Ideally, when we enter the object voxel parameters for reconstruction, we want the targeted regions of the object voxels to lay within the sensitive regions of the CT system so all rays traced from the x-ray source to the detector pixels will pass through the targeted part of the object volume at every single projection angle.  Sometimes it is advantageous to perform a test run by calculating only the sensitivity volume before calculating multiple iterations of the reconstruction to ensure that the size of the object volume defined by the voxel size and number of voxels is within the sensitive region.  Figure~\ref{fig:sensitivityslices} shows a central slice of the sensitivity volume for 3 different object volume setup with a fixed CT geometry and scan routine.  Figure~\ref{fig:sensitivityslices}a shows that the object volume is smaller and is within the sensitive region of the CT system.  Figure~\ref{fig:sensitivityslices}c shows that much of the object volume lays outside the region, so much of the GPU memory and process is wasted in this setup. Figure~\ref{fig:sensitivityslices}c shows that majority of the object lays within the region.  This is the optimum setup for reconstruction because we are not wasting GPU memory and process by computing regions that does not lay inside the CT field of view defined by the detector and CT geometry, and we are also not restricting ourselves to a smaller field of view than necessary.
 
 \subsection{Reconstruction results}
+
+\begin{figure*}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[width = 4cm]{Capture_breast_xy.png}
+		\subcaption{}
+	\end{minipage}
+	\vspace{0.3cm}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[width = 4cm]{Capture_breast_xz.png}
+		\subcaption{}
+	\end{minipage}
+	\vspace{0.3cm}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[width = 4cm]{Capture_breast_yz.png}
+		\subcaption{}
+	\end{minipage}
+\caption{The reconstructed breast phantom using 512 $\times$ 512 $\times$ 64 voxels after 10 iterations.  A slice of the phantom in the (a) x-y plane (b) x-z plane, and (c) y-z plane.}
+\label{fig:reconstruction_breast}
+\end{figure*}
+
+We took CT projection images of the breast phantom that was used in the DR system.  Figure~\ref{fig:reconstruction_breast} shows a few slices of the reconstructed object after 10 iterations using 512 $\times$ 512 $\times$ 64 voxels.  
+
+We have noticed that, $dx$ and $\eta$ are the two parameters in the CT system that are the most critical for the reconstruction algorithm.  To demonstration this, we have calculated the projection of a thin rod using the same CT geometry as the breast phantom shown in Fig.~\ref{fig:reconstruction_breast}.  The thin rod is 1 mm wide and oriented so its long axis is parallel and centered on the z-axis (rotation axis).  Shown in Fig.X, we can see that if $dx$ is mis-calibrated by 0.5 mm, then the resulting reconstruction presents a ring structure every slice.  When $\eta$ is mis-calibrated by 2$\degree$, then the resulting reconstruction image slices also present a ring-structures, however, the size of this ring structure changes in different slices.  A mis-calibration in either $\theta$ and $\phi$ are less noticeable.  In fact, even when $\theta$ or $\phi$ are perturbed by as much as 10-degrees, the reconstruction slice shows little impact.  The length of R and Rf specify the x-ray magnification, so a mis-calibration in either one of the values, results in the reconstructed object size to change.  However, since the size of the reconstructed object is also affected by the optical magnification, it is difficult to know whether the object size variation is due to optical magnification or R and Rf mis-calibration.  We have varied Rf by as much as 6 mm, and little affect is observed.
+
+\section{Summary}
+In this chapter we have described the reconstruction method used for the prototype CT system.  We first began by providing an overview of the different types of reconstruction techniques.  Then, we described the MLEM method that was used in our system.  The forward and backward projectors were calculated based on Siddon's method and it was implemented on the GPU.  We have shown a reconstructed object and noted some of the artifacts that can be created if the system was not calibrated correctly.  The reconstruction code is sourced controlled using git, and a copy of the reconstruction code can be pulled from a public repository at: \url{https://hxfan@bitbucket.org/hxfan/ct_reconstruction.git}.
+
+
+
 %The prototype CT system has a XXX field of view, the x-ray magnification can be manually changed along with its optical magnification.  
 %\comment{
 %how to show the x-ray magnification, optical magnification as a function of FOV

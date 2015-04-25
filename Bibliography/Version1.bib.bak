@@ -169,6 +169,19 @@
   timestamp = {2012.10.30}
 }
 
+@ARTICLE{Barrett2013,
+  author = {Barrett, H. H. and Kupinski, M. A. and M{\"u}eller, S. and Halpern,
+	H. J. and Morris III, J. C. and Dwyer, R.},
+  title = {Objective assessment of image quality {VI}: imaging in radiation
+	therapy},
+  journal = {Phys. Med. Biol.},
+  year = {2013},
+  volume = {58},
+  pages = {8197-8213},
+  owner = {Fan},
+  timestamp = {2015.04.15}
+}
+
 @BOOK{Barrett2004,
   title = {{F}oundations of {I}mage {S}cience},
   publisher = {John Wiley \& Sons, Inc.},
@@ -307,6 +320,17 @@
   file = {:F\:\\Papers\\Bunch - analysis of the DQE of a raiographic screen-film combination.pdf:PDF},
   owner = {Fan},
   timestamp = {2014.02.24}
+}
+
+@ARTICLE{Burgess1959,
+  author = {Burgess, R. E.},
+  title = {Homophase and heterophase fluctuations in semiconducting crystals},
+  journal = {Discuss. Faraday Soc.},
+  year = {1959},
+  volume = {28},
+  pages = {151-158},
+  owner = {Fan},
+  timestamp = {2015.04.15}
 }
 
 @ARTICLE{Busemann1987,
@@ -1131,7 +1155,7 @@
 
 @ARTICLE{Katsevich2003,
   author = {Katsevich, A.},
-  title = {{A} general schedule for constructng inversion algorithm for cone
+  title = {{A} general schedule for constructing inversion algorithm for cone
 	beam {CT}},
   journal = {Internat. J. Math. Math. Sci.},
   year = {2003},
@@ -2251,9 +2275,20 @@
   timestamp = {2015.04.01}
 }
 
+@ELECTRONIC{wiki_foveon,
+  author = {Wikipedia},
+  year = {2007},
+  title = {Foveon X3 sensor},
+  howpublished = {\url{https://en.wikipedia.org/wiki/Foveon_X3_sensor}},
+  address = {\url{https://en.wikipedia.org/wiki/Foveon_X3_sensor}},
+  url = {https://en.wikipedia.org/wiki/Foveon_X3_sensor},
+  owner = {Fan},
+  timestamp = {2015.04.15}
+}
+
 @ELECTRONIC{wikibayer,
   author = {Wikipedia},
-  year = {2014},
+  year = {2006},
   title = {Bayer filter},
   howpublished = {\url{http://en.wikipedia.org/wiki/Bayer_filter}},
   organization = {WIKIPEDIA},
