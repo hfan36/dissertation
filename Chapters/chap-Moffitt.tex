@@ -1,10 +1,113 @@
 \chapter{Moffitt Imaging System}\label{app:moffitt}
 \section{Introduction}
+The Moffitt box is a multi-modality imaging system that was built to image tumor cells grown within the window chambers on mice.  In addition to white light, the system can be used to detect and track cell growth by imaging the red and green fluorescent proteins that were transfected on the tumor cell lines in mice.  The system can also be used to image positrons and electrons emitted from radio-pharmaceuticals, which are injected into mice to track cancer cells and their growth.  The system has also been shown to image Cherenkov radiation.  The design of the system was inspired by Dr. Katherine Creath.  This imaging system was built and later delivered to the Moffitt Cancer Center in Florida on 2/7/2011.
+
 \section{Design and Construction}
-	\subsection{light source}
-	\subsection{Enclosure}
-	\subsection{Motorized stages}
-\section{Its uses}
-	\subsection{White Light imaging}
-	\subsection{Fluorescence imaging}
-	\subsection{Beta source imaging}
+The exterior chamber of the system is constructed by welding 1/16\inches~steel plates to avoid light leaks at the corners and edges of the enclosure. The exterior of the chamber was powder coated to create a black matte finish.  The welding and powder coating was provided by R\&R  Electrical Manufacturing Co. in Tucson.  The interior of the chamber was spray painted in-house using Nextel Suede-coating 3101 and 5523 primer to minimize reflection with the inner chamber surfaces.  A copper plate and a grounding cable were attached to the outside of the chamber to avoid static charges from building up on the chamber surfaces.  Ten individual openings located in a small unit at the back of the chamber allows various cables to be fed through.  The front and back of the system are shown in Fig.~\ref{fig:moffitt_exterior}.
+
+\begin{sidewaysfigure*}
+	\centering
+	\includegraphics[scale=1]{Moffitt_system.pdf}
+	\caption{The (a) front and (b) back of the Moffitt imaging system.}
+	\label{fig:moffitt_exterior}
+\end{sidewaysfigure*}
+
+The Moffitt imaging system uses a powerful Xenon white light source (MAX-302, 300W Asahi Spectra).  The light source can house up to eight 25 mm color filters, which can be used to adjust the spectrum of the output light.  These filters are used to excite the tumor cells within the window chamber that were transfected with fluorescence protein.  Filters for both red fluorescent and green fluorescent proteins were purchased for the Moffitt imaging system.  The output of the light source is connected to dual-head light pipes (purchased from Asahi Spectra), and are inserted through the top of the chamber.  Light-tight seals are applied at the entrances using pipe grommets and black silicone caulk.  Black heat-shrink tubes are used to cover the light pipes to avoid reflection with the pipe's surfaces inside the chamber.  Two flexible and adjustable arms with magnetic-base are used to hold the light pipe tips, and are used to adjust the illuminations on the window chamber.  These were purchased from McMaster-Carr.  The light source and one of the flexible arms are shown in Fig.~\ref{fig:lightsource_arm}.
+
+\begin{figure}
+	\begin{minipage}{0.4\linewidth}
+	\centering
+	\includegraphics[height = 4cm]{Moffitt_lightsource.png}
+	\subcaption{}
+	\end{minipage}
+%
+	\begin{minipage}{0.4\linewidth}
+	\centering
+		\includegraphics[height = 4cm]{Moffitt_lightpipe_tip.png}
+		\subcaption{}
+	\end{minipage}
+\caption{(a) The light source used on the Moffitt box and (b) a light pipe supported by a flexible arm and magnetic base inside the chamber.}
+\label{fig:lightsource_arm}
+\end{figure}
+
+The images are captured using an ultra-sensitive CCD camera that is mounted to the top of the chamber with an opening for the CCD sensor.  The camera used is the PIXIS 2048B from Princeton Instruments.  A rubber gasket is placed between the front surface of the camera and the chamber's top surface to create a light-tight seal.  Typically, two F/1.2 50mm lenses are mounted in a snout-to-snout fashion with both lenses set to focus at infinity in order to achieve unit image magnification.  The Moffitt system also includes a telephoto lens, which allow images to be taken under different magnifications.  Various magnifications can be adjusted by changing the focal length of the telephoto lens.  The focal lengths ratio between the two lenses provides the magnification of the imaging system.  A filter slide was designed and printed using rapid prototype printer.  This slide contains two pieces, an outer housing that is used to attach the lenses at the front snout, and an inner tray so emission filters can be placed inside.  For red fluorescent protein (RFP), we excited the protein with a filter centered at 561 nm (bandwidth = 14 nm), and collected the light emission using a filter centered at 609 nm (bandwidth 54 = nm).  For green fluorescent protein (GFP), we used a filter centered at 482 nm (18 nm) for excitation, and a filtered at 525 nm (45 nm) for emission.  The filter selection can be adjusted by pulling the plunger and sliding the inner tray to the target filter position.  The lens and filter slide are shown in Fig.~\ref{fig:imaging}.
+
+\begin{figure}
+	\begin{minipage}{0.4\linewidth}
+	\centering
+	\includegraphics[width = 5cm]{Moffitt_filterslide.jpg}
+	\subcaption{}
+	\end{minipage}
+%
+	\begin{minipage}{0.4\linewidth}
+	\centering
+	\includegraphics[width = 5cm]{Moffitt_filterslide2.jpg}
+	\subcaption{}
+	\end{minipage}
+	\caption{(a) The filter slide can be mounted between two 50 mm lens and can accommodate up to three emission filters.}
+	\label{fig:imaging}
+\end{figure}
+
+The mouse with window chamber can be secured by a plastic holder.  The plastic holder is machined with three small holes so screws from the window chamber can be placed inside to ensure the mouse does not move during experiments.  The plastic holder is placed on a horizontal platform that is connected to a vertical translation stage.  During experiments, the window chamber is adjusted into the focus of the camera and lens system by moving the vertical stage (Newmark NLS8 500 mm).  Two horizontal stages each controlled with a linear actuator are used to change the lateral positions of the window chamber on the platform.  The vertical and horizontal stages are communicated through their respective motion controllers using a program written in LabView.  The front panel of the LabView program is shown in Fig.~\ref{fig:Labview}.  A modification was made to the vertical motion controller so the LED limit switches that were used on the stage can be turned off during image acquisition.  The modification was done by toggling the power to the LEDs using an unused serial cable pin on the motion controller.  The voltages to the serial pin were used to turn the limit switch LEDs on and off.  This modification was done with helps from Dr. Lars Furenlid.
+
+\begin{figure}
+\centering
+\includegraphics[width = 8cm]{Moffitt_labview.png}
+\caption{Program front panel to control horizontal and vertical stages.}
+\label{fig:Labview}
+\end{figure}
+
+For fluorescence imaging, the appropriate excitation and emission filters are selected for the target protein labeled on the cells.  For electron or positron imaging, a thin scintillator film is placed on top of the window chamber with the glass covering removed so the visible photons emitted from the scintillator film by incident beta or positron are collected onto the camera sensor.  For more information regarding the imaging techniques, refer to Liying's work~\citep{Liying}.  Images of a mouse's window chamber taken under white light, fluorescence from RFP, and electrons from 18-F are shown in Fig.~\ref{fig:Moffitt_images}.
+
+\begin{figure}
+	\begin{minipage}{0.3\linewidth}
+		\centering
+		\includegraphics[width = 3cm]{Moffitt_whitelight.png}
+		\subcaption{}
+	\end{minipage}
+	%
+	\begin{minipage}{0.3\linewidth}
+		\centering	
+		\includegraphics[width = 3cm]{Moffitt_RFP.png}
+		\subcaption{}
+	\end{minipage}
+	%
+	\begin{minipage}{0.3\linewidth}
+		\centering	
+		\includegraphics[width = 3cm]{Moffitt_positron.jpg}
+		\subcaption{}
+	\end{minipage}
+	\caption{The image acquired with a window chamber using (a) white light, (b) fluorescence from RFP, and (c) visible light emitted from the scintillator film created by incident electrons, which are released by the injected FDG-18F.}
+	\label{fig:Moffitt_images}
+\end{figure}
+
+%\begin{table}
+%	\begin{tabular}{c|c|c}
+%	\hline
+%	\hline
+%	Component & Model & Manufacturer \\
+%	\hline
+%	Light source & MAX-302 (300 W Xenon) & Asahi Spectra \\
+%	\hline
+%	Camera & PIXIS 2048B & Princeton Instruments \\
+%	\hline
+%	Vertical stage and controller & NLS8 (500 mm) & Newmark Systems, Inc. \\
+%	\hline
+%	Horizontal stages & Linear stages 436 with LTA actuators & Newport \\
+%	\hline
+%	Interior paint & Suede-coating 3101 and primer 5523 & Nextel \\
+%	\hline
+%	Vertical stage mounts & Aluminum breadboard (18\inches$\times$24\inches$\times$1/2\inches, 1/4\inches-20 threaded & Thorlabs \\
+%	
+%	\end{tabular}
+%\end{table}
+%
+%
+
+
+
+
+
+
+
+

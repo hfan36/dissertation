@@ -1,6 +1,7 @@
 \include{header}
 \usepackage[disable]{todonotes} % notes not showed
 %\usepackage{todonotes}
+\usepackage{afterpage}
 
 %%=====================================================
 %% new comands 
@@ -44,14 +45,15 @@
 %\includeonly{./Chapters/chap-conclusion}
 %\includeonly{./Chapters/chap-BrainImgApplication}
 %\includeonly{./Chapters/appen-partslist}
-\includeonly{./Notes/recon_code}
+%\includeonly{./Notes/recon_code}
+%\includeonly{./Chapters/chap-Moffitt}
 %%======================================================
-%% begin document
+%latex%% begin document
 %%======================================================
 
 \begin{document}
 
-%\include{Approval}
+\include{Approval}
 
 %% Include the ``Acknowledgements''
 %\incacknowledgements{acknowledgements}
@@ -88,11 +90,11 @@
 % Include the various appendices
 \appendix
 \include{./Chapters/appen-partslist}
-%\include{./Chapters/chap-Moffitt}
 %\include{./Notes/estimation_theory}
 %\include{./Notes/noise_in_detectors}
 %\include{./Notes/detection}
 \include{./Notes/recon_code}
+\include{./Chapters/chap-Moffitt}
 
 %\include{./Notes/projection_equations}
 %\todo[inline]{need a parts list for everything}

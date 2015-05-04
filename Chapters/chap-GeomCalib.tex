@@ -88,6 +88,7 @@ u \hat{u} + v \hat{v} + \vec{d} =& \, u \mathrm{\mathbf{O}} \hat{x} + v \mathrm{
 %
 where $\vec{d} = d_x \hat{x} + d_y \hat{y} + d_z \hat{z}$ is the distance between the center of the ideal detector and the misaligned detector, $\mathrm{\mathbf{O}}$ is a 3 $\times$ 3 rotation matrix that maps the vectors $(\hat{x}, \hat{z})$ to $(\hat{u}, \hat{v})$ using $\theta_x, \theta_y, \theta_z$ shown in Eq.~\ref{eq:rotation_matrix}.
 %
+\scalebox{0.90}{\parbox{\linewidth}{%
 \begin{equation}
 \mathrm{\mathbf{O}} = 
 \begin{pmatrix}
@@ -97,6 +98,8 @@ cos \, \theta_x \, sin \, \theta_y & -sin \, \theta_x & cos \, \theta_y \, cos \
 \end{pmatrix}
 \label{eq:rotation_matrix}
 \end{equation}
+}}
+
 
 Generally speaking, it is not ideal to describe the point $(u, v)$ using the coordinate $(x', y', z')$, i.e. $y' \neq R - R_f$.  Instead, we can describe the point using the ideal coordinate $(u^{id}, v^{id})$ where this perfect alignment counter part (i.e. $y' = R - R_f$) connects the rays from the x-ray source, through the focus, and to the points $(x', y', z')$ using the equation,
 %
@@ -333,7 +336,7 @@ The bracket is designed so that the center of the ball bearings on the inserts i
 
 \subsection{Extract phantom marker locations}
 In order to use the calibration method described in Section~\ref{section:calibration_method}, we must be able to extract the 2-dimensional coordinate location of the point markers on the detector using the phantom ball bearing projection images.  The raw projection image at one angle is shown in Fig.~\ref{fig:calibration_projection}.
-%
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width = 10cm]{calibration_projection_w_label}
