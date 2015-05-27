@@ -656,8 +656,8 @@ available to borrowers under rules of the Library.
 \bigskip
 
 \noindent Brief quotations from this \MakeLowercase{\ThesisType} are allowable
-without special permission, provided that accurate acknowledgment
-of source is made.  
+without special permission, provided that an accurate acknowledgment
+of the source is made.  
 \ifthenelse{ \boolean{Copyright} }
 {Requests for permission for extended quotation
 from or reproduction of this manuscript in whole or in part may be

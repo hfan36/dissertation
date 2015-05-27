@@ -3,7 +3,7 @@
 
 The essential goal of any reconstruction is to use the information gathered to estimate the parameters associated with the object.  In the case of CT, we use the information gathered on the detector over a range of angles to calculate the x-ray attenuation coefficients of the object voxels.  CT systems have evolved tremendously over the years, and reconstruction algorithms have also evolved dramatically to support the various types of systems. There are two general approaches to reconstruction: analytical and iterative.  In this chapter, we give a brief overview of these general techniques used for CT reconstruction, followed by an explanation of the method that was used for our system.
 
-The first clinical CT scanner, installed in 1971, was a dedicated brain imager that used a single detector.  In 1973, a whole-body CT scanner was introduced~\citep{Ulzheimer2009}.  Up until 1990, most clinical CT scanners used the fan-beam geometry with axial rotation.  In the early 1990s, out of the desire to cover an entire human organ, the first single-slice helical CT scanner was introduced.  Ever since, helical geometry has been the main configuration for all clinical CT scanners.  In 1996, Eliscint was the first to develop a CT system that had two detector rows and could acquire two images slices with every rotation of the gantry.  A few years later, General Electric (GE) came out with the first four-slice CT scanner and was quickly followed by all other major CT manufacturers.  The term multi-slice CT, also called multi-detector-row CT (MDCT), quickly became the trend with manufacturers pushing for more detector rows, from 16 rows in 2002~\citep{Impact2002} to 320 slices in late 2007 by both Philips and Toshiba~\citep{Ulzheimer2009}.  The industry's push for larger volume coverage and faster scan time has fueled the need to develop newer and more efficient reconstruction algorithms.
+The first clinical CT scanner, installed in 1971, was a dedicated brain imager that used a single detector.  In 1973, a whole-body CT scanner was introduced~\citep{Ulzheimer2009}.  Up until 1990, most clinical CT scanners used the fan-beam geometry with axial rotation.  In the early 1990s, out of the desire to cover an entire human organ, the first single-slice helical CT scanner was introduced.  Ever since, helical geometry has been the main configuration for all clinical CT scanners.  In 1996, Elscint was the first to develop a CT system that had two detector rows and could acquire two images slices with every rotation of the gantry.  A few years later, General Electric (GE) came out with the first four-slice CT scanner and was quickly followed by all other major CT manufacturers.  The term multi-slice CT, also called multi-detector-row CT (MDCT), quickly became the trend with manufacturers pushing for more detector rows, from 16 rows in 2002~\citep{Impact2002} to 320 slices in late 2007 by both Philips and Toshiba~\citep{Ulzheimer2009}.  The industry's push for larger volume coverage and faster scan time has fueled the need to develop newer and more efficient reconstruction algorithms.
 
 \section{Analytic Reconstruction Techniques}
 
@@ -23,7 +23,7 @@ The most common method of image reconstruction for the earlier CT scanners was t
 %
 To invert the Radon transform, the projection data on the detector at each angle go through a Fourier transform.  The Fourier transform of the projection data along a projection angle represents the Fourier transform of the object along the same projection angle as seen on the right of Fig.~\ref{fig:RadonTransform}.  The Fourier transformed data are then filtered in the spatial-frequency domain by a ramp filter, then back-projected into object space to reconstruct the original object.  This algorithm is also known as the Filtered Back-Projection (FBP).  For the fan-beam geometry, typically the projection data are gathered and rebinned into parallel projection sets before taking the inverse Radon transform to obtain the reconstructed slices.
 
-CT scanning geometry can be divided into two general categories, depending on the targeted region of interest (ROI) within the body.  The first category is circular/axial orbit scanning, where the patient remains stationary and the source and detector traces a circle around the patient.  This orbit is typically used to image smaller features of the body, such as the brain or the heart.  The circular-scanning geometry has the advantage of being very simple and fast, especially when the data acquired must be synchronized with a physiological signal, such as an electrocardiogram (EKG).  The most widely used reconstruction algorithm is the Feldkamp-Davis-Kress (FDK) reconstruction~\citep{Feldkamp1984}.  The algorithm is very similar to the conventional fan-beam reconstruction, where the off-axis rays of the cone beam are weighted by a cosine term in order to approximate them as the 2D fan-beam rays.  The FDK algorithm works well when the cone angle is moderate, and many authors have proposed alternative methods to fix and compensate the image slices at the outer edges of the cone beam~\citep{Katsevich2003, Chen2003, Hu1996}.
+CT scanning geometries can be divided into two general categories, depending on the targeted region of interest (ROI) within the body.  The first category is circular/axial orbit scanning, where the patient remains stationary and the source and detector traces a circle around the patient.  This orbit is typically used to image smaller features of the body, such as the brain or the heart.  The circular-scanning geometry has the advantage of being very simple and fast, especially when the data acquired must be synchronized with a physiological signal, such as an electrocardiogram (EKG).  The most widely used reconstruction algorithm is the Feldkamp-Davis-Kress (FDK) reconstruction~\citep{Feldkamp1984}.  The algorithm is very similar to the conventional fan-beam reconstruction, but the off-axis rays of the cone beam are weighted by a cosine term in order to approximate them as the 2D fan-beam rays.  The FDK algorithm works well when the cone angle is moderate, and many authors have proposed alternative methods to fix and compensate the image slices at the outer edges of the cone beam~\citep{Katsevich2003, Chen2003, Hu1996}.
 
 The second and the most widely used scanning method is the helical geometry.  During data acquisition, the patient bed moves in an axis that is perpendicular to the rotation plane of the gantry so the source and detector traces a helix around the patient.  There are two approaches to use the data acquired with helical scan to reconstruct the patient body.  These are the approximate and exact reconstruction methods.  The most common method to solve this problem is the approximate reconstruction technique derived from the original FDK algorithm and later generalized to spiral scan by Ge Wang~\citep{Wang1993}.  Many authors have also succeeded in creating helical cone-beam algorithms based on the Feldkamp method~\citep{Wang1992, Kudo1991, Yan1992, Smith1992, Noo1999, Kachelriess2000, Tang2004, Tang2006a, Tang2006b}.  As noted by Wang, ``\textit{The key idea is to correct cone-beam data into fan-beam counterparts in a heuristic way.  As a primary example, a cone-beam datum along an oblique ray can be approximately converted to the fan-beam counterpart along a transverse ray by multiplying the former with the cosine of the angle between the oblique and transverse rays}''~\citep{Wang2007}.
 
@@ -37,32 +37,7 @@ The second and the most widely used scanning method is the helical geometry.  Du
 %
 
 Methods of solving for exact cone beam image reconstruction have been independently reported by Tuy, Smith, and Grangeat as early as 1983~\citep{Tuy1983, Smith1985, Grangeat1991}.  The requirement in all of these algorithms is that all the x-rays from the source that pass through the object must be covered by the detector.  For example in Tuy's condition, every plane that intersects with the object must also intersect with the x-ray source orbit at least once.  However, objects in medicine and many industrial inspections are very long, which would require a very large detector to cover the entire length of the object.  In addition, in most of these objects, only a smaller section is of interest.  The problem of reconstructing for a smaller ROI without scanning the entire object is extremely challenging.  Intuitively, we need to collect all of the x-ray paths that penetrate the ROI for reconstruction.  However, because parts of these x-ray beams are ``corrupted'' by other parts of the objects, they no longer represent the ROI exclusively.  We can attempt to reconstruct the ``corrupted'' parts of the x-ray paths, but the data are often missing because the detector was not large enough to collect all of the information.  This problem is known as data truncation, or missing data.  The exact solution to an long object problem with a ROI was proposed by Tam in 1998 using a spiral-and-two-circle scan path for ROI imaging~\citep{Tam1998}, as shown in Fig.~\ref{fig:tam_circle}.  Unfortunately, it is not entirely trivial to merge the truncated data from multiple helical turns.  This problem was not solved until early 2002 by Katsevich's algorithm~\citep{Katsevich2002SIAM, Katsevich2003, Katsevich2004}.
-%
-%\begin{figure}[h]
-%	\begin{subfigure}[b]{0.2\linewidth}
-%		\includegraphics[scale=0.7]{circle-plus-line.eps}
-%		\caption{}
-%		\label{fig:circle-line}
-%	\end{subfigure}
-%	\begin{subfigure}[b]{0.2\linewidth}
-%		\includegraphics[scale=0.7]{circle-plus-arc.eps}
-%		\caption{}
-%		\label{fig:circle-arc}
-%	\end{subfigure}
-%	\begin{subfigure}[b]{0.2\linewidth}
-%		\includegraphics[scale=0.7]{dual-circle.eps}
-%		\caption{}
-%		\label{fig:dual-circle}
-%	\end{subfigure}
-%	\begin{subfigure}[b]{0.2\linewidth}
-%		\includegraphics[scale=0.7]{saddle.eps}
-%		\caption{}
-%		\label{fig:saddle}
-%	\end{subfigure}
-%\caption{Different scanning trajectories for complete sampling. \ref{fig:circle-line}: circle-plus-line, \ref{fig:circle-arc}: circle-plus-arc, %\ref{fig:dual-circle}: dual circle, and \ref{fig:saddle}: saddle}
-%\label{fig:scanning_trajectories}
-%\end{figure}
-%
+
 \begin{figure}[h]
 \includegraphics[scale=0.95]{scanning_trajectories}
 \caption{Different scanning trajectories for complete sampling. (a) circle-plus-line; (b) circle-plus-arc; (c) dual circles; and (d) saddle.}
@@ -72,17 +47,23 @@ Methods of solving for exact cone beam image reconstruction have been independen
 Since Katsevich's invention, various sophisticated formulas have been proposed and developed for exact reconstruction using longitudinally and transversely truncated projection data and for various scanning geometries shown in Fig.~\ref{fig:scanning_trajectories}.  However, although these algorithms are highly sophisticated and novel, they are computationally expensive compared to the popular FBP algorithms, not to mention the difficulties in building the hardware for these orbits.  Currently, most CT manufacturers still use the approximate cone-beam reconstruction algorithms instead of exact cone-beam reconstruction algorithms for two reasons.  First, the data requirements for exact reconstruction are still too difficult due to physical constraints.  Second, the approximate algorithms already provide very good and sometimes even better performance compared to the exact reconstruction method, which may not have the best noise characteristics~\citep{Wang2008}.  It will be interesting to see when exact algorithms will replace approximate algorithms in the future.
 
 \section{Iterative Reconstruction Techniques}
-Iterative techniques attempt to reconstruct the object using projection images in an iterative fashion, where the estimate of the object at the current iteration will be used for the next iteration.  All iterative reconstruction methods consist of three major steps.  First, the forward model of the system calculates an estimate of the raw data utilizing either prior knowledge of the object or using a blank object in the first iteration.  Second, the estimated raw data and the real measured data are compared, and a correction term is calculated.  Third, the correction term is back-projected onto the object space and multiplied by the current object to to create a new estimate.  Shown in Fig.~\ref{fig:generalIR}, this process is repeated until either a fixed number of iterations is reached or the object estimation reaches a predefined criterion.
-%
-\begin{figure}
+
+\begin{figure}[ht]
+\begin{minipage}{\linewidth}
 \centering
-\includegraphics[scale = 0.9]{iterative_recon_process.pdf}
-\caption[]{The general process of iterative algorithm\footnotemark.  The compare step involves calculating a correction term by comparing the predicted and measured data, which is then backprojected onto the object space to generate a new estimate of the object.}
+\includegraphics[scale = 0.35]{iterative_recon_process}
+\end{minipage}
+\caption[The general process of iterative algorithm.]{The general process of iterative algorithm\footnotemark.  The compare step involves calculating a correction term by comparing the predicted and measured data, which is then backprojected onto the object space to generate a new estimate of the object.}
 \label{fig:generalIR}
 \end{figure}
-\footnotetext{Reprinted from: Physica Medica, 28, Bester, M., Kolditz, D., and Kalender, W. A., Iterative reconstruction methods in X-ray CT, 94-108, Copyright(2012), with permission from Elsevier.}
+\skip\footins=\bigskipamount
+\footnotetext{Reprinted from: \textit{Physica Medica}, \textbf{28}, Bester, M., Kolditz, D., and Kalender, W. A., Iterative reconstruction methods in X-ray CT, pp. 94-108, Copyright(2012), with permission from Elsevier.}
+
+
+Iterative techniques attempt to reconstruct the object using projection images in an iterative fashion, where the estimate of the object at the current iteration will be used for the next iteration.  All iterative reconstruction methods consist of three major steps.  First, the forward model of the system calculates an estimate of the raw data utilizing either prior knowledge of the object or using a blank object in the first iteration.  Second, the estimated raw data and the real measured data are compared, and a correction term is calculated.  Third, the correction term is back-projected onto the object space and multiplied by the current object to to create a new estimate.  Shown in Fig.~\ref{fig:generalIR}, this process is repeated until either a fixed number of iterations is reached or the object estimation reaches a predefined criterion.
 
 \subsection{Algebraic Reconstruction Techniques}
+
 From a historical perspective, the first reconstructed CT image was created using the iterative algebraic reconstruction technique (ART) based on Kaczmarc's algorithm, where the method attempts to find the object by solving a series of linear equations iteratively in
 %
 \begin{equation}
@@ -99,6 +80,7 @@ In terms of image reconstruction, $\mathbf{x}$ is $N \times 1$ with elements rep
 where $\mathbf{B}$ is an $N \times M$ matrix.  This type of iterative algorithm is found by minimizing the quadratic difference between the  experimental data the data generated by $\mathbf{A}$~\citep{Barrett2004}.  Algorithms such as simultaneous ART (SART), ordered-subset (OS) version of SART, and other variations of SART or OS-SART all follows this general form~\citep{Yu2011, Wang2004} 
 
  Starting from ART, a series of algorithms evolved that would try to converge to the solution faster, to reduce noise, and to reduce problems with streak artifacts; however, in general, all ART-based methods are non-statistical and model the geometry of the acquisition process better than common analytical methods based on FBP.  Therefore, ART-based methods can better deal with sparse data and an irregular sampling of acquisition positions~\citep{Beister2012}.
+
 
 \subsection{Statistical Iterative Reconstruction Techniques}
 Statistical iterative reconstruction techniques have been used extensively in single photon emission tomography (SPECT) and positron emission tomography (PET), where low photon rates and noise are the major issues.  Due to public awareness of CT radiation and a need to reduce the risks associated with x-ray radiation, there has been a push to transition from FBP to statistical iterative reconstruction techniques, which has the potential of lowering radiation doses while suppressing image noise with low-dose scan techniques.  Therefore, it is crucial that the mathematical models used for the CT system are accurate, and the modeling errors are suppressed so they do not grow during the iterative process.  There are two types of models that are typically used in iterative reconstruction algorithms: a physical model that involves the geometry of the system and a statistical model that attempts to formulate the noise within the imaging system.
@@ -119,16 +101,18 @@ Unlike the analytical reconstruction techniques, where many physical assumptions
 	\subcaption{}
 	\end{minipage}
 %\includegraphics[scale=1]{ct_IR_model}
-\caption[]{Common physical models used for the iterative reconstruction algorithm\footnotemark. (a) The pencil beam model; and (b) the point-response model.}
+\caption[Common physical models used for the iterative reconstruction algorithm.]{Common physical models used for the iterative reconstruction algorithm\footnotemark. (a) The pencil beam model; and (b) the point-response model.}
 \label{fig:physical_modeling}
 \end{figure*}
 
-\footnotetext{\bibentry{Hsieh2013}, with kind permission from Springer Science and Business Media.}
+\footnotetext{Hsieh, J., B. Nett, Z. Yu, K. Sauer, J. B. Thibaut, and C. A. Bouman (2013). Recent Advances in CT Image Reconstruction. \textit{Curr. Radiol. Rep.}, \textbf{1}, pp. 39-51, with kind permission from Springer Science and Business Media.}
 
 
 The statistical model or the noise model used in the iterative reconstruction algorithm attempts to incorporate the statistics of the detected photons into the reconstruction process.  The random processes may include incident photon flux variations, also known as the Poisson distribution.  Though Poisson distribution is still approximate due to the poly-energetic nature of the x-ray photons created by the source in CT.  In addition, the variation in the number of photons produced in the scintillator by polychromatic x-ray photons, shot noise in the photodiodes, and noise in the readout electronics all contribute to the noise in the images used in the reconstruction algorithm.  The most common noise model used is the zero-mean Gaussian noise.
 
-Once both the geometry and noise of the CT system are properly modeled.  A cost function is chosen.  The iterative process searches for the minimum of the cost function, and the solution that minimizes this cost function is the reconstructed object.  This cost function, sometimes called an objective functional, typically consists of two components: a data agreement term that evaluates the difference between the experimental data and the data generated by the model, and a regularizing term, sometimes called a penalty function that depends only on the object and serves as a prior, such as positivity.  If the functional is strictly convex, then the minimum is unique, and all algorithms should obtain the same image if they were to run to convergence.  In practice, however, iterative algorithms may not be run to convergence, and the resulting image depends on the algorithm, the initial estimate, and the stopping rule.
+\clearpage
+
+Once both the geometry and noise of the CT system are properly modeled, a cost function is chosen.  The iterative process searches for the minimum of the cost function, and the solution that minimizes this cost function is the reconstructed object.  This cost function, sometimes called an objective functional, typically consists of two components: a data agreement term that evaluates the difference between the experimental data and the data generated by the model, and a regularizing term, sometimes called a penalty function that depends only on the object and serves as a prior, such as positivity.  If the functional is strictly convex, then the minimum is unique, and all algorithms should obtain the same image if they were to run to convergence.  In practice, however, iterative algorithms may not be run to convergence, and the resulting image depends on the algorithm, the initial estimate, and the stopping rule.
 
 \section{Maximum-Likelihood Expectation-Maximization (MLEM) algorithm }
 In this project, we used the Maximum-Likelihood Expectation-Maximization algorithm for the reconstruction process without any regularization functions.  The MLEM algorithm is shown in Eq.~\ref{eq:MLEM}~\citep{EmissionTom2004}, where $g_i$ are the image pixel values over all projection angles and represent the attenuation values of x-rays through the object voxels onto each detector pixels, $H_{ij}$ is the imaging matrix that models the x-ray imaging system and maps each object voxel value to all image pixel value for all projection angles, and $f_{j}$ are the object voxel values, and represent the x-ray attenuation coefficient of the object integrated over the object voxel.  The index $j$ and $k$ are used to represent the object voxels, and $i$ is indexed over image pixels on the detector for all projection angles.
@@ -139,12 +123,12 @@ In this project, we used the Maximum-Likelihood Expectation-Maximization algorit
 \label{eq:MLEM}
 \end{equation}
 %
-$\sum\limits_k H_{ik} \hat{f}_k^{(n)}$ takes the current object voxel values, $\hat{f}^{(n)}_k$, and calculates its forward projection image over all angles.  The forward projection images are then divided into the data image vector, $g_i$, over all angle.  The result, $\frac{g_i}{\sum\limits_k H_{ik} \hat{f}_k^{(n)}}$, is a ratio between the set of simulated projection images and the experimental data.  This ratio is then back-projected into object space.  The next iteration for object voxels, $\hat{f}_j^{n+1}$, is calculated by multiplying the back-projected ratio by the current object voxel values, $\hat{f}_j^{(n)}$, and scaled by the sensitivity $S_j$.  The sensitivity , $S_j = \sum\limits_{i'} \, H_{i' j}$, is calculated by summing the $H$ matrix over all detector pixels and projection angles, which represents the back projection of the detector values from all projection angles onto the object voxel values.
+$\sum\limits_k H_{ik} \hat{f}_k^{(n)}$ takes the current object voxel values, $\hat{f}^{(n)}_k$, and calculates its forward projection image over all angles.  The forward projection images are then divided into the data image vector, $g_i$, over all angle.  The result, $\frac{g_i}{\sum\limits_k H_{ik} \hat{f}_k^{(n)}}$, is a ratio between the set of simulated projection images and the experimental data.  This ratio is then back-projected into object space, and is used to correct the estimate of the current object.  The next iteration for object voxels, $\hat{f}_j^{n+1}$, is calculated by multiplying correction term by the current object voxel values, $\hat{f}_j^{(n)}$, and scaled by the sensitivity $S_j$.  The sensitivity , $S_j = \sum\limits_{i'} \, H_{i' j}$, is calculated by summing the $H$ matrix over all detector pixels and projection angles, which represents the back projection of the detector values from all projection angles onto the object voxel values.
 
 The most important factor in the MLEM algorithm is the imaging matrix, $H$, that models the imaging system.  The $H$ matrix can be measured in PET or SPECT, where a point source is scanned throughout the entire volume of the object, and signals are recorded for every object point at every detector pixel for all detectors.  To measure the $H$ matrix for CT using this method is nearly impossible because the $H$ matrix would have to be astronomically large due to the number of detector pixels and projection angles.  Instead of using a stored $H$ matrix, we opted to model the CT system and compute the $H$ matrix as operators by calculating the forward projection and backward projection processes on-the-fly using a Graphics Processing Unit (GPU).  The forward projection process is the equivalent of calculating $\sum\limits_k H_{ik} \hat{f}_k^{(n)}$ in Eq.~\ref{eq:MLEM}, and the same backward projection process is used to calculate both the sensitivity, $\sum\limits_{i'} H_{i'j}$, and in computing the correction term to the object, $\sum\limits_i H_{ij} \frac{g_i}{\sum\limits_k H_{ik} \hat{f}_{i}^{(n)}}$.
 
 \section{CT model and projector calculation}
-In x-ray imaging, the mean output of the $m^{th}$ element of a detector is a function of many factors such as the size of the source, its temporal and spectral distribution, the spectral and temporal response of the detector element and the x-ray attenuation of the object.  All of these factors must be integrated over their respective domains and along rays from the source to the detector element in order to fully describe the value at the $m^{th}$ detector element.  Even if we make assumptions that the spectral response of the detector is the same for all elements and is independent of direction and position of the radiation, and the attenuation coefficient of the object is independent of energy, we are still left with a nonlinear equation that relates the attenuation coefficient of the object to the value at the $m^{th}$ detector element, as
+In x-ray imaging, the mean output of the $m^{th}$ detector element is a function of many factors such as the size of the source, its temporal and spectral distribution, the spectral and temporal response of the detector element and the x-ray attenuation of the object that is also a function of incident x-ray energy.  All of these factors must be integrated over their respective space along x-rays from the source to the detector element in order to fully describe the mean value at the $m^{th}$ detector element.  Even if we make assumptions that the spectral response of the detector is the same for all elements and is independent of direction and position of the radiation, the attenuation coefficient of the object is independent of energy, we are still left with a nonlinear equation that relates the attenuation coefficient of the object to the value at the $m^{th}$ detector element, as
 %
 \begin{equation}
 \bar{g}_m \propto \int\limits_P d^2r \ \int\limits_{2 \pi} d \Omega \
@@ -153,7 +137,7 @@ In x-ray imaging, the mean output of the $m^{th}$ element of a detector is a fun
 \label{eq:xrayprop}
 \end{equation}
 %
-where, $d_m(\mathbf{\mathfrak{r}}, \hat{s})$ is the detector response function, $L_p(\mathbf{\mathfrak{r}}, \hat{\mathbf{s}})$ is the photon radiance of the source, $\mu_{tot}$ is the object's x-ray attenuation coefficient, and the equation is integrated over $P$, the detector plane~\citep{Barrett2004}.  This equation is nonlinear with respect to $\mu_{tot}$, however we can still take its logarithm and calculate its approximation by expanding the exponential in a Taylor series.  The result is 
+where, $d_m(\mathbf{\mathfrak{r}}, \hat{s})$ is the detector response function, $L_p(\mathbf{\mathfrak{r}}, \hat{\mathbf{s}})$ is the photon radiance of the source, $\mu_{tot}(\mathfrak{\mathbf{r}}, \hat{\mathbf{s}})$ is the object's x-ray attenuation coefficient, and the equation is integrated over $P$, the detector plane, and the solid angle, $2 \pi$ ster collected by the detector element~\citep{Barrett2004}.  This equation is nonlinear with respect to the attenuation coefficient, which is what we want to estimate in reconstruction.  However, we can still take the logarithm of Eq.~\ref{eq:xrayprop} and calculate its approximation by expanding the exponential term in a Taylor series.  The result is 
 %
 \begin{equation}
 \mathrm{ln} \, \bar{g}_m \propto -\int\limits_P d^2r \int\limits_{2 \pi}
@@ -163,7 +147,7 @@ L_p (\mathbf{\mathfrak{r}} - \hat{\mathbf{s}} \ell_0) \,
 \label{eq:xrayprop_approx1}
 \end{equation}
 %
-which is now a linear function that relates the mean detector value to the attenuation coefficient of the object.  This equation describes a blurred ray from the source to the $m^{th}$ detector element.  If we make further assumptions where all x-rays originate from a point source and that the detector response function is a delta function so 
+which is now a linear function that relates the mean detector value to the attenuation coefficient of the object.  This equation describes a blurred ray from the source to the $m^{th}$ detector element.  If we make further assumptions that all x-rays originate from a point source and that the detector response function is a delta function so 
 %
 \begin{equation}
 d_m(\mathbf{\mathfrak{r}}, \hat{\mathbf{s}}) \, L_p(\mathbf{\mathfrak{r}} - \hat{\mathbf{s}} \ell_0) \propto 
@@ -172,12 +156,13 @@ d_m(\mathbf{\mathfrak{r}}, \hat{\mathbf{s}}) \, L_p(\mathbf{\mathfrak{r}} - \hat
 %
 Then Eq.~\ref{eq:xrayprop}, becomes 
 \begin{equation}
+\label{eq:linear_xrayprop}
 \mathrm{ln} \, \bar{g}_m \propto \left[ -\int\limits_0^{\ell_0} d\ell' \, \mu_{tot}(\mathbf{\mathfrak{r_m}} - \mathbf{\hat{s}}_m \ell') \right].
 \end{equation}
 %
-The log of a detector element is proportional to a line integral over the attenuation coefficient of the object.  If we can approximate the object into a set of cubic voxels, where the value of each voxel is approximately equal to the attenuation coefficient of the object over that voxel.  Then the line integral is a summation of the attenuation values of the voxels multiplied by the length of the ray that passed through the voxels.  For complete derivation of Eq.~\ref{eq:xrayprop}, refer to section 16.1.4 and 16.1.7 in \citep{Barrett2004}.
+The log of a detector element is linearly proportional to a line integral over the attenuation coefficient of the object.  If we approximate the object as a set of cubic voxels, where the value of each voxel is equal to the average attenuation coefficient of the object over that voxel.  Then this line integral is a summation of the attenuation values of the voxels multiplied by the length of the ray that passed through the voxels.  For complete derivation of Eq.~\ref{eq:xrayprop}, refer to sections 16.1.4 and 16.1.7 in \citep{Barrett2004}.
 
-The pencil-beam model was used for both the forward and backward projection process, where we assumed that each x-ray beam is launched from an infinitely small x-ray point source. This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from every voxel for each ray is calculated using Siddon's algorithm~\citep{Siddon1985}.  This model does not account for any scatter in the object and it assumes that the x-ray beam is monochromatic.
+A pencil-beam model was used for both the forward and backward projection process, where we assumed that each x-ray beam is launched from an infinitely small x-ray point source. This pencil beam travels towards the geometrical center of each detector pixel.  Along the way, the contributions from every voxel for each ray is calculated using Siddon's algorithm~\citep{Siddon1985}.  This model does not account for any scatter in the object, and it assumes that the x-ray beam is monochromatic.
 %
 \begin{figure}[h]
 \centering
@@ -186,7 +171,7 @@ The pencil-beam model was used for both the forward and backward projection proc
 \label{fig:voxel_projection}
 \end{figure}
 
-In the forward projection process, the final value at the each of the detector element represents the summation of the product between the length of the ray that passed through each voxel and the value at each voxel, shown in Fig.~\ref{fig:voxel_projection}a.  In the backward projector, the order is reversed. We take the value at the detector element, trace a ray backward through the object volume to the x-ray source.  For every voxel penetrated by that ray, we calculate the length of the ray that passed through the voxel.  This length is expressed as a fraction of the total ray length through the object volume, and is multiplied by the value at the detector element, shown in Fig.~\ref{fig:voxel_projection}b.  This process was repeated for all x-rays traced to all detector pixels.
+In the forward projection process, the final values at the each of the detector elements represent the summation of the product between the length of the ray that passed through each voxel and the value at each voxel, shown in Fig.~\ref{fig:voxel_projection}a.  This final value at each of the detector element is $ln \bar{g}_m$ in Eq.~\ref{eq:linear_xrayprop}.  In the backward projector, the order is reversed. We take the value at the detector element, trace a ray backward through the object volume to the x-ray source.  For every voxel penetrated by that ray, we calculate the length of the ray that passed through the voxel.  This length is expressed as a fraction of the total ray length through the object volume, and is multiplied by the value at the detector element, shown in Fig.~\ref{fig:voxel_projection}b.  This process was repeated for all x-rays traced to all detector pixels.
 
 In the next section we will explain briefly the Siddon's algorithm and how we modified the algorithm so it can be implemented on the GPU. 
 
@@ -223,16 +208,16 @@ where $d_x$, $d_y$, and $d_z$ are the distances between the $x$, $y$, and $z$ pl
 \label{eq:siddon_alpha_extremes}
 \end{equation}
 %
-If the denominator, $(X_2 - X_1)$, $(Y_2-Y_1)$, or $(Z_2 - Z_1)$ is equal to zero, then the ray is parallel to that particular plane, and the corresponding $\alpha_x$, $\alpha_y$, or $\alpha_z$ will be undefined and excluded from the calculation.  These equations calculates the surface planes of the CT volume against the initial and final points of the ray..
+If the denominator, $(X_2 - X_1)$, $(Y_2-Y_1)$, or $(Z_2 - Z_1)$, is equal to zero, then the ray is parallel to that particular plane, and the corresponding $\alpha_x$, $\alpha_y$, or $\alpha_z$ will be undefined and excluded from the calculation.  These equations calculate the surface planes of the CT volume against the initial and final points of the ray.
 %
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=1.5]{siddon_projection_intersection_planes.eps}
-\caption{Siddon's algorithm showing the minimum and maximum parametric values for a ray passing through a 2D object array.}
+\caption[Siddon's algorithm showing the minimum and maximum parametric values for a ray passing through a 2D object array.]{Siddon's algorithm showing the minimum and maximum parametric values for a ray passing through a 2D object array.}
 \label{fig:siddon_intersection_planes}
 \end{figure}
 
-Once the values from Eq.~\ref{eq:siddon_alpha_extremes} are found, two parametric values that are used to indicate the initial and final intersection of the ray with the object volume are determined using,
+Once the values from Eq.~\ref{eq:siddon_alpha_extremes} are found, two parametric values that are used to indicate the initial and final intersections of the ray with the object volume are determined using,
 %
 \begin{equation}
 \begin{aligned}
@@ -260,7 +245,7 @@ Once we have determined the intersections of the ray with the surface planes of 
 \label{eq:siddon_ijkminmax}
 \end{equation}
 %
-and with similar expressions for $j_{min}$, $j_{max}$, $k_{min}$, and $k_{max}$.  Note that values when $(X_2 - X_1) = 0$, $(Y_2 - Y_1) = 0$, and $(Z_2 - Z_1) = 0$ had been excluded from these calculations.  The indices are rounded towards nearest integer though care must be taken when calculating the indices near the object surface planes.  In execution, both the upper and lower bound integers were calculated and the actual indices were selected based on the values of $\alpha_{min}$ and $\alpha_{max}$.  This was done to avoid errors that may occur in execution because the calculations were done using floating-point precision.  The corresponding parametric values to each index are computed using,
+and with similar expressions for $j_{min}$, $j_{max}$, $k_{min}$, and $k_{max}$.  Note that values when $(X_2 - X_1) = 0$, $(Y_2 - Y_1) = 0$, and $(Z_2 - Z_1) = 0$ had been excluded from these calculations.  The indices are rounded towards nearest integers, though care must be taken when calculating the indices near the object surface planes.  In execution, both the upper and lower bound integers were calculated, and the actual indices were selected based on the values of $\alpha_{min}$ and $\alpha_{max}$.  This was done to avoid errors that may occur in execution because the calculations were done using floating-point precision.  The corresponding parametric values to each index are computed using,
 %
 \begin{equation}
 \begin{aligned}
@@ -272,7 +257,7 @@ and with similar expressions for $j_{min}$, $j_{max}$, $k_{min}$, and $k_{max}$.
 %
 with similar expressions for $\alpha_y$, and $\alpha_z$.  
 
-Once the set of parametric values $\{\alpha_x\}$, $\{\alpha_y\}$, and $\{\alpha_z\}$ for the ray are calculated, we can then determine the length of the ray that passed through a voxel by first merge the parametric values into one large set as, $\{ \alpha \}  = \{ \{\alpha_x\}, \{\alpha_y\}, \{\alpha_z\} \}$, and sort $\{ a \}$ in ascending order from the lowest to the highest value.  The path length through a voxel can then be calculated using, 
+Once the parametric values $\{\alpha_x\}$, $\{\alpha_y\}$, and $\{\alpha_z\}$ for the ray are calculated, we can then determine the length of the ray that passed through a voxel by first merging the parametric values into one large set as, $\{ \alpha \}  = \{ \{\alpha_x\}, \{\alpha_y\}, \{\alpha_z\} \}$, and sorting $\{ a \}$ in ascending order from the lowest to the highest value.  The path length through a voxel can then be calculated using, 
 %
 \begin{equation}
 l(m) = d_{12} \left[ \alpha(m) - \alpha(m-1) \right] \qquad (m = 1, ..., n),
@@ -300,7 +285,7 @@ n = (i_{max} - i_{min} + 1) + (j_{max} - j_{min}+1) + (k_{max}-k_{min}+1) + 1.
 \label{fig:siddon_plane_detail}
 \end{figure}
 %
-This calculation is graphically represented in Fig.~\ref{fig:siddon_plane_detail} in 2-dimensions.
+This calculation is graphically represented in Fig.~\ref{fig:siddon_plane_detail} in two-dimensions.
 
 To locate the particular voxel index, $i(m), j(m), k(m)$, bounded by $\alpha_{m-1}$ and $\alpha_m$, we can use the following equation,
 \begin{equation}
@@ -329,9 +314,9 @@ d &= \sum\limits_{m \, = \, 1}^{m \, = \, n} l(m) \rho\left[ i(m), j(m), k(m) \r
 %
 where $\rho \left[ i(m), j(m), k(m) \right]$ is the voxel value of the object volume at voxel index $i(m), j(m), k(m)$.
 
-Normally, $d$ is calculated using a loop until a desired number of rays are reached.  However, each ray corresponds to one detector element, and is independent of each other.  We can utilize the GPU's parallel computing capability to trace all rays simultaneously by assigning one CUDA thread per ray.
+Normally, $d$ is calculated using a loop until a desired number of rays are reached.  However, each ray corresponds to one detector element and is independent of each ray.  We can utilize the GPU's parallel computing capability to trace all rays simultaneously by assigning one CUDA thread per ray.
 
-The ray trace process can be accomplished by following the Siddon's algorithm up until Eq.~\ref{eq:siddon_ijkminmax}.  Since each ray is traced simultaneously, we cannot calculate and presort the entire set, $\{ \alpha \}$, for each ray on the GPU.  Instead we opted to calculate and sort $\{ \alpha \}$ on-the-fly, where parametric values $\alpha_x$, $\alpha_y$, and $\alpha_z$ are calculated simultaneously and independently on the GPU device memory for each ray starting with $\alpha_x(1)$, $\alpha_y(1)$, $\alpha_z(1)$.  A loop is used to trace the rays from beginning to end.  Each time the loop executes, the minimum of the three values is found, we then increment the alpha index by 1 only for the parametric value of the corresponding plane.  This minimum value is set to $\alpha(m)$, and is used to calculate for $d$ along with the the value from the previous loop, $\alpha(m-1)$.  The loop is carried out until all values in the set, $\{ \alpha \}$, were computed because we know both $\alpha_{min}$ and $\alpha_{max}$ from previous calculations and all the indices of the object planes for all rays.  In addition, because the number of elements, $n$, in the set, $\{ \alpha \} $, can be calculated using Eq.~\ref{eq:siddon_n}, we can also set the loop to ran for a fixed number of iterations equal to the ray with the maximum $n$ while setting a proper terminating condition for all other rays in the loop.  As a result, $\ {\alpha\ }$ is not computed all at once, but rather computed and sorted on-the-fly where only the most current of the two values, $\alpha(m)$ and $\alpha(m-1)$ are stored in device memory.  
+The ray-trace process can be accomplished by following the Siddon's algorithm up until Eq.~\ref{eq:siddon_ijkminmax}.  Since each ray is traced simultaneously, we cannot calculate and presort the entire set, $\{ \alpha \}$, for each ray on the GPU.  Instead we opted to calculate and sort $\{ \alpha \}$ on-the-fly, where parametric values $\alpha_x$, $\alpha_y$, and $\alpha_z$ are calculated simultaneously and independently on the GPU device memory for each ray starting with $\alpha_x(1)$, $\alpha_y(1)$, $\alpha_z(1)$.  A loop is used to trace the rays from beginning to end.  Each time the loop executes, the minimum of the three values is found, we then increment the alpha index by 1 only for the parametric value of the corresponding plane.  This minimum value is set to $\alpha(m)$ and is used to calculate for $d$ along with the value from the previous loop, $\alpha(m-1)$.  The loops are carried out until all values in the set, $\{ \alpha \}$, were computed because we know both $\alpha_{min}$ and $\alpha_{max}$ from previous calculations and all the indices of the object planes for all rays.  In addition, because the number of elements, $n$, in the set, $\{ \alpha \} $, can be calculated using Eq.~\ref{eq:siddon_n}, we can also set the loop to run for a fixed number of iterations equal to the ray with the maximum $n$ while setting a proper terminating condition for all other rays in the loop so the extra loops does not effect rays that have already completed the trace process.  As a result, $\ {\alpha\ }$ is not computed all at once, but rather computed and sorted on-the-fly where only the most current of the two values, $\alpha(m)$ and $\alpha(m-1)$ are stored in device memory.  
 %
 \begin{sidewaysfigure}
 \includegraphics[scale=0.80]{siddon_flowchart.eps}
@@ -342,18 +327,18 @@ The ray trace process can be accomplished by following the Siddon's algorithm up
 Figure~\ref{fig:siddon_algorithm_flow_chart} shows a diagram of the Siddon's algorithm implementation in CUDA.
 
 \subsection{Forward and backward projector calculation}
-The forward projector was implemented following Siddon's algorithm and Fig.~\ref{fig:siddon_algorithm_flow_chart}, where each x-ray originates from the x-ray point source and travels to the pixel center of each detector element.  The object voxel contribution to the ray was calculated using Eq.~\ref{eq:siddon_path}.  The treatment for the backward projector is very similar to the forward projector, with exception to an added CUDA function, \texttt{atomicAdd()}.  In the forward projection, each voxel index is calculated from the ray intersections with the planes of the object volume, and the contribution of voxel values to each ray is independent of other rays (i.e.\ the voxel values were read by the CUDA threads via read-only access, and tracing rays only involved reading the object voxel values).  However, in the backward projection the CUDA threads require that the object voxels need to have both read and write access, but since different ray needs access to the same voxel and the voxel value changes depending on the access sequence of the threads.  This requires an additional step of using \texttt{atomicAdd()} function that guarantees access to the voxel value is sequential and without interference from other threads.  In other words, no other thread can access this address until the operation is complete.  For further information about this function please refer to the CUDA toolkit documentation~\citep{Cudatoolkit}.  Note because of this additional function, most of the bottleneck to the MLEM algorithm occurs here.  Another bottleneck occurs when $\{ \alpha \}$ is being sorted.
+The forward projector was implemented following Siddon's algorithm and Fig.~\ref{fig:siddon_algorithm_flow_chart}, where each x-ray originates from the x-ray point source and travels to the pixel center of each detector element.  The object voxel contribution to the ray was calculated using Eq.~\ref{eq:siddon_path}.  The treatment for the backward projector is very similar to the forward projector, with exception to an added CUDA function, \texttt{atomicAdd()}.  In the forward projection, each voxel index is calculated from the ray intersections with the planes of the object volume, and the contribution of voxel values to each ray is independent of other rays (i.e.\ the voxel values were read by the CUDA threads via read-only access, and tracing rays only involved reading the object voxel values).  However, in the backward projection the CUDA threads require that the object voxels need to have both read and write access, but since different ray needs access to the same voxel and the voxel value changes depending on the access sequence of the threads.  This requires an additional step of using \texttt{atomicAdd()} function that guarantees access to the voxel value is sequential and without interference from other threads.  In other words, no other thread can access this address until the operation is complete.  For further information about this function refer to the CUDA toolkit documentation~\citep{Cudatoolkit}.  Note because of this additional function, most of the bottleneck to the MLEM algorithm occurs here.  Another bottleneck occurs when $\{ \alpha \}$ is being sorted.
 
 \subsection{Sensitivity calculation}
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=1]{siddon_flowchart_sensitivity.eps}
-\caption{Algorithm for sensitivity calculation.}
+\caption[Algorithm for sensitivity calculation.]{Algorithm for sensitivity calculation.}
 \label{fig:sensitivityslices}
 \end{figure}
 
-The sensitivity, $\sum\limits_{i'} H_{i'j}$ in Eq.~\ref{eq:MLEM}, represents the contribution of all detector values at all projection angles on the object volume.  The procedure to compute the sensitivity volume is to first set all detector values to one, then back filling the object voxel values using the back projector for all scanned angles, $S = H^t 1$.  The values in the sensitivity volume depends on the geometry of the CT system, number and size of the object volume, number of detector pixels, and scan routine.  As a result, it is always computed in the beginning of every reconstruction event.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.
+The sensitivity voxels, $\sum\limits_{i'} H_{i'j}$ in Eq.~\ref{eq:MLEM}, represents the contribution of all detector values at all projection angles on the object volume.  The procedure to compute the sensitivity volume is to first set all detector values to one, then back filling the object voxel values using the back projector for all scanned angles, $S = H^t 1$.  The values in the sensitivity volume depends on the geometry of the CT system, number and size of the object volume, number of detector pixels, and scan routine.  As a result, it is always computed in the beginning of every reconstruction event.  However if one were to use a different data set while keeping geometry, object volume, and detector pixels constant, then sensitivity volume does not need to be recalculated and can speed up the reconstruction process.
 
 \begin{figure}
 \centering
@@ -362,26 +347,26 @@ The sensitivity, $\sum\limits_{i'} H_{i'j}$ in Eq.~\ref{eq:MLEM}, represents the
 \label{fig:sensitivityslices}
 \end{figure}
 
-The actual sensitivity of the CT system depends only on the CT geometry.  The sensitivity volume that is calculated in the reconstruction algorithm requires both the CT geometry, scan routine, and object voxel parameters that are defined in the parameter sheet.  When setting up the parameter sheet for reconstruction, the voxel volume parameters specify the region of space that will be reconstructed.  Ideally, we want the targeted regions of the object to lay within the sensitive regions of the CT system so all rays traced from the x-ray source to the detector pixels will pass through the targeted region at every single projection angle.  Sometimes it is advantageous to perform a test run by calculating only the sensitivity volume before calculating multiple reconstruction iterations to ensure that the size of the object volume is within the sensitive region.  Figure~\ref{fig:sensitivityslices} shows a central slice of the sensitivity volume for three different object volume setup with a fixed CT geometry and scan routine.  Figure~\ref{fig:sensitivityslices}a shows that the object volume is smaller and is within the sensitive region of the CT system.  Figure~\ref{fig:sensitivityslices}c shows that much of the object volume lies outside the region, much of the GPU memory and processing power is wasted in this setup. Figure~\ref{fig:sensitivityslices}c shows that majority of the object lies within the region.  This is the optimum setup for reconstruction because we are not wasting GPU memory and process power by computing voxels that do not lie inside the CT field of view defined by the detector and CT geometry.  We are also not restricting ourselves to a smaller field of view than necessary, as in Fig.~\ref{fig:sensitivityslices}a.
+The actual sensitivity of the CT system depends only on the CT geometry.  The sensitivity volume that is calculated in the reconstruction algorithm requires both the CT geometry, scan routine and object voxel parameters that are defined in the parameter sheet.  When setting up the parameter sheet for reconstruction, the voxel volume parameters specify the region of space that will be reconstructed.  Ideally, we want the targeted regions of the object to lie within the sensitive regions of the CT system so all rays traced from the x-ray source to the detector pixels will pass through the targeted region at every single projection angle.  Sometimes it is advantageous to perform a test run by calculating only the sensitivity volume before calculating multiple reconstruction iterations to ensure that the size of the object volume is within the sensitive region.  Figure~\ref{fig:sensitivityslices} shows a central slice of the sensitivity volume for three different object volume setups with a fixed CT geometry and scan routine.  Figure~\ref{fig:sensitivityslices}a shows that the object volume is smaller and is within the sensitive region of the CT system.  Figure~\ref{fig:sensitivityslices}c shows that much of the object volume lies outside the region, so much of the GPU memory and processing power is wasted in this setup. Figure~\ref{fig:sensitivityslices}c shows that majority of the object lies within the region.  This is the optimum setup for reconstruction because we are not wasting GPU memory and processing power by computing voxels that do not lie inside the CT field of view defined by the detector and CT geometry.  We are also not restricting ourselves to a smaller field of view than necessary, as in Fig.~\ref{fig:sensitivityslices}a.
 
 \subsection{Reconstruction results}
 
 \begin{figure*}
 	\begin{minipage}{0.3\linewidth}
-		\includegraphics[width = 4cm]{Capture_breast_xy.png}
+		\includegraphics[width = 4cm]{Capture_breast_xy2.png}
 		\subcaption{}
 	\end{minipage}
 	\vspace{0.3cm}
 	\begin{minipage}{0.3\linewidth}
-		\includegraphics[width = 4cm]{Capture_breast_xz.png}
+		\includegraphics[width = 4cm]{Capture_breast_xz2.png}
 		\subcaption{}
 	\end{minipage}
 	\vspace{0.3cm}
 	\begin{minipage}{0.3\linewidth}
-		\includegraphics[width = 4cm]{Capture_breast_yz.png}
+		\includegraphics[width = 4cm]{Capture_breast_yz2.png}
 		\subcaption{}
 	\end{minipage}
-\caption{A slice of the reconstructed phantom in the (a) x-y plane (b) x-z plane, and (c) y-z plane, calculated using 512 $\times$ 512 $\times$ 64 voxels after 10 iterations, where each voxel size is 0.25 mm $\times$ 0.25 mm $\times$ 1 mm in the x, y, and z direction.}
+\caption[A slice of the reconstructed phantom in the (a) x-y plane (b) x-z plane, and (c) y-z plane, calculated using 512 $\times$ 512 $\times$ 128 voxels after 10 iterations, where each voxel size is 0.25 mm $\times$ 0.25 mm $\times$ 0.5 mm in the x, y, and z direction.]{A slice of the reconstructed phantom in the (a) x-y plane (b) x-z plane, and (c) y-z plane, calculated using 512 $\times$ 512 $\times$ 128 voxels after 10 iterations, where each voxel size is 0.25 mm $\times$ 0.25 mm $\times$ 0.5 mm in the x, y, and z direction.}
 \label{fig:reconstruction_breast}
 \end{figure*}
 

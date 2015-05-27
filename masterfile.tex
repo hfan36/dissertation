@@ -1,7 +1,23 @@
 \include{header}
 \usepackage[disable]{todonotes} % notes not showed
 %\usepackage{todonotes}
-\usepackage{afterpage}
+%\usepackage{afterpage}
+
+\interfootnotelinepenalty=10000
+\usepackage[bottom]{footmisc}
+\raggedbottom
+\addtolength{\topskip}{0pt plus 10pt}
+
+
+%dummy placeholder image
+\newcommand{\dummyfig}[1]{
+  \centering
+  \fbox{
+    \begin{minipage}[c][4cm][c]{7cm}
+      \centering{#1}
+    \end{minipage}
+  }
+}
 
 %%=====================================================
 %% new comands 
@@ -12,6 +28,7 @@
 {\par {\bfseries \color{red} #1 \par}}
 
 \newcommand{\inches}{\ensuremath{{}^{\prime\prime}}}
+\newcommand*{\primoprime}{\ensuremath{^\prime}}
 
 \newcommand{\placeholderimage}[2][2]
 {
@@ -24,7 +41,7 @@
 {{\bfseries \color{red} #1}}
 
 \usepackage{bibentry}
-\nobibliography*
+%\nobibliography*
 
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -36,6 +53,7 @@
 %%% include only chapters
 %%======================================================
 %Title: X-ray imaging using CCD/CMOS detectors
+
 %\includeonly{./Chapters/chap-Intro}
 %\includeonly{./Chapters/chap-DesignConstruction}
 %\includeonly{./Chapters/chap-ModelObserver}
@@ -47,6 +65,7 @@
 %\includeonly{./Chapters/appen-partslist}
 %\includeonly{./Notes/recon_code}
 %\includeonly{./Chapters/chap-Moffitt}
+%\includeonly{./Chapters/appen_NPS}
 %%======================================================
 %latex%% begin document
 %%======================================================
@@ -56,20 +75,20 @@
 \include{Approval}
 
 %% Include the ``Acknowledgements''
-%\incacknowledgements{acknowledgements}
+\incacknowledgements{acknowledgements}
 
 %% Include the ``Dedication''
-%\incdedication{dedication}
+\incdedication{dedication}
 
 %%===============================================
 % Create a ``Table of Contents''
-%\tableofcontents
+\tableofcontents
 
 % Create a ``List of Figures''
-%\listoffigures
+\listoffigures
 
 % Create a ``List of Tables''
-%\listoftables
+\listoftables
 
 \include{./Abstract/abstract}
 
@@ -83,21 +102,14 @@
 
 \include{./Chapters/chap-Recon_2}
 
-%\include{./Chapters/chap-BrainImgApplication}
-
 \include{./Chapters/chap-conclusion}
 
 % Include the various appendices
 \appendix
 \include{./Chapters/appen-partslist}
-%\include{./Notes/estimation_theory}
-%\include{./Notes/noise_in_detectors}
-%\include{./Notes/detection}
 \include{./Notes/recon_code}
 \include{./Chapters/chap-Moffitt}
-
-%\include{./Notes/projection_equations}
-%\todo[inline]{need a parts list for everything}
+\include{./Chapters/appen-NPS}
 
 % Switch the spacing to single-spaced for the references
 \renewcommand{\baselinestretch}{1}		% chaning the value
